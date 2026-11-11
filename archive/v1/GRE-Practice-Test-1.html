@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GRE Practice Test 1</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+[hidden]{display:none!important}
+/* Layout: a computer-based test console — fixed toolbar on top, one question per screen, passage beside question on wide screens. */
+:root {
+  --bg: #f4f6f8; --surface: #ffffff; --ink: #18212b; --muted: #5a6573; --line: #d5dbe2;
+  --accent: #1d5a86; --accent-ink: #ffffff; --accent-soft: #e3edf5;
+  --flag: #a8660f; --flag-soft: #fbefdc; --good: #2b7a4b; --good-soft: #e2f2e8; --bad: #ad3434; --bad-soft: #f8e3e3;
+  --f-ui: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-read: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-num: "IBM Plex Mono", Consolas, "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11161c; --surface: #19212a; --ink: #e5eaf0; --muted: #9aa6b4; --line: #2c3743;
+  --accent: #6ea9d8; --accent-ink: #0d1620; --accent-soft: #1d2d3c;
+  --flag: #e0a24a; --flag-soft: #3a2c17; --good: #6cc191; --good-soft: #17301f; --bad: #e57d7d; --bad-soft: #3a1c1c; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #11161c; --surface: #19212a; --ink: #e5eaf0; --muted: #9aa6b4; --line: #2c3743;
+  --accent: #6ea9d8; --accent-ink: #0d1620; --accent-soft: #1d2d3c;
+  --flag: #e0a24a; --flag-soft: #3a2c17; --good: #6cc191; --good-soft: #17301f; --bad: #e57d7d; --bad-soft: #3a1c1c; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--ink); font: 15px/1.55 var(--f-ui); margin: 0 }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface) }
+button { font: inherit; cursor: pointer }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.wrap { max-width: 1080px; margin: 0 auto; padding-block: 20px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line) }
+.bar-in { max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding-block: 10px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.bar-title { font-weight: 600; min-width: 0 }
+.bar-sub { color: var(--muted); font-size: 13px }
+.bar-tools { margin-left: auto; display: flex; flex-wrap: wrap; gap: 6px; align-items: center }
+.timer { font-family: var(--f-num); font-variant-numeric: tabular-nums; padding: 4px 10px; border: 1px solid var(--line); border-radius: 6px; min-width: 76px; text-align: center }
+.timer.low { color: var(--bad); border-color: var(--bad) }
+.btn { border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 6px 12px; border-radius: 6px }
+.btn:hover { border-color: var(--accent) }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600 }
+.btn.flagged { background: var(--flag-soft); border-color: var(--flag); color: var(--flag) }
+.btn.big { padding: 10px 20px; font-size: 16px }
+h1, h2, h3 { line-height: 1.25; text-wrap: balance; margin: 0 }
+h1 { font-size: 28px; font-weight: 600 }
+h2 { font-size: 21px; font-weight: 600 }
+h3 { font-size: 16px; font-weight: 600 }
+.eyebrow { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600 }
+.stack { display: flex; flex-direction: column; gap: 16px }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 20px }
+.prose { max-width: 68ch }
+.muted { color: var(--muted) }
+.small { font-size: 13px }
+table.plain { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums }
+table.plain th, table.plain td { border-bottom: 1px solid var(--line); padding: 7px 10px; text-align: left; vertical-align: top }
+table.plain th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 600 }
+.scroll-x { overflow-x: auto }
+/* question screen */
+.q-grid { display: grid; grid-template-columns: 1fr; gap: 20px }
+.q-grid.split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) }
+@media (max-width: 760px) { .q-grid.split { grid-template-columns: 1fr } }
+.passage { font-family: var(--f-read); font-size: 16.5px; line-height: 1.7; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 20px; min-width: 0 }
+.passage .s { border-radius: 3px }
+.passage.selectable .s { cursor: pointer }
+.passage.selectable .s:hover { background: var(--accent-soft) }
+.passage .s.on { background: var(--accent); color: var(--accent-ink) }
+.stem { font-family: var(--f-read); font-size: 17px; line-height: 1.65; min-width: 0 }
+.direction { font-size: 13px; color: var(--muted); font-style: italic }
+.opts { display: flex; flex-direction: column; gap: 8px }
+.opt { display: flex; gap: 12px; align-items: flex-start; text-align: left; width: 100%; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; color: var(--ink) }
+.opt:hover { border-color: var(--accent) }
+.opt .mk { flex: 0 0 auto; width: 22px; height: 22px; border: 1.5px solid var(--muted); display: grid; place-items: center; font-size: 12px; font-weight: 600; margin-top: 1px }
+.opt.round .mk { border-radius: 50% }
+.opt.square .mk { border-radius: 3px }
+.opt.on { border-color: var(--accent); background: var(--accent-soft) }
+.opt.on .mk { background: var(--accent); border-color: var(--accent); color: var(--accent-ink) }
+.opt .tx { min-width: 0 }
+.blanks { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px }
+.blank-col { display: flex; flex-direction: column; gap: 6px }
+.blank-col .lbl { font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: .05em; text-transform: uppercase }
+.cell { border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 8px 10px; border-radius: 4px; text-align: center; font-family: var(--f-read); font-size: 16px }
+.cell:hover { border-color: var(--accent) }
+.cell.on { background: var(--accent); color: var(--accent-ink); border-color: var(--accent) }
+.qc { display: grid; grid-template-columns: 1fr 1fr; gap: 12px }
+.qc > div { border: 1px solid var(--line); border-radius: 6px; padding: 12px; text-align: center; background: var(--surface); min-width: 0 }
+.qc .h { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted) }
+.qc .v { font-family: var(--f-read); font-size: 17px }
+.given { text-align: center; font-family: var(--f-read); font-size: 16.5px }
+.numin { font: 18px var(--f-num); padding: 8px 10px; width: 180px; max-width: 100%; border: 1.5px solid var(--muted); border-radius: 4px; background: var(--surface); color: var(--ink) }
+.frac { display: inline-flex; flex-direction: column; align-items: center; gap: 6px; align-self: flex-start }
+.frac hr { width: 100%; border: 0; border-top: 2px solid var(--ink); margin: 0 }
+.frac .numin { width: 120px; text-align: center }
+.essay-box { width: 100%; min-height: 380px; font: 16px/1.6 var(--f-read); padding: 14px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); resize: vertical }
+.data-table caption { caption-side: top; text-align: left; font-weight: 600; padding-bottom: 6px }
+/* review grid */
+.rv { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px }
+.rv button { text-align: left; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 6px; padding: 8px 10px }
+.rv button:hover { border-color: var(--accent) }
+.rv .st { display: block; font-size: 12px; color: var(--muted) }
+.rv .st.unans { color: var(--bad) }
+.rv .flag { color: var(--flag); font-weight: 600 }
+/* calculator */
+.calc { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 20; width: 248px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.25); padding: 10px }
+.calc .disp { font: 20px var(--f-num); text-align: right; padding: 8px; border: 1px solid var(--line); border-radius: 4px; margin-bottom: 8px; overflow-x: auto; white-space: nowrap; font-variant-numeric: tabular-nums }
+.calc .keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px }
+.calc .keys button { padding: 8px 0; border: 1px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 4px; font-family: var(--f-num) }
+.calc .keys button.wide { grid-column: span 4; font-family: var(--f-ui); font-size: 13px }
+.calc .hd { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 13px; font-weight: 600 }
+/* results */
+.scores { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px }
+.score { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px }
+.score .big { font: 600 44px/1 var(--f-num); font-variant-numeric: tabular-nums; margin: 6px 0 }
+.score .range { font-family: var(--f-num); font-size: 14px }
+.scale { position: relative; height: 8px; background: var(--line); border-radius: 4px; margin: 14px 0 6px }
+.scale .band { position: absolute; top: 0; height: 8px; background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 4px }
+.scale .pt { position: absolute; top: -4px; width: 4px; height: 16px; background: var(--accent); border-radius: 2px; transform: translateX(-2px) }
+.scale-lbl { display: flex; justify-content: space-between; font: 11px var(--f-num); color: var(--muted) }
+.pill { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor }
+.pill.good { color: var(--good); background: var(--good-soft) }
+.pill.bad { color: var(--bad); background: var(--bad-soft) }
+.pill.skip { color: var(--muted) }
+.qrev { border-top: 1px solid var(--line); padding-block: 14px; display: flex; flex-direction: column; gap: 6px }
+.qrev .ex { background: var(--bg); border-radius: 6px; padding: 10px 12px; font-size: 14px }
+details > summary { cursor: pointer; font-weight: 600; padding-block: 6px }
+.copybox { width: 100%; min-height: 160px; font: 13px var(--f-num); padding: 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink) }
+.note { border-left: 3px solid var(--flag); background: var(--flag-soft); padding: 10px 14px; border-radius: 0 6px 6px 0 }
+.confirm { border: 1px solid var(--bad); background: var(--bad-soft); padding: 12px 14px; border-radius: 6px }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important } }
+</style>
+
+</head>
+<body>
+<div id="bar" class="bar" hidden></div>
+<main id="app" class="wrap"></main>
+<div id="calc" class="calc" hidden></div>
+
+<script id="data" type="application/json">{"meta": {"title": "GRE Practice Test 1", "routingThreshold": 7, "note": "Original questions written for personal practice. Not ETS material."}, "essay": {"minutes": 30, "prompt": "Governments should place greater emphasis on funding basic scientific research, which has no immediate practical purpose, than on research aimed at solving specific practical problems.", "instructions": "Write a response in which you discuss how far you agree or disagree with this recommendation and explain the reasoning behind your position. As you develop your position, consider specific situations in which following the recommendation would and would not be beneficial, and explain how these situations shape your view."}, "passages": {"guilds": ["For much of the twentieth century, historians treated the medieval guild primarily as an obstacle to economic growth.", "Guilds, the argument ran, restricted entry into trades, fixed prices and suppressed innovation in order to protect the incomes of existing masters.", "More recent scholarship has complicated this picture.", "Several economic historians have pointed out that guilds also enforced quality standards, which allowed buyers in distant markets to trust goods they could not inspect in person.", "Others have noted that guild apprenticeships provided a structured way of passing on skills at a time when few other forms of training existed.", "None of these scholars claims that guilds were economically benign; rather, they argue that the institutions' effects varied with local circumstances and cannot be summarised by a single verdict."], "predators": ["Some ecologists have proposed reintroducing large predators, such as wolves, to regions from which they were eliminated, on the grounds that predators regulate populations of grazing animals and thereby allow vegetation to recover.", "Critics respond that the evidence for such cascading effects is drawn largely from a handful of well-publicised cases, and that in many landscapes human activity, rather than grazing, is the main constraint on plant growth.", "In such places, they argue, reintroduced predators might reduce grazing without producing any visible recovery in vegetation."], "bees": ["Honeybees communicate the location of food sources through a series of movements known as the waggle dance.", "A forager returning to the hive moves in a straight line while shaking its body, then circles back to repeat the run.", "The direction of the straight run, relative to vertical, indicates the direction of the food relative to the sun, while the duration of the run indicates the distance.", "Researchers once assumed that other bees simply followed the dancer to the food.", "Experiments in which dancers were tricked into misreporting distance, however, showed that recruits searched at the reported distance rather than the true one, demonstrating that they were decoding the dance itself."], "bikes": ["Many cities have introduced bicycle-sharing schemes in the hope of reducing car traffic.", "Surveys suggest, however, that most trips made on shared bicycles replace journeys that would otherwise have been made on foot or by public transport, not by car.", "Supporters of the schemes argue that this finding understates their value, since the bicycles also make public transport more attractive by solving the problem of getting from a station to a final destination."], "industry": ["The standard account of the Industrial Revolution emphasises technological invention: the steam engine, the spinning jenny and the power loom are presented as the engines of transformation.", "Yet economic historians have long observed that many of these devices were known for decades before they were widely adopted.", "Robert Allen has argued that the timing of adoption is better explained by relative prices.", "In eighteenth-century Britain, wages were high and coal was cheap compared with continental Europe, so machines that substituted cheap energy for expensive labour were profitable there but not elsewhere.", "On this view, invention was less a cause of industrialisation than a response to it: inventors directed their efforts toward the technologies that local conditions rewarded.", "Critics have questioned whether British wages were in fact as high as Allen claims, but even they generally accept that the profitability of a technique, rather than its mere existence, determined how quickly it spread."], "placebo": ["It is often said that the placebo effect demonstrates the power of belief over the body.", "But many studies reporting large placebo effects lacked a no-treatment control group, so improvements attributed to the placebo may simply reflect the natural course of an illness or the tendency of extreme symptoms to become less extreme over time.", "When trials include both a placebo group and an untreated group, the difference between them is often modest and confined to subjective outcomes, such as reported pain."]}, "tables": {"bookshop": {"title": "Annual sales at a bookshop, by category (thousands of units)", "head": ["Category", "2023", "2024"], "rows": [["Fiction", "40", "46"], ["Non-fiction", "25", "30"], ["Children's", "15", "12"], ["Other", "20", "12"], ["Total", "100", "100"]]}, "staff": {"title": "Employees at a company, by department and work location", "head": ["Department", "Office", "Remote", "Total"], "rows": [["Sales", "48", "32", "80"], ["Engineering", "36", "84", "120"], ["Finance", "27", "9", "36"], ["Support", "39", "45", "84"], ["Total", "150", "170", "320"]]}}, "sections": {"V1": {"measure": "Verbal", "minutes": 18, "label": "Verbal Reasoning: Section 1", "questions": [{"id": "V1-1", "type": "tc", "skill": "Text completion", "stem": "Although the novelist's early stories were dismissed as slight, her later work revealed a ______ that critics could no longer ignore: each book explored moral questions with growing depth.", "blanks": [["frivolity", "gravity", "verbosity", "ambiguity", "naivety"]], "answer": [1], "explain": "The colon tells you the blank is explained by 'explored moral questions with growing depth', which means seriousness: gravity. 'Although ... slight' sets up the contrast."}, {"id": "V1-2", "type": "tc", "skill": "Text completion", "stem": "The committee's report was notably ______; rather than taking a clear position, it presented every view as equally valid and recommended nothing.", "blanks": [["equivocal", "incisive", "partisan", "exhaustive", "belligerent"]], "answer": [0], "explain": "Refusing to take a clear position is being equivocal (deliberately vague, non-committal). 'Incisive' and 'partisan' are the opposite."}, {"id": "V1-3", "type": "tc", "skill": "Text completion", "stem": "The scientist was hardly a (i)______ of the new theory, which she had publicly called 'wishful thinking'; in fact, she had spent a decade gathering data that (ii)______ its central claim.", "blanks": [["proponent", "sceptic", "victim"], ["undermined", "confirmed", "popularised"]], "answer": [0, 0], "explain": "Calling the theory 'wishful thinking' shows she opposed it, so she was hardly a proponent (supporter), and her data undermined it."}, {"id": "V1-4", "type": "tc", "skill": "Text completion", "stem": "Early accounts of the expedition portrayed its leader as (i)______, a man who never doubted his own judgement. Recently published letters, however, suggest a more (ii)______ figure, one who privately (iii)______ almost every major decision he made.", "blanks": [["self-assured", "reckless", "indecisive"], ["conflicted", "heroic", "ruthless"], ["agonised over", "boasted about", "delegated"]], "answer": [0, 0, 0], "explain": "'Never doubted his own judgement' = self-assured. 'However' signals the letters show the opposite: a conflicted man who agonised over his decisions."}, {"id": "V1-5", "type": "se", "skill": "Sentence equivalence", "stem": "Despite her reputation for being ______, the manager listened patiently to every complaint and rarely raised her voice.", "options": ["placid", "irascible", "generous", "meticulous", "short-tempered", "reserved"], "answer": [1, 4], "explain": "'Despite' means the reputation contrasts with patience and calm, so it must be bad temper: irascible and short-tempered mean the same thing."}, {"id": "V1-6", "type": "se", "skill": "Sentence equivalence", "stem": "The museum's new director, keen to make the collection less ______, removed the velvet ropes and invited visitors to touch selected objects.", "options": ["forbidding", "accessible", "cluttered", "diverse", "valuable", "intimidating"], "answer": [0, 5], "explain": "Removing barriers and inviting touch makes a place less forbidding / intimidating. 'Accessible' is the opposite of what's needed."}, {"id": "V1-7", "type": "se", "skill": "Sentence equivalence", "stem": "Because the evidence was largely ______, the jury was instructed not to treat it as proof of guilt.", "options": ["conclusive", "damning", "circumstantial", "admissible", "indirect", "recent"], "answer": [2, 4], "explain": "Evidence that cannot be treated as proof is circumstantial / indirect. 'Conclusive' and 'damning' point the wrong way."}, {"id": "V1-8", "type": "mc", "skill": "Reading comprehension", "passage": "guilds", "stem": "The primary purpose of the passage is to", "options": ["argue that guilds were beneficial to economic growth", "describe a shift in how historians assess guilds", "explain why guilds eventually disappeared", "defend the twentieth-century view of guilds against its critics", "compare guilds in different regions of Europe"], "answer": 1, "explain": "The passage moves from the older 'obstacle' view to more recent, mixed assessments. It does not claim guilds were simply beneficial (the last sentence rules that out)."}, {"id": "V1-9", "type": "multi", "skill": "Reading comprehension", "passage": "guilds", "stem": "According to the passage, which of the following have recent scholars identified as functions of guilds? Select all that apply.", "options": ["Enforcing quality standards", "Providing structured training in skills", "Lowering prices for consumers"], "answer": [0, 1], "explain": "Sentences 4 and 5 name quality standards and apprenticeships. Price-fixing is mentioned only as part of the older, negative view, and it would not lower prices."}, {"id": "V1-10", "type": "sentence", "skill": "Reading comprehension", "passage": "guilds", "stem": "Select the sentence in which the author clarifies the limits of the recent scholars' position.", "answer": 5, "explain": "The last sentence says none of these scholars claims guilds were 'economically benign', which sets the limit of their claim."}, {"id": "V1-11", "type": "mc", "skill": "Reading comprehension", "passage": "predators", "stem": "The critics mentioned in the passage would most likely agree that", "options": ["predators never affect populations of grazing animals", "wolves should be removed from regions where they now live", "vegetation recovery is caused mainly by human activity", "the benefits of reintroducing predators may depend on local conditions", "the well-publicised cases were based on fabricated data"], "answer": 3, "explain": "The critics say that 'in many landscapes' other factors limit plant growth, so the benefit depends on the place. They never deny predators affect grazing."}, {"id": "V1-12", "type": "mc", "skill": "Reading comprehension", "passage": "predators", "stem": "In the context of the passage, 'constraint' most nearly means", "options": ["obligation", "compulsion", "limitation", "embarrassment", "agreement"], "answer": 2, "explain": "Human activity is the main thing limiting plant growth, so 'constraint' means limitation."}]}, "V2E": {"measure": "Verbal", "minutes": 23, "label": "Verbal Reasoning: Section 2", "tier": "easier", "questions": [{"id": "VE-1", "type": "tc", "skill": "Text completion", "stem": "The instructions were so ______ that even first-time users assembled the shelf without difficulty.", "blanks": [["convoluted", "lucid", "terse", "outdated", "ornate"]], "answer": [1], "explain": "Easy assembly means the instructions were clear: lucid."}, {"id": "VE-2", "type": "tc", "skill": "Text completion", "stem": "Rather than ______ the mistake, the company admitted it publicly and offered refunds.", "blanks": [["concealing", "celebrating", "repeating", "investigating", "announcing"]], "answer": [0], "explain": "'Rather than' contrasts with admitting publicly, so the blank is hiding it: concealing."}, {"id": "VE-3", "type": "tc", "skill": "Text completion", "stem": "Critics found the film's plot ______: every twist could be seen coming long before it arrived.", "blanks": [["intricate", "predictable", "harrowing", "innovative", "obscure"]], "answer": [1], "explain": "The colon explains the blank: twists seen coming = predictable."}, {"id": "VE-4", "type": "tc", "skill": "Text completion", "stem": "The town's population, once (i)______, has (ii)______ steadily since the factory closed, and many houses now stand empty.", "blanks": [["thriving", "dwindling", "sparse"], ["declined", "grown", "stabilised"]], "answer": [0, 0], "explain": "Empty houses show the population declined; 'once' signals it used to be the opposite: thriving."}, {"id": "VE-5", "type": "tc", "skill": "Text completion", "stem": "Although the speech was (i)______, lasting barely five minutes, it was far from (ii)______; listeners remembered its key arguments for years.", "blanks": [["brief", "rambling", "tedious"], ["forgettable", "concise", "controversial"]], "answer": [0, 0], "explain": "'Barely five minutes' = brief. Remembered for years = far from forgettable."}, {"id": "VE-6", "type": "tc", "skill": "Text completion", "stem": "The new policy was meant to (i)______ congestion in the city centre, but by making parking cheaper it actually (ii)______ more drivers, and traffic grew (iii)______.", "blanks": [["ease", "worsen", "measure"], ["attracted", "discouraged", "fined"], ["heavier", "lighter", "safer"]], "answer": [0, 0, 0], "explain": "'Meant to ... but ... actually' signals the policy backfired: meant to ease congestion, but cheaper parking attracted drivers and traffic grew heavier."}, {"id": "VE-7", "type": "se", "skill": "Sentence equivalence", "stem": "The professor was known for her ______ lectures, which students found difficult to sit through.", "options": ["inspiring", "tedious", "brief", "wearisome", "popular", "humorous"], "answer": [1, 3], "explain": "Hard to sit through = boring: tedious and wearisome."}, {"id": "VE-8", "type": "se", "skill": "Sentence equivalence", "stem": "The hikers were ______ after the long climb and rested for an hour before continuing.", "options": ["elated", "lost", "exhausted", "early", "fatigued", "hungry"], "answer": [2, 4], "explain": "Resting after a long climb implies tiredness: exhausted and fatigued. 'Hungry' may fit the sentence but has no matching synonym."}, {"id": "VE-9", "type": "se", "skill": "Sentence equivalence", "stem": "Though the plan seemed ______ at first, it proved to be entirely practical.", "options": ["sensible", "fanciful", "expensive", "ordinary", "popular", "unrealistic"], "answer": [1, 5], "explain": "'Though' contrasts with 'practical', so the plan seemed impractical: fanciful and unrealistic."}, {"id": "VE-10", "type": "se", "skill": "Sentence equivalence", "stem": "The diplomat's ______ remarks helped calm an otherwise tense meeting.", "options": ["provocative", "lengthy", "conciliatory", "technical", "rude", "soothing"], "answer": [2, 5], "explain": "Remarks that calm tension are conciliatory (peace-making) and soothing."}, {"id": "VE-11", "type": "mc", "skill": "Reading comprehension", "passage": "bees", "stem": "The passage is primarily concerned with", "options": ["describing how honeybees signal the location of food and how other bees use that signal", "comparing honeybees with other insects that live in colonies", "arguing that bees cannot perceive the position of the sun", "explaining why bees perform the waggle dance only at night", "criticising the experimental methods of early bee researchers"], "answer": 0, "explain": "The passage describes the dance, then reports experiments showing recruits decode it. The other options are not discussed."}, {"id": "VE-12", "type": "mc", "skill": "Reading comprehension", "passage": "bees", "stem": "According to the passage, the duration of the straight run indicates the", "options": ["direction of the food", "distance to the food", "quality of the food", "number of bees needed", "time of day"], "answer": 1, "explain": "Sentence 3: 'the duration of the run indicates the distance'."}, {"id": "VE-13", "type": "multi", "skill": "Reading comprehension", "passage": "bees", "stem": "Which of the following can be inferred about the experiments described in the final sentence? Select all that apply.", "options": ["They showed that recruits relied on information contained in the dance.", "They contradicted an assumption that researchers had previously held.", "They proved that bees cannot locate food by smell."], "answer": [0, 1], "explain": "Recruits searched where the dance said, so they used the dance, which contradicts the earlier 'just follow the dancer' assumption. Smell is never mentioned."}, {"id": "VE-14", "type": "mc", "skill": "Reading comprehension", "passage": "bikes", "stem": "The surveys mentioned in the passage suggest that bicycle-sharing schemes", "options": ["have greatly reduced car traffic", "mostly replace trips that would have been made on foot or by public transport", "are rarely used by residents", "cost more to run than public transport", "are popular mainly with tourists"], "answer": 1, "explain": "Sentence 2 says exactly this."}, {"id": "VE-15", "type": "sentence", "skill": "Reading comprehension", "passage": "bikes", "stem": "Select the sentence that presents a response to the survey findings.", "answer": 2, "explain": "The third sentence gives the supporters' reply: the findings understate the schemes' value."}]}, "V2H": {"measure": "Verbal", "minutes": 23, "label": "Verbal Reasoning: Section 2", "tier": "harder", "questions": [{"id": "VH-1", "type": "tc", "skill": "Text completion", "stem": "Far from being ______, the historian's prose is so dense with qualification that readers often lose track of her argument.", "blanks": [["limpid", "prolix", "recondite", "tortuous", "pedantic"]], "answer": [0], "explain": "'Far from being' needs the opposite of dense and hard to follow: limpid (perfectly clear). The other options all describe difficult prose."}, {"id": "VH-2", "type": "tc", "skill": "Text completion", "stem": "The senator's reputation for ______ was undone when reporters revealed that he had quietly accepted gifts from the very industry he claimed to regulate.", "blanks": [["venality", "eloquence", "probity", "partisanship", "frugality"]], "answer": [2], "explain": "Taking gifts destroys a reputation for honesty: probity. 'Venality' (corruptibility) is the opposite."}, {"id": "VH-3", "type": "tc", "skill": "Text completion", "stem": "Her praise was so carefully ______, with every compliment paired with a reservation, that colleagues wondered whether it was praise at all.", "blanks": [["lavish", "sincere", "hedged", "spontaneous", "belated"]], "answer": [2], "explain": "Compliments paired with reservations = hedged (qualified)."}, {"id": "VH-4", "type": "tc", "skill": "Text completion", "stem": "The theory's (i)______ is also its weakness: because it can accommodate any possible outcome, it makes no predictions that could ever be (ii)______.", "blanks": [["flexibility", "rigour", "novelty"], ["falsified", "popularised", "simplified"]], "answer": [0, 0], "explain": "Accommodating any outcome = flexibility. A theory that fits every outcome can never be shown wrong: falsified."}, {"id": "VH-5", "type": "tc", "skill": "Text completion", "stem": "Scholars once regarded the poet's late works as (i)______, the hasty products of a mind in decline; yet a closer reading reveals a deliberate (ii)______, a stripping away of ornament in pursuit of clarity.", "blanks": [["slapdash", "sublime", "derivative"], ["austerity", "extravagance", "ambiguity"]], "answer": [0, 0], "explain": "'Hasty products' = slapdash (careless). 'Stripping away of ornament' = austerity (plainness)."}, {"id": "VH-6", "type": "tc", "skill": "Text completion", "stem": "The author's argument (i)______ correlation with causation, an error she never (ii)______; consequently, her conclusions, though (iii)______, rest on shaky foundations.", "blanks": [["conflates", "contrasts", "replaces"], ["acknowledges", "commits", "repeats"], ["persuasive", "derivative", "modest"]], "answer": [0, 0, 0], "explain": "Treating correlation as causation = conflates. She never acknowledges the error. 'Though' needs a strength that contrasts with 'shaky foundations': her conclusions are persuasive on the surface but poorly grounded."}, {"id": "VH-7", "type": "se", "skill": "Sentence equivalence", "stem": "The critic's review was unusually ______, dismissing the novel in a single contemptuous paragraph.", "options": ["laudatory", "perfunctory", "nuanced", "exhaustive", "cursory", "ambivalent"], "answer": [1, 4], "explain": "One quick paragraph = perfunctory / cursory (done with minimal effort)."}, {"id": "VH-8", "type": "se", "skill": "Sentence equivalence", "stem": "Though outwardly ______, the negotiator was privately convinced that the talks would fail.", "options": ["candid", "despondent", "sanguine", "hostile", "indifferent", "optimistic"], "answer": [2, 5], "explain": "'Though' contrasts with privately expecting failure, so outwardly hopeful: sanguine and optimistic."}, {"id": "VH-9", "type": "se", "skill": "Sentence equivalence", "stem": "The ______ of the evidence surprised investigators, who had expected the records to be patchy and contradictory.", "options": ["coherence", "scarcity", "ambiguity", "consistency", "abundance", "fragility"], "answer": [0, 3], "explain": "The surprise is the opposite of 'contradictory': coherence and consistency. 'Abundance' answers only 'patchy' and has no synonym among the options."}, {"id": "VH-10", "type": "se", "skill": "Sentence equivalence", "stem": "Rather than resolving the dispute, the court's ruling merely ______ it, prompting both sides to file fresh appeals.", "options": ["settled", "exacerbated", "ignored", "documented", "aggravated", "postponed"], "answer": [1, 4], "explain": "Fresh appeals from both sides show the dispute got worse: exacerbated / aggravated."}, {"id": "VH-11", "type": "mc", "skill": "Reading comprehension", "passage": "industry", "stem": "The author mentions that many devices 'were known for decades before they were widely adopted' primarily in order to", "options": ["suggest that invention alone does not explain when industrialisation occurred", "praise the foresight of early inventors", "show that the standard account is entirely mistaken", "argue that British wages were lower than claimed", "show that British inventors copied European designs"], "answer": 0, "explain": "The delay between invention and adoption undercuts the idea that invention drove the timing, setting up Allen's price explanation. 'Entirely mistaken' goes too far."}, {"id": "VH-12", "type": "multi", "skill": "Reading comprehension", "passage": "industry", "stem": "Allen's argument, as described in the passage, would predict which of the following? Select all that apply.", "options": ["A labour-saving machine would be adopted more quickly where wages are high.", "Inventors would focus on technologies that local prices made profitable.", "Countries with expensive coal would be the first to adopt coal-powered machines."], "answer": [0, 1], "explain": "High wages make labour-saving profitable (A), and inventors respond to what local conditions reward (B). Expensive coal would discourage coal-powered machines, so C is the reverse."}, {"id": "VH-13", "type": "sentence", "skill": "Reading comprehension", "passage": "industry", "stem": "Select the sentence that identifies a point on which Allen and his critics agree.", "answer": 5, "explain": "The last sentence: 'even they generally accept' that profitability determined the spread of a technique."}, {"id": "VH-14", "type": "mc", "skill": "Reading comprehension", "passage": "placebo", "stem": "The author's attitude toward the claim made in the first sentence is best described as", "options": ["enthusiastic endorsement", "qualified scepticism", "complete indifference", "outright ridicule", "reluctant acceptance"], "answer": 1, "explain": "The author doubts the claim because of flawed study design, but admits a modest effect on subjective outcomes: sceptical, but with qualifications."}, {"id": "VH-15", "type": "mc", "skill": "Reading comprehension", "passage": "placebo", "stem": "Which of the following, if true, would most strengthen the author's argument?", "options": ["Patients given placebos often report reduced pain.", "Some doctors knowingly prescribe placebos.", "Placebos are cheaper to produce than active drugs.", "In a trial with both a placebo group and an untreated group, the two groups showed similar improvement in objectively measured blood pressure.", "Patients who believe in a treatment are more likely to take it regularly."], "answer": 3, "explain": "The author argues that properly controlled trials show little placebo effect on objective outcomes. Option D is exactly such evidence. Option A supports the opposite view."}]}, "Q1": {"measure": "Quant", "minutes": 21, "label": "Quantitative Reasoning: Section 1", "questions": [{"id": "Q1-1", "type": "qc", "skill": "Algebra", "given": "x > 0", "qa": "x / (x + 1)", "qb": "(x + 1) / (x + 2)", "answer": 1, "explain": "Cross-multiply (both denominators are positive): compare x(x + 2) = x² + 2x with (x + 1)² = x² + 2x + 1. B is always larger by 1."}, {"id": "Q1-2", "type": "qc", "skill": "Arithmetic", "qa": "2¹⁰", "qb": "4⁵", "answer": 2, "explain": "4⁵ = (2²)⁵ = 2¹⁰. They are equal."}, {"id": "Q1-3", "type": "qc", "skill": "Arithmetic", "given": "n is an integer and 3 < n < 6.", "qa": "n", "qb": "4.5", "answer": 3, "explain": "n could be 4 (B bigger) or 5 (A bigger), so the relationship cannot be determined."}, {"id": "Q1-4", "type": "qc", "skill": "Geometry", "given": "A circle has radius 3.", "qa": "The area of the circle", "qb": "28.5", "answer": 1, "explain": "Area = 9π ≈ 28.27, which is less than 28.5."}, {"id": "Q1-5", "type": "mc", "skill": "Percentages", "stem": "A shirt priced at $40 is discounted by 25%. The discounted price is then increased by 20%. What is the final price?", "options": ["$34", "$36", "$38", "$40", "$42"], "answer": 1, "explain": "$40 × 0.75 = $30; $30 × 1.20 = $36. Percentage changes do not cancel out."}, {"id": "Q1-6", "type": "mc", "skill": "Algebra", "stem": "If 3x − 7 = 2x + 5, what is the value of x?", "options": ["−12", "−2", "2", "10", "12"], "answer": 4, "explain": "Subtract 2x from both sides: x − 7 = 5, so x = 12."}, {"id": "Q1-7", "type": "numeric", "skill": "Statistics", "stem": "The average (arithmetic mean) of five numbers is 18. If one of the numbers, 30, is removed, what is the average of the remaining four numbers?", "answer": 15, "explain": "Total = 5 × 18 = 90. Remove 30: 60. 60 ÷ 4 = 15."}, {"id": "Q1-8", "type": "multi", "skill": "Number properties", "stem": "Which of the following are factors of 84? Select all that apply.", "options": ["6", "8", "12", "14", "21", "24"], "answer": [0, 2, 3, 4], "explain": "84 = 2² × 3 × 7. 6, 12, 14 and 21 divide it. 8 needs 2³ and 24 needs 2³ × 3, so neither does."}, {"id": "Q1-9", "type": "mc", "skill": "Geometry", "stem": "A right triangle has legs of length 6 and 8. What is its perimeter?", "options": ["14", "20", "24", "28", "48"], "answer": 2, "explain": "Hypotenuse = √(36 + 64) = 10. Perimeter = 6 + 8 + 10 = 24."}, {"id": "Q1-10", "type": "fraction", "skill": "Probability", "stem": "A bag holds 4 red and 6 blue marbles. Two marbles are drawn at random without replacement. What is the probability that both are red? Give your answer as a fraction.", "answer": [2, 15], "explain": "4/10 × 3/9 = 12/90 = 2/15. Any equivalent fraction is accepted."}, {"id": "Q1-11", "type": "mc", "skill": "Data interpretation", "table": "bookshop", "stem": "By what percent did non-fiction sales increase from 2023 to 2024?", "options": ["5%", "16.7%", "20%", "25%", "30%"], "answer": 2, "explain": "Increase = 30 − 25 = 5. 5 ÷ 25 = 0.20 = 20%. (16.7% would be 5 ÷ 30, the wrong base.)"}, {"id": "Q1-12", "type": "multi", "skill": "Data interpretation", "table": "bookshop", "stem": "In 2024, which categories accounted for more than 25% of total sales? Select all that apply.", "options": ["Fiction", "Non-fiction", "Children's", "Other"], "answer": [0, 1], "explain": "Total is 100, so shares are 46%, 30%, 12% and 12%. Only fiction and non-fiction exceed 25%."}]}, "Q2E": {"measure": "Quant", "minutes": 26, "label": "Quantitative Reasoning: Section 2", "tier": "easier", "questions": [{"id": "QE-1", "type": "qc", "skill": "Arithmetic", "qa": "0.5 × 40", "qb": "40 ÷ 2", "answer": 2, "explain": "Both equal 20."}, {"id": "QE-2", "type": "qc", "skill": "Algebra", "given": "x = −3", "qa": "x²", "qb": "2x", "answer": 0, "explain": "x² = 9 and 2x = −6."}, {"id": "QE-3", "type": "qc", "skill": "Arithmetic", "qa": "The number of minutes in 3 hours", "qb": "The number of seconds in 4 minutes", "answer": 1, "explain": "3 × 60 = 180 minutes; 4 × 60 = 240 seconds."}, {"id": "QE-4", "type": "qc", "skill": "Algebra", "given": "y > 0", "qa": "y", "qb": "y²", "answer": 3, "explain": "If y = 2, B is bigger; if y = 0.5, A is bigger; if y = 1 they're equal. Cannot be determined."}, {"id": "QE-5", "type": "mc", "skill": "Percentages", "stem": "What is 15% of 80?", "options": ["8", "10", "12", "15", "20"], "answer": 2, "explain": "0.15 × 80 = 12."}, {"id": "QE-6", "type": "mc", "skill": "Algebra", "stem": "If 5x + 4 = 29, what is the value of x?", "options": ["4", "5", "6", "7", "8"], "answer": 1, "explain": "5x = 25, so x = 5."}, {"id": "QE-7", "type": "numeric", "skill": "Geometry", "stem": "A rectangle has length 12 cm and width 5 cm. What is the length of its diagonal, in centimetres?", "answer": 13, "explain": "√(144 + 25) = √169 = 13."}, {"id": "QE-8", "type": "mc", "skill": "Ratios", "stem": "In a class of 40 students, the ratio of boys to girls is 3 : 5. How many girls are in the class?", "options": ["15", "20", "24", "25", "30"], "answer": 3, "explain": "3 + 5 = 8 parts; each part = 40 ÷ 8 = 5 students. Girls = 5 × 5 = 25."}, {"id": "QE-9", "type": "multi", "skill": "Number properties", "stem": "Which of the following numbers are prime? Select all that apply.", "options": ["2", "9", "11", "15", "17", "21"], "answer": [0, 2, 4], "explain": "2, 11 and 17 are prime. 9 = 3 × 3, 15 = 3 × 5, 21 = 3 × 7."}, {"id": "QE-10", "type": "numeric", "skill": "Rates", "stem": "A car travels 150 km in 2.5 hours. What is its average speed, in kilometres per hour?", "answer": 60, "explain": "150 ÷ 2.5 = 60 km/h."}, {"id": "QE-11", "type": "mc", "skill": "Algebra", "stem": "If a = 2 and b = −3, what is the value of a² − ab?", "options": ["−2", "2", "6", "10", "12"], "answer": 3, "explain": "a² = 4; ab = −6; 4 − (−6) = 10."}, {"id": "QE-12", "type": "fraction", "skill": "Arithmetic", "stem": "What is 1/3 + 1/4? Give your answer as a fraction.", "answer": [7, 12], "explain": "Common denominator 12: 4/12 + 3/12 = 7/12."}, {"id": "QE-13", "type": "mc", "skill": "Geometry", "stem": "What is the sum of the interior angles of a hexagon (a six-sided polygon)?", "options": ["360°", "540°", "720°", "900°", "1080°"], "answer": 2, "explain": "(n − 2) × 180° = 4 × 180° = 720°."}, {"id": "QE-14", "type": "multi", "skill": "Algebra", "stem": "If x² = 16, which of the following could be the value of x? Select all that apply.", "options": ["−4", "−2", "2", "4", "8"], "answer": [0, 3], "explain": "Both 4² and (−4)² equal 16."}, {"id": "QE-15", "type": "mc", "skill": "Statistics", "stem": "What is the median of the numbers 3, 9, 4, 7, 12 and 5?", "options": ["5", "6", "6.5", "7", "8"], "answer": 1, "explain": "In order: 3, 4, 5, 7, 9, 12. With six numbers the median is the average of the middle two: (5 + 7) ÷ 2 = 6."}]}, "Q2H": {"measure": "Quant", "minutes": 26, "label": "Quantitative Reasoning: Section 2", "tier": "harder", "questions": [{"id": "QH-1", "type": "qc", "skill": "Algebra", "given": "x and y are positive and x > y.", "qa": "(x + y) / 2", "qb": "√(xy)", "answer": 0, "explain": "(x + y)/2 − √(xy) = (√x − √y)²/2, which is positive whenever x ≠ y. So A is always greater."}, {"id": "QH-2", "type": "qc", "skill": "Number properties", "qa": "The number of positive divisors of 36", "qb": "The number of positive divisors of 48", "answer": 1, "explain": "36 = 2² × 3² has (2+1)(2+1) = 9 divisors. 48 = 2⁴ × 3 has (4+1)(1+1) = 10."}, {"id": "QH-3", "type": "qc", "skill": "Algebra", "given": "k is an integer and k² < 20.", "qa": "k", "qb": "4", "answer": 3, "explain": "k can be any integer from −4 to 4. If k = 4 they are equal; if k = 3, B is bigger. Cannot be determined."}, {"id": "QH-4", "type": "qc", "skill": "Arithmetic", "qa": "1 / (√3 + √2)", "qb": "√3 − √2", "answer": 2, "explain": "Multiply A top and bottom by (√3 − √2): denominator becomes 3 − 2 = 1, so A = √3 − √2."}, {"id": "QH-5", "type": "mc", "skill": "Percentages", "stem": "In a club, 60% of members are women. 25% of the women and 40% of the men wear glasses. What percent of all members wear glasses?", "options": ["29%", "31%", "32.5%", "33%", "65%"], "answer": 1, "explain": "0.60 × 0.25 = 0.15 and 0.40 × 0.40 = 0.16. Total 0.31 = 31%. (32.5% is the trap of simply averaging 25% and 40%.)"}, {"id": "QH-6", "type": "numeric", "skill": "Counting", "stem": "In how many different ways can a committee of 3 people be chosen from a group of 8?", "answer": 56, "explain": "Order does not matter: 8C3 = (8 × 7 × 6) ÷ (3 × 2 × 1) = 56."}, {"id": "QH-7", "type": "mc", "skill": "Algebra", "stem": "If 2^(x + 3) = 32^(x − 1), what is the value of x?", "options": ["1", "2", "3", "4", "8"], "answer": 1, "explain": "32 = 2⁵, so x + 3 = 5(x − 1) = 5x − 5. Then 8 = 4x and x = 2."}, {"id": "QH-8", "type": "multi", "skill": "Number properties", "stem": "If n is an odd integer, which of the following must be true? Select all that apply.", "options": ["n² + 1 is even", "3n is even", "n(n + 1) is even", "(n + 3) / 2 is odd", "n² − 1 is divisible by 8"], "answer": [0, 2, 4], "explain": "Odd² is odd, so n² + 1 is even. n + 1 is even, so n(n + 1) is even. n² − 1 = (n − 1)(n + 1), the product of two consecutive even numbers, one of which is a multiple of 4, so it's divisible by 8. 3n is odd. With n = 1, (n + 3)/2 = 2, which is even."}, {"id": "QH-9", "type": "mc", "skill": "Geometry", "stem": "A circle is inscribed in a square with side length 10. What is the area of the region inside the square but outside the circle?", "options": ["100 − 50π", "100 − 10π", "100 − 25π", "25π − 50", "75π − 100"], "answer": 2, "explain": "The circle's diameter equals the side, so radius = 5 and its area = 25π. Square area = 100. Difference = 100 − 25π."}, {"id": "QH-10", "type": "numeric", "skill": "Sequences", "stem": "An arithmetic sequence has first term 7 and common difference 4. What is the sum of its first 20 terms?", "answer": 900, "explain": "20th term = 7 + 19 × 4 = 83. Sum = 20 × (7 + 83) ÷ 2 = 900."}, {"id": "QH-11", "type": "fraction", "skill": "Probability", "stem": "A fair six-sided die is rolled twice. What is the probability that the two results add up to 8? Give your answer as a fraction.", "answer": [5, 36], "explain": "Pairs: (2,6), (3,5), (4,4), (5,3), (6,2), which is 5 of the 36 equally likely outcomes."}, {"id": "QH-12", "type": "mc", "skill": "Rates", "stem": "Pipe A can fill a tank in 6 hours. Pipe B can empty the full tank in 9 hours. If the tank starts empty and both pipes are open, how many hours will it take to fill the tank?", "options": ["3", "9", "12", "15", "18"], "answer": 4, "explain": "Net rate = 1/6 − 1/9 = 3/18 − 2/18 = 1/18 of the tank per hour, so 18 hours."}, {"id": "QH-13", "type": "mc", "skill": "Data interpretation", "table": "staff", "stem": "Approximately what percent of all employees work remotely?", "options": ["46.9%", "50.0%", "53.1%", "56.7%", "58.0%"], "answer": 2, "explain": "170 ÷ 320 = 0.53125 ≈ 53.1%."}, {"id": "QH-14", "type": "multi", "skill": "Data interpretation", "table": "staff", "stem": "In which departments do more than 40% of employees work remotely? Select all that apply.", "options": ["Sales", "Engineering", "Finance", "Support"], "answer": [1, 3], "explain": "Sales 32/80 = exactly 40% (not more than). Engineering 84/120 = 70%. Finance 9/36 = 25%. Support 45/84 ≈ 53.6%."}, {"id": "QH-15", "type": "numeric", "skill": "Data interpretation", "table": "staff", "stem": "If 15 Engineering employees switch from remote to office work, what percent of Engineering employees will then work in the office? (Enter the number only.)", "answer": 42.5, "explain": "Office becomes 36 + 15 = 51. 51 ÷ 120 = 0.425 = 42.5%."}]}}}</script>
+<script>
+(function () {
+  "use strict";
+  var D = JSON.parse(document.getElementById("data").textContent);
+  var KEY = "gre-pt1-state-v1";
+
+  // ETS percentile ranks (percent scoring lower), Guide to the Use of Scores 2026, test takers 1 July 2022 – 30 June 2025.
+  var PCT_V = {170:99,169:99,168:98,167:97,166:96,165:95,164:93,163:90,162:88,161:85,160:82,159:79,158:76,157:72,156:68,155:64,154:59,153:54,152:48,151:43,150:39,149:34,148:30,147:27,146:24,145:21,144:18,143:16,142:14,141:11,140:10,139:8,138:6,137:5,136:4,135:3,134:2,133:2,132:1,131:1,130:0};
+  var PCT_Q = {170:89,169:85,168:80,167:75,166:72,165:67,164:63,163:60,162:57,161:53,160:50,159:47,158:45,157:42,156:39,155:37,154:34,153:31,152:29,151:26,150:23,149:21,148:19,147:16,146:14,145:12,144:10,143:9,142:7,141:6,140:5,139:4,138:3,137:2,136:2,135:1,134:1,133:1,132:0,131:0,130:0};
+  var PCT_AW = {"6.0":99,"5.5":98,"5.0":93,"4.5":85,"4.0":63,"3.5":40,"3.0":16,"2.5":7,"2.0":3,"1.5":1,"1.0":1,"0.5":0,"0.0":0};
+  // ETS conditional standard error of measurement at selected scores (Table 4C).
+  var CSEM = { Verbal: [[130,4.3],[135,3.9],[140,3.3],[145,2.9],[150,2.7],[155,2.5],[160,2.5],[165,2.6],[170,1.7]],
+               Quant:  [[130,4.2],[135,3.6],[140,3.0],[145,2.8],[150,2.7],[155,2.6],[160,2.7],[165,2.5],[170,1.2]] };
+
+  var ORDER = ["AW", "V1", "V2", "Q1", "Q2"];
+  var QC_OPTS = ["Quantity A is greater.", "Quantity B is greater.", "The two quantities are equal.", "The relationship cannot be determined from the information given."];
+  var LET = "ABCDEFGHI";
+
+  var S = null; // state
+  var tick = null;
+  var ui = { review: false, confirmExit: false, confirmRestart: false, calc: { show: false, expr: "", mem: 0 } };
+
+  function fresh() { return { phase: "intro", step: 0, route: {}, answers: {}, marked: {}, essay: "", timeLeft: {}, current: 0, essayUsed: 0 }; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+  function load() { try { var t = localStorage.getItem(KEY); return t ? JSON.parse(t) : null; } catch (e) { return null; } }
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function blankify(s) { return esc(s).replace(/\(i{1,3}\)______|______/g, function (m) { return '<span style="display:inline-block;min-width:4.5em;border-bottom:2px solid currentColor;text-align:center">' + (m.length > 6 ? m.slice(0, m.indexOf(")") + 1) : "") + "</span>"; }); }
+  function fmt(sec) { sec = Math.max(0, Math.ceil(sec)); var m = Math.floor(sec / 60), s = sec % 60; return m + ":" + (s < 10 ? "0" : "") + s; }
+
+  function secKey(step) {
+    var k = ORDER[step];
+    if (k === "V2") return S.route.Verbal === "harder" ? "V2H" : "V2E";
+    if (k === "Q2") return S.route.Quant === "harder" ? "Q2H" : "Q2E";
+    return k;
+  }
+  function section(k) { return D.sections[k]; }
+  function minutesOf(k) { return k === "AW" ? D.essay.minutes : section(k).minutes; }
+  function labelOf(k) { return k === "AW" ? "Analytical Writing" : section(k).label; }
+
+  // ---------- marking ----------
+  function isCorrect(q, a) {
+    if (a === undefined || a === null) return false;
+    switch (q.type) {
+      case "mc": case "qc": case "sentence": return a === q.answer;
+      case "tc": return Array.isArray(a) && q.answer.every(function (v, i) { return a[i] === v; });
+      case "se": case "multi":
+        if (!Array.isArray(a)) return false;
+        var x = a.slice().sort(), y = q.answer.slice().sort();
+        return x.length === y.length && x.every(function (v, i) { return v === y[i]; });
+      case "numeric": var n = parseNum(a); return n !== null && Math.abs(n - q.answer) < 1e-9;
+      case "fraction":
+        if (!a) return false;
+        var p = parseNum(a[0]), r = parseNum(a[1]);
+        return p !== null && r !== null && r !== 0 && Math.abs(p / r - q.answer[0] / q.answer[1]) < 1e-12;
+    }
+    return false;
+  }
+  function parseNum(s) { if (s === undefined || s === null) return null; s = String(s).trim().replace(/,/g, "").replace(/^−/, "-"); if (!/^-?(\d+\.?\d*|\.\d+)$/.test(s)) return null; return parseFloat(s); }
+  function answered(q, a) {
+    if (a === undefined || a === null) return false;
+    if (q.type === "tc") return Array.isArray(a) && a.filter(function (v) { return v !== null && v !== undefined; }).length === q.blanks.length;
+    if (q.type === "se" || q.type === "multi") return Array.isArray(a) && a.length > 0;
+    if (q.type === "numeric") return String(a).trim() !== "";
+    if (q.type === "fraction") return a && String(a[0] || "").trim() !== "" && String(a[1] || "").trim() !== "";
+    return true;
+  }
+  function rawScore(k) { return section(k).questions.reduce(function (n, q) { return n + (isCorrect(q, S.answers[q.id]) ? 1 : 0); }, 0); }
+
+  // Estimated scaled score. ETS's conversion is not public; this mapping is a transparent approximation (see report notes).
+  function estimate(route, raw) {
+    var s = route === "harder" ? 140 + Math.round((raw - 7) * 1.5) : 130 + Math.round(raw * 1.25);
+    return Math.max(130, Math.min(route === "harder" ? 170 : 157, s));
+  }
+  function csem(measure, s) {
+    var t = CSEM[measure];
+    for (var i = 0; i < t.length - 1; i++) if (s >= t[i][0] && s <= t[i + 1][0]) { var f = (s - t[i][0]) / (t[i + 1][0] - t[i][0]); return t[i][1] + f * (t[i + 1][1] - t[i][1]); }
+    return t[t.length - 1][1];
+  }
+
+  // ---------- flow ----------
+  function startTest() { S = fresh(); S.phase = "sectionIntro"; save(); render(); }
+  function beginSection() {
+    var k = secKey(S.step);
+    if (S.timeLeft[k] === undefined) S.timeLeft[k] = minutesOf(k) * 60;
+    S.phase = "inSection"; S.current = 0; ui.review = false; ui.confirmExit = false; save(); render(); startTimer();
+  }
+  function endSection() {
+    stopTimer();
+    var k = secKey(S.step);
+    if (k === "AW") S.essayUsed = D.essay.minutes * 60 - (S.timeLeft.AW || 0);
+    if (k === "V1") S.route.Verbal = rawScore("V1") >= D.meta.routingThreshold ? "harder" : "easier";
+    if (k === "Q1") S.route.Quant = rawScore("Q1") >= D.meta.routingThreshold ? "harder" : "easier";
+    S.step++; ui.review = false; ui.confirmExit = false; ui.calc.show = false;
+    if (S.step >= ORDER.length) { S.phase = "results"; S.finishedAt = new Date().toISOString(); } else S.phase = "sectionIntro";
+    save(); render(); window.scrollTo(0, 0);
+  }
+  function startTimer() {
+    stopTimer();
+    var last = Date.now();
+    tick = setInterval(function () {
+      var now = Date.now(), k = secKey(S.step);
+      S.timeLeft[k] -= (now - last) / 1000; last = now;
+      if (S.timeLeft[k] <= 0) { S.timeLeft[k] = 0; save(); endSection(); return; }
+      save(); paintTimer();
+    }, 1000);
+  }
+  function stopTimer() { if (tick) clearInterval(tick); tick = null; }
+  function paintTimer() {
+    var el = document.getElementById("timer"); if (!el) return;
+    var t = S.timeLeft[secKey(S.step)];
+    if (S.hideTime) { el.textContent = "Time hidden"; el.classList.remove("low"); return; }
+    el.textContent = fmt(t); el.classList.toggle("low", t <= 300);
+  }
+
+  // ---------- rendering ----------
+  var app = document.getElementById("app"), bar = document.getElementById("bar"), calcEl = document.getElementById("calc");
+
+  function render() {
+    bar.hidden = S.phase !== "inSection";
+    calcEl.hidden = !(S.phase === "inSection" && ui.calc.show);
+    if (S.phase === "intro") return renderIntro();
+    if (S.phase === "sectionIntro") return renderSectionIntro();
+    if (S.phase === "inSection") return secKey(S.step) === "AW" ? renderEssay() : (ui.review ? renderReview() : renderQuestion());
+    if (S.phase === "results") return renderResults();
+  }
+
+  function renderIntro() {
+    var saved = load(), resumable = saved && saved.phase !== "intro";
+    var rows = [["Analytical Writing", "1 Issue essay", "30 min"], ["Verbal Reasoning, section 1", "12 questions", "18 min"], ["Verbal Reasoning, section 2", "15 questions (adaptive)", "23 min"], ["Quantitative Reasoning, section 1", "12 questions", "21 min"], ["Quantitative Reasoning, section 2", "15 questions (adaptive)", "26 min"]];
+    app.innerHTML =
+      '<div class="stack">' +
+      '<div class="stack" style="gap:6px"><span class="eyebrow">Full-length practice · current shorter GRE format</span><h1>GRE Practice Test 1</h1></div>' +
+      '<p class="prose">This test follows the structure of the GRE General Test used since September 2023: one essay, then two Verbal and two Quantitative sections. How well you do in each first section decides whether you get an easier or harder second section, just like the real test. Total time: about 1 hour 58 minutes.</p>' +
+      '<div class="panel scroll-x"><table class="plain"><thead><tr><th>Section</th><th>Content</th><th>Time</th></tr></thead><tbody>' +
+      rows.map(function (r) { return "<tr><td>" + r[0] + "</td><td>" + r[1] + '</td><td style="font-family:var(--f-num)">' + r[2] + "</td></tr>"; }).join("") +
+      "</tbody></table></div>" +
+      '<div class="panel stack" style="gap:8px"><h3>How it works</h3><ul class="prose" style="margin:0;padding-left:20px">' +
+      "<li>Each section has its own countdown. When it reaches zero, the section ends and your answers are kept.</li>" +
+      "<li>Inside a section you can skip, go back, mark questions to revisit and use the Review screen. You cannot return to a finished section.</li>" +
+      "<li>There is no penalty for wrong answers, so answer every question. No partial credit: multi-answer questions must be fully right.</li>" +
+      "<li>The Quant sections have an on-screen calculator. The essay box has no spell-checker, as on the real test.</li>" +
+      "<li>Your progress saves in this browser. If the page reloads, you can resume where you left off (the clock pauses while the page is closed).</li>" +
+      "</ul></div>" +
+      '<div class="note small prose">Questions are original practice material, not ETS questions. Your Verbal and Quant scores will be an estimate on the 130–170 scale. For the most accurate benchmark, also take ETS\'s free official POWERPREP practice tests.</div>' +
+      (ui.confirmRestart ? '<div class="confirm stack" style="gap:8px"><strong>Start over?</strong> This deletes your saved answers and essay. <div class="row"><button class="btn primary" id="yesRestart">Yes, start over</button><button class="btn" id="noRestart">Cancel</button></div></div>' : "") +
+      '<div class="row">' + (resumable ? '<button class="btn primary big" id="resume">Resume test</button><button class="btn big" id="restart">Start over</button>' : '<button class="btn primary big" id="start">Start the test</button>') + "</div></div>";
+    on("start", startTest);
+    on("resume", function () { S = saved; if (S.phase === "inSection") { S.phase = "sectionIntro"; } render(); });
+    on("restart", function () { ui.confirmRestart = true; render(); });
+    on("noRestart", function () { ui.confirmRestart = false; render(); });
+    on("yesRestart", function () { ui.confirmRestart = false; try { localStorage.removeItem(KEY); } catch (e) {} startTest(); });
+  }
+
+  function renderSectionIntro() {
+    var k = secKey(S.step), started = S.timeLeft[k] !== undefined;
+    var n = k === "AW" ? null : section(k).questions.length;
+    var desc = k === "AW" ? "You will write one essay responding to an issue. Plan briefly, take a clear position, support it with reasons and specific examples, and leave a few minutes to re-read." :
+      (section(k).measure === "Verbal" ? "Text completion, sentence equivalence and reading comprehension." : "Quantitative comparison, multiple-choice, select-all and numeric-entry questions, including a data table. A calculator is available.");
+    app.innerHTML = '<div class="stack prose">' +
+      '<span class="eyebrow">Section ' + (S.step + 1) + " of " + ORDER.length + "</span><h1>" + esc(labelOf(k)) + "</h1>" +
+      '<p><strong style="font-family:var(--f-num)">' + (started ? fmt(S.timeLeft[k]) + " remaining" : minutesOf(k) + " minutes") + "</strong>" + (n ? " · " + n + " questions" : "") + "</p>" +
+      "<p>" + desc + "</p>" +
+      '<div class="row"><button class="btn primary big" id="go">' + (started ? "Resume section" : "Start section") + "</button></div></div>";
+    on("go", beginSection);
+  }
+
+  function renderBar(k, qInfo) {
+    var isQ = k !== "AW" && section(k).measure === "Quant";
+    var q = qInfo && qInfo.q;
+    bar.innerHTML = '<div class="bar-in"><div style="min-width:0"><div class="bar-title">' + esc(labelOf(k)) + '</div><div class="bar-sub">' +
+      (qInfo ? (ui.review ? "Review" : "Question " + (S.current + 1) + " of " + qInfo.n) : "Essay") + "</div></div>" +
+      '<div class="bar-tools">' +
+      (qInfo && !ui.review ? '<button class="btn ' + (S.marked[q.id] ? "flagged" : "") + '" id="mark">' + (S.marked[q.id] ? "Marked" : "Mark") + "</button>" : "") +
+      (qInfo ? '<button class="btn" id="rev">' + (ui.review ? "Return" : "Review") + "</button>" : "") +
+      (isQ ? '<button class="btn" id="calcBtn">Calculator</button>' : "") +
+      (qInfo && !ui.review ? '<button class="btn" id="back"' + (S.current === 0 ? " disabled" : "") + ">Back</button>" +
+        '<button class="btn primary" id="next">' + (S.current === qInfo.n - 1 ? "Review" : "Next") + "</button>" : "") +
+      '<button class="timer" id="timer" title="Show or hide time"></button></div></div>';
+    paintTimer();
+    on("timer", function () { S.hideTime = !S.hideTime; save(); paintTimer(); });
+    on("mark", function () { S.marked[q.id] = !S.marked[q.id]; save(); render(); });
+    on("rev", function () { ui.review = !ui.review; ui.confirmExit = false; render(); window.scrollTo(0, 0); });
+    on("calcBtn", function () { ui.calc.show = !ui.calc.show; render(); });
+    on("back", function () { S.current--; save(); render(); window.scrollTo(0, 0); });
+    on("next", function () { if (S.current === qInfo.n - 1) ui.review = true; else S.current++; save(); render(); window.scrollTo(0, 0); });
+    renderCalc();
+  }
+
+  function renderEssay() {
+    renderBar("AW", null);
+    var words = (S.essay.match(/\S+/g) || []).length;
+    app.innerHTML = '<div class="stack">' +
+      '<div class="panel stack" style="gap:10px"><span class="eyebrow">Analyze an Issue</span><p class="stem" style="margin:0"><strong>' + esc(D.essay.prompt) + '</strong></p><p class="small muted" style="margin:0">' + esc(D.essay.instructions) + "</p></div>" +
+      '<textarea id="essay" class="essay-box" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="Your essay">' + esc(S.essay) + "</textarea>" +
+      '<div class="row"><span class="muted small" id="wc">' + words + ' words</span><span style="flex:1"></span>' +
+      (ui.confirmExit ? '<span class="small">Finish the essay now? You cannot come back to it.</span><button class="btn primary" id="yesExit">Yes, finish</button><button class="btn" id="noExit">Keep writing</button>' :
+        '<button class="btn primary" id="exit">Finish essay</button>') + "</div></div>";
+    var ta = document.getElementById("essay");
+    ta.addEventListener("input", function () { S.essay = ta.value; save(); document.getElementById("wc").textContent = (ta.value.match(/\S+/g) || []).length + " words"; });
+    on("exit", function () { ui.confirmExit = true; render(); });
+    on("noExit", function () { ui.confirmExit = false; render(); });
+    on("yesExit", endSection);
+  }
+
+  function passageHtml(key, q, selectable) {
+    var a = S.answers[q.id];
+    return '<div class="passage' + (selectable ? " selectable" : "") + '">' +
+      D.passages[key].map(function (s, i) { return '<span class="s' + (selectable && a === i ? " on" : "") + '" data-s="' + i + '">' + esc(s) + "</span> "; }).join("") + "</div>";
+  }
+  function tableHtml(key) {
+    var t = D.tables[key];
+    return '<div class="panel scroll-x" style="padding:14px"><table class="plain data-table"><caption>' + esc(t.title) + "</caption><thead><tr>" +
+      t.head.map(function (h) { return "<th>" + esc(h) + "</th>"; }).join("") + "</tr></thead><tbody>" +
+      t.rows.map(function (r) { return "<tr>" + r.map(function (c, i) { return "<td" + (i ? ' style="font-family:var(--f-num)"' : "") + ">" + esc(c) + "</td>"; }).join("") + "</tr>"; }).join("") + "</tbody></table></div>";
+  }
+  function directionFor(q) {
+    return { tc: q.blanks && q.blanks.length > 1 ? "For each blank, select one entry from the corresponding column. Fill all blanks in the way that best completes the text." : "Select one entry for the blank. Fill the blank in the way that best completes the text.",
+      se: "Select the two answer choices that, when used to complete the sentence, fit the meaning of the sentence as a whole and produce completed sentences that are alike in meaning.",
+      mc: "Select one answer choice.", multi: "Select all the answer choices that apply.",
+      sentence: "Click on the sentence in the passage.",
+      qc: "Compare Quantity A and Quantity B, using additional information centred above the two quantities if such information is given. Select one of the four answer choices.",
+      numeric: "Enter your answer as an integer or a decimal.", fraction: "Enter your answer as a fraction. Fractions do not need to be reduced." }[q.type];
+  }
+
+  function renderQuestion() {
+    var k = secKey(S.step), sec = section(k), q = sec.questions[S.current], a = S.answers[q.id];
+    renderBar(k, { q: q, n: sec.questions.length });
+    var left = "", right = "";
+    if (q.passage) left = passageHtml(q.passage, q, q.type === "sentence");
+    if (q.table) left = tableHtml(q.table);
+    right += '<div class="direction">' + directionFor(q) + "</div>";
+    if (q.type === "qc") {
+      right += (q.given ? '<div class="given">' + esc(q.given) + "</div>" : "") +
+        '<div class="qc"><div><div class="h">Quantity A</div><div class="v">' + esc(q.qa) + '</div></div><div><div class="h">Quantity B</div><div class="v">' + esc(q.qb) + "</div></div></div>";
+      right += optsHtml(QC_OPTS, a, false);
+    } else {
+      right += '<div class="stem">' + (q.type === "tc" ? blankify(q.stem) : esc(q.stem)) + "</div>";
+      if (q.type === "tc") {
+        right += '<div class="blanks">' + q.blanks.map(function (col, b) {
+          return '<div class="blank-col">' + (q.blanks.length > 1 ? '<span class="lbl">Blank (' + ["i", "ii", "iii"][b] + ")</span>" : "") +
+            col.map(function (w, i) { return '<button class="cell' + (a && a[b] === i ? " on" : "") + '" data-b="' + b + '" data-i="' + i + '">' + esc(w) + "</button>"; }).join("") + "</div>";
+        }).join("") + "</div>";
+      } else if (q.type === "mc" || q.type === "multi" || q.type === "se") {
+        right += optsHtml(q.options, a, q.type !== "mc");
+      } else if (q.type === "numeric") {
+        right += '<div><input id="num" class="numin" inputmode="decimal" autocomplete="off" aria-label="Your answer" value="' + esc(a || "") + '"></div>';
+      } else if (q.type === "fraction") {
+        right += '<div class="frac"><input id="fn" class="numin" inputmode="numeric" aria-label="Numerator" value="' + esc((a && a[0]) || "") + '"><hr><input id="fd" class="numin" inputmode="numeric" aria-label="Denominator" value="' + esc((a && a[1]) || "") + '"></div>';
+      }
+    }
+    var split = !!left;
+    app.innerHTML = '<div class="q-grid' + (split ? " split" : "") + '">' + (split ? '<div style="min-width:0">' + left + "</div>" : "") + '<div class="stack" style="min-width:0">' + right + "</div></div>";
+    wireQuestion(q);
+  }
+  function optsHtml(opts, a, many) {
+    return '<div class="opts">' + opts.map(function (o, i) {
+      var on = many ? Array.isArray(a) && a.indexOf(i) >= 0 : a === i;
+      return '<button class="opt ' + (many ? "square" : "round") + (on ? " on" : "") + '" data-o="' + i + '" aria-pressed="' + on + '"><span class="mk">' + (many ? (on ? "✓" : "") : LET[i]) + '</span><span class="tx">' + esc(o) + "</span></button>";
+    }).join("") + "</div>";
+  }
+  function wireQuestion(q) {
+    function set(v) { S.answers[q.id] = v; save(); renderQuestion(); }
+    app.querySelectorAll(".opt").forEach(function (b) { b.addEventListener("click", function () {
+      var i = +b.dataset.o, a = S.answers[q.id];
+      if (q.type === "mc" || q.type === "qc") return set(i);
+      a = Array.isArray(a) ? a.slice() : [];
+      var p = a.indexOf(i);
+      if (p >= 0) a.splice(p, 1); else { if (q.type === "se" && a.length >= 2) a.shift(); a.push(i); }
+      set(a);
+    }); });
+    app.querySelectorAll(".cell").forEach(function (b) { b.addEventListener("click", function () {
+      var a = Array.isArray(S.answers[q.id]) ? S.answers[q.id].slice() : q.blanks.map(function () { return null; });
+      a[+b.dataset.b] = +b.dataset.i; set(a);
+    }); });
+    if (q.type === "sentence") app.querySelectorAll(".passage .s").forEach(function (s) { s.addEventListener("click", function () { set(+s.dataset.s); }); });
+    var num = document.getElementById("num");
+    if (num) num.addEventListener("input", function () { S.answers[q.id] = num.value; save(); });
+    var fn = document.getElementById("fn"), fd = document.getElementById("fd");
+    if (fn) [fn, fd].forEach(function (el) { el.addEventListener("input", function () { S.answers[q.id] = [fn.value, fd.value]; save(); }); });
+  }
+
+  function renderReview() {
+    var k = secKey(S.step), sec = section(k);
+    renderBar(k, { q: sec.questions[S.current], n: sec.questions.length });
+    var unans = sec.questions.filter(function (q) { return !answered(q, S.answers[q.id]); }).length;
+    app.innerHTML = '<div class="stack"><h2>Review: ' + esc(sec.label) + "</h2>" +
+      '<p class="muted" style="margin:0">Select a question to go to it. ' + (unans ? "<strong>" + unans + " not answered.</strong> There is no penalty for guessing." : "All questions answered.") + "</p>" +
+      '<div class="rv">' + sec.questions.map(function (q, i) {
+        var ans = answered(q, S.answers[q.id]);
+        return '<button data-g="' + i + '"><strong>Question ' + (i + 1) + '</strong><span class="st' + (ans ? "" : " unans") + '">' + (ans ? "Answered" : "Not answered") + "</span>" + (S.marked[q.id] ? '<span class="st flag">Marked</span>' : "") + "</button>";
+      }).join("") + "</div>" +
+      '<div class="row">' + (ui.confirmExit ? '<span>End this section? You cannot return to it.</span><button class="btn primary" id="yesExit">Yes, end section</button><button class="btn" id="noExit">Cancel</button>' : '<button class="btn primary" id="exit">End section</button>') + "</div></div>";
+    app.querySelectorAll("[data-g]").forEach(function (b) { b.addEventListener("click", function () { S.current = +b.dataset.g; ui.review = false; save(); render(); window.scrollTo(0, 0); }); });
+    on("exit", function () { ui.confirmExit = true; render(); });
+    on("noExit", function () { ui.confirmExit = false; render(); });
+    on("yesExit", endSection);
+  }
+
+  // ---------- calculator ----------
+  function renderCalc() {
+    if (calcEl.hidden) return;
+    var c = ui.calc, k = secKey(S.step), q = section(k) && section(k).questions[S.current];
+    var canTransfer = !ui.review && q && q.type === "numeric";
+    var keys = ["7", "8", "9", "÷", "4", "5", "6", "×", "1", "2", "3", "−", "0", ".", "=", "+", "(", ")", "√", "±", "MR", "MC", "M+", "C"];
+    calcEl.innerHTML = '<div class="hd"><span>Calculator</span><button class="btn" id="calcX" style="padding:2px 8px">Close</button></div>' +
+      '<div class="disp" id="disp">' + esc(c.expr || "0") + "</div>" +
+      '<div class="keys">' + keys.map(function (x) { return '<button data-k="' + x + '">' + x + "</button>"; }).join("") +
+      (canTransfer ? '<button class="wide" data-k="T">Transfer display</button>' : "") + "</div>";
+    calcEl.querySelectorAll("[data-k]").forEach(function (b) { b.addEventListener("click", function () { calcKey(b.dataset.k); }); });
+    on("calcX", function () { ui.calc.show = false; render(); });
+  }
+  // Small recursive-descent parser (no eval): expr = term (+|- term)*, term = factor (*|/ factor)*, factor = -factor | (expr) | number
+  function calcEval(expr) {
+    var s = String(expr).replace(/×/g, "*").replace(/÷/g, "/").replace(/−/g, "-").replace(/\s+/g, ""), i = 0;
+    if (!s) return null;
+    function parseExpr() { var v = parseTerm(); while (s[i] === "+" || s[i] === "-") { var op = s[i++], r = parseTerm(); v = op === "+" ? v + r : v - r; } return v; }
+    function parseTerm() { var v = parseFactor(); while (s[i] === "*" || s[i] === "/") { var op = s[i++], r = parseFactor(); v = op === "*" ? v * r : v / r; } return v; }
+    function parseFactor() {
+      if (s[i] === "-") { i++; return -parseFactor(); }
+      if (s[i] === "(") { i++; var v = parseExpr(); if (s[i] !== ")") throw 0; i++; return v; }
+      var m = /^(\d+\.?\d*|\.\d+)/.exec(s.slice(i)); if (!m) throw 0; i += m[0].length; return parseFloat(m[0]);
+    }
+    try { var v = parseExpr(); if (i !== s.length || !isFinite(v)) return null; return +v.toPrecision(10); } catch (e) { return null; }
+  }
+  function calcKey(k) {
+    var c = ui.calc;
+    if (c.err) { c.expr = ""; c.err = false; }
+    if (c.done && /^[0-9.(]$/.test(k)) c.expr = "";
+    c.done = false;
+    if (k === "C") c.expr = "";
+    else if (k === "=") { var v = calcEval(c.expr); if (v === null) { c.expr = "Error"; c.err = true; } else { c.expr = String(v); c.done = true; } }
+    else if (k === "√") { var r = calcEval(c.expr); if (r === null || r < 0) { c.expr = "Error"; c.err = true; } else c.expr = String(+Math.sqrt(r).toPrecision(10)); }
+    else if (k === "±") { var s = calcEval(c.expr); if (s !== null) c.expr = String(-s); }
+    else if (k === "M+") { var m = calcEval(c.expr); if (m !== null) c.mem += m; }
+    else if (k === "MR") c.expr += String(c.mem);
+    else if (k === "MC") c.mem = 0;
+    else if (k === "T") { var t = calcEval(c.expr); if (t !== null) { var q = section(secKey(S.step)).questions[S.current]; S.answers[q.id] = String(t); save(); render(); return; } }
+    else c.expr += k;
+    document.getElementById("disp").textContent = c.expr || "0";
+  }
+
+  // ---------- results ----------
+  function measureResult(measure) {
+    var k1 = measure === "Verbal" ? "V1" : "Q1", route = S.route[measure], k2 = measure === "Verbal" ? (route === "harder" ? "V2H" : "V2E") : (route === "harder" ? "Q2H" : "Q2E");
+    var r1 = rawScore(k1), r2 = rawScore(k2), raw = r1 + r2, est = estimate(route, raw);
+    var half = Math.round(csem(measure, est)) + 2;
+    var lo = Math.max(130, est - half), hi = Math.min(170, est + half);
+    var pct = (measure === "Verbal" ? PCT_V : PCT_Q)[est];
+    return { measure: measure, k1: k1, k2: k2, r1: r1, r2: r2, raw: raw, route: route, est: est, lo: lo, hi: hi, pct: pct };
+  }
+  function ordinal(n) { var s = ["th", "st", "nd", "rd"], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); }
+  function scoreCard(r) {
+    var pos = function (s) { return ((s - 130) / 40 * 100).toFixed(2) + "%"; };
+    return '<div class="score"><span class="eyebrow">' + (r.measure === "Quant" ? "Quantitative" : "Verbal") + " Reasoning · estimate</span>" +
+      '<div class="big">' + r.est + "</div>" +
+      '<div class="range">Likely range ' + r.lo + "–" + r.hi + "</div>" +
+      '<div class="scale" aria-hidden="true"><div class="band" style="left:' + pos(r.lo) + ";width:calc(" + pos(r.hi) + " - " + pos(r.lo) + ')"></div><div class="pt" style="left:' + pos(r.est) + '"></div></div>' +
+      '<div class="scale-lbl"><span>130</span><span>150</span><span>170</span></div>' +
+      '<p class="small" style="margin:10px 0 0">About the <strong>' + ordinal(r.pct) + " percentile</strong>: " + r.pct + "% of recent GRE takers scored lower than " + r.est + ".</p>" +
+      '<p class="small muted" style="margin:6px 0 0">' + r.raw + " of 27 correct (section 1: " + r.r1 + "/12, section 2: " + r.r2 + "/15). Second section: <strong>" + r.route + "</strong>.</p></div>";
+  }
+  function answerText(q, a) {
+    if (!answered(q, a)) return "—";
+    switch (q.type) {
+      case "mc": return LET[a] + ". " + q.options[a];
+      case "qc": return LET[a] + ". " + QC_OPTS[a];
+      case "sentence": return "Sentence " + (a + 1);
+      case "tc": return a.map(function (v, b) { return q.blanks[b][v]; }).join(" / ");
+      case "se": case "multi": return a.slice().sort().map(function (i) { return LET[i]; }).join(", ");
+      case "numeric": return String(a);
+      case "fraction": return a[0] + "/" + a[1];
+    }
+  }
+  function keyText(q) {
+    switch (q.type) {
+      case "mc": return LET[q.answer] + ". " + q.options[q.answer];
+      case "qc": return LET[q.answer] + ". " + QC_OPTS[q.answer];
+      case "sentence": return "Sentence " + (q.answer + 1) + ": “" + D.passages[q.passage][q.answer] + "”";
+      case "tc": return q.answer.map(function (v, b) { return q.blanks[b][v]; }).join(" / ");
+      case "se": case "multi": return q.answer.map(function (i) { return LET[i] + " (" + q.options[i] + ")"; }).join(", ");
+      case "numeric": return String(q.answer);
+      case "fraction": return q.answer[0] + "/" + q.answer[1] + " (or any equivalent)";
+    }
+  }
+  function skillTable(ks) {
+    var agg = {};
+    ks.forEach(function (k) { section(k).questions.forEach(function (q) { var s = agg[q.skill] = agg[q.skill] || [0, 0]; s[1]++; if (isCorrect(q, S.answers[q.id])) s[0]++; }); });
+    return '<table class="plain"><thead><tr><th>Question type</th><th>Correct</th><th>Accuracy</th></tr></thead><tbody>' +
+      Object.keys(agg).map(function (s) { var a = agg[s], p = Math.round(a[0] / a[1] * 100); return "<tr><td>" + esc(s) + '</td><td style="font-family:var(--f-num)">' + a[0] + "/" + a[1] + '</td><td><span class="pill ' + (p >= 70 ? "good" : p < 50 ? "bad" : "skip") + '">' + p + "%</span></td></tr>"; }).join("") + "</tbody></table>";
+  }
+  function reviewList(k) {
+    var sec = section(k);
+    return '<details><summary>' + esc(sec.label) + (sec.tier ? " (" + sec.tier + ")" : "") + " · " + rawScore(k) + "/" + sec.questions.length + "</summary>" +
+      sec.questions.map(function (q, i) {
+        var a = S.answers[q.id], ok = isCorrect(q, a), ans = answered(q, a);
+        var stem = q.type === "qc" ? (q.given ? q.given + " · " : "") + "A: " + q.qa + " | B: " + q.qb : q.stem;
+        return '<div class="qrev"><div class="row"><strong>Q' + (i + 1) + '</strong><span class="pill ' + (ok ? "good" : ans ? "bad" : "skip") + '">' + (ok ? "Correct" : ans ? "Wrong" : "Not answered") + '</span><span class="small muted">' + esc(q.skill) + "</span></div>" +
+          (q.passage ? '<details class="small"><summary>Show passage</summary><ol style="margin:4px 0;padding-left:22px;font-family:var(--f-read)">' + D.passages[q.passage].map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") + "</ol></details>" : "") +
+          (q.table ? '<details class="small"><summary>Show table</summary>' + tableHtml(q.table) + "</details>" : "") +
+          '<div class="small">' + esc(stem) + "</div>" +
+          '<div class="small">Your answer: <strong>' + esc(answerText(q, a)) + "</strong> · Correct: <strong>" + esc(keyText(q)) + "</strong></div>" +
+          '<div class="ex">' + esc(q.explain) + "</div></div>";
+      }).join("") + "</details>";
+  }
+  function copyText(V, Q) {
+    var words = (S.essay.match(/\S+/g) || []).length;
+    return "GRE PRACTICE TEST 1: RESULTS FOR MARKING\n" +
+      "Completed: " + new Date(S.finishedAt || Date.now()).toLocaleString("en-GB") + "\n\n" +
+      "Verbal estimate: " + V.est + " (likely " + V.lo + "–" + V.hi + "), raw " + V.raw + "/27, " + V.route + " second section\n" +
+      "Quant estimate: " + Q.est + " (likely " + Q.lo + "–" + Q.hi + "), raw " + Q.raw + "/27, " + Q.route + " second section\n\n" +
+      "ANALYTICAL WRITING: please mark 0–6\n" +
+      "Prompt: " + D.essay.prompt + "\n" +
+      "Instructions: " + D.essay.instructions + "\n" +
+      "Time used: " + fmt(S.essayUsed || 0) + " of 30:00 · Words: " + words + "\n\n" +
+      "ESSAY:\n" + (S.essay.trim() || "(no essay written)");
+  }
+  function renderResults() {
+    var V = measureResult("Verbal"), Q = measureResult("Quant");
+    var awRows = Object.keys(PCT_AW).filter(function (s) { return +s >= 1; }).map(function (s) { return '<tr><td style="font-family:var(--f-num)">' + s + '</td><td style="font-family:var(--f-num)">' + PCT_AW[s] + "%</td></tr>"; }).join("");
+    app.innerHTML = '<div class="stack">' +
+      '<div class="stack" style="gap:6px"><span class="eyebrow">Score report</span><h1>GRE Practice Test 1: results</h1></div>' +
+      '<div class="scores">' + scoreCard(V) + scoreCard(Q) +
+      '<div class="score"><span class="eyebrow">Analytical Writing</span><div class="big" style="font:600 24px/1.2 var(--f-ui);margin:16px 0">Awaiting marking</div>' +
+      '<p class="small" style="margin:0">Copy your essay below and paste it to Claude. You will get a 0–6 score using ETS\'s published score-level descriptions, with feedback.</p></div></div>' +
+      '<div class="panel stack" style="gap:8px"><h3>Send your essay for marking</h3><p class="small muted" style="margin:0">This copies your essay, the prompt and your scores.</p>' +
+      '<div class="row"><button class="btn primary" id="copy">Copy essay and results</button><span class="small" id="copied"></span></div>' +
+      '<textarea id="copybox" class="copybox" readonly hidden></textarea></div>' +
+      '<div class="note small prose"><strong>How to read these numbers.</strong> ETS does not publish how it turns correct answers into a 130–170 score for this test format, and these questions were not tested on real candidates. So each score is an estimate from a simple, fixed conversion that gives more credit on the harder second section. The likely range adds ETS\'s own measurement error (about ±2.5 points) plus 2 extra points for that uncertainty. Percentiles are ETS\'s official figures for test takers between 1 July 2022 and 30 June 2025.</div>' +
+      '<div class="scores"><div class="panel scroll-x"><h3 style="margin-bottom:8px">Verbal by question type</h3>' + skillTable([V.k1, V.k2]) + "</div>" +
+      '<div class="panel scroll-x"><h3 style="margin-bottom:8px">Quant by question type</h3>' + skillTable([Q.k1, Q.k2]) + "</div>" +
+      '<div class="panel scroll-x"><h3 style="margin-bottom:8px">Writing percentiles (ETS)</h3><table class="plain"><thead><tr><th>Score</th><th>Scored lower</th></tr></thead><tbody>' + awRows + "</tbody></table></div></div>" +
+      '<div class="panel stack" style="gap:4px"><h2 style="margin-bottom:6px">Answers and explanations</h2>' + [V.k1, V.k2, Q.k1, Q.k2].map(reviewList).join("") + "</div>" +
+      '<div class="row">' + (ui.confirmRestart ? '<span>Delete these results and start again?</span><button class="btn primary" id="yesRestart">Yes, start over</button><button class="btn" id="noRestart">Cancel</button>' : '<button class="btn" id="restart">Retake from the start</button>') + "</div></div>";
+    on("copy", function () {
+      var txt = copyText(V, Q), box = document.getElementById("copybox"), msg = document.getElementById("copied");
+      box.value = txt;
+      var fallback = function () { box.hidden = false; box.focus(); box.select(); msg.textContent = "Select all the text in the box and copy it."; };
+      try { navigator.clipboard.writeText(txt).then(function () { msg.textContent = "Copied. Paste it into your chat with Claude."; }, fallback); } catch (e) { fallback(); }
+    });
+    on("restart", function () { ui.confirmRestart = true; render(); });
+    on("noRestart", function () { ui.confirmRestart = false; render(); });
+    on("yesRestart", function () { ui.confirmRestart = false; try { localStorage.removeItem(KEY); } catch (e) {} S = fresh(); render(); });
+  }
+
+  function on(id, fn) { var el = document.getElementById(id); if (el) el.addEventListener("click", fn); }
+
+  // expose pure functions for checking
+  window.__gre = { estimate: estimate, isCorrect: isCorrect, D: D };
+
+  S = fresh();
+  render();
+})();
+</script>
+
+</body>
+</html>

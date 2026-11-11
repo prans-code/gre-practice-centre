@@ -1,0 +1,833 @@
+<title>GRE Practice Centre</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+/* Layout: a computer-based test console. Home lists tests and history; inside a test, a sticky toolbar and one question per screen, passage or data beside the question on wide screens. */
+:root {
+  --bg: #f4f6f8; --surface: #ffffff; --ink: #18212b; --muted: #5a6573; --line: #d5dbe2;
+  --accent: #1d5a86; --accent-ink: #ffffff; --accent-soft: #e3edf5;
+  --flag: #a8660f; --flag-soft: #fbefdc; --good: #2b7a4b; --good-soft: #e2f2e8; --bad: #ad3434; --bad-soft: #f8e3e3;
+  --c1: #1d5a86; --c2: #c07a1a; --c3: #5b8a3a;
+  --f-ui: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-read: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-num: "IBM Plex Mono", Consolas, "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11161c; --surface: #19212a; --ink: #e5eaf0; --muted: #9aa6b4; --line: #2c3743;
+  --accent: #6ea9d8; --accent-ink: #0d1620; --accent-soft: #1d2d3c;
+  --flag: #e0a24a; --flag-soft: #3a2c17; --good: #6cc191; --good-soft: #17301f; --bad: #e57d7d; --bad-soft: #3a1c1c;
+  --c1: #6ea9d8; --c2: #e0a24a; --c3: #8cc46a; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #11161c; --surface: #19212a; --ink: #e5eaf0; --muted: #9aa6b4; --line: #2c3743;
+  --accent: #6ea9d8; --accent-ink: #0d1620; --accent-soft: #1d2d3c;
+  --flag: #e0a24a; --flag-soft: #3a2c17; --good: #6cc191; --good-soft: #17301f; --bad: #e57d7d; --bad-soft: #3a1c1c;
+  --c1: #6ea9d8; --c2: #e0a24a; --c3: #8cc46a; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--ink); font: 15px/1.55 var(--f-ui); margin: 0 }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface) }
+button { font: inherit; cursor: pointer }
+button:disabled { cursor: not-allowed; opacity: .5 }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.wrap { max-width: 1080px; margin: 0 auto; padding-block: 20px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line) }
+.bar-in { max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding-block: 10px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.bar-title { font-weight: 600 }
+.bar-sub { color: var(--muted); font-size: 13px }
+.bar-tools { margin-left: auto; display: flex; flex-wrap: wrap; gap: 6px; align-items: center }
+.timer { font-family: var(--f-num); font-variant-numeric: tabular-nums; padding: 4px 10px; border: 1px solid var(--line); border-radius: 6px; min-width: 76px; text-align: center; background: var(--surface); color: var(--ink) }
+.timer.low { color: var(--bad); border-color: var(--bad) }
+.btn { border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 6px 12px; border-radius: 6px }
+.btn:hover:not(:disabled) { border-color: var(--accent) }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600 }
+.btn.flagged { background: var(--flag-soft); border-color: var(--flag); color: var(--flag) }
+.btn.big { padding: 10px 20px; font-size: 16px }
+.btn.danger { border-color: var(--bad); color: var(--bad) }
+h1, h2, h3 { line-height: 1.25; text-wrap: balance; margin: 0 }
+h1 { font-size: 28px; font-weight: 600 }
+h2 { font-size: 21px; font-weight: 600 }
+h3 { font-size: 16px; font-weight: 600 }
+.eyebrow { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600 }
+.stack { display: flex; flex-direction: column; gap: 16px }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 20px; min-width: 0 }
+.prose { max-width: 70ch }
+.prose ul, .prose ol { margin: 0; padding-left: 20px }
+.muted { color: var(--muted) }
+.small { font-size: 13px }
+table.plain { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums }
+table.plain th, table.plain td { border-bottom: 1px solid var(--line); padding: 7px 10px; text-align: left; vertical-align: top }
+table.plain th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 600 }
+.num { font-family: var(--f-num) }
+.scroll-x { overflow-x: auto }
+.tests { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px }
+.tcard { display: flex; flex-direction: column; gap: 10px }
+.tcard .meta { font-size: 13px; color: var(--muted) }
+.q-grid { display: grid; grid-template-columns: 1fr; gap: 20px }
+.q-grid.split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) }
+@media (max-width: 760px) { .q-grid.split { grid-template-columns: 1fr } }
+.passage { font-family: var(--f-read); font-size: 16.5px; line-height: 1.7; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 20px; min-width: 0 }
+.passage p { margin: 0 0 12px }
+.passage p:last-child { margin: 0 }
+.passage .s { border-radius: 3px }
+.passage.selectable .s { cursor: pointer }
+.passage.selectable .s:hover { background: var(--accent-soft) }
+.passage .s.on { background: var(--accent); color: var(--accent-ink) }
+.stem { font-family: var(--f-read); font-size: 17px; line-height: 1.65; min-width: 0 }
+.direction { font-size: 13px; color: var(--muted); font-style: italic }
+.opts { display: flex; flex-direction: column; gap: 8px }
+.opt { display: flex; gap: 12px; align-items: flex-start; text-align: left; width: 100%; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; color: var(--ink) }
+.opt:hover { border-color: var(--accent) }
+.opt .mk { flex: 0 0 auto; width: 22px; height: 22px; border: 1.5px solid var(--muted); display: grid; place-items: center; font-size: 12px; font-weight: 600; margin-top: 1px }
+.opt.round .mk { border-radius: 50% }
+.opt.square .mk { border-radius: 3px }
+.opt.on { border-color: var(--accent); background: var(--accent-soft) }
+.opt.on .mk { background: var(--accent); border-color: var(--accent); color: var(--accent-ink) }
+.opt.key { border-color: var(--good); box-shadow: inset 0 0 0 1px var(--good) }
+.opt .tx { min-width: 0 }
+.blanks { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px }
+.blank-col { display: flex; flex-direction: column; gap: 6px }
+.blank-col .lbl { font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: .05em; text-transform: uppercase }
+.cell { border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 8px 10px; border-radius: 4px; text-align: center; font-family: var(--f-read); font-size: 16px }
+.cell:hover { border-color: var(--accent) }
+.cell.on { background: var(--accent); color: var(--accent-ink); border-color: var(--accent) }
+.cell.key { box-shadow: 0 0 0 2px var(--good) }
+.qc { display: grid; grid-template-columns: 1fr 1fr; gap: 12px }
+.qc > div { border: 1px solid var(--line); border-radius: 6px; padding: 12px; text-align: center; background: var(--surface); min-width: 0 }
+.qc .h { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted) }
+.qc .v { font-family: var(--f-read); font-size: 17px }
+.given { text-align: center; font-family: var(--f-read); font-size: 16.5px }
+.numin { font: 18px var(--f-num); padding: 8px 10px; width: 180px; max-width: 100%; border: 1.5px solid var(--muted); border-radius: 4px; background: var(--surface); color: var(--ink) }
+.frac { display: inline-flex; flex-direction: column; align-items: center; gap: 6px; align-self: flex-start }
+.frac hr { width: 100%; border: 0; border-top: 2px solid var(--ink); margin: 0 }
+.frac .numin { width: 120px; text-align: center }
+.essay-tools { display: flex; gap: 6px; flex-wrap: wrap }
+.essay-box { width: 100%; min-height: 380px; font: 16px/1.6 var(--f-read); padding: 14px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); resize: vertical }
+.data-table caption { caption-side: top; text-align: left; font-weight: 600; padding-bottom: 6px }
+.chart svg { width: 100%; height: auto; display: block }
+.chart text { fill: var(--ink); font-family: var(--f-ui); font-size: 12px }
+.chart .grid { stroke: var(--line); stroke-width: 1 }
+.chart .axis { stroke: var(--muted); stroke-width: 1 }
+.legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 13px }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 6px; vertical-align: -1px }
+.rv { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px }
+.rv button { text-align: left; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 6px; padding: 8px 10px }
+.rv button:hover { border-color: var(--accent) }
+.rv .st { display: block; font-size: 12px; color: var(--muted) }
+.rv .st.unans { color: var(--bad) }
+.rv .flag { color: var(--flag); font-weight: 600 }
+.calc { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 20; width: 248px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.25); padding: 10px }
+.calc .disp { font: 20px var(--f-num); text-align: right; padding: 8px; border: 1px solid var(--line); border-radius: 4px; margin-bottom: 8px; overflow-x: auto; white-space: nowrap; font-variant-numeric: tabular-nums; position: relative }
+.calc .disp .m { position: absolute; left: 8px; top: 4px; font-size: 11px; color: var(--muted) }
+.calc .keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px }
+.calc .keys button { padding: 8px 0; border: 1px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 4px; font-family: var(--f-num) }
+.calc .keys button.wide { grid-column: span 4; font-family: var(--f-ui); font-size: 13px }
+.calc .hd { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 13px; font-weight: 600 }
+.modal { position: fixed; inset: 0; z-index: 30; background: rgba(10, 16, 22, .55); display: grid; place-items: center; padding: 16px }
+.modal .panel { max-width: 640px; width: 100%; max-height: 85vh; overflow: auto }
+.scores { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px }
+.score { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px; min-width: 0 }
+.score .big { font: 600 44px/1 var(--f-num); font-variant-numeric: tabular-nums; margin: 6px 0 }
+.score .range { font-family: var(--f-num); font-size: 14px }
+.scale { position: relative; height: 8px; background: var(--line); border-radius: 4px; margin: 14px 0 6px }
+.scale .band { position: absolute; top: 0; height: 8px; background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 4px }
+.scale .pt { position: absolute; top: -4px; width: 4px; height: 16px; background: var(--accent); border-radius: 2px; transform: translateX(-2px) }
+.scale-lbl { display: flex; justify-content: space-between; font: 11px var(--f-num); color: var(--muted) }
+.unofficial { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px }
+.unofficial div { border: 1px solid var(--line); border-radius: 8px; padding: 18px; background: var(--surface); text-align: center }
+.unofficial b { display: block; font: 600 48px/1.1 var(--f-num) }
+.pill { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap }
+.pill.good { color: var(--good); background: var(--good-soft) }
+.pill.bad { color: var(--bad); background: var(--bad-soft) }
+.pill.skip { color: var(--muted) }
+.pill.warn { color: var(--flag); background: var(--flag-soft) }
+.qrev { border-top: 1px solid var(--line); padding-block: 14px; display: flex; flex-direction: column; gap: 6px }
+.qrev .ex, .feedback { background: var(--bg); border-radius: 6px; padding: 10px 12px; font-size: 14px }
+.feedback.good { border-left: 3px solid var(--good) }
+.feedback.bad { border-left: 3px solid var(--bad) }
+details > summary { cursor: pointer; font-weight: 600; padding-block: 6px }
+.copybox { width: 100%; min-height: 160px; font: 13px var(--f-num); padding: 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink) }
+.note { border-left: 3px solid var(--flag); background: var(--flag-soft); padding: 10px 14px; border-radius: 0 6px 6px 0 }
+.confirm { border: 1px solid var(--bad); background: var(--bad-soft); padding: 12px 14px; border-radius: 6px }
+.toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 40; background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 8px; font-weight: 600 }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important } }
+</style>
+
+<div id="bar" class="bar" hidden></div>
+<main id="app" class="wrap"></main>
+<div id="calc" class="calc" hidden></div>
+<div id="modal" class="modal" hidden></div>
+<div id="toast" class="toast" hidden></div>
+
+<script id="data" type="application/json">{"config": {"routing": {"easierMax": 4, "mediumMax": 8}, "conversion": {"easier": [130, 131, 132, 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 152, 153, 155, 156, 158, 159, 161, 162], "medium": [130, 131, 133, 134, 136, 137, 139, 140, 142, 143, 145, 146, 148, 149, 151, 152, 154, 155, 157, 158, 160, 161, 163, 164, 166, 167, 169, 170], "harder": [134, 135, 137, 138, 140, 141, 143, 144, 146, 147, 149, 150, 152, 153, 155, 156, 157, 158, 159, 161, 162, 163, 164, 165, 166, 168, 169, 170]}, "extraUncertainty": 2, "difficultyNames": {"1": "Very easy", "2": "Easy", "3": "Medium", "4": "Hard", "5": "Very hard"}, "percentiles": {"Verbal": {"170": 99, "169": 99, "168": 98, "167": 97, "166": 96, "165": 95, "164": 93, "163": 90, "162": 88, "161": 85, "160": 82, "159": 79, "158": 76, "157": 72, "156": 68, "155": 64, "154": 59, "153": 54, "152": 48, "151": 43, "150": 39, "149": 34, "148": 30, "147": 27, "146": 24, "145": 21, "144": 18, "143": 16, "142": 14, "141": 11, "140": 10, "139": 8, "138": 6, "137": 5, "136": 4, "135": 3, "134": 2, "133": 2, "132": 1, "131": 1, "130": 0}, "Quant": {"170": 89, "169": 85, "168": 80, "167": 75, "166": 72, "165": 67, "164": 63, "163": 60, "162": 57, "161": 53, "160": 50, "159": 47, "158": 45, "157": 42, "156": 39, "155": 37, "154": 34, "153": 31, "152": 29, "151": 26, "150": 23, "149": 21, "148": 19, "147": 16, "146": 14, "145": 12, "144": 10, "143": 9, "142": 7, "141": 6, "140": 5, "139": 4, "138": 3, "137": 2, "136": 2, "135": 1, "134": 1, "133": 1, "132": 0, "131": 0, "130": 0}, "AW": {"6.0": 99, "5.5": 98, "5.0": 93, "4.5": 85, "4.0": 63, "3.5": 40, "3.0": 16, "2.5": 7, "2.0": 3, "1.5": 1, "1.0": 1, "0.5": 0, "0.0": 0}}, "csem": {"Verbal": [[130, 4.3], [135, 3.9], [140, 3.3], [145, 2.9], [150, 2.7], [155, 2.5], [160, 2.5], [165, 2.6], [170, 1.7]], "Quant": [[130, 4.2], [135, 3.6], [140, 3.0], [145, 2.8], [150, 2.7], [155, 2.6], [160, 2.7], [165, 2.5], [170, 1.2]]}, "version": "8249df475b"}, "tests": [{"id": "test-01", "title": "Practice Test 1", "order": ["V1", "V2", "Q1", "Q2"], "essay": {"minutes": 30, "variant": "recommendation", "prompt": "Governments should place greater emphasis on funding basic scientific research, which has no immediate practical purpose, than on research aimed at solving specific practical problems.", "instructions": "Write a response in which you discuss how far you agree or disagree with this recommendation and explain the reasoning behind your position. As you develop your position, consider specific situations in which following the recommendation would and would not be beneficial, and explain how these situations shape your view."}, "passages": {"guilds": ["For much of the twentieth century, historians treated the medieval guild primarily as an obstacle to economic growth.", "Guilds, the argument ran, restricted entry into trades, fixed prices and suppressed innovation in order to protect the incomes of existing masters.", "More recent scholarship has complicated this picture.", "Several economic historians have pointed out that guilds also enforced quality standards, which allowed buyers in distant markets to trust goods they could not inspect in person.", "Others have noted that guild apprenticeships provided a structured way of passing on skills at a time when few other forms of training existed.", "None of these scholars claims that guilds were economically benign; rather, they argue that the institutions' effects varied with local circumstances and cannot be summarised by a single verdict."], "predators": ["Some ecologists have proposed reintroducing large predators, such as wolves, to regions from which they were eliminated, on the grounds that predators regulate populations of grazing animals and thereby allow vegetation to recover.", "Critics respond that the evidence for such cascading effects is drawn largely from a handful of well-publicised cases, and that in many landscapes human activity, rather than grazing, is the main constraint on plant growth.", "In such places, they argue, reintroduced predators might reduce grazing without producing any visible recovery in vegetation."], "bees": ["Honeybees communicate the location of food sources through a series of movements known as the waggle dance.", "A forager returning to the hive moves in a straight line while shaking its body, then circles back to repeat the run.", "The direction of the straight run, relative to vertical, indicates the direction of the food relative to the sun, while the duration of the run indicates the distance.", "Researchers once assumed that other bees simply followed the dancer to the food.", "Experiments in which dancers were tricked into misreporting distance, however, showed that recruits searched at the reported distance rather than the true one, demonstrating that they were decoding the dance itself."], "bikes": ["Many cities have introduced bicycle-sharing schemes in the hope of reducing car traffic.", "Surveys suggest, however, that most trips made on shared bicycles replace journeys that would otherwise have been made on foot or by public transport, not by car.", "Supporters of the schemes argue that this finding understates their value, since the bicycles also make public transport more attractive by solving the problem of getting from a station to a final destination."], "industry": ["The standard account of the Industrial Revolution emphasises technological invention: the steam engine, the spinning jenny and the power loom are presented as the engines of transformation.", "Yet economic historians have long observed that many of these devices were known for decades before they were widely adopted.", "Robert Allen has argued that the timing of adoption is better explained by relative prices.", "In eighteenth-century Britain, wages were high and coal was cheap compared with continental Europe, so machines that substituted cheap energy for expensive labour were profitable there but not elsewhere.", "On this view, invention was less a cause of industrialisation than a response to it: inventors directed their efforts toward the technologies that local conditions rewarded.", "Critics have questioned whether British wages were in fact as high as Allen claims, but even they generally accept that the profitability of a technique, rather than its mere existence, determined how quickly it spread."], "maps-history": ["Historians of cartography once judged early modern maps chiefly by their accuracy, ranking each according to how closely its coastlines matched those revealed by later surveys.", "This approach produced a tidy story of steady progress, but it obscured the purposes for which many maps were made.", "A map commissioned to support a territorial claim, for instance, might deliberately exaggerate the extent of a ruler's lands, while one produced for merchants might leave out inland regions altogether because they were irrelevant to trade.", "To call such maps 'inaccurate' is to judge them by a standard their makers did not share.", "Recent scholars have therefore begun to read maps as arguments rather than as mere records, asking whom a map was meant to persuade, and of what.", "This shift has not abandoned the question of accuracy entirely; rather, it treats accuracy as one aim among several, and not always the most important one."], "night-pollination": ["Many plants that flower at night produce pale, strongly scented blossoms, traits long assumed to attract moths, which forage in darkness.", "Because moths are less efficient pollinators than bees (they visit fewer flowers per hour and carry less pollen), botanists generally regarded night-time pollination as a minor supplement to daytime activity.", "A recent field study challenges this view.", "By covering flowers either during the day or during the night, the researchers found that, for several species, flowers open to visitors only at night set nearly as many seeds as flowers open to visitors only during the day.", "The authors suggest that moths' long flights between plants may make up for their slow pace, since pollen carried farther is more likely to reach a genetically different plant."], "halden-hygiene": ["Two years ago the town of Halden began requiring every restaurant to display its official hygiene rating at its entrance.", "In the year after the rule took effect, the number of recorded cases of food poisoning in Halden fell by 30 per cent.", "The town council has concluded that displaying the ratings led restaurants to improve their hygiene."], "household-ledgers": {"paragraphs": [["Economic historians who set out to measure women's contribution to pre-industrial economies long relied on tax rolls and guild registers, sources that recorded property and formal occupations.", "Because married women seldom held property or guild membership in their own names, these records tended to erase them from the economic landscape, and historians concluded, not unreasonably given their evidence, that women's work had been marginal to the market.", "Over the past few decades, however, researchers have turned to a less obvious source: household account books, in which families noted day-to-day purchases, sales and debts, often naming the member of the household who had handled each one.", "These ledgers show wives selling surplus dairy produce, lending small sums to neighbours and bargaining with merchants, activities for which the official records had no column."], ["It would be tempting to conclude that the earlier picture was simply wrong and that women were as economically active as men.", "Yet account books, for all the detail they preserve, have biases of their own.", "They survive disproportionately from literate and relatively prosperous households, and they were often kept by husbands, who may have entered a wife's transactions under their own names or left out those they regarded as trivial.", "The ledgers therefore do not so much replace the older evidence as expose an assumption built into every source: each type of record makes some kinds of work visible precisely by rendering others invisible.", "What historians can reasonably claim, then, is not a precise measure of women's economic activity but a recognition that its apparent scale has always depended on the documents chosen to measure it."]]}, "inhaler-cap": ["Critics of a proposed cap on the price of a widely used asthma inhaler argue that it would discourage manufacturers from developing improved inhalers.", "Their reasoning is that the cap would reduce manufacturers' revenues, and that lower revenues mean smaller research budgets.", "Yet the cap would apply only to existing inhalers, not to any improved model brought to market later.", "If anything, then, the cap would make developing an improved inhaler more attractive, since a new model would be a manufacturer's only way to escape it."]}, "tables": {"bookshop": {"title": "Annual sales at a bookshop, by category (thousands of units)", "head": ["Category", "2023", "2024"], "rows": [["Fiction", "40", "46"], ["Non-fiction", "25", "30"], ["Children's", "15", "12"], ["Other", "20", "12"], ["Total", "100", "100"]]}, "commute-towns": {"title": "Main way of travelling to work among surveyed workers in two towns (number of workers)", "head": ["Mode", "Northfield", "Southbury"], "rows": [["Car", "120", "90"], ["Bus", "60", "75"], ["Rail", "45", "30"], ["Bicycle", "30", "45"], ["Walking", "45", "60"], ["Total", "300", "300"]]}}, "charts": {"museum-visitors": {"kind": "bar", "title": "Annual visitors to two museums, 2019–2024 (thousands)", "categories": ["2019", "2020", "2021", "2022", "2023", "2024"], "series": [{"name": "Museum A", "values": [40, 45, 20, 35, 50, 70]}, {"name": "Museum B", "values": [35, 30, 20, 25, 40, 50]}], "yLabel": "Visitors (thousands)", "yMax": 80, "yTicks": 16}}, "sections": {"V1": {"measure": "Verbal", "minutes": 18, "label": "Verbal Reasoning: Section 1", "questions": [{"id": "V1-1", "type": "tc", "skill": "Text completion", "difficulty": 3, "stem": "The scholar's prose is anything but ______: she qualifies nearly every claim, as though afraid of being pinned to a position.", "blanks": [["tentative", "circumspect", "categorical", "laborious", "elliptical"]], "answer": [2], "explain": "'Anything but' needs the opposite of constant qualification, which is categorical (stated without reservation). 'Circumspect' and 'tentative' are the trap: they describe what her prose actually is."}, {"id": "V1-2", "type": "tc", "skill": "Text completion", "difficulty": 3, "stem": "Although the reform was hailed as a ______ for the region's water shortages, engineers warned that it treated only the symptoms of a deeper problem.", "blanks": [["liability", "palliative", "panacea", "pretext", "precedent"]], "answer": [2], "explain": "'Although' sets the praise against a mere treatment of symptoms, so the reform was hailed as a cure-all: panacea. 'Palliative' (relieving symptoms only) is the engineers' view, so it creates no contrast."}, {"id": "V1-3", "type": "tc", "skill": "Text completion", "difficulty": 3, "stem": "Though the critics' warnings were (i)______ as alarmist at the time, events have since (ii)______ them: nearly every risk they identified has materialised.", "blanks": [["heeded", "derided", "echoed"], ["vindicated", "belied", "obscured"]], "answer": [1, 0], "explain": "'As alarmist' and 'though' show the warnings were mocked at first: derided. Risks that materialised prove the critics right, so events vindicated them; 'belied' (shown to be false) is the reverse."}, {"id": "V1-4", "type": "tc", "skill": "Text completion", "difficulty": 3, "stem": "The director's early films were praised for their (i)______, each scene pared to essentials; her later work, by contrast, strikes many critics as (ii)______, so crowded with subplots and digressions that its (iii)______ concerns are hard to discern.", "blanks": [["exuberance", "ambiguity", "economy"], ["austere", "derivative", "diffuse"], ["peripheral", "trivial", "central"]], "answer": [2, 2, 2], "explain": "Scenes 'pared to essentials' show economy. 'By contrast' and 'crowded with subplots' make the later work diffuse (spread out, unfocused), and what gets lost in the clutter is its central concerns; 'austere' would repeat the early praise."}, {"id": "V1-5", "type": "se", "skill": "Sentence equivalence", "difficulty": 3, "stem": "The minister's apology was so ______ that it seemed designed less to acknowledge wrongdoing than to end the discussion as quickly as possible.", "options": ["perfunctory", "contrite", "heartfelt", "cursory", "sincere", "elaborate"], "answer": [0, 3], "explain": "An apology aimed at ending discussion quickly is done with minimal effort: perfunctory and cursory. 'Heartfelt' and 'sincere' are the trap pair: synonyms, but they contradict the rest of the sentence."}, {"id": "V1-6", "type": "se", "skill": "Sentence equivalence", "difficulty": 2, "stem": "Initially ______ about the merger, the board grew more enthusiastic once the projected savings were confirmed.", "options": ["vocal", "ardent", "lukewarm", "fervent", "tepid", "hostile"], "answer": [2, 4], "explain": "'Grew more enthusiastic' implies a little enthusiasm at first, so tepid and lukewarm. 'Ardent' and 'fervent' form a pair but leave no room to grow more enthusiastic, and 'hostile' has no partner."}, {"id": "V1-7", "type": "se", "skill": "Sentence equivalence", "difficulty": 3, "stem": "Though she was ______ in conversation, rarely offering an opinion unless pressed, her letters reveal decided and often caustic views.", "options": ["dogmatic", "diffident", "opinionated", "gregarious", "voluble", "reserved"], "answer": [1, 5], "explain": "'Rarely offering an opinion' calls for diffident or reserved. 'Opinionated' and 'dogmatic' are the trap pair: they describe the letters, not her conversation."}, {"id": "V1-8", "type": "mc", "skill": "Reading comprehension", "passage": "guilds", "difficulty": 3, "stem": "The sentence 'More recent scholarship has complicated this picture' functions primarily to", "options": ["summarise the evidence presented in the preceding sentence", "introduce the author's rejection of the twentieth-century view", "signal a shift from an established view to evidence that qualifies it", "identify the historians whose view the passage defends", "concede a weakness in the recent scholarship"], "answer": 2, "explain": "The sentence turns from the older 'obstacle' view to newer findings that add to it. 'Complicated' is weaker than 'rejected', and the last sentence confirms that the older criticisms are not dismissed, so outright rejection is the trap."}, {"id": "V1-9", "type": "multi", "skill": "Reading comprehension", "passage": "guilds", "difficulty": 3, "stem": "It can be inferred that the recent scholars described in the passage would agree with which of the following? Select all that apply.", "options": ["Guilds had broadly similar economic effects wherever they existed.", "Earlier historians were mistaken in claiming that guilds restricted entry into trades.", "Some of the restrictive effects attributed to guilds by earlier historians may have been real."], "answer": [2], "explain": "The scholars deny that guilds were 'economically benign', so they leave room for the restrictive effects. They say effects 'varied with local circumstances', which rules out uniform effects, and they never dispute the claim about entry into trades."}, {"id": "V1-10", "type": "sentence", "skill": "Reading comprehension", "passage": "guilds", "difficulty": 3, "stem": "Select the sentence that suggests how an institution that restricted competition might nonetheless have helped trade.", "answer": 3, "explain": "The fourth sentence explains that guild quality standards let buyers in distant markets trust goods they could not inspect, which would help trade. The apprenticeship sentence concerns training, not trade."}, {"id": "V1-11", "type": "mc", "skill": "Reading comprehension", "passage": "predators", "stem": "The critics mentioned in the passage would most likely agree that", "options": ["predators never affect populations of grazing animals", "the benefits of reintroducing predators may depend on local conditions", "vegetation recovery is caused mainly by human activity", "wolves should be removed from regions where they now live", "the well-publicised cases were based on fabricated data"], "answer": 1, "explain": "The critics say that 'in many landscapes' other factors limit plant growth, so the benefit depends on the place. They never deny predators affect grazing.", "difficulty": 2}, {"id": "V1-12", "type": "mc", "skill": "Reading comprehension (argument)", "passage": "predators", "difficulty": 3, "stem": "Which of the following, if true, would most strengthen the critics' position?", "options": ["Many people living near reintroduction sites oppose the presence of wolves.", "Wolf populations in reintroduced regions have grown faster than expected.", "In regions where wolves were reintroduced, grazing animals spent less time feeding in open valleys.", "In several regions, vegetation recovered soon after wolves were reintroduced.", "In regions where wolves were reintroduced, plant cover recovered only in areas where farming and road-building had been limited."], "answer": 4, "explain": "The critics claim that human activity, not grazing, often limits plant growth; recovery only where human activity was limited supports exactly that. Grazing animals avoiding open valleys supports the reintroduction case, not the critics."}]}, "V2E": {"measure": "Verbal", "minutes": 23, "label": "Verbal Reasoning: Section 2", "tier": "easier", "questions": [{"id": "VE-1", "type": "tc", "skill": "Text completion", "stem": "The instructions were so ______ that even first-time users assembled the shelf without difficulty.", "blanks": [["ornate", "outdated", "terse", "convoluted", "lucid"]], "answer": [4], "explain": "Easy assembly means the instructions were clear: lucid.", "difficulty": 1}, {"id": "VE-2", "type": "tc", "skill": "Text completion", "stem": "Rather than ______ the mistake, the company admitted it publicly and offered refunds.", "blanks": [["repeating", "concealing", "investigating", "celebrating", "announcing"]], "answer": [1], "explain": "'Rather than' contrasts with admitting publicly, so the blank is hiding it: concealing.", "difficulty": 1}, {"id": "VE-3", "type": "tc", "skill": "Text completion", "stem": "Critics found the film's plot ______: every twist could be seen coming long before it arrived.", "blanks": [["intricate", "harrowing", "obscure", "predictable", "innovative"]], "answer": [3], "explain": "The colon explains the blank: twists seen coming = predictable.", "difficulty": 1}, {"id": "VE-4", "type": "tc", "skill": "Text completion", "stem": "The town's population, once (i)______, has (ii)______ steadily since the factory closed, and many houses now stand empty.", "blanks": [["thriving", "sparse", "dwindling"], ["declined", "stabilised", "grown"]], "answer": [0, 0], "explain": "Empty houses show the population declined; 'once' signals it used to be the opposite: thriving.", "difficulty": 1}, {"id": "VE-5", "type": "tc", "skill": "Text completion", "stem": "Although the speech was (i)______, lasting barely five minutes, it was far from (ii)______; listeners remembered its key arguments for years.", "blanks": [["rambling", "brief", "tedious"], ["controversial", "concise", "forgettable"]], "answer": [1, 2], "explain": "'Barely five minutes' = brief. Remembered for years = far from forgettable.", "difficulty": 1}, {"id": "VE-6", "type": "tc", "skill": "Text completion", "stem": "The new policy was meant to (i)______ congestion in the city centre, but by making parking cheaper it actually (ii)______ more drivers, and traffic grew (iii)______.", "blanks": [["measure", "ease", "worsen"], ["attracted", "discouraged", "fined"], ["heavier", "lighter", "safer"]], "answer": [1, 0, 0], "explain": "'Meant to ... but ... actually' signals the policy backfired: meant to ease congestion, but cheaper parking attracted drivers and traffic grew heavier.", "difficulty": 1}, {"id": "VE-7", "type": "se", "skill": "Sentence equivalence", "stem": "The professor was known for her ______ lectures, which students found difficult to sit through.", "options": ["inspiring", "humorous", "wearisome", "tedious", "popular", "brief"], "answer": [2, 3], "explain": "Hard to sit through = boring: tedious and wearisome.", "difficulty": 1}, {"id": "VE-8", "type": "se", "skill": "Sentence equivalence", "stem": "The hikers were ______ after the long climb and rested for an hour before continuing.", "options": ["early", "exhausted", "lost", "elated", "fatigued", "hungry"], "answer": [1, 4], "explain": "Resting after a long climb implies tiredness: exhausted and fatigued. 'Hungry' may fit the sentence but has no matching synonym.", "difficulty": 1}, {"id": "VE-9", "type": "se", "skill": "Sentence equivalence", "stem": "Though the plan seemed ______ at first, it proved to be entirely practical.", "options": ["ordinary", "unrealistic", "fanciful", "expensive", "popular", "sensible"], "answer": [1, 2], "explain": "'Though' contrasts with 'practical', so the plan seemed impractical: fanciful and unrealistic.", "difficulty": 2}, {"id": "VE-10", "type": "se", "skill": "Sentence equivalence", "stem": "The diplomat's ______ remarks helped calm an otherwise tense meeting.", "options": ["rude", "lengthy", "technical", "conciliatory", "soothing", "provocative"], "answer": [3, 4], "explain": "Remarks that calm tension are conciliatory (peace-making) and soothing.", "difficulty": 2}, {"id": "VE-11", "type": "mc", "skill": "Reading comprehension", "passage": "bees", "stem": "The passage is primarily concerned with", "options": ["explaining why bees perform the waggle dance only at night", "arguing that bees cannot perceive the position of the sun", "criticising the experimental methods of early bee researchers", "describing how honeybees signal the location of food and how other bees use that signal", "comparing honeybees with other insects that live in colonies"], "answer": 3, "explain": "The passage describes the dance, then reports experiments showing recruits decode it. The other options are not discussed.", "difficulty": 1}, {"id": "VE-12", "type": "mc", "skill": "Reading comprehension", "passage": "bees", "stem": "According to the passage, the duration of the straight run indicates the", "options": ["distance to the food", "quality of the food", "number of bees needed", "time of day", "direction of the food"], "answer": 0, "explain": "Sentence 3: 'the duration of the run indicates the distance'.", "difficulty": 1}, {"id": "VE-13", "type": "multi", "skill": "Reading comprehension", "passage": "bees", "stem": "Which of the following can be inferred about the experiments described in the final sentence? Select all that apply.", "options": ["They proved that bees cannot locate food by smell.", "They contradicted an assumption that researchers had previously held.", "They showed that recruits relied on information contained in the dance."], "answer": [1, 2], "explain": "Recruits searched where the dance said, so they used the dance itself, which contradicts the earlier assumption that bees simply followed the dancer. Smell is never mentioned.", "difficulty": 2}, {"id": "VE-14", "type": "mc", "skill": "Reading comprehension", "passage": "bikes", "stem": "The surveys mentioned in the passage suggest that bicycle-sharing schemes", "options": ["mostly replace trips that would have been made on foot or by public transport", "have greatly reduced car traffic", "cost more to run than public transport", "are popular mainly with tourists", "are rarely used by residents"], "answer": 0, "explain": "Sentence 2 says exactly this.", "difficulty": 1}, {"id": "VE-15", "type": "sentence", "skill": "Reading comprehension", "passage": "bikes", "stem": "Select the sentence that presents a response to the survey findings.", "answer": 2, "explain": "The third sentence gives the supporters' reply: the findings understate the schemes' value.", "difficulty": 1}]}, "V2M": {"measure": "Verbal", "minutes": 23, "label": "Verbal Reasoning: Section 2", "tier": "medium", "questions": [{"id": "VM-1", "type": "tc", "skill": "Text completion", "difficulty": 3, "stem": "The biographer's portrait is scrupulously ______: she records her subject's generosity and his pettiness with equal care, neither extenuating the one nor magnifying the other.", "blanks": [["tendentious", "hagiographic", "desultory", "elegiac", "dispassionate"]], "answer": [4], "explain": "Treating virtues and faults with equal care, excusing neither, is dispassionate (impartial). 'Hagiographic' (treating the subject as a saint) and 'tendentious' (slanted towards a view) both imply the bias the sentence denies."}, {"id": "VM-2", "type": "tc", "skill": "Text completion", "difficulty": 3, "stem": "Though the minister insisted that the new rules were merely ______, opponents argued that they would transform the way every school in the country was run.", "blanks": [["controversial", "costly", "sweeping", "cosmetic", "welcome"]], "answer": [3], "explain": "'Though' and 'merely' set up a contrast with 'transform': the minister claimed the change was only on the surface, which is cosmetic. 'Sweeping' is the opponents' view, not the minister's."}, {"id": "VM-3", "type": "tc", "skill": "Text completion", "difficulty": 3, "stem": "Early reports on the drug were (i)______, citing dramatic improvements in small trials; only when larger studies failed to repeat those results did the medical community's enthusiasm begin to (ii)______.", "blanks": [["guarded", "effusive", "hostile"], ["wane", "spread", "intensify"]], "answer": [1, 0], "explain": "Reports that cite 'dramatic improvements' and create 'enthusiasm' are effusive (gushing). 'Only when ... failed' signals that the enthusiasm then faded: wane."}, {"id": "VM-4", "type": "tc", "skill": "Text completion", "difficulty": 3, "stem": "The archive's new catalogue was meant to make its holdings easier to (i)______; in practice, however, its categories were so (ii)______ that researchers often found documents only by (iii)______, coming across them while looking for something else.", "blanks": [["acquire", "navigate", "preserve"], ["idiosyncratic", "intuitive", "comprehensive"], ["serendipity", "design", "appointment"]], "answer": [1, 0, 0], "explain": "A catalogue exists to help people find their way through a collection: navigate. 'However' means it failed, so its categories were idiosyncratic (peculiar to their maker), and finding things 'while looking for something else' is serendipity (happy accident). 'Comprehensive' is the trap: thoroughness would not make documents hard to find."}, {"id": "VM-5", "type": "se", "skill": "Sentence equivalence", "difficulty": 3, "stem": "The mayor's response to the flooding was widely criticised as ______: officials took nearly a week to visit the worst-affected neighbourhoods.", "options": ["lavish", "tardy", "partisan", "heavy-handed", "transparent", "dilatory"], "answer": [1, 5], "explain": "Taking nearly a week shows slowness: dilatory and tardy both mean late or slow to act. 'Heavy-handed' and 'partisan' are criticisms too, but nothing in the sentence supports them and they have no partner."}, {"id": "VM-6", "type": "se", "skill": "Sentence equivalence", "difficulty": 2, "stem": "Although the scientist was ______ in private, often joking with her students, her public lectures were famously formal.", "options": ["earnest", "reserved", "stern", "jocular", "punctual", "playful"], "answer": [3, 5], "explain": "'Often joking' defines the blank, and 'although' contrasts it with 'formal': jocular and playful. 'Reserved' and 'stern' describe the public lectures, not her private manner."}, {"id": "VM-7", "type": "se", "skill": "Sentence equivalence", "difficulty": 2, "stem": "The proposal was ______ by the board, which voted unanimously to reject it without further discussion.", "options": ["rebuffed", "postponed", "spurned", "amended", "endorsed", "examined"], "answer": [0, 2], "explain": "Rejecting a proposal outright is to rebuff or spurn it. 'Endorsed' is the opposite, and 'postponed' and 'amended' do not match a unanimous rejection."}, {"id": "VM-8", "type": "mc", "skill": "Reading comprehension", "passage": "maps-history", "difficulty": 2, "stem": "The passage is primarily concerned with", "options": ["comparing maps made for rulers with maps made for merchants", "explaining the surveying methods used by early modern mapmakers", "describing a change in how historians interpret early modern maps and the reasoning behind it", "arguing that early modern maps were more accurate than historians have assumed", "criticising recent scholars for ignoring questions of accuracy"], "answer": 2, "explain": "The passage moves from the old accuracy-based approach to the newer view of maps as arguments, and explains why. Rulers' and merchants' maps are only examples, and the last sentence rules out the claim that recent scholars ignore accuracy."}, {"id": "VM-9", "type": "mc", "skill": "Reading comprehension", "passage": "maps-history", "difficulty": 2, "stem": "The author mentions a map 'produced for merchants' primarily in order to", "options": ["criticise merchants for neglecting inland trade", "illustrate how a map's purpose could shape what it included", "explain why inland regions were poorly understood in the early modern period", "show that merchants valued accuracy more than rulers did", "suggest that commercial maps were more reliable than political ones"], "answer": 1, "explain": "The merchants' map leaves out inland regions because they did not matter for trade, so the example shows purpose deciding content. The passage says nothing about how well inland regions were understood, which is the trap."}, {"id": "VM-10", "type": "multi", "skill": "Reading comprehension", "passage": "maps-history", "difficulty": 3, "stem": "Based on the passage, the author would most likely agree with which of the following statements? Select all that apply.", "options": ["Accuracy is irrelevant to the study of early modern maps.", "A map's omissions may reflect its intended use rather than its maker's ignorance.", "The older approach to the history of cartography gave an incomplete picture."], "answer": [1, 2], "explain": "The merchants' map omits inland regions on purpose, and the older approach 'obscured' the maps' purposes, so it was incomplete. The final sentence says accuracy remains one aim among several, so it is not irrelevant."}, {"id": "VM-11", "type": "sentence", "skill": "Reading comprehension", "passage": "maps-history", "difficulty": 3, "stem": "Select the sentence in which the author indicates that the newer approach retains a concern that was central to the older approach.", "answer": 5, "explain": "The last sentence says the shift 'has not abandoned the question of accuracy', which was the older approach's central concern. The sentence about calling maps 'inaccurate' rejects the older standard rather than keeping it."}, {"id": "VM-12", "type": "mc", "skill": "Reading comprehension", "passage": "night-pollination", "difficulty": 3, "stem": "The botanists' view described in the second sentence depends on the assumption that", "options": ["bees are more numerous than moths in most habitats", "moths visit only plants that flower at night", "a pollinator's contribution depends chiefly on how many flowers it visits and how much pollen it carries", "night-flowering plants are never visited by bees", "pale blossoms attract bees as well as moths"], "answer": 2, "explain": "The botanists judged moths minor only because they visit fewer flowers and carry less pollen, which assumes that those quantities are what count. The study's suggestion that the distance pollen travels also matters attacks exactly this assumption."}, {"id": "VM-13", "type": "mc", "skill": "Reading comprehension", "passage": "night-pollination", "difficulty": 2, "stem": "The researchers covered flowers either during the day or during the night primarily in order to", "options": ["identify which species of moth visited each plant", "prevent moths from damaging the flowers", "separate the contribution of night-time visitors to seed production from that of daytime visitors", "test whether scent attracts moths more strongly than colour does", "measure how much pollen each moth carried"], "answer": 2, "explain": "Covering flowers at one time of day leaves them open only at the other, so the seed counts show what night visitors and day visitors each achieve. Nothing was measured about pollen loads, moth species or scent."}, {"id": "VM-14", "type": "mc", "skill": "Reading comprehension", "passage": "night-pollination", "difficulty": 3, "stem": "The authors' suggestion in the final sentence implies which of the following?", "options": ["Pollen from a genetically different plant can be more useful for reproduction than pollen from a neighbouring plant.", "A pollinator's speed is the main factor in its effectiveness.", "Night-flowering plants cannot set seed without moths.", "Bees seldom carry pollen between plants of the same species.", "Moths visit more flowers per hour than bees do."], "answer": 0, "explain": "Long flights can only 'make up for' slowness if pollen that reaches a genetically different plant is worth more than pollen from close by. The idea that moths visit more flowers per hour contradicts the passage, and the claim about bees goes far beyond it."}, {"id": "VM-15", "type": "mc", "skill": "Reading comprehension (argument)", "passage": "halden-hygiene", "difficulty": 2, "stem": "Which of the following, if true, would most seriously weaken the council's conclusion?", "options": ["In the same year, Halden's health service changed its procedures so that mild cases of food poisoning were no longer recorded.", "Restaurants in Halden that received low ratings lost customers after the rule took effect.", "The hygiene ratings were awarded by the same inspectors who had inspected Halden's restaurants before the rule.", "Some diners in Halden say they rarely notice the ratings displayed at restaurant entrances.", "Neighbouring towns that did not introduce the rule saw no fall in recorded food poisoning over the same period."], "answer": 0, "explain": "If mild cases simply stopped being recorded, the 30 per cent fall could reflect a change in counting rather than better hygiene. Unaffected neighbouring towns and customers deserting low-rated restaurants support the council; 'some diners' not noticing the ratings is too weak to matter."}]}, "V2H": {"measure": "Verbal", "minutes": 23, "label": "Verbal Reasoning: Section 2", "tier": "harder", "questions": [{"id": "VH-1", "type": "tc", "skill": "Text completion", "stem": "Far from being ______, the historian's prose is so dense with qualification that readers often lose track of her argument.", "blanks": [["recondite", "tortuous", "prolix", "pedantic", "limpid"]], "answer": [4], "explain": "'Far from being' needs the opposite of dense and hard to follow: limpid (perfectly clear). The other options all describe difficult prose.", "difficulty": 3}, {"id": "VH-2", "type": "tc", "skill": "Text completion", "difficulty": 4, "stem": "Although the essayist cultivated a reputation for ______, her private notebooks reveal a writer who drafted and redrafted even her most seemingly offhand remarks.", "blanks": [["reticence", "erudition", "fastidiousness", "artlessness", "candour"]], "answer": [3], "explain": "'Although' contrasts the reputation with careful redrafting, so the reputation was for unstudied naturalness: artlessness. 'Fastidiousness' describes what the notebooks show, and 'candour' is tempting but is not the opposite of careful drafting."}, {"id": "VH-4", "type": "tc", "skill": "Text completion", "difficulty": 4, "stem": "The historian argues that the treaty's (i)______ was the source of both its success and its eventual failure: language vague enough for each government to claim victory secured (ii)______ in the short term, but because the underlying disputes had been (iii)______ rather than settled, they resurfaced within a decade.", "blanks": [["brevity", "equivocation", "severity"], ["ratification", "scrutiny", "repudiation"], ["papered over", "adjudicated", "exacerbated"]], "answer": [1, 0, 0], "explain": "Language 'vague enough for each government to claim victory' is equivocation, which explains the short-term success: both sides accepted it (ratification). Disputes that were hidden 'rather than settled' and later resurfaced were papered over; 'adjudicated' would mean settled, which the sentence denies."}, {"id": "VH-5", "type": "tc", "skill": "Text completion", "stem": "Scholars once regarded the poet's late works as (i)______, the hasty products of a mind in decline; yet a closer reading reveals a deliberate (ii)______, a stripping away of ornament in pursuit of clarity.", "blanks": [["slapdash", "derivative", "sublime"], ["extravagance", "ambiguity", "austerity"]], "answer": [0, 2], "explain": "'Hasty products' = slapdash (careless). 'Stripping away of ornament' = austerity (plainness).", "difficulty": 3}, {"id": "VH-6", "type": "tc", "skill": "Text completion", "difficulty": 4, "stem": "The minister's (i)______ on the subject, long taken as evidence of indifference, now appears to have been (ii)______: newly released papers show that she was quietly (iii)______ the very policy she declined to discuss in public.", "blanks": [["garrulity", "taciturnity", "forthrightness"], ["inadvertent", "characteristic", "calculated"], ["publicising", "neglecting", "undermining"]], "answer": [1, 2, 2], "explain": "Declining to discuss the policy is taciturnity (habitual silence). Silence mistaken for indifference but concealing active work was calculated, and the work must be something done quietly that is not indifference: undermining. 'Neglecting' would confirm the indifference, and 'publicising' contradicts 'quietly'."}, {"id": "VH-8", "type": "se", "skill": "Sentence equivalence", "difficulty": 4, "stem": "Ordinarily the most ______ of reviewers, she astonished readers by devoting an entire column to unqualified praise of a first novel.", "options": ["laudatory", "prolific", "effusive", "captious", "perspicacious", "carping"], "answer": [3, 5], "explain": "Her astonishing praise must contrast with her usual manner, so she is normally fault-finding: captious and carping. 'Effusive' and 'laudatory' are the trap: they are close in meaning but describe the praise, not her ordinary habit."}, {"id": "VH-9", "type": "se", "skill": "Sentence equivalence", "difficulty": 3, "stem": "Far from ______ the committee's concerns, the chair's reassurances only deepened them, since they rested on the very figures the committee had already shown to be unreliable.", "options": ["aggravating", "corroborating", "allaying", "assuaging", "articulating", "exacerbating"], "answer": [2, 3], "explain": "'Far from' sets the blank against 'only deepened them', so it must mean easing: allaying and assuaging. 'Exacerbating' and 'aggravating' form a pair too, but they mean deepening, which the sentence says the reassurances did rather than failed to do."}, {"id": "VH-10", "type": "se", "skill": "Sentence equivalence", "difficulty": 4, "stem": "The scholar's later essays are ______ in a way that her admirers call economy and her detractors call evasion: she gestures towards conclusions she never quite states.", "options": ["didactic", "oblique", "elliptical", "verbose", "strident", "prolix"], "answer": [1, 2], "explain": "Gesturing at conclusions without stating them is indirect and allusive: oblique and elliptical. 'Prolix' and 'verbose' are the trap pair: they are synonyms, but wordiness is the opposite of the 'economy' her admirers see."}, {"id": "VH-11", "type": "mc", "skill": "Reading comprehension", "passage": "industry", "difficulty": 3, "stem": "Which of the following is most strongly supported by the passage?", "options": ["If British wages had been as high as Allen claims, his critics would accept his account in full.", "Inventors in continental Europe were less skilled than those in Britain.", "Allen's critics reject his explanation of why machinery spread faster in Britain than elsewhere.", "The long delay between the invention of many devices and their adoption is better accounted for by Allen's view than by the standard account.", "Allen holds that invention played no part in industrialisation."], "answer": 3, "explain": "The 'Yet' after the standard account presents the delay as a problem for it, and Allen's price explanation is offered as accounting for the timing of adoption. The critics accept his central point about profitability, and calling invention 'less a cause of industrialisation than a response to it' does not mean invention played no part."}, {"id": "VH-12", "type": "multi", "skill": "Reading comprehension", "passage": "industry", "stem": "Allen's argument, as described in the passage, would predict which of the following? Select all that apply.", "options": ["Inventors would focus on technologies that local prices made profitable.", "A labour-saving machine would be adopted more quickly where wages are high.", "Countries with expensive coal would be the first to adopt coal-powered machines."], "answer": [0, 1], "explain": "High wages make a labour-saving machine profitable, and inventors respond to what local prices reward, so both of those predictions follow from Allen's view. The claim about countries with expensive coal reverses his logic: dear coal would discourage coal-powered machines.", "difficulty": 3}, {"id": "VH-13", "type": "mc", "skill": "Reading comprehension", "passage": "industry", "difficulty": 3, "stem": "The final sentence of the passage primarily serves to", "options": ["indicate that a central element of Allen's position survives a dispute over one of his premises", "show that Allen's critics have refuted his estimate of British wages", "suggest that the existence of a technique matters more than its profitability", "introduce a new explanation for the timing of industrialisation", "concede that Allen's argument depends entirely on his estimate of wages"], "answer": 0, "explain": "The critics question Allen's wage figures, a premise, yet still accept that profitability rather than mere existence governed adoption, his central claim. They only 'questioned' the wages, so 'refuted' overstates their position."}, {"id": "VH-3", "type": "mc", "skill": "Reading comprehension", "passage": "household-ledgers", "difficulty": 4, "stem": "The author would most likely agree with which of the following statements about the historians who relied on tax rolls and guild registers?", "options": ["Their conclusions would have been reversed had they consulted household account books.", "They were right that women's work was marginal, though for the wrong reasons.", "Their error lay less in how they reasoned from their sources than in treating those sources as complete.", "Their methods are no longer used by economic historians.", "They reasoned carelessly from evidence that should have warned them of its gaps."], "answer": 2, "explain": "The author calls their conclusion 'not unreasonably given their evidence' but shows the records had no column for much of women's work, so the fault was in the sources' coverage, not the reasoning. 'Reversed' is the trap: the author warns that the ledgers do not simply show the earlier picture was wrong."}, {"id": "VH-7", "type": "mc", "skill": "Reading comprehension", "passage": "household-ledgers", "difficulty": 3, "stem": "The sentence 'It would be tempting to conclude that the earlier picture was simply wrong and that women were as economically active as men' functions primarily to", "options": ["concede a limitation of account books as historical evidence", "present the author's main thesis", "state the conclusion that the account books establish", "summarise the view of the historians who relied on tax rolls", "introduce an overstatement that the author goes on to qualify"], "answer": 4, "explain": "'Tempting' signals a conclusion the author will resist, and the next sentence ('Yet account books, for all the detail they preserve, have biases of their own') begins to qualify it. Treating it as the author's thesis is the trap: the thesis comes in the final sentence."}, {"id": "VH-14", "type": "sentence", "skill": "Reading comprehension", "passage": "household-ledgers", "difficulty": 3, "stem": "Select the sentence in which the author moves from the shortcomings of one kind of record to a claim about records of every kind.", "answer": 7, "explain": "The eighth sentence draws on the ledgers' biases ('therefore') to conclude that every type of record makes some work visible by hiding other work. The sentence before it lists faults of the ledgers alone, and the final sentence states what historians can claim rather than generalising about records."}, {"id": "VH-15", "type": "mc", "skill": "Reading comprehension (argument)", "passage": "inhaler-cap", "difficulty": 4, "stem": "In the argument, the statement that the cap would apply only to existing inhalers plays which of the following roles?", "options": ["It is offered to show that manufacturers' research budgets do not depend on their revenues.", "It is the main conclusion of the argument.", "It is a premise that the critics use to support their prediction.", "It is a consideration that the author concedes counts against the main conclusion.", "It is a premise offered in support of a conclusion that runs counter to the critics' prediction."], "answer": 4, "explain": "The author introduces the fact ('Yet') and uses it to reach the final conclusion ('then') that the cap would encourage new models, the opposite of the critics' prediction. The author never disputes the link between revenue and research budgets, which is the tempting wrong role."}]}, "Q1": {"measure": "Quant", "minutes": 21, "label": "Quantitative Reasoning: Section 1", "questions": [{"id": "Q1-1", "type": "qc", "skill": "Algebra", "given": "x > 0", "qa": "x / (x + 1)", "qb": "(x + 1) / (x + 2)", "answer": 1, "explain": "Cross-multiply (both denominators are positive): compare x(x + 2) = x² + 2x with (x + 1)² = x² + 2x + 1. B is always larger by 1.", "difficulty": 3}, {"id": "Q1-2", "type": "qc", "skill": "Number properties", "difficulty": 3, "given": "n is a positive integer.", "qa": "The units digit of 7ⁿ", "qb": "The units digit of 3ⁿ", "answer": 3, "explain": "Units digits of powers of 7 cycle 7, 9, 3, 1 and those of 3 cycle 3, 9, 7, 1. n = 1 gives 7 against 3 (A greater), n = 2 gives 9 and 9 (equal), and n = 3 gives 3 against 7 (B greater)."}, {"id": "Q1-3", "type": "qc", "skill": "Statistics", "difficulty": 3, "given": "The average (arithmetic mean) of x, y and 10 is 20, and x > y.", "qa": "x", "qb": "25", "answer": 0, "explain": "The three numbers total 60, so x + y = 50. Since x is the larger of two numbers that add to 50, x must be greater than 25."}, {"id": "Q1-4", "type": "qc", "skill": "Geometry", "difficulty": 2, "given": "A triangle has sides of lengths 7, 10 and x, where x is an integer.", "qa": "x", "qb": "17", "answer": 1, "explain": "Each side must be less than the sum of the other two, so x < 7 + 10 = 17; the largest possible integer is 16. The trap is allowing x = 17, which would flatten the triangle into a line."}, {"id": "Q1-5", "type": "mc", "skill": "Ratios", "difficulty": 3, "stem": "At an animal shelter, the ratio of cats to dogs is 3 : 5. After 12 cats are adopted and 4 more dogs arrive, the ratio of cats to dogs becomes 1 : 3. How many cats were at the shelter originally?", "options": ["30", "36", "40", "45", "50"], "answer": 0, "explain": "Write the numbers as 3k cats and 5k dogs. Then (3k − 12) : (5k + 4) = 1 : 3, so 9k − 36 = 5k + 4 and k = 10, giving 30 cats."}, {"id": "Q1-6", "type": "mc", "skill": "Coordinate geometry", "difficulty": 3, "stem": "In the xy-plane, line k passes through the points (1, 2) and (5, 10). Line m is perpendicular to line k and passes through the point (4, 0). What is the y-intercept of line m?", "options": ["−4", "−2", "2", "4", "8"], "answer": 2, "explain": "Line k has slope (10 − 2) ÷ (5 − 1) = 2, so line m has slope −1/2. Then y = −(1/2)(x − 4), and at x = 0, y = 2."}, {"id": "Q1-7", "type": "numeric", "skill": "Rates", "difficulty": 3, "stem": "A driver travels 120 km from town P to town Q at an average speed of 60 km/h and returns along the same road at an average speed of 40 km/h. What is the average speed, in kilometres per hour, for the whole round trip?", "answer": 48, "explain": "The trip out takes 2 hours and the return 3 hours, so 240 km takes 5 hours: 48 km/h. Averaging the two speeds to get 50 is the trap, because more time is spent at the slower speed."}, {"id": "Q1-8", "type": "multi", "skill": "Algebra", "difficulty": 4, "stem": "If x is an integer and |x − 4| < 3, which of the following could be the value of x² − 6x? Select all that apply.", "options": ["−9", "−8", "−6", "−5", "0", "7"], "answer": [0, 1, 3, 4], "explain": "|x − 4| < 3 means 1 < x < 7, so x is 2, 3, 4, 5 or 6. Then x² − 6x is −8, −9, −8, −5 and 0, so −6 and 7 are impossible."}, {"id": "Q1-9", "type": "mc", "skill": "Statistics", "difficulty": 4, "stem": "The mean of the five numbers 2, 5, 9, 12 and x is equal to their median. What is the sum of all possible values of x?", "options": ["7", "14", "17", "19", "21"], "answer": 4, "explain": "The sum is 28 + x, so the mean is (28 + x)/5. The median depends on where x falls: if x ≤ 5 the median is 5 and x = −3; if 5 ≤ x ≤ 9 the median is x and x = 7; if x ≥ 9 the median is 9 and x = 17. All three work, so the sum is −3 + 7 + 17 = 21."}, {"id": "Q1-10", "type": "fraction", "skill": "Probability", "stem": "A bag holds 4 red and 6 blue marbles. Two marbles are drawn at random without replacement. What is the probability that both are red? Give your answer as a fraction.", "answer": [2, 15], "explain": "4/10 × 3/9 = 12/90 = 2/15. Any equivalent fraction is accepted.", "difficulty": 2}, {"id": "Q1-11", "type": "mc", "skill": "Data interpretation", "table": "bookshop", "difficulty": 3, "stem": "In 2024 the average price of a non-fiction book sold at the bookshop was £12, and the bookshop's total revenue from non-fiction was 20% higher than in 2023. What was the average price of a non-fiction book sold in 2023?", "options": ["£10.00", "£12.00", "£12.50", "£14.40", "£15.00"], "answer": 1, "explain": "2024 revenue = 30,000 × £12 = £360,000, so 2023 revenue = £360,000 ÷ 1.2 = £300,000. Divided by 25,000 books, that is £12.00: unit sales rose by the same 20% as revenue, so the price did not change."}, {"id": "Q1-12", "type": "multi", "skill": "Data interpretation", "table": "bookshop", "difficulty": 3, "stem": "For which categories did sales change by at least 20%, either up or down, from 2023 to 2024? Select all that apply.", "options": ["Fiction", "Non-fiction", "Children's", "Other"], "answer": [1, 2, 3], "explain": "Fiction rose 6/40 = 15%, non-fiction rose 5/25 = 20%, children's fell 3/15 = 20% and other fell 8/20 = 40%. Exactly 20% counts as 'at least 20%', and falls count as well as rises."}]}, "Q2E": {"measure": "Quant", "minutes": 26, "label": "Quantitative Reasoning: Section 2", "tier": "easier", "questions": [{"id": "QE-1", "type": "qc", "skill": "Arithmetic", "qa": "0.5 × 40", "qb": "40 ÷ 2", "answer": 2, "explain": "Both equal 20.", "difficulty": 1}, {"id": "QE-2", "type": "qc", "skill": "Algebra", "given": "x = −3", "qa": "x²", "qb": "2x", "answer": 0, "explain": "x² = 9 and 2x = −6.", "difficulty": 1}, {"id": "QE-3", "type": "qc", "skill": "Arithmetic", "qa": "The number of minutes in 3 hours", "qb": "The number of seconds in 4 minutes", "answer": 1, "explain": "3 × 60 = 180 minutes; 4 × 60 = 240 seconds.", "difficulty": 1}, {"id": "QE-4", "type": "qc", "skill": "Algebra", "given": "y > 0", "qa": "y", "qb": "y²", "answer": 3, "explain": "If y = 2, B is bigger; if y = 0.5, A is bigger; if y = 1 they're equal. Cannot be determined.", "difficulty": 2}, {"id": "QE-5", "type": "mc", "skill": "Percentages", "stem": "What is 15% of 80?", "options": ["8", "10", "12", "15", "20"], "answer": 2, "explain": "0.15 × 80 = 12.", "difficulty": 1}, {"id": "QE-6", "type": "mc", "skill": "Algebra", "stem": "If 5x + 4 = 29, what is the value of x?", "options": ["4", "5", "6", "7", "8"], "answer": 1, "explain": "5x = 25, so x = 5.", "difficulty": 1}, {"id": "QE-7", "type": "numeric", "skill": "Geometry", "stem": "A rectangle has length 12 cm and width 5 cm. What is the length of its diagonal, in centimetres?", "answer": 13, "explain": "√(144 + 25) = √169 = 13.", "difficulty": 1}, {"id": "QE-8", "type": "mc", "skill": "Ratios", "stem": "In a class of 40 students, the ratio of boys to girls is 3 : 5. How many girls are in the class?", "options": ["15", "20", "24", "25", "30"], "answer": 3, "explain": "3 + 5 = 8 parts; each part = 40 ÷ 8 = 5 students. Girls = 5 × 5 = 25.", "difficulty": 1}, {"id": "QE-9", "type": "multi", "skill": "Number properties", "stem": "Which of the following numbers are prime? Select all that apply.", "options": ["2", "9", "11", "15", "17", "21"], "answer": [0, 2, 4], "explain": "2, 11 and 17 are prime. 9 = 3 × 3, 15 = 3 × 5, 21 = 3 × 7.", "difficulty": 1}, {"id": "QE-10", "type": "numeric", "skill": "Rates", "stem": "A car travels 150 km in 2.5 hours. What is its average speed, in kilometres per hour?", "answer": 60, "explain": "150 ÷ 2.5 = 60 km/h.", "difficulty": 1}, {"id": "QE-11", "type": "mc", "skill": "Algebra", "stem": "If a = 2 and b = −3, what is the value of a² − ab?", "options": ["−2", "2", "6", "10", "12"], "answer": 3, "explain": "a² = 4; ab = −6; 4 − (−6) = 10.", "difficulty": 2}, {"id": "QE-12", "type": "fraction", "skill": "Arithmetic", "stem": "What is 1/3 + 1/4? Give your answer as a fraction.", "answer": [7, 12], "explain": "Common denominator 12: 4/12 + 3/12 = 7/12.", "difficulty": 1}, {"id": "QE-13", "type": "mc", "skill": "Geometry", "stem": "What is the sum of the interior angles of a hexagon (a six-sided polygon)?", "options": ["360°", "540°", "720°", "900°", "1080°"], "answer": 2, "explain": "(n − 2) × 180° = 4 × 180° = 720°.", "difficulty": 2}, {"id": "QE-14", "type": "multi", "skill": "Algebra", "stem": "If x² = 16, which of the following could be the value of x? Select all that apply.", "options": ["−4", "−2", "2", "4", "8"], "answer": [0, 3], "explain": "Both 4² and (−4)² equal 16.", "difficulty": 1}, {"id": "QE-15", "type": "mc", "skill": "Statistics", "stem": "What is the median of the numbers 3, 9, 4, 7, 12 and 5?", "options": ["5", "6", "6.5", "7", "8"], "answer": 1, "explain": "In order: 3, 4, 5, 7, 9, 12. With six numbers the median is the average of the middle two: (5 + 7) ÷ 2 = 6.", "difficulty": 1}]}, "Q2M": {"measure": "Quant", "minutes": 26, "label": "Quantitative Reasoning: Section 2", "tier": "medium", "questions": [{"id": "QM-1", "type": "qc", "skill": "Arithmetic", "difficulty": 3, "qa": "The number of integers between −7.5 and 4.2", "qb": "12", "answer": 2, "explain": "The integers are −7, −6, ..., 3, 4: seven negative integers, zero and four positive integers, which is 12. Forgetting zero gives 11, and including −8 or 5 gives 13."}, {"id": "QM-2", "type": "qc", "skill": "Algebra", "difficulty": 2, "given": "x + y = 10 and x − y = 4", "qa": "xy", "qb": "20", "answer": 0, "explain": "Adding the equations gives 2x = 14, so x = 7 and y = 3. Then xy = 21, which is greater than 20."}, {"id": "QM-3", "type": "qc", "skill": "Geometry", "difficulty": 3, "given": "An isosceles triangle has one side of length 5 and another side of length 8.", "qa": "The perimeter of the triangle", "qb": "20", "answer": 3, "explain": "The third side could be 5 (perimeter 18) or 8 (perimeter 21), and both triangles exist. So A could be smaller or larger than 20."}, {"id": "QM-4", "type": "qc", "skill": "Number properties", "difficulty": 3, "given": "x and y are integers and xy = 12.", "qa": "x + y", "qb": "7", "answer": 3, "explain": "x = 3, y = 4 gives 7 (equal) and x = 1, y = 12 gives 13 (A greater). The hidden case is negatives: x = −3, y = −4 gives −7 (B greater)."}, {"id": "QM-5", "type": "qc", "skill": "Algebra", "difficulty": 3, "given": "−1 < x < 0", "qa": "x", "qb": "x³", "answer": 1, "explain": "x³ − x = x(x² − 1). Here x is negative and x² − 1 is negative, so the product is positive and x³ > x. For example, x = −0.5 gives x³ = −0.125, which is greater than −0.5."}, {"id": "QM-6", "type": "mc", "skill": "Percentages", "difficulty": 2, "stem": "In a sale, the price of a coat is reduced by 30%. By approximately what percentage must the sale price be increased to bring it back to the original price?", "options": ["30%", "33.3%", "40%", "42.9%", "70%"], "answer": 3, "explain": "The sale price is 0.7 of the original, so it must be multiplied by 1 ÷ 0.7 ≈ 1.429, an increase of about 42.9%. The trap is 30%: the increase is measured from the smaller, sale price."}, {"id": "QM-7", "type": "mc", "skill": "Algebra", "difficulty": 3, "stem": "If x + 1/x = 4, what is the value of x² + 1/x²?", "options": ["14", "16", "18", "20", "22"], "answer": 0, "explain": "Square both sides: x² + 2 + 1/x² = 16, so x² + 1/x² = 14. The trap is 16, which forgets the middle term 2 × x × (1/x) = 2."}, {"id": "QM-8", "type": "mc", "skill": "Geometry", "difficulty": 3, "stem": "A square is drawn inside a large circle so that all four corners of the square lie on the circle. A small circle is drawn inside the square so that it touches all four sides of the square. What is the ratio of the area of the large circle to the area of the small circle?", "options": ["√2 : 1", "2 : 1", "2√2 : 1", "3 : 1", "4 : 1"], "answer": 1, "explain": "If the square has side 2, the small circle has radius 1 and the large circle's radius is half the diagonal, √2. The areas are 2π and π, a ratio of 2 : 1. (√2 : 1 is the ratio of the radii, not the areas.)"}, {"id": "QM-9", "type": "numeric", "skill": "Number properties", "difficulty": 3, "stem": "How many integers from 1 to 100, inclusive, are multiples of 4 or multiples of 6 (or both)?", "answer": 33, "explain": "There are 25 multiples of 4 and 16 multiples of 6, but the 8 multiples of 12 are counted twice: 25 + 16 − 8 = 33."}, {"id": "QM-10", "type": "fraction", "skill": "Probability", "difficulty": 3, "stem": "An integer is chosen at random from the integers 1 to 20, inclusive. What is the probability that it is a multiple of 3 or a prime number (or both)? Give your answer as a fraction.", "answer": [13, 20], "explain": "Multiples of 3: 6 numbers. Primes: 2, 3, 5, 7, 11, 13, 17, 19, which is 8 numbers. The number 3 is in both lists, so 6 + 8 − 1 = 13 of the 20 integers qualify."}, {"id": "QM-11", "type": "multi", "skill": "Algebra", "difficulty": 3, "stem": "If x < 0, which of the following must be positive? Select all that apply.", "options": ["x²", "x³", "−x", "x + |x|", "x² − x"], "answer": [0, 2, 4], "explain": "x² and −x are positive for any negative x, and x² − x is a positive number plus a positive number. x³ is negative, and x + |x| = x − x = 0, which is not positive."}, {"id": "QM-12", "type": "mc", "skill": "Statistics", "difficulty": 2, "stem": "The average (arithmetic mean) of six numbers is 15. When a seventh number is added, the average of the seven numbers is 17. What is the seventh number?", "options": ["17", "19", "23", "26", "29"], "answer": 4, "explain": "The six numbers total 6 × 15 = 90 and the seven total 7 × 17 = 119, so the seventh number is 119 − 90 = 29."}, {"id": "QM-13", "type": "mc", "skill": "Data interpretation", "table": "commute-towns", "difficulty": 3, "stem": "If 20% of the bus users in each town switched to rail, what percentage of all the surveyed workers in the two towns combined would then travel by rail?", "options": ["12.5%", "15%", "17%", "19.5%", "22.5%"], "answer": 2, "explain": "Northfield moves 0.2 × 60 = 12 people and Southbury 0.2 × 75 = 15. Rail becomes 45 + 12 + 30 + 15 = 102 out of 600, which is 17%."}, {"id": "QM-14", "type": "mc", "skill": "Data interpretation", "table": "commute-towns", "difficulty": 2, "stem": "In Southbury, the number of surveyed workers who cycle or walk to work is what percentage greater than the corresponding number in Northfield?", "options": ["25%", "28.6%", "30%", "40%", "52.5%"], "answer": 3, "explain": "Southbury: 45 + 60 = 105; Northfield: 30 + 45 = 75. The difference, 30, divided by Northfield's 75 is 40%. Dividing by 105 instead gives the trap answer 28.6%."}, {"id": "QM-15", "type": "multi", "skill": "Data interpretation", "table": "commute-towns", "difficulty": 3, "stem": "Which of the following statements are true? Select all that apply.", "options": ["In each town, more of the surveyed workers travel by car than by any other single mode.", "The ratio of rail users to bus users is the same in the two towns.", "If 15 of Northfield's car users switched to rail, rail users would make up exactly 20% of Northfield's surveyed workers."], "answer": [0, 2], "explain": "Car is the largest group in both towns (120 and 90). Rail to bus is 45 : 60 = 3 : 4 in Northfield but 30 : 75 = 2 : 5 in Southbury. Rail would become 45 + 15 = 60, and 60 ÷ 300 = 20%."}]}, "Q2H": {"measure": "Quant", "minutes": 26, "label": "Quantitative Reasoning: Section 2", "tier": "harder", "questions": [{"id": "QH-1", "type": "numeric", "skill": "Counting", "difficulty": 4, "stem": "How many positive integers less than 1,000 have digits that add up to 10?", "answer": 63, "explain": "Write each number as three digits a, b, c (leading zeros allowed) with a + b + c = 10: there are C(12, 2) = 66 ways to split 10 into three non-negative parts. Three of those use a 'digit' of 10 (10 + 0 + 0 in some order), which is impossible, so the answer is 66 − 3 = 63."}, {"id": "QH-2", "type": "qc", "skill": "Number properties", "difficulty": 4, "given": "When the positive integer n is divided by 6, the remainder is 4.", "qa": "The remainder when n is divided by 4", "qb": "The remainder when n is divided by 3", "answer": 3, "explain": "n is 4, 10, 16, 22, ..., so dividing by 3 always leaves 1. Dividing by 4 leaves 0 when n = 4 or 16 but 2 when n = 10 or 22, so A can be smaller or larger than B."}, {"id": "QH-3", "type": "qc", "skill": "Algebra", "difficulty": 4, "given": "x³ < x", "qa": "x", "qb": "x²", "answer": 3, "explain": "x³ − x = x(x − 1)(x + 1) < 0 when 0 < x < 1 or x < −1. For x = 0.5, A (0.5) is greater than B (0.25), but for x = −2, B (4) is greater than A (−2). The trap is to assume only fractions between 0 and 1 satisfy x³ < x."}, {"id": "QH-4", "type": "qc", "skill": "Statistics", "difficulty": 3, "qa": "The standard deviation of the list 0, 10, 10, 10, 10, 10, 10, 20", "qb": "The standard deviation of the list 2, 2, 2, 2, 18, 18, 18, 18", "answer": 1, "explain": "Both lists have mean 10. In list A only two values are away from the mean (by 10 each), so the standard deviation is √(200 ÷ 8) = 5; in list B every value is 8 away, so it is 8. The trap is to judge by range, where A (20) beats B (16)."}, {"id": "QH-5", "type": "numeric", "skill": "Counting", "difficulty": 4, "stem": "How many odd four-digit integers greater than 5,000 have four different digits?", "answer": 1232, "explain": "Choose the thousands digit and the units digit first, because they interact. If the thousands digit is odd (5, 7 or 9), the units digit has 4 odd choices left; if it is even (6 or 8), it has all 5: 3 × 4 + 2 × 5 = 22 pairs. The middle two digits then have 8 × 7 = 56 choices, so 22 × 56 = 1,232."}, {"id": "QH-6", "type": "mc", "skill": "Overlapping sets", "difficulty": 4, "stem": "In a group of 50 people, 40 like tea, 38 like coffee and 36 like juice. What is the least possible number of people in the group who like all three drinks?", "options": ["0", "4", "7", "10", "14"], "answer": 4, "explain": "Count the dislikes: 10 dislike tea, 12 coffee and 14 juice, so at most 10 + 12 + 14 = 36 people dislike at least one drink. At least 50 − 36 = 14 must like all three, and 14 is reached when no one dislikes two drinks."}, {"id": "QH-7", "type": "qc", "skill": "Absolute value", "difficulty": 3, "given": "|x − 2| = 2x − 7", "qa": "x", "qb": "5", "answer": 2, "explain": "If x ≥ 2, then x − 2 = 2x − 7, so x = 5, which works. If x < 2, then 2 − x = 2x − 7 gives x = 3, which contradicts x < 2 (check: |3 − 2| = 1 but 2 × 3 − 7 = −1). So x = 5 is the only solution, and accepting x = 3 to choose 'cannot be determined' is the trap."}, {"id": "QH-8", "type": "multi", "skill": "Number properties", "stem": "If n is an odd integer, which of the following must be true? Select all that apply.", "options": ["n² + 1 is even", "3n is even", "n(n + 1) is even", "(n + 3) / 2 is odd", "n² − 1 is divisible by 8"], "answer": [0, 2, 4], "explain": "Odd × odd is odd, so n² + 1 is even, and n(n + 1) contains the even factor n + 1. n² − 1 = (n − 1)(n + 1) is the product of two consecutive even numbers, one of them a multiple of 4, so 8 divides it. 3n is odd, and n = 1 gives (n + 3)/2 = 2, which is even.", "difficulty": 4}, {"id": "QH-9", "type": "mc", "skill": "Coordinate geometry", "difficulty": 3, "stem": "In the xy-plane, the parabola y = x² − 4 and the line y = 2x − 1 meet at two points. What is the distance between these two points?", "options": ["4√2", "2√10", "8", "4√5", "4√10"], "answer": 3, "explain": "Setting x² − 4 = 2x − 1 gives x² − 2x − 3 = 0, so x = 3 or x = −1, giving the points (3, 5) and (−1, −3). Distance = √(4² + 8²) = √80 = 4√5."}, {"id": "QH-10", "type": "mc", "skill": "Inequalities", "difficulty": 4, "stem": "How many integers x satisfy |x − 3| + |x + 2| < 9?", "options": ["8", "9", "10", "11", "12"], "answer": 0, "explain": "For −2 ≤ x ≤ 3 the sum is always 5, which gives 6 integers. Above 3 the sum is 2x − 1, so x < 5 adds 4, and below −2 it is 1 − 2x, so x > −4 adds −3: 8 integers in all, from −3 to 4. Including −4 and 5, where the sum equals exactly 9, is the trap."}, {"id": "QH-11", "type": "fraction", "skill": "Conditional probability", "difficulty": 3, "stem": "Two fair six-sided dice are rolled. Given that at least one of the dice shows a 6, what is the probability that the sum of the two dice is at least 10? Give your answer as a fraction.", "answer": [5, 11], "explain": "There are 11 outcomes with at least one 6, not 12, because (6, 6) is counted once. Of these, (6, 4), (4, 6), (6, 5), (5, 6) and (6, 6) have a sum of at least 10, giving 5/11."}, {"id": "QH-12", "type": "mc", "skill": "Rates and work", "difficulty": 4, "stem": "Working together at their constant rates, machines P and Q can complete a job in 12 hours. On one occasion, P worked alone for 6 hours and then Q, working alone, finished the job in a further 21 hours. How many hours would P take to complete the whole job working alone?", "options": ["12", "15", "16", "18", "20"], "answer": 4, "explain": "Let the rates be p and q, with p + q = 1/12 and 6p + 21q = 1. Six hours of both together does half the job, so 6p + 6q = 1/2 and therefore 15q = 1/2, giving q = 1/30. Then p = 1/12 − 1/30 = 1/20, so P alone takes 20 hours."}, {"id": "QH-13", "type": "mc", "skill": "Data interpretation", "chart": "museum-visitors", "difficulty": 3, "stem": "For how many of the years from 2020 to 2024 was the ratio of Museum A's visitors to Museum B's visitors greater than it had been in the previous year?", "options": ["1", "2", "3", "4", "5"], "answer": 2, "explain": "The ratios are 2019: 40/35 ≈ 1.14; 2020: 1.5; 2021: 1.0; 2022: 1.4; 2023: 1.25; 2024: 1.4. The ratio rose in 2020, 2022 and 2024, so 3 years; tracking only Museum A's growth is the trap."}, {"id": "QH-14", "type": "numeric", "skill": "Data interpretation", "chart": "museum-visitors", "difficulty": 3, "stem": "Suppose that, after 2024, Museum A's visitors grow each year by the same percentage as they grew from 2023 to 2024. How many thousand visitors would Museum A have in 2026? (Enter the number only.)", "answer": 137.2, "explain": "From 2023 to 2024 visitors rose from 50 to 70 thousand, a 40% increase. Two more years give 70 × 1.4 × 1.4 = 137.2 thousand; adding 20 thousand a year (110) is the trap."}, {"id": "QH-15", "type": "multi", "skill": "Data interpretation", "chart": "museum-visitors", "difficulty": 3, "stem": "Based on the chart, which of the following statements are true? Select all that apply.", "options": ["In every year shown, Museum A had more visitors than Museum B.", "Museum B's visitors in 2024 were more than double its visitors in 2020.", "The median of Museum A's six annual visitor numbers is greater than 40 thousand.", "Museum B's average (arithmetic mean) annual number of visitors over the six years is less than 35 thousand.", "From 2022 to 2023, Museum B's visitors increased by a greater percentage than Museum A's."], "answer": [2, 3, 4], "explain": "Museum A's values in order are 20, 35, 40, 45, 50, 70, so the median is 42.5. Museum B totals 200, an average of about 33.3, and its 2022–2023 rise is 15/25 = 60% against A's 15/35 ≈ 43%. In 2021 the museums were equal (20 each), and B's 2024 figure (50) is less than double its 2020 figure (30)."}]}}, "blurb": "The original test, upgraded to three second-section tiers.", "version": "85b1082a6d"}]}</script>
+<script>
+(function () {
+  "use strict";
+  var DATA = JSON.parse(document.getElementById("data").textContent);
+  var CFG = DATA.config, TESTS = DATA.tests;
+  var K_PROG = "gre-app-v2-progress", K_HIST = "gre-app-v2-history";
+  var LET = "ABCDEFGHIJ";
+  var QC_OPTS = ["Quantity A is greater.", "Quantity B is greater.", "The two quantities are equal.", "The relationship cannot be determined from the information given."];
+  var TIER_SUFFIX = { easier: "E", medium: "M", harder: "H" };
+
+  // ---------- storage ----------
+  function lsGet(k, d) { try { var t = localStorage.getItem(k); return t ? JSON.parse(t) : d; } catch (e) { return d; } }
+  function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  var db = null, history = lsGet(K_HIST, []), store = "browser", pushed = false;
+  function initDb() {
+    if (!window.claude || typeof window.claude.use !== "function") return;
+    window.claude.use("db").then(function (d) {
+      if (!d) return;
+      db = d; store = "account";
+      var timer = setTimeout(function () { if (view.name === "home") render(); }, 10000);
+      d.collection("attempts").onSnapshot(function (snap) {
+        clearTimeout(timer);
+        var remote = snap.docs.map(function (x) { return Object.assign({ id: x.id }, x.data()); });
+        var ids = {}; remote.forEach(function (r) { ids[r.id] = true; });
+        // push local-only attempts up, but only against a confirmed (non-cached) view of the store
+        if (!snap.metadata.fromCache && !pushed) { pushed = true; history.filter(function (h) { return !ids[h.id]; }).forEach(function (h) { d.collection("attempts").doc(h.id).set(h).catch(function () {}); }); }
+        history = mergeHist(remote, history); lsSet(K_HIST, history);
+        if (view.name === "home" || view.name === "report") render();
+      }, function () { db = null; store = "browser"; });
+    }).catch(function () {});
+  }
+  function mergeHist(a, b) { var m = {}; b.concat(a).forEach(function (h) { m[h.id] = Object.assign({}, m[h.id] || {}, h); }); return Object.keys(m).map(function (k) { return m[k]; }).sort(function (x, y) { return x.date < y.date ? 1 : -1; }); }
+  function saveAttempt(rec) {
+    history = mergeHist([rec], history); lsSet(K_HIST, history);
+    if (db) db.collection("attempts").doc(rec.id).set(rec).catch(function () { toast("Saved in this browser only. Your account store could not be reached."); });
+  }
+  function updateAttempt(id, patch) {
+    history = history.map(function (h) { return h.id === id ? Object.assign({}, h, patch) : h; }); lsSet(K_HIST, history);
+    if (db) db.collection("attempts").doc(id).update(patch).catch(function () {});
+  }
+  var progress = lsGet(K_PROG, {});
+  function saveProg() { lsSet(K_PROG, progress); }
+
+  // ---------- helpers ----------
+  function esc(s) { return String(s === undefined || s === null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function blankify(s) { return esc(s).replace(/\((i{1,3})\)______|______/g, function (m, r) { return '<span style="display:inline-block;min-width:4.5em;border-bottom:2px solid currentColor;text-align:center">' + (r ? "(" + r + ")" : "") + "</span>"; }); }
+  function fmt(sec) { sec = Math.max(0, Math.ceil(sec)); var m = Math.floor(sec / 60), s = sec % 60; return m + ":" + (s < 10 ? "0" : "") + s; }
+  function on(id, fn) { var el = document.getElementById(id); if (el) el.addEventListener("click", fn); }
+  function testById(id) { for (var i = 0; i < TESTS.length; i++) if (TESTS[i].id === id) return TESTS[i]; return null; }
+  function fmtDate(iso) { try { return new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }); } catch (e) { return iso; } }
+  function ordinal(n) { var s = ["th", "st", "nd", "rd"], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); }
+  var toastT = null;
+  function toast(msg) { var t = document.getElementById("toast"); t.textContent = msg; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(function () { t.hidden = true; }, 3500); }
+
+  // ---------- marking ----------
+  function parseNum(s) { if (s === undefined || s === null) return null; s = String(s).trim().replace(/,/g, "").replace(/^−/, "-"); if (!/^-?(\d+\.?\d*|\.\d+)$/.test(s)) return null; return parseFloat(s); }
+  function isCorrect(q, a) {
+    if (a === undefined || a === null) return false;
+    switch (q.type) {
+      case "mc": case "qc": case "sentence": return a === q.answer;
+      case "tc": return Array.isArray(a) && q.answer.every(function (v, i) { return a[i] === v; });
+      case "se": case "multi":
+        if (!Array.isArray(a)) return false;
+        var x = a.slice().sort(), y = q.answer.slice().sort();
+        return x.length === y.length && x.every(function (v, i) { return v === y[i]; });
+      case "numeric": var n = parseNum(a); return n !== null && Math.abs(n - q.answer) < 1e-9;
+      case "fraction":
+        if (!Array.isArray(a)) return false;
+        var p = parseNum(a[0]), r = parseNum(a[1]);
+        return p !== null && r !== null && r !== 0 && Math.abs(p / r - q.answer[0] / q.answer[1]) < 1e-12;
+    }
+    return false;
+  }
+  function answered(q, a) {
+    if (a === undefined || a === null) return false;
+    if (q.type === "tc") return Array.isArray(a) && a.filter(function (v) { return v !== null && v !== undefined; }).length === q.blanks.length;
+    if (q.type === "se" || q.type === "multi") return Array.isArray(a) && a.length > 0;
+    if (q.type === "numeric") return String(a).trim() !== "";
+    if (q.type === "fraction") return Array.isArray(a) && String(a[0] || "").trim() !== "" && String(a[1] || "").trim() !== "";
+    return true;
+  }
+  function rawOf(test, key, answers) { return test.sections[key].questions.reduce(function (n, q) { return n + (isCorrect(q, answers[q.id]) ? 1 : 0); }, 0); }
+  function tierFor(raw1) { return raw1 <= CFG.routing.easierMax ? "easier" : raw1 <= CFG.routing.mediumMax ? "medium" : "harder"; }
+  function csem(measure, s) {
+    var t = CFG.csem[measure];
+    for (var i = 0; i < t.length - 1; i++) if (s >= t[i][0] && s <= t[i + 1][0]) { var f = (s - t[i][0]) / (t[i + 1][0] - t[i][0]); return t[i][1] + f * (t[i + 1][1] - t[i][1]); }
+    return t[t.length - 1][1];
+  }
+  function measureResult(test, measure, answers, route) {
+    var p = measure === "Verbal" ? "V" : "Q", tier = route[measure];
+    var k1 = p + "1", k2 = p + "2" + TIER_SUFFIX[tier];
+    var r1 = rawOf(test, k1, answers), r2 = rawOf(test, k2, answers), raw = r1 + r2;
+    var anyAnswered = test.sections[k1].questions.concat(test.sections[k2].questions).some(function (q) { return answered(q, answers[q.id]); });
+    var est = CFG.conversion[tier][raw];
+    var half = Math.round(csem(measure, est)) + CFG.extraUncertainty;
+    var lo = Math.max(130, est - half), hi = Math.min(170, est + half);
+    return { measure: measure, k1: k1, k2: k2, r1: r1, r2: r2, raw: raw, tier: tier, est: anyAnswered ? est : null, lo: lo, hi: hi, pct: CFG.percentiles[measure][est] };
+  }
+
+  // ---------- views ----------
+  var view = { name: "home" };   // home | attempt | report | practice
+  var ui = { review: false, confirm: null, calc: { show: false, expr: "", mem: 0, err: false, done: false }, help: false, warned5: false };
+  var tick = null;
+  var app = document.getElementById("app"), bar = document.getElementById("bar"), calcEl = document.getElementById("calc"), modal = document.getElementById("modal");
+
+  function render() {
+    var A = view.name === "attempt" ? progress[view.testId] : null;
+    var inSec = A && A.phase === "inSection";
+    var inPractice = view.name === "practice" && view.section;
+    bar.hidden = !(inSec || inPractice);
+    calcEl.hidden = !((inSec || inPractice) && ui.calc.show);
+    modal.hidden = !ui.help;
+    if (view.name === "home") return renderHome();
+    if (view.name === "report") return renderReport(view.attemptId);
+    if (view.name === "practice") return renderPractice();
+    if (view.name === "attempt") return renderAttempt();
+  }
+  function go(v) { stopTimer(); view = v; ui.review = false; ui.confirm = null; ui.calc.show = false; ui.help = false; render(); window.scrollTo(0, 0); }
+
+  // ---------- home ----------
+  function renderHome() {
+    var cards = TESTS.map(function (t) {
+      var prog = progress[t.id], done = history.filter(function (h) { return h.testId === t.id; });
+      var last = done[0];
+      var status = prog ? '<span class="pill warn">In progress</span>' : last ? '<span class="pill good">Taken ' + done.length + "×</span>" : '<span class="pill skip">Not taken</span>';
+      return '<div class="panel tcard"><div class="row" style="justify-content:space-between"><h3>' + esc(t.title) + "</h3>" + status + "</div>" +
+        '<div class="meta">' + esc(t.blurb || "") + "</div>" +
+        (last && last.status === "reported" ? '<div class="small num">Last: V ' + (last.verbal.est || "NS") + " · Q " + (last.quant.est || "NS") + " · AW " + (last.aw && last.aw.score !== null && last.aw.score !== undefined ? last.aw.score.toFixed(1) : "pending") + "</div>" : "") +
+        '<div class="row">' + (prog ? '<button class="btn primary" data-resume="' + t.id + '">Resume</button><button class="btn" data-discard="' + t.id + '">Discard attempt</button>' : '<button class="btn primary" data-start="' + t.id + '">' + (last ? "Retake" : "Start test") + "</button>") +
+        (last ? '<button class="btn" data-practice="' + t.id + '">Practice mode</button>' : "") + "</div>" +
+        (ui.confirm === "discard:" + t.id ? '<div class="confirm small stack" style="gap:8px">Discard this unfinished attempt? Your answers so far will be deleted.<div class="row"><button class="btn primary" data-yesdiscard="' + t.id + '">Yes, discard</button><button class="btn" data-nodiscard="1">Cancel</button></div></div>' : "") +
+        "</div>";
+    }).join("");
+    var hist = history.length ? '<div class="panel scroll-x"><table class="plain"><thead><tr><th>Date</th><th>Test</th><th>Verbal</th><th>Quant</th><th>Writing</th><th></th></tr></thead><tbody>' +
+      history.map(function (h) {
+        var t = testById(h.testId);
+        var cancelled = h.status === "cancelled";
+        return "<tr><td>" + esc(fmtDate(h.date)) + "</td><td>" + esc(t ? t.title : h.testId) + "</td>" +
+          (cancelled ? '<td colspan="3"><span class="pill skip">Scores cancelled</span></td>' :
+            '<td class="num">' + (h.verbal.est || "NS") + '<span class="muted small"> ' + h.verbal.tier + '</span></td><td class="num">' + (h.quant.est || "NS") + '<span class="muted small"> ' + h.quant.tier + '</span></td><td class="num">' + (h.aw && h.aw.score !== null && h.aw.score !== undefined ? h.aw.score.toFixed(1) : '<span class="pill warn">Pending</span>') + "</td>") +
+          '<td><button class="btn" data-report="' + esc(h.id) + '">' + (cancelled ? "Reinstate" : "Report") + "</button></td></tr>";
+      }).join("") + "</tbody></table></div>" : '<div class="panel muted">No finished tests yet. Your scores will appear here after your first test.</div>';
+    app.innerHTML = '<div class="stack">' +
+      '<div class="stack" style="gap:6px"><span class="eyebrow">Current shorter GRE format · 1 hour 58 minutes</span><h1>GRE Practice Centre</h1></div>' +
+      '<p class="prose" style="margin:0">Full-length, timed practice tests that follow ETS test-day procedure: the essay first, then two Verbal and two Quantitative sections. Your first section in each measure decides whether your second section is easier, medium or harder.</p>' +
+      '<div class="tests">' + cards + "</div>" +
+      '<div class="stack" style="gap:8px"><h2>Score history</h2><p class="small muted" style="margin:0">' + (store === "account" ? "Saved to your private score store on this link, so it follows you across devices. Claude can read it to mark your essays." : "Saved in this browser only.") + "</p>" + hist + "</div>" +
+      '<div class="note small prose">All questions are original practice material written to ETS\'s published specifications, not ETS questions. Verbal and Quant scores are estimates. For the most accurate benchmark, also take ETS\'s free official POWERPREP tests.</div></div>';
+    app.querySelectorAll("[data-start]").forEach(function (b) { b.addEventListener("click", function () { startAttempt(b.dataset.start); }); });
+    app.querySelectorAll("[data-resume]").forEach(function (b) { b.addEventListener("click", function () { var A = progress[b.dataset.resume]; if (A.phase === "inSection") A.phase = "sectionIntro"; saveProg(); go({ name: "attempt", testId: b.dataset.resume }); }); });
+    app.querySelectorAll("[data-discard]").forEach(function (b) { b.addEventListener("click", function () { ui.confirm = "discard:" + b.dataset.discard; render(); }); });
+    app.querySelectorAll("[data-yesdiscard]").forEach(function (b) { b.addEventListener("click", function () { delete progress[b.dataset.yesdiscard]; saveProg(); ui.confirm = null; render(); }); });
+    app.querySelectorAll("[data-nodiscard]").forEach(function (b) { b.addEventListener("click", function () { ui.confirm = null; render(); }); });
+    app.querySelectorAll("[data-report]").forEach(function (b) { b.addEventListener("click", function () { go({ name: "report", attemptId: b.dataset.report }); }); });
+    app.querySelectorAll("[data-practice]").forEach(function (b) { b.addEventListener("click", function () { go({ name: "practice", testId: b.dataset.practice }); }); });
+  }
+
+  // ---------- attempt flow ----------
+  function startAttempt(testId) {
+    progress[testId] = { testId: testId, phase: "ack", step: 0, route: {}, answers: {}, marked: {}, essay: "", timeLeft: {}, current: 0, essayUsed: 0, startedAt: new Date().toISOString(), hideTime: false };
+    saveProg(); go({ name: "attempt", testId: testId });
+  }
+  function seq(test) { return ["AW"].concat(test.order); }
+  function secKey(test, A, step) {
+    var k = seq(test)[step];
+    if (k === "V2") return "V2" + TIER_SUFFIX[A.route.Verbal];
+    if (k === "Q2") return "Q2" + TIER_SUFFIX[A.route.Quant];
+    return k;
+  }
+  function minutesOf(test, k) { return k === "AW" ? test.essay.minutes : test.sections[k].minutes; }
+  function labelOf(test, k) { return k === "AW" ? "Analytical Writing" : test.sections[k].label; }
+
+  function renderAttempt() {
+    var A = progress[view.testId], test = testById(view.testId);
+    if (!A || !test) return go({ name: "home" });
+    if (A.phase === "ack") return renderAck(test, A);
+    if (A.phase === "general") return renderGeneral(test, A);
+    if (A.phase === "sectionIntro") return renderSectionIntro(test, A);
+    if (A.phase === "inSection") { var k = secKey(test, A, A.step); return k === "AW" ? renderEssay(test, A) : ui.review ? renderReview(test, A) : renderQuestion(test, A); }
+    if (A.phase === "reportChoice") return renderReportChoice(test, A);
+  }
+
+  function renderAck(test, A) {
+    app.innerHTML = '<div class="stack prose"><span class="eyebrow">' + esc(test.title) + "</span><h1>Before you begin</h1>" +
+      "<p>On test day you sign a confidentiality agreement at check-in. For practice, agree to these conditions so your score means something:</p>" +
+      "<ul><li>I will take the whole test in one sitting. There is no scheduled break, and the clock does not stop.</li>" +
+      "<li>I will work alone, with no notes, books, phone or other help. I may use scratch paper and the on-screen calculator.</li>" +
+      "<li>I will not look up answers or read ahead in another test.</li></ul>" +
+      '<label class="row" style="gap:8px"><input type="checkbox" id="ackBox"> I agree to these conditions.</label>' +
+      '<div class="row"><button class="btn primary big" id="ackGo" disabled>Continue</button><button class="btn" id="ackBack">Back to tests</button></div></div>';
+    var box = document.getElementById("ackBox"), btn = document.getElementById("ackGo");
+    box.addEventListener("change", function () { btn.disabled = !box.checked; });
+    on("ackGo", function () { A.phase = "general"; saveProg(); render(); });
+    on("ackBack", function () { delete progress[test.id]; saveProg(); go({ name: "home" }); });
+  }
+
+  function orderText(test) {
+    var names = { V1: "Verbal 1", V2: "Verbal 2", Q1: "Quant 1", Q2: "Quant 2" };
+    return ["Analytical Writing"].concat(test.order.map(function (k) { return names[k]; })).join(" → ");
+  }
+  function renderGeneral(test, A) {
+    app.innerHTML = '<div class="stack prose"><span class="eyebrow">' + esc(test.title) + "</span><h1>General directions</h1>" +
+      '<div class="panel scroll-x"><table class="plain"><thead><tr><th>Section</th><th>Questions</th><th>Time</th></tr></thead><tbody>' +
+      "<tr><td>Analytical Writing</td><td>1 Issue essay</td><td class=num>30 min</td></tr>" +
+      "<tr><td>Verbal Reasoning (2 sections)</td><td>12, then 15</td><td class=num>18 + 23 min</td></tr>" +
+      "<tr><td>Quantitative Reasoning (2 sections)</td><td>12, then 15</td><td class=num>21 + 26 min</td></tr></tbody></table></div>" +
+      "<p><strong>Order for this test:</strong> " + esc(orderText(test)) + ". The essay always comes first. After it, Verbal and Quant sections can come in any order on the real test.</p>" +
+      "<ul><li>Each section is timed separately. When time runs out, the section ends and your answers are kept.</li>" +
+      "<li>Within a section you may skip questions, go back, change answers, and mark questions to revisit on the Review screen.</li>" +
+      "<li>Once a section ends you cannot return to it.</li>" +
+      "<li>Your first Verbal and first Quant section decide the difficulty of the second section in that measure.</li>" +
+      "<li>Every question in a section counts equally. There is no penalty for wrong answers, so answer everything. There is no partial credit.</li>" +
+      "<li>Use the Help button for directions at any time. The clock can be hidden; it reappears for the last 5 minutes.</li>" +
+      "<li>At the end you choose whether to report or cancel your scores, as on test day.</li></ul>" +
+      '<div class="row"><button class="btn primary big" id="genGo">Continue</button></div></div>';
+    on("genGo", function () { A.phase = "sectionIntro"; saveProg(); render(); });
+  }
+
+  function sectionDirections(test, k) {
+    if (k === "AW") return "<p>You have 30 minutes to plan and write a response to one issue. Take a clear position, support it with reasons and specific examples, and address the specific instructions given with the issue.</p><p>The essay box is a basic word processor: you can type, delete, cut, copy, paste and undo with your keyboard. There is no spell-checker or grammar checker. Readers judge how well you reason and organise your ideas; minor errors are acceptable.</p>";
+    var s = test.sections[k];
+    if (s.measure === "Verbal") return "<p>For each question, follow the directions shown above it. Questions include text completion, sentence equivalence and reading comprehension. Some reading questions ask you to select all answers that apply; you must select every correct answer and nothing else to get credit.</p>";
+    return "<p>For each question, follow the directions shown above it. An on-screen calculator is available.</p>" + QUANT_NOTES;
+  }
+  var QUANT_NOTES = '<div class="panel small"><strong>Notes</strong><ul style="margin:6px 0 0;padding-left:20px">' +
+    "<li>All numbers used are real numbers.</li><li>All figures are assumed to lie in a plane unless otherwise indicated.</li>" +
+    "<li>Geometric figures are not necessarily drawn to scale. You can assume that lines shown as straight are straight, points on a line are in the order shown, and all geometric objects are in the relative positions shown. Base your answers on reasoning, not on measuring.</li>" +
+    "<li>Coordinate systems, such as xy-planes and number lines, and graphical data presentations, such as bar graphs and line graphs, are drawn to scale.</li>" +
+    "<li>A symbol that appears more than once in a question has the same meaning throughout the question.</li></ul></div>";
+
+  function renderSectionIntro(test, A) {
+    var k = secKey(test, A, A.step), started = A.timeLeft[k] !== undefined;
+    var n = k === "AW" ? null : test.sections[k].questions.length;
+    app.innerHTML = '<div class="stack prose"><span class="eyebrow">Section ' + (A.step + 1) + " of 5 · " + esc(test.title) + "</span><h1>" + esc(labelOf(test, k)) + "</h1>" +
+      '<p class="num"><strong>' + (started ? fmt(A.timeLeft[k]) + " remaining" : minutesOf(test, k) + " minutes") + "</strong>" + (n ? " · " + n + " questions" : "") + "</p>" +
+      sectionDirections(test, k) +
+      '<div class="row"><button class="btn primary big" id="secGo">' + (started ? "Resume section" : "Begin section") + "</button></div></div>";
+    on("secGo", function () {
+      if (A.timeLeft[k] === undefined) A.timeLeft[k] = minutesOf(test, k) * 60;
+      A.phase = "inSection"; A.current = 0; ui.review = false; ui.confirm = null; ui.warned5 = A.timeLeft[k] <= 300;
+      saveProg(); render(); startTimer(); window.scrollTo(0, 0);
+    });
+  }
+  function endSection() {
+    stopTimer();
+    var A = progress[view.testId], test = testById(view.testId), k = secKey(test, A, A.step);
+    if (k === "AW") A.essayUsed = test.essay.minutes * 60 - (A.timeLeft.AW || 0);
+    if (k === "V1") A.route.Verbal = tierFor(rawOf(test, "V1", A.answers));
+    if (k === "Q1") A.route.Quant = tierFor(rawOf(test, "Q1", A.answers));
+    A.step++; ui.review = false; ui.confirm = null; ui.calc.show = false; ui.help = false;
+    A.phase = A.step >= 5 ? "reportChoice" : "sectionIntro";
+    saveProg(); render(); window.scrollTo(0, 0);
+  }
+  function startTimer() {
+    stopTimer();
+    var last = Date.now();
+    tick = setInterval(function () {
+      var A = progress[view.testId]; if (!A) return stopTimer();
+      var test = testById(view.testId), k = secKey(test, A, A.step), now = Date.now();
+      A.timeLeft[k] -= (now - last) / 1000; last = now;
+      if (A.timeLeft[k] <= 0) { A.timeLeft[k] = 0; saveProg(); endSection(); return; }
+      if (A.timeLeft[k] <= 300 && !ui.warned5) { ui.warned5 = true; toast("5 minutes remaining in this section."); }
+      saveProg(); paintTimer();
+    }, 1000);
+  }
+  function stopTimer() { if (tick) clearInterval(tick); tick = null; }
+  function paintTimer() {
+    var el = document.getElementById("timer"); if (!el) return;
+    if (view.name === "practice") { el.textContent = "Untimed"; return; }
+    var A = progress[view.testId], test = testById(view.testId), t = A.timeLeft[secKey(test, A, A.step)];
+    var show = !A.hideTime || t <= 300;
+    el.textContent = show ? fmt(t) : "Show time";
+    el.classList.toggle("low", show && t <= 300);
+  }
+
+  // ---------- toolbar, help, calculator ----------
+  function renderBar(title, sub, opts) {
+    bar.innerHTML = '<div class="bar-in"><div style="min-width:0"><div class="bar-title">' + esc(title) + '</div><div class="bar-sub">' + esc(sub) + "</div></div>" +
+      '<div class="bar-tools">' + (opts.extra || "") +
+      (opts.mark ? '<button class="btn ' + (opts.marked ? "flagged" : "") + '" id="mark">' + (opts.marked ? "Marked" : "Mark") + "</button>" : "") +
+      (opts.review ? '<button class="btn" id="rev">' + (ui.review ? "Return" : "Review") + "</button>" : "") +
+      '<button class="btn" id="help">Help</button>' +
+      (opts.calc ? '<button class="btn" id="calcBtn">Calculator</button>' : "") +
+      (opts.nav ? '<button class="btn" id="back"' + (opts.first ? " disabled" : "") + '>Back</button><button class="btn primary" id="next">Next</button>' : "") +
+      (opts.exit ? '<button class="btn" id="exitPractice">Exit</button>' : "") +
+      '<button class="timer" id="timer" title="Show or hide the clock"></button></div></div>';
+    paintTimer();
+    on("timer", function () { if (view.name !== "attempt") return; var A = progress[view.testId]; A.hideTime = !A.hideTime; saveProg(); paintTimer(); });
+    on("help", function () { ui.help = true; renderHelp(opts.q, opts.sectionKey, opts.test); modal.hidden = false; });
+    on("calcBtn", function () { ui.calc.show = !ui.calc.show; calcEl.hidden = !ui.calc.show; renderCalc(); });
+    renderCalc();
+  }
+  function renderHelp(q, k, test) {
+    var measure = k === "AW" ? "AW" : test.sections[k].measure;
+    modal.innerHTML = '<div class="panel stack" role="dialog" aria-label="Help"><div class="row" style="justify-content:space-between"><h2>Help</h2><button class="btn" id="helpX">Close</button></div>' +
+      (q ? '<div><h3>This question</h3><p class="small">' + esc(directionFor(q)) + "</p></div>" : "") +
+      "<div><h3>This section</h3>" + sectionDirections(test, k).replace(/<div class="panel small">/, '<div class="small">') + "</div>" +
+      '<div class="small"><h3>Navigation</h3><p>Back and Next move between questions. Mark flags a question; Review lists every question with its status so you can jump to any of them. Ending a section is final. The clock button hides the time; it reappears automatically for the last 5 minutes.</p>' +
+      (measure === "Quant" ? "<p>Calculator: follows the order of operations, shows up to 8 digits, has one memory (M+ adds to it, MR recalls, MC clears) and shows ERROR for results it cannot display; press C to clear an error. Transfer Display copies the result into a numeric-entry box.</p>" : "") + "</div></div>";
+    on("helpX", function () { ui.help = false; modal.hidden = true; });
+  }
+  function directionFor(q) {
+    if (q.type === "multi") return q.selectCount ? "Select exactly " + q.selectCount + " answer choices." : (q.passage ? "Consider each of the answer choices separately and select all that apply." : "Select one or more answer choices according to the specific question directions. You must select every correct choice and no others.");
+    return { tc: q.blanks && q.blanks.length > 1 ? "For each blank, select one entry from the corresponding column of choices. Fill all blanks in the way that best completes the text." : "For the blank, select one entry from the column of choices. Fill the blank in the way that best completes the text.",
+      se: "Select the two answer choices that, when used to complete the sentence, fit the meaning of the sentence as a whole and produce completed sentences that are alike in meaning.",
+      mc: "Select one answer choice.", sentence: "Click on the sentence in the passage that meets the requirement stated in the question.",
+      qc: "Compare Quantity A and Quantity B, using additional information centred above the two quantities if such information is given, and select one of the four answer choices.",
+      numeric: "Enter your answer as an integer or a decimal in the box. Equivalent forms of the correct answer, such as 2.5 and 2.50, are all correct. Enter the exact answer unless the question asks you to round.",
+      fraction: "Enter your answer as a fraction, with the numerator in the upper box and the denominator in the lower box. Fractions do not need to be reduced to lowest terms." }[q.type];
+  }
+
+  function calcFormat(v) {
+    if (!isFinite(v) || Math.abs(v) > 99999999) return null;
+    if (v !== 0 && Math.abs(v) < 0.0000001) return "0";
+    // ETS display: at most 8 digits in total
+    var intLen = String(Math.trunc(Math.abs(v))).length;
+    return String(parseFloat(v.toFixed(Math.max(0, 8 - intLen))));
+  }
+  // Recursive-descent parser (no eval): expr = term (+|- term)*, term = factor (*|/ factor)*, factor = -factor | (expr) | number
+  function calcEval(expr) {
+    var s = String(expr).replace(/×/g, "*").replace(/÷/g, "/").replace(/−/g, "-").replace(/\s+/g, ""), i = 0;
+    if (!s) return null;
+    function pe() { var v = pt(); while (s[i] === "+" || s[i] === "-") { var op = s[i++], r = pt(); v = op === "+" ? v + r : v - r; } return v; }
+    function pt() { var v = pf(); while (s[i] === "*" || s[i] === "/") { var op = s[i++], r = pf(); if (op === "/" && r === 0) throw 0; v = op === "*" ? v * r : v / r; } return v; }
+    function pf() {
+      if (s[i] === "-") { i++; return -pf(); }
+      if (s[i] === "(") { i++; var v = pe(); if (s[i] !== ")") throw 0; i++; return v; }
+      var m = /^(\d+\.?\d*|\.\d+)/.exec(s.slice(i)); if (!m) throw 0; i += m[0].length; return parseFloat(m[0]);
+    }
+    try { var v = pe(); if (i !== s.length || !isFinite(v)) return null; return v; } catch (e) { return null; }
+  }
+  function currentNumericQ() {
+    if (ui.review) return null;
+    var ctx = currentQuestionCtx(); return ctx && ctx.q.type === "numeric" ? ctx.q : null;
+  }
+  function renderCalc() {
+    if (calcEl.hidden) return;
+    var c = ui.calc, nq = currentNumericQ();
+    var keys = ["7", "8", "9", "÷", "4", "5", "6", "×", "1", "2", "3", "−", "0", ".", "=", "+", "(", ")", "√", "±", "MR", "MC", "M+", "C"];
+    calcEl.innerHTML = '<div class="hd"><span>Calculator</span><button class="btn" id="calcX" style="padding:2px 8px">Close</button></div>' +
+      '<div class="disp"><span class="m">' + (c.mem !== 0 ? "M" : "") + '</span><span id="disp">' + esc(c.err ? "ERROR" : (c.expr || "0")) + "</span></div>" +
+      '<div class="keys">' + keys.map(function (x) { return '<button data-k="' + x + '">' + x + "</button>"; }).join("") +
+      (nq ? '<button class="wide" data-k="T">Transfer Display</button>' : "") + "</div>";
+    calcEl.querySelectorAll("[data-k]").forEach(function (b) { b.addEventListener("click", function () { calcKey(b.dataset.k); }); });
+    on("calcX", function () { ui.calc.show = false; calcEl.hidden = true; });
+  }
+  function calcKey(k) {
+    var c = ui.calc;
+    if (c.err && k !== "C") return;
+    if (k === "C") { c.expr = ""; c.err = false; c.done = false; return renderCalc(); }
+    if (c.done && /^[0-9.(]$/.test(k)) c.expr = "";
+    c.done = false;
+    function result(v) { var s = v === null ? null : calcFormat(v); if (s === null) { c.err = true; } else { c.expr = s; c.done = true; } }
+    if (k === "=") result(calcEval(c.expr));
+    else if (k === "√") { var r = calcEval(c.expr); if (r === null || r < 0) c.err = true; else result(Math.sqrt(r)); }
+    else if (k === "±") { var s = calcEval(c.expr); if (s !== null) result(-s); }
+    else if (k === "M+") { var m = calcEval(c.expr); if (m !== null) { c.mem += m; c.done = true; } }
+    else if (k === "MR") c.expr += (c.mem < 0 ? "(" + calcFormat(c.mem) + ")" : calcFormat(c.mem));
+    else if (k === "MC") c.mem = 0;
+    else if (k === "T") { var nq = currentNumericQ(), t = calcEval(c.expr); if (nq && t !== null && calcFormat(t) !== null) { setAnswer(nq, calcFormat(t)); render(); return; } }
+    else c.expr += k;
+    renderCalc();
+  }
+
+  // ---------- question rendering (shared by test and practice) ----------
+  function passageHtml(test, key, q, selectable, sel) {
+    var p = test.passages[key], paras = p.paragraphs || [p], idx = 0;
+    return '<div class="passage' + (selectable ? " selectable" : "") + '">' + paras.map(function (para) {
+      return "<p>" + para.map(function (s) { var i = idx++; return '<span class="s' + (selectable && sel === i ? " on" : "") + '" data-s="' + i + '">' + esc(s) + "</span> "; }).join("") + "</p>";
+    }).join("") + "</div>";
+  }
+  function sentencesOf(test, key) { var p = test.passages[key]; return p.paragraphs ? [].concat.apply([], p.paragraphs) : p; }
+  function tableHtml(test, key) {
+    var t = test.tables[key];
+    return '<div class="panel scroll-x" style="padding:14px"><table class="plain data-table"><caption>' + esc(t.title) + "</caption><thead><tr>" +
+      t.head.map(function (h) { return "<th>" + esc(h) + "</th>"; }).join("") + "</tr></thead><tbody>" +
+      t.rows.map(function (r) { return "<tr>" + r.map(function (c, i) { return "<td" + (i ? ' class="num"' : "") + ">" + esc(c) + "</td>"; }).join("") + "</tr>"; }).join("") + "</tbody></table>" +
+      (t.note ? '<p class="small muted" style="margin:8px 0 0">' + esc(t.note) + "</p>" : "") + "</div>";
+  }
+  function niceMax(v) { var p = Math.pow(10, Math.floor(Math.log10(v))), m = v / p; return (m <= 1 ? 1 : m <= 2 ? 2 : m <= 2.5 ? 2.5 : m <= 5 ? 5 : 10) * p; }
+  function chartHtml(test, key) {
+    var c = test.charts[key], W = 560, H = 300, L = 56, R = 16, T = 16, B = 44;
+    var all = [].concat.apply([], c.series.map(function (s) { return s.values; }));
+    var ymax = c.yMax || niceMax(Math.max.apply(null, all)), ymin = c.yMin || 0, ticks = c.yTicks || 5;
+    var pw = W - L - R, ph = H - T - B, n = c.categories.length;
+    function y(v) { return T + ph - (v - ymin) / (ymax - ymin) * ph; }
+    var g = "";
+    for (var i = 0; i <= ticks; i++) { var v = ymin + (ymax - ymin) * i / ticks, yy = y(v); g += '<line class="grid" x1="' + L + '" x2="' + (W - R) + '" y1="' + yy + '" y2="' + yy + '"/><text x="' + (L - 6) + '" y="' + (yy + 4) + '" text-anchor="end">' + +v.toFixed(2) + "</text>"; }
+    var band = pw / n, colors = ["var(--c1)", "var(--c2)", "var(--c3)"];
+    c.categories.forEach(function (cat, i) { g += '<text x="' + (L + band * (i + 0.5)) + '" y="' + (H - B + 18) + '" text-anchor="middle">' + esc(cat) + "</text>"; });
+    if (c.kind === "line") {
+      c.series.forEach(function (s, si) {
+        var pts = s.values.map(function (v, i) { return (L + band * (i + 0.5)) + "," + y(v); });
+        g += '<polyline fill="none" stroke="' + colors[si % 3] + '" stroke-width="2.5" points="' + pts.join(" ") + '"/>';
+        s.values.forEach(function (v, i) { g += '<circle cx="' + (L + band * (i + 0.5)) + '" cy="' + y(v) + '" r="4" fill="' + colors[si % 3] + '"/>'; });
+      });
+    } else {
+      var k = c.series.length, bw = band * 0.7 / k;
+      c.series.forEach(function (s, si) { s.values.forEach(function (v, i) { var x = L + band * i + band * 0.15 + bw * si; g += '<rect x="' + x + '" y="' + y(v) + '" width="' + (bw - 2) + '" height="' + (y(ymin) - y(v)) + '" fill="' + colors[si % 3] + '"/>'; }); });
+    }
+    g += '<line class="axis" x1="' + L + '" x2="' + (W - R) + '" y1="' + y(ymin) + '" y2="' + y(ymin) + '"/><line class="axis" x1="' + L + '" x2="' + L + '" y1="' + T + '" y2="' + y(ymin) + '"/>';
+    if (c.yLabel) g += '<text transform="translate(14 ' + (T + ph / 2) + ') rotate(-90)" text-anchor="middle">' + esc(c.yLabel) + "</text>";
+    return '<div class="panel chart stack" style="gap:8px;padding:14px"><strong>' + esc(c.title) + "</strong>" +
+      '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="' + esc(c.title) + '">' + g + "</svg>" +
+      (c.series.length > 1 || c.series[0].name ? '<div class="legend">' + c.series.map(function (s, si) { return '<span><i style="background:' + colors[si % 3] + '"></i>' + esc(s.name) + "</span>"; }).join("") + "</div>" : "") +
+      (c.note ? '<p class="small muted" style="margin:0">' + esc(c.note) + "</p>" : "") + "</div>";
+  }
+  function stimulusHtml(test, q, a, showKey) {
+    if (q.passage) return passageHtml(test, q.passage, q, q.type === "sentence", showKey ? q.answer : a);
+    if (q.table) return tableHtml(test, q.table);
+    if (q.chart) return chartHtml(test, q.chart);
+    return "";
+  }
+  function optsHtml(opts, a, many, key) {
+    return '<div class="opts">' + opts.map(function (o, i) {
+      var on = many ? Array.isArray(a) && a.indexOf(i) >= 0 : a === i;
+      var isKey = key !== undefined && (Array.isArray(key) ? key.indexOf(i) >= 0 : key === i);
+      return '<button class="opt ' + (many ? "square" : "round") + (on ? " on" : "") + (isKey ? " key" : "") + '" data-o="' + i + '" aria-pressed="' + on + '"><span class="mk">' + (many ? (on ? "✓" : "") : LET[i]) + '</span><span class="tx">' + esc(o) + "</span></button>";
+    }).join("") + "</div>";
+  }
+  function questionBody(q, a, showKey) {
+    var h = '<div class="direction">' + esc(directionFor(q)) + "</div>", key = showKey ? q.answer : undefined;
+    if (q.type === "qc") {
+      h += (q.given ? '<div class="given">' + esc(q.given) + "</div>" : "") +
+        '<div class="qc"><div><div class="h">Quantity A</div><div class="v">' + esc(q.qa) + '</div></div><div><div class="h">Quantity B</div><div class="v">' + esc(q.qb) + "</div></div></div>" + optsHtml(QC_OPTS, a, false, key);
+      return h;
+    }
+    h += '<div class="stem">' + (q.type === "tc" ? blankify(q.stem) : esc(q.stem)) + "</div>";
+    if (q.type === "tc") h += '<div class="blanks">' + q.blanks.map(function (col, b) {
+      return '<div class="blank-col">' + (q.blanks.length > 1 ? '<span class="lbl">Blank (' + ["i", "ii", "iii"][b] + ")</span>" : "") +
+        col.map(function (w, i) { return '<button class="cell' + (a && a[b] === i ? " on" : "") + (showKey && q.answer[b] === i ? " key" : "") + '" data-b="' + b + '" data-i="' + i + '">' + esc(w) + "</button>"; }).join("") + "</div>";
+    }).join("") + "</div>";
+    else if (q.type === "mc" || q.type === "multi" || q.type === "se") h += optsHtml(q.options, a, q.type !== "mc", key);
+    else if (q.type === "numeric") h += '<div class="row"><input id="num" class="numin" inputmode="decimal" autocomplete="off" aria-label="Your answer" value="' + esc(a || "") + '">' + (q.unit ? '<span>' + esc(q.unit) + "</span>" : "") + "</div>";
+    else if (q.type === "fraction") h += '<div class="frac"><input id="fn" class="numin" inputmode="numeric" aria-label="Numerator" value="' + esc((a && a[0]) || "") + '"><hr><input id="fd" class="numin" inputmode="numeric" aria-label="Denominator" value="' + esc((a && a[1]) || "") + '"></div>';
+    return h;
+  }
+  function layoutQuestion(test, q, a, showKey, after) {
+    var left = stimulusHtml(test, q, a, showKey), right = questionBody(q, a, showKey) + (after || "");
+    app.innerHTML = '<div class="q-grid' + (left ? " split" : "") + '">' + (left ? '<div style="min-width:0">' + left + "</div>" : "") + '<div class="stack" style="min-width:0">' + right + "</div></div>";
+  }
+  function answersObj() { return view.name === "practice" ? practice.answers : progress[view.testId].answers; }
+  function setAnswer(q, v) { answersObj()[q.id] = v; if (view.name === "attempt") saveProg(); }
+  function wireQuestion(q, rerender) {
+    var ans = answersObj();
+    function set(v) { setAnswer(q, v); rerender(); }
+    app.querySelectorAll(".opt").forEach(function (b) { b.addEventListener("click", function () {
+      var i = +b.dataset.o, a = ans[q.id];
+      if (q.type === "mc" || q.type === "qc") return set(i);
+      a = Array.isArray(a) ? a.slice() : [];
+      var p = a.indexOf(i), max = q.type === "se" ? 2 : q.selectCount || 99;
+      if (p >= 0) a.splice(p, 1); else { if (a.length >= max) a.shift(); a.push(i); }
+      set(a);
+    }); });
+    app.querySelectorAll(".cell").forEach(function (b) { b.addEventListener("click", function () {
+      var a = Array.isArray(ans[q.id]) ? ans[q.id].slice() : q.blanks.map(function () { return null; });
+      a[+b.dataset.b] = +b.dataset.i; set(a);
+    }); });
+    if (q.type === "sentence") app.querySelectorAll(".passage .s").forEach(function (s) { s.addEventListener("click", function () { set(+s.dataset.s); }); });
+    function syncCheck() { var cb = document.getElementById("check"); if (cb) cb.disabled = !answered(q, ans[q.id]); }
+    var num = document.getElementById("num");
+    if (num) num.addEventListener("input", function () { setAnswer(q, num.value); syncCheck(); });
+    var fn = document.getElementById("fn"), fd = document.getElementById("fd");
+    if (fn) [fn, fd].forEach(function (el) { el.addEventListener("input", function () { setAnswer(q, [fn.value, fd.value]); syncCheck(); }); });
+  }
+  function currentQuestionCtx() {
+    if (view.name === "practice" && view.section) { var t = testById(view.testId); return { test: t, q: t.sections[view.section].questions[practice.current] }; }
+    if (view.name !== "attempt") return null;
+    var A = progress[view.testId], test = testById(view.testId); if (!A || A.phase !== "inSection") return null;
+    var k = secKey(test, A, A.step); if (k === "AW") return null;
+    return { test: test, q: test.sections[k].questions[A.current] };
+  }
+
+  function renderQuestion(test, A) {
+    var k = secKey(test, A, A.step), sec = test.sections[k], q = sec.questions[A.current];
+    renderBar(sec.label, "Question " + (A.current + 1) + " of " + sec.questions.length, { q: q, test: test, sectionKey: k, mark: true, marked: A.marked[q.id], review: true, calc: sec.measure === "Quant", nav: true, first: A.current === 0 });
+    on("mark", function () { A.marked[q.id] = !A.marked[q.id]; saveProg(); render(); });
+    on("rev", function () { ui.review = true; ui.confirm = null; render(); window.scrollTo(0, 0); });
+    on("back", function () { A.current--; saveProg(); render(); window.scrollTo(0, 0); });
+    on("next", function () { if (A.current === sec.questions.length - 1) ui.review = true; else A.current++; saveProg(); render(); window.scrollTo(0, 0); });
+    layoutQuestion(test, q, A.answers[q.id], false);
+    wireQuestion(q, function () { renderQuestion(test, A); });
+  }
+  function renderReview(test, A) {
+    var k = secKey(test, A, A.step), sec = test.sections[k];
+    renderBar(sec.label, "Review", { test: test, sectionKey: k, review: true, calc: sec.measure === "Quant" });
+    on("rev", function () { ui.review = false; render(); window.scrollTo(0, 0); });
+    var unans = sec.questions.filter(function (q) { return !answered(q, A.answers[q.id]); }).length;
+    app.innerHTML = '<div class="stack"><h2>Review: ' + esc(sec.label) + "</h2>" +
+      '<p class="muted" style="margin:0">Select a question to go to it. ' + (unans ? "<strong>" + unans + " not answered.</strong> There is no penalty for guessing." : "All questions answered.") + "</p>" +
+      '<div class="rv">' + sec.questions.map(function (q, i) {
+        var ans = answered(q, A.answers[q.id]);
+        return '<button data-g="' + i + '"><strong>Question ' + (i + 1) + '</strong><span class="st' + (ans ? "" : " unans") + '">' + (ans ? "Answered" : "Not answered") + "</span>" + (A.marked[q.id] ? '<span class="st flag">Marked</span>' : "") + "</button>";
+      }).join("") + "</div>" +
+      '<div class="row">' + (ui.confirm === "end" ? '<span>End this section? You cannot return to it.</span><button class="btn primary" id="yesEnd">Yes, end section</button><button class="btn" id="noEnd">Cancel</button>' : '<button class="btn primary" id="end">End section</button>') + "</div></div>";
+    app.querySelectorAll("[data-g]").forEach(function (b) { b.addEventListener("click", function () { A.current = +b.dataset.g; ui.review = false; saveProg(); render(); window.scrollTo(0, 0); }); });
+    on("end", function () { ui.confirm = "end"; render(); });
+    on("noEnd", function () { ui.confirm = null; render(); });
+    on("yesEnd", endSection);
+  }
+  function renderEssay(test, A) {
+    renderBar("Analytical Writing", "Analyze an Issue", { test: test, sectionKey: "AW" });
+    var words = (A.essay.match(/\S+/g) || []).length;
+    app.innerHTML = '<div class="stack">' +
+      '<div class="panel stack" style="gap:10px"><span class="eyebrow">Analyze an Issue</span><p class="stem" style="margin:0"><strong>' + esc(test.essay.prompt) + '</strong></p><p class="small muted" style="margin:0">' + esc(test.essay.instructions) + "</p></div>" +
+      '<textarea id="essay" class="essay-box" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="Your essay">' + esc(A.essay) + "</textarea>" +
+      '<div class="row"><span class="muted small" id="wc">' + words + ' words</span><span style="flex:1"></span>' +
+      (ui.confirm === "end" ? '<span class="small">End the essay section? You cannot come back to it.</span><button class="btn primary" id="yesEnd">Yes, end section</button><button class="btn" id="noEnd">Keep writing</button>' : '<button class="btn primary" id="end">End section</button>') + "</div></div>";
+    var ta = document.getElementById("essay");
+    ta.addEventListener("input", function () { A.essay = ta.value; saveProg(); document.getElementById("wc").textContent = (ta.value.match(/\S+/g) || []).length + " words"; });
+    on("end", function () { ui.confirm = "end"; render(); });
+    on("noEnd", function () { ui.confirm = null; render(); });
+    on("yesEnd", endSection);
+  }
+
+  // ---------- end of test ----------
+  function buildRecord(test, A, status) {
+    var V = measureResult(test, "Verbal", A.answers, A.route), Q = measureResult(test, "Quant", A.answers, A.route);
+    function strip(r) { return { est: r.est, lo: r.lo, hi: r.hi, pct: r.est ? r.pct : null, raw: r.raw, r1: r.r1, r2: r.r2, tier: r.tier }; }
+    return { id: test.id + "-" + Date.now(), testId: test.id, testTitle: test.title, testVersion: test.version, cfgVersion: CFG.version, date: new Date().toISOString(), status: status,
+      verbal: strip(V), quant: strip(Q), route: A.route, answers: A.answers,
+      aw: { prompt: test.essay.prompt, instructions: test.essay.instructions, text: A.essay, words: (A.essay.match(/\S+/g) || []).length, secondsUsed: Math.round(A.essayUsed || 0), score: null, feedback: null } };
+  }
+  function renderReportChoice(test, A) {
+    app.innerHTML = '<div class="stack prose"><span class="eyebrow">' + esc(test.title) + " · Test complete</span><h1>Report or cancel your scores</h1>" +
+      "<p>On test day you now decide whether to report your scores or cancel them, before seeing them. If you report, you see your unofficial Verbal and Quantitative scores straight away; your Analytical Writing score comes later. If you cancel, no scores are reported, but you can reinstate them later.</p>" +
+      (ui.confirm === "cancel" ? '<div class="confirm stack" style="gap:8px"><strong>Cancel your scores?</strong> They will be hidden. You can reinstate them later from your score history.<div class="row"><button class="btn primary" id="yesCancel">Yes, cancel scores</button><button class="btn" id="noCancel">Go back</button></div></div>' : "") +
+      '<div class="row"><button class="btn primary big" id="report">Report my scores</button><button class="btn big danger" id="cancel">Cancel my scores</button></div></div>';
+    on("report", function () { var rec = buildRecord(test, A, "reported"); saveAttempt(rec); delete progress[test.id]; saveProg(); go({ name: "report", attemptId: rec.id, fresh: true }); });
+    on("cancel", function () { ui.confirm = "cancel"; render(); });
+    on("noCancel", function () { ui.confirm = null; render(); });
+    on("yesCancel", function () { var rec = buildRecord(test, A, "cancelled"); saveAttempt(rec); delete progress[test.id]; saveProg(); go({ name: "home" }); toast("Scores cancelled. You can reinstate them from your score history."); });
+  }
+
+  // ---------- score report ----------
+  function scoreCard(r, label) {
+    if (r.est === null || r.est === undefined) return '<div class="score"><span class="eyebrow">' + label + '</span><div class="big">NS</div><p class="small muted">No score: no questions were answered in this measure.</p></div>';
+    var pos = function (s) { return ((s - 130) / 40 * 100).toFixed(2) + "%"; };
+    return '<div class="score"><span class="eyebrow">' + label + " · estimate</span>" +
+      '<div class="big">' + r.est + '</div><div class="range">Likely range ' + r.lo + "–" + r.hi + "</div>" +
+      '<div class="scale" aria-hidden="true"><div class="band" style="left:' + pos(r.lo) + ";width:calc(" + pos(r.hi) + " - " + pos(r.lo) + ')"></div><div class="pt" style="left:' + pos(r.est) + '"></div></div>' +
+      '<div class="scale-lbl"><span>130</span><span>150</span><span>170</span></div>' +
+      '<p class="small" style="margin:10px 0 0">About the <strong>' + ordinal(r.pct) + " percentile</strong>: " + r.pct + "% of recent GRE takers scored lower.</p>" +
+      '<p class="small muted" style="margin:6px 0 0">' + r.raw + " of 27 correct (section 1: " + r.r1 + "/12, section 2: " + r.r2 + "/15). Second section: <strong>" + r.tier + "</strong>.</p></div>";
+  }
+  function answerText(test, q, a) {
+    if (!answered(q, a)) return "—";
+    switch (q.type) {
+      case "mc": return LET[a] + ". " + q.options[a];
+      case "qc": return LET[a] + ". " + QC_OPTS[a];
+      case "sentence": return "Sentence " + (a + 1);
+      case "tc": return a.map(function (v, b) { return q.blanks[b][v]; }).join(" / ");
+      case "se": case "multi": return a.slice().sort().map(function (i) { return q.options[i]; }).join("; ");
+      case "numeric": return String(a);
+      case "fraction": return a[0] + "/" + a[1];
+    }
+  }
+  function keyText(test, q) {
+    switch (q.type) {
+      case "mc": return LET[q.answer] + ". " + q.options[q.answer];
+      case "qc": return LET[q.answer] + ". " + QC_OPTS[q.answer];
+      case "sentence": return "“" + sentencesOf(test, q.passage)[q.answer] + "”";
+      case "tc": return q.answer.map(function (v, b) { return q.blanks[b][v]; }).join(" / ");
+      case "se": case "multi": return q.answer.map(function (i) { return q.options[i]; }).join("; ");
+      case "numeric": return String(q.answer);
+      case "fraction": return q.answer[0] + "/" + q.answer[1] + " (or any equivalent fraction)";
+    }
+  }
+  function breakdown(test, keys, answers, field) {
+    var agg = {};
+    keys.forEach(function (k) { test.sections[k].questions.forEach(function (q) { var g = field === "difficulty" ? CFG.difficultyNames[q.difficulty] : q.skill; var s = agg[g] = agg[g] || [0, 0, field === "difficulty" ? q.difficulty : 0]; s[1]++; if (isCorrect(q, answers[q.id])) s[0]++; }); });
+    var rows = Object.keys(agg); if (field === "difficulty") rows.sort(function (a, b) { return agg[a][2] - agg[b][2]; });
+    return '<table class="plain"><thead><tr><th>' + (field === "difficulty" ? "Difficulty" : "Question type") + "</th><th>Correct</th><th>Accuracy</th></tr></thead><tbody>" +
+      rows.map(function (s) { var a = agg[s], p = Math.round(a[0] / a[1] * 100); return "<tr><td>" + esc(s) + '</td><td class="num">' + a[0] + "/" + a[1] + '</td><td><span class="pill ' + (p >= 70 ? "good" : p < 50 ? "bad" : "skip") + '">' + p + "%</span></td></tr>"; }).join("") + "</tbody></table>";
+  }
+  function reviewList(test, k, answers) {
+    var sec = test.sections[k];
+    return "<details><summary>" + esc(sec.label) + (sec.tier ? " (" + sec.tier + ")" : "") + " · " + rawOf(test, k, answers) + "/" + sec.questions.length + "</summary>" +
+      sec.questions.map(function (q, i) {
+        var a = answers[q.id], ok = isCorrect(q, a), ans = answered(q, a);
+        var stem = q.type === "qc" ? (q.given ? q.given + " · " : "") + "Quantity A: " + q.qa + " | Quantity B: " + q.qb : q.stem;
+        var stim = q.passage ? '<details class="small"><summary>Show passage</summary>' + passageHtml(test, q.passage, q, false) + "</details>" :
+          q.table ? '<details class="small"><summary>Show table</summary>' + tableHtml(test, q.table) + "</details>" :
+          q.chart ? '<details class="small"><summary>Show graph</summary>' + chartHtml(test, q.chart) + "</details>" : "";
+        return '<div class="qrev"><div class="row"><strong>Q' + (i + 1) + '</strong><span class="pill ' + (ok ? "good" : ans ? "bad" : "skip") + '">' + (ok ? "Correct" : ans ? "Wrong" : "Not answered") + '</span><span class="small muted">' + esc(q.skill) + " · " + esc(CFG.difficultyNames[q.difficulty]) + "</span></div>" + stim +
+          '<div class="small">' + esc(stem) + "</div>" +
+          '<div class="small">Your answer: <strong>' + esc(answerText(test, q, a)) + "</strong><br>Correct: <strong>" + esc(keyText(test, q)) + "</strong></div>" +
+          '<div class="ex">' + esc(q.explain) + "</div></div>";
+      }).join("") + "</details>";
+  }
+  function awCard(h) {
+    var aw = h.aw || {};
+    if (aw.score !== null && aw.score !== undefined) return '<div class="score"><span class="eyebrow">Analytical Writing · marked by Claude</span><div class="big">' + aw.score.toFixed(1) + "</div>" +
+      '<p class="small" style="margin:0">About the <strong>' + ordinal(CFG.percentiles.AW[aw.score.toFixed(1)]) + " percentile</strong>.</p>" + (aw.feedback ? '<details class="small"><summary>Feedback</summary><div style="white-space:pre-wrap">' + esc(aw.feedback) + "</div></details>" : "") + "</div>";
+    return '<div class="score"><span class="eyebrow">Analytical Writing</span><div style="font:600 24px/1.2 var(--f-ui);margin:16px 0">Awaiting marking</div>' +
+      '<p class="small" style="margin:0">' + (store === "account" ? "Your essay is saved. In your chat with Claude, ask it to mark your essay for " + esc(h.testTitle) + ". The score appears here once marked." : "Copy your essay below and paste it to Claude to get a 0–6 score with feedback.") + "</p></div>";
+  }
+  function copyText(h) {
+    return "GRE PRACTICE: ESSAY FOR MARKING\nTest: " + h.testTitle + " · " + fmtDate(h.date) + "\n" +
+      "Verbal estimate: " + (h.verbal.est || "NS") + " (" + h.verbal.tier + " section 2) · Quant estimate: " + (h.quant.est || "NS") + " (" + h.quant.tier + " section 2)\n\n" +
+      "Prompt: " + h.aw.prompt + "\nInstructions: " + h.aw.instructions + "\nTime used: " + fmt(h.aw.secondsUsed || 0) + " of 30:00 · Words: " + h.aw.words + "\n\nESSAY:\n" + (String(h.aw.text || "").trim() || "(no essay written)");
+  }
+  function renderReport(id) {
+    var h = null; history.forEach(function (x) { if (x.id === id) h = x; });
+    if (!h) { app.innerHTML = '<div class="stack"><p>Loading this report…</p><div class="row"><button class="btn" id="home">Back to tests</button></div></div>'; on("home", function () { go({ name: "home" }); }); return; }
+    var test = testById(h.testId);
+    if (h.status === "cancelled" && !view.reinstate) {
+      app.innerHTML = '<div class="stack prose"><span class="eyebrow">' + esc(h.testTitle) + " · " + esc(fmtDate(h.date)) + "</span><h1>Scores cancelled</h1><p>You cancelled the scores for this attempt. On the real test, reinstating cancelled scores costs a fee and must be done within 60 days. Here it is free.</p>" +
+        '<div class="row"><button class="btn primary" id="reinstate">Reinstate scores</button><button class="btn" id="home">Back to tests</button></div></div>';
+      on("reinstate", function () { updateAttempt(h.id, { status: "reported" }); view.reinstate = true; render(); });
+      on("home", function () { go({ name: "home" }); });
+      return;
+    }
+    // If the test or the scoring has changed since this attempt, show the scores stored at the time and skip the per-question review.
+    var stale = !test || h.testVersion !== test.version || h.cfgVersion !== CFG.version;
+    var V = stale ? Object.assign({ measure: "Verbal" }, h.verbal) : measureResult(test, "Verbal", h.answers, h.route);
+    var Q = stale ? Object.assign({ measure: "Quant" }, h.quant) : measureResult(test, "Quant", h.answers, h.route);
+    var unofficial = view.fresh ? '<div class="panel stack" style="gap:10px"><span class="eyebrow">Unofficial scores, as shown on test day</span><div class="unofficial"><div>Verbal Reasoning<b>' + (V.est || "NS") + "</b></div><div>Quantitative Reasoning<b>" + (Q.est || "NS") + '</b></div></div><p class="small muted" style="margin:0">Official scores, including Analytical Writing, arrive about 8–10 days after the real test.</p></div>' : "";
+    app.innerHTML = '<div class="stack">' +
+      '<div class="row" style="justify-content:space-between"><div class="stack" style="gap:6px"><span class="eyebrow">' + esc(h.testTitle) + " · " + esc(fmtDate(h.date)) + "</span><h1>Score report</h1></div><button class=\"btn\" id=\"home\">Back to tests</button></div>" +
+      unofficial +
+      '<div class="scores">' + scoreCard(V, "Verbal Reasoning") + scoreCard(Q, "Quantitative Reasoning") + awCard(h) + "</div>" +
+      '<div class="panel stack" style="gap:8px"><h3>Essay</h3><p class="small muted" style="margin:0">' + h.aw.words + " words · " + fmt(h.aw.secondsUsed || 0) + " used of 30:00</p>" +
+      '<div class="row"><button class="btn" id="copy">Copy essay for Claude</button><span class="small" id="copied"></span></div><textarea id="copybox" class="copybox" readonly hidden></textarea></div>' +
+      '<div class="note small prose"><strong>How to read these numbers.</strong> As on the real test, every question counts equally, and your score depends on how many you got right and which second section you received. ETS does not publish its conversion tables, and these questions have not been tried on real candidates, so each score is an estimate. The likely range adds ETS\'s measurement error (about ±2.5 points) plus ' + CFG.extraUncertainty + " points for that uncertainty. The hardest sections here are hard but not as hard as the toughest real GRE questions, so treat estimates above about 160 as optimistic. Percentiles are ETS's figures for test takers from 1 July 2022 to 30 June 2025.</div>" +
+      (stale ? '<div class="note small prose">This test or its scoring has been updated since you took it, so these are the scores recorded at the time. The question-by-question review is not available for this attempt.</div></div>' :
+      '<div class="scores"><div class="panel scroll-x"><h3 style="margin-bottom:8px">Verbal by question type</h3>' + breakdown(test, [V.k1, V.k2], h.answers, "skill") + "</div>" +
+      '<div class="panel scroll-x"><h3 style="margin-bottom:8px">Quant by question type</h3>' + breakdown(test, [Q.k1, Q.k2], h.answers, "skill") + "</div>" +
+      '<div class="panel scroll-x"><h3 style="margin-bottom:8px">All questions by difficulty</h3>' + breakdown(test, [V.k1, V.k2, Q.k1, Q.k2], h.answers, "difficulty") + "</div></div>" +
+      '<div class="panel stack" style="gap:4px"><h2 style="margin-bottom:6px">Answers and explanations</h2>' + [V.k1, V.k2, Q.k1, Q.k2].map(function (k) { return reviewList(test, k, h.answers); }).join("") + "</div></div>");
+    on("home", function () { go({ name: "home" }); });
+    on("copy", function () {
+      var txt = copyText(h), box = document.getElementById("copybox"), msg = document.getElementById("copied");
+      box.value = txt;
+      var fallback = function () { box.hidden = false; box.focus(); box.select(); msg.textContent = "Select all the text in the box and copy it."; };
+      try { navigator.clipboard.writeText(txt).then(function () { msg.textContent = "Copied. Paste it into your chat with Claude."; }, fallback); } catch (e) { fallback(); }
+    });
+  }
+
+  // ---------- practice mode ----------
+  var practice = { answers: {}, checked: {}, current: 0 };
+  function renderPractice() {
+    var test = testById(view.testId);
+    if (!view.section) {
+      var keys = ["V1", "V2E", "V2M", "V2H", "Q1", "Q2E", "Q2M", "Q2H"];
+      app.innerHTML = '<div class="stack"><div class="row" style="justify-content:space-between"><div class="stack" style="gap:6px"><span class="eyebrow">' + esc(test.title) + "</span><h1>Practice mode</h1></div><button class=\"btn\" id=\"home\">Back to tests</button></div>" +
+        '<p class="prose" style="margin:0">Untimed. Check each answer as you go and read the explanation. Includes the second-section versions you did not get in the timed test.</p>' +
+        '<div class="tests">' + keys.map(function (k) { var s = test.sections[k]; return '<div class="panel tcard"><h3>' + esc(s.label) + (s.tier ? " · " + s.tier : "") + '</h3><div class="meta">' + s.questions.length + ' questions</div><div class="row"><button class="btn primary" data-sec="' + k + '">Practise</button></div></div>'; }).join("") + "</div></div>";
+      on("home", function () { go({ name: "home" }); });
+      app.querySelectorAll("[data-sec]").forEach(function (b) { b.addEventListener("click", function () { practice = { answers: {}, checked: {}, current: 0 }; view.section = b.dataset.sec; render(); window.scrollTo(0, 0); }); });
+      return;
+    }
+    var sec = test.sections[view.section], q = sec.questions[practice.current], checked = practice.checked[q.id];
+    renderBar(sec.label + (sec.tier ? " · " + sec.tier : ""), "Practice · question " + (practice.current + 1) + " of " + sec.questions.length, { q: q, test: test, sectionKey: view.section, calc: sec.measure === "Quant", nav: true, first: practice.current === 0, exit: true });
+    on("back", function () { practice.current--; render(); window.scrollTo(0, 0); });
+    on("next", function () { if (practice.current < sec.questions.length - 1) { practice.current++; render(); window.scrollTo(0, 0); } else { view.section = null; render(); } });
+    on("exitPractice", function () { view.section = null; ui.calc.show = false; render(); });
+    var a = practice.answers[q.id], ok = isCorrect(q, a);
+    var after = checked ? '<div class="feedback ' + (ok ? "good" : "bad") + '"><strong>' + (ok ? "Correct." : "Not quite.") + "</strong> Correct answer: " + esc(keyText(test, q)) + "<br>" + esc(q.explain) + '</div><div class="row"><button class="btn" id="retry">Try again</button></div>' :
+      '<div class="row"><button class="btn primary" id="check"' + (answered(q, a) ? "" : " disabled") + ">Check answer</button></div>";
+    layoutQuestion(test, q, a, checked, after);
+    wireQuestion(q, function () { renderPractice(); });
+    on("check", function () { practice.checked[q.id] = true; render(); });
+    on("retry", function () { delete practice.checked[q.id]; delete practice.answers[q.id]; render(); });
+  }
+
+  window.__gre = { CFG: CFG, TESTS: TESTS, isCorrect: isCorrect, calcEval: calcEval, calcFormat: calcFormat };
+  render();
+  initDb();
+})();
+</script>
