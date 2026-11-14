@@ -17,7 +17,7 @@
  "passages": {
   "t3-great-unconformity": [
    "Across much of the globe, rocks roughly half a billion years old rest directly on rocks more than a billion years older, a gap in the geological record known as the Great Unconformity.",
-   "One influential hypothesis attributes the missing rock to the planet-wide glaciations of the late Precambrian, arguing that ice sheets scoured away kilometres of crust in a geologically brief interval.",
+   "One influential hypothesis attributes the missing rock to the planet-wide glaciations of the late Precambrian, arguing that ice sheets scoured away kilometers of crust in a geologically brief interval.",
    "The hypothesis gained support from the observation that the chemistry of seawater shifted abruptly at about the time erosion would have peaked, as though a great volume of continental debris had suddenly washed into the oceans.",
    "Critics respond that the gap is not one surface but many: dating of minerals beneath the unconformity in different regions suggests that erosion there occurred at different times, some of it long before any glaciation.",
    "On their view, the single dramatic event that the glacial hypothesis requires is an artefact of grouping surfaces of different ages under one name.",
@@ -47,7 +47,7 @@
      "If trees can lose their sensitivity to temperature now, they may have lost it in the past, and reconstructions built on the assumption of a constant response could understate earlier warm periods."
     ],
     [
-     "Some sceptics have taken divergence as grounds for discarding tree-ring reconstructions altogether.",
+     "Some skeptics have taken divergence as grounds for discarding tree-ring reconstructions altogether.",
      "That conclusion goes further than the evidence warrants.",
      "Divergence is not universal: it is concentrated at particular sites, and many records continue to track recent temperatures as closely as they tracked those of the early twentieth century.",
      "Moreover, several of its proposed causes are specific to the modern era, among them drought stress intensified by recent warming and the dimming of sunlight by industrial pollution, and none of these is likely to have operated in the same way in the fifteenth century.",
@@ -73,7 +73,7 @@
    "paragraphs": [
     [
      "Because judges on constitutional courts are appointed rather than elected, their power to strike down laws passed by elected legislatures has long been described as a democratic anomaly: a handful of unelected officials can overrule the considered choices of the majority's representatives.",
-     "Studies of several national courts, however, find that their rulings seldom stray far from public opinion for long; when a court does issue a decision that most citizens oppose, it tends either to retreat in later cases or to find, within a few years, that opinion has moved towards it.",
+     "Studies of several national courts, however, find that their rulings seldom stray far from public opinion for long; when a court does issue a decision that most citizens oppose, it tends either to retreat in later cases or to find, within a few years, that opinion has moved toward it.",
      "Some political scientists have concluded that courts are less a check on majorities than a lagging reflection of them, and that the anomaly which has troubled democratic theorists is largely illusory."
     ],
     [
@@ -81,7 +81,7 @@
      "Much of a court's influence, however, lies in matters too technical to register in opinion surveys: the standards of proof it demands, the remedies it permits, the questions it declines to hear.",
      "A court could follow public opinion in every headline case while reshaping, through such choices, the practical meaning of the rights at stake.",
      "Because survey respondents are rarely asked about such matters, the research cannot tell us whether courts follow opinion on them or quietly depart from it.",
-     "Moreover, the finding that opinion often moves towards a court's position after a ruling cuts both ways.",
+     "Moreover, the finding that opinion often moves toward a court's position after a ruling cuts both ways.",
      "It may show that courts anticipate where the public is heading, but it may equally show that courts help to lead the public there, in which case their agreement with opinion is partly of their own making."
     ],
     [
@@ -155,13 +155,13 @@
      "75"
     ],
     [
-     "Concrete (cubic metres)",
+     "Concrete (cubic meters)",
      "800",
      "110",
      "60"
     ],
     [
-     "Timber (cubic metres)",
+     "Timber (cubic meters)",
      "250",
      "320",
      "80"
@@ -302,7 +302,7 @@
      "type": "tc",
      "skill": "Text completion",
      "difficulty": 3,
-     "stem": "Political scientists have long noted that voters punish incumbents for economic downturns the incumbents could not have prevented; such ______ assignment of blame suggests that electoral accountability rests less on a judgement of policy than on mood.",
+     "stem": "Political scientists have long noted that voters punish incumbents for economic downturns the incumbents could not have prevented; such ______ assignment of blame suggests that electoral accountability rests less on a judgment of policy than on mood.",
      "blanks": [
       [
        "undiscriminating",
@@ -315,7 +315,7 @@
      "answer": [
       0
      ],
-     "explain": "Blaming leaders for downturns they could not have prevented ignores who was actually responsible, so the blame is undiscriminating, which is why it points to mood rather than judgement. 'Scrupulous' is the opposite, and 'partisan' introduces party loyalty, which the sentence never mentions."
+     "explain": "Blaming leaders for downturns they could not have prevented ignores who was actually responsible, so the blame is undiscriminating, which is why it points to mood rather than judgment. 'Scrupulous' is the opposite, and 'partisan' introduces party loyalty, which the sentence never mentions."
     },
     {
      "id": "T3-V1-05",
@@ -402,7 +402,7 @@
      "difficulty": 3,
      "stem": "The author mentions the shift in the chemistry of seawater primarily in order to",
      "options": [
-      "present evidence that was taken to favour the glacial hypothesis",
+      "present evidence that was taken to favor the glacial hypothesis",
       "show that erosion occurred at different times in different regions",
       "refute the critics' claim that the gap is composite",
       "explain how minerals beneath the unconformity can be dated",
@@ -417,7 +417,7 @@
      "skill": "Reading comprehension (argument)",
      "passage": "t3-sentencing-website",
      "difficulty": 5,
-     "why": "The trap attacks how many people read the website, but the conclusion concerns the prospect of scrutiny; only judge turnover explains the narrowing with no judge changing behaviour.",
+     "why": "The trap attacks how many people read the website, but the conclusion concerns the prospect of scrutiny; only judge turnover explains the narrowing with no judge changing behavior.",
      "stem": "Which of the following, if true, most seriously weakens the administrators' conclusion?",
      "options": [
       "Few members of the public have ever visited the website on which the sentences are published.",
@@ -435,10 +435,10 @@
      "skill": "Reading comprehension",
      "passage": "t3-early-recordings",
      "difficulty": 3,
-     "stem": "The author's attitude towards using early recordings as evidence of what composers intended is best described as",
+     "stem": "The author's attitude toward using early recordings as evidence of what composers intended is best described as",
      "options": [
       "enthusiastic endorsement",
-      "qualified scepticism",
+      "qualified skepticism",
       "complete rejection",
       "studied neutrality",
       "grudging acceptance"
@@ -536,7 +536,7 @@
       [
        "quelling",
        "fomenting",
-       "publicising"
+       "publicizing"
       ]
      ],
      "answer": [
@@ -544,14 +544,14 @@
       0,
       0
      ],
-     "explain": "Governments that collapse 'at the first serious disagreement' are volatile; 'monolithic' and 'autocratic' suggest unity and command, the opposite. 'Yet' turns the second blank towards endurance, so coalitions proved tenacious; 'ephemeral' and 'fractious' repeat the view being contradicted. Partners who stop disputes before they 'harden into crises' are skilled at quelling them, not fomenting or publicising them."
+     "explain": "Governments that collapse 'at the first serious disagreement' are volatile; 'monolithic' and 'autocratic' suggest unity and command, the opposite. 'Yet' turns the second blank toward endurance, so coalitions proved tenacious; 'ephemeral' and 'fractious' repeat the view being contradicted. Partners who stop disputes before they 'harden into crises' are skilled at quelling them, not fomenting or publicizing them."
     },
     {
      "id": "T3-V2M-04",
      "type": "tc",
      "skill": "Text completion",
      "difficulty": 3,
-     "stem": "Far from being a (i)______ feature of the landscape, the region's salt flats are surprisingly (ii)______: satellite images taken a decade apart show their margins advancing and retreating by kilometres with shifts in rainfall.",
+     "stem": "Far from being a (i)______ feature of the landscape, the region's salt flats are surprisingly (ii)______: satellite images taken a decade apart show their margins advancing and retreating by kilometers with shifts in rainfall.",
      "blanks": [
       [
        "static",
@@ -568,19 +568,19 @@
       0,
       0
      ],
-     "explain": "Margins that advance and retreat by kilometres make the flats variable, and 'far from being' requires the first blank to mean the opposite: static. 'Transient' is the trap, since it agrees with the evidence instead of being denied by it, and 'uniform' and 'barren' ignore the movement the images show."
+     "explain": "Margins that advance and retreat by kilometers make the flats variable, and 'far from being' requires the first blank to mean the opposite: static. 'Transient' is the trap, since it agrees with the evidence instead of being denied by it, and 'uniform' and 'barren' ignore the movement the images show."
     },
     {
      "id": "T3-V2M-05",
      "type": "se",
      "skill": "Sentence equivalence",
      "difficulty": 2,
-     "stem": "Long after his death the composer was ______ by the townspeople, who preserved his study exactly as he had left it and staged an annual festival in his honour.",
+     "stem": "Long after his death the composer was ______ by the townspeople, who preserved his study exactly as he had left it and staged an annual festival in his honor.",
      "options": [
       "venerated",
       "revered",
       "pitied",
-      "satirised",
+      "satirized",
       "forgotten",
       "envied"
      ],
@@ -588,7 +588,7 @@
       0,
       1
      ],
-     "explain": "Preserving his study and holding a festival 'in his honour' show deep respect: venerated and revered. 'Forgotten' contradicts the festival, and 'pitied' and 'envied' do not explain honouring him."
+     "explain": "Preserving his study and holding a festival 'in his honor' show deep respect: venerated and revered. 'Forgotten' contradicts the festival, and 'pitied' and 'envied' do not explain honoring him."
     },
     {
      "id": "T3-V2M-06",
@@ -649,7 +649,7 @@
       0,
       1
      ],
-     "explain": "An experiment that 'merely repeated the first' adds nothing new, so the reviewers judged it superfluous or redundant. 'Slipshod' and 'sloppy' are synonyms too, but 'exemplary care' rules out any complaint about workmanship, and 'rigorous' is praise, which 'though they conceded' shows the judgement was not."
+     "explain": "An experiment that 'merely repeated the first' adds nothing new, so the reviewers judged it superfluous or redundant. 'Slipshod' and 'sloppy' are synonyms too, but 'exemplary care' rules out any complaint about workmanship, and 'rigorous' is praise, which 'though they conceded' shows the judgment was not."
     },
     {
      "id": "T3-V2M-09",
@@ -713,7 +713,7 @@
      "difficulty": 3,
      "stem": "Select the sentence in which the author rejects a proposed response to the difficulty the passage describes.",
      "answer": 7,
-     "explain": "The sentence 'That conclusion goes further than the evidence warrants' rejects the sceptics' proposal, stated in the sentence just before it, to discard tree-ring reconstructions. The sceptics' sentence proposes the response rather than rejecting it, and the final sentence offers the author's own response."
+     "explain": "The sentence 'That conclusion goes further than the evidence warrants' rejects the skeptics' proposal, stated in the sentence just before it, to discard tree-ring reconstructions. The skeptics' sentence proposes the response rather than rejecting it, and the final sentence offers the author's own response."
     },
     {
      "id": "T3-V2M-13",
@@ -760,7 +760,7 @@
      "why": "The argument measures dependence only by who drafts bills; choices about spending or bill counts leave that gap untouched.",
      "stem": "Which of the following, if true, most seriously weakens the argument?",
      "options": [
-      "Lobbying spending rose by a similar amount over the decade in neighbouring states that have no term limits.",
+      "Lobbying spending rose by a similar amount over the decade in neighboring states that have no term limits.",
       "Since term limits took effect, legislators have relied increasingly on lobbyists' briefings to decide how to vote on bills drafted by others.",
       "Most of the opponents of term limits were themselves long-serving legislators.",
       "The number of bills enacted each year has stayed roughly constant over the decade.",
@@ -780,21 +780,22 @@
      "id": "T3-V2H-01",
      "type": "tc",
      "skill": "Text completion",
-     "difficulty": 3,
-     "stem": "The magistrate's judgments were admired less for their learning than for their ______: she could dispose in a paragraph of a question her colleagues needed twenty pages to resolve.",
+     "difficulty": 4,
+     "stem": "Though her colleagues took her brevity for ______, the magistrate's one-paragraph judgments in fact distilled more learning than their twenty-page opinions, which often hid the want of an argument beneath a profusion of citation.",
      "blanks": [
       [
-       "succinctness",
+       "concision",
+       "superficiality",
        "erudition",
-       "verbosity",
-       "circumspection",
-       "rigour"
+       "pedantry",
+       "circumspection"
       ]
      ],
      "answer": [
-      0
+      1
      ],
-     "explain": "Settling in a paragraph what others need twenty pages for is succinctness. 'Erudition' is the trap: it means learning, which the sentence says was admired less, and 'verbosity' describes her colleagues instead."
+     "explain": "'In fact distilled more learning' corrects what her colleagues assumed, so they took her brevity for a lack of depth: superficiality. 'Concision' only renames brevity and involves no mistake, 'erudition' is what she actually had, and 'pedantry' and 'circumspection' are not what a short judgment would be mistaken for.",
+     "why": "'Concision' merely restates 'brevity' and 'erudition' echoes 'learning', but the blank must name the mistaken judgment that 'in fact distilled more learning' corrects."
     },
     {
      "id": "T3-V2H-02",
@@ -888,7 +889,7 @@
      "type": "se",
      "skill": "Sentence equivalence",
      "difficulty": 3,
-     "stem": "The memoir portrays the minister's advisers as uniformly ______, so eager to win his favour that none dared tell him the policy was failing.",
+     "stem": "The memoir portrays the minister's advisers as uniformly ______, so eager to win his favor that none dared tell him the policy was failing.",
      "options": [
       "sycophantic",
       "toadying",
@@ -901,7 +902,7 @@
       0,
       1
      ],
-     "explain": "Advisers 'so eager to win his favour' that they hid bad news are fawning: sycophantic and toadying. 'Truculent' and 'defiant' make a pair, but advisers who were defiant would have dared to tell him."
+     "explain": "Advisers 'so eager to win his favor' that they hid bad news are fawning: sycophantic and toadying. 'Truculent' and 'defiant' make a pair, but advisers who were defiant would have dared to tell him."
     },
     {
      "id": "T3-V2H-06",
@@ -909,7 +910,7 @@
      "skill": "Sentence equivalence",
      "difficulty": 4,
      "why": "'Spectacular' and 'sensational' form a pair, but they describe the experiments the historians turned away from.",
-     "stem": "Historians of science have lately turned from the dramatic experiments of famous geologists to the ______ labour of the surveyors and assistants whose routine measurements made those experiments possible.",
+     "stem": "Historians of science have lately turned from the dramatic experiments of famous geologists to the ______ labor of the surveyors and assistants whose unremarked measurements made those experiments possible.",
      "options": [
       "quotidian",
       "workaday",
@@ -922,7 +923,7 @@
       0,
       1
      ],
-     "explain": "The historians turned 'from the dramatic' to labour made up of 'routine measurements', so the blank means ordinary and everyday: quotidian and workaday. 'Spectacular' and 'sensational' are synonyms, but they describe the dramatic experiments, and 'sporadic' contradicts 'routine'."
+     "explain": "The historians turned 'from the dramatic' experiments to labor that went 'unremarked', so the blank means ordinary and everyday: quotidian and workaday. 'Spectacular' and 'sensational' are synonyms, but they describe the dramatic experiments, and nothing in the sentence supports 'sporadic' or 'ingenious'."
     },
     {
      "id": "T3-V2H-07",
@@ -972,17 +973,17 @@
      "skill": "Reading comprehension",
      "passage": "t3-courts-opinion",
      "difficulty": 4,
-     "why": "The second paragraph's criticisms tempt readers towards outright rejection, but the final paragraph accepts the core finding.",
-     "stem": "The author's attitude towards the research described in the first paragraph is best described as",
+     "why": "The second paragraph's criticisms tempt readers toward outright rejection, but the final paragraph accepts the core finding.",
+     "stem": "The author's attitude toward the research described in the first paragraph is best described as",
      "options": [
-      "wholehearted endorsement of both its findings and the conclusion drawn from them",
-      "rejection of its findings as resting on unreliable evidence",
-      "acceptance of its central finding combined with doubt about the conclusion drawn from it",
+      "acceptance of its central finding and of the conclusion that the democratic anomaly is largely illusory",
+      "doubt about its central finding, since surveys cannot capture the technical matters in which courts exert influence",
+      "qualified acceptance of its central finding, combined with the view that the finding has been brought to bear on the wrong question",
       "indifference, since it addresses a question of little democratic importance",
       "suspicion that its authors set out to defend the courts"
      ],
      "answer": 2,
-     "explain": "The author calls the research 'persuasive as far as it goes' and says the evidence that sustained defiance is rare is 'too consistent to dismiss', yet argues that the inference that the anomaly is 'largely illusory' misplaces the democratic question. Rejection of the findings contradicts the final paragraph, and the author treats the question as important, only misframed."
+     "explain": "The author calls the research 'persuasive as far as it goes' and the evidence that sustained defiance is rare 'too consistent to dismiss', yet says the democratic question 'has been misplaced'. The author therefore does not accept that the anomaly is illusory, and the point about technical matters limits what the research can show without casting doubt on its finding about headline cases."
     },
     {
      "id": "T3-V2H-10",
@@ -1000,7 +1001,7 @@
       "Judges appointed late in their careers are less responsive to public opinion than judges appointed young."
      ],
      "answer": 2,
-     "explain": "If opinion moves faster after a ruling than in comparable periods, even after an unpopular ruling, the ruling itself appears to move opinion, which is what leading means. A steady shift before the ruling is the trap: it shows the public was already heading that way, which favours anticipation, and citizens' ignorance of rulings would make leading less likely."
+     "explain": "If opinion moves faster after a ruling than in comparable periods, even after an unpopular ruling, the ruling itself appears to move opinion, which is what leading means. A steady shift before the ruling is the trap: it shows the public was already heading that way, which favors anticipation, and citizens' ignorance of rulings would make leading less likely."
     },
     {
      "id": "T3-V2H-11",
@@ -1309,11 +1310,11 @@
      "type": "qc",
      "skill": "Geometry and rates",
      "difficulty": 4,
-     "given": "Water is pumped at a constant rate of 0.5 cubic metres per minute into a cylindrical tank whose base has a radius of 2 metres.",
-     "qa": "The number of minutes it takes the water level to rise by 1 metre",
+     "given": "Water is pumped at a constant rate of 0.5 cubic meters per minute into a cylindrical tank whose base has a radius of 2 meters.",
+     "qa": "The number of minutes it takes the water level to rise by 1 meter",
      "qb": "25",
      "answer": 0,
-     "explain": "A 1-metre rise adds π × 2² × 1 = 4π cubic metres of water, which takes 4π ÷ 0.5 = 8π minutes. Since π > 3.14, 8π > 25.1, so A is greater. Using π ≈ 3 gives 24 minutes and the wrong answer.",
+     "explain": "A 1-meter rise adds π × 2² × 1 = 4π cubic meters of water, which takes 4π ÷ 0.5 = 8π minutes. Since π > 3.14, 8π > 25.1, so A is greater. Using π ≈ 3 gives 24 minutes and the wrong answer.",
      "why": "Rounding π down to 3 flips the comparison."
     },
     {
@@ -1352,7 +1353,7 @@
       "10"
      ],
      "answer": 2,
-     "explain": "The job is 6 × 10 = 60 builder-days. The first 4 days complete 24 builder-days, leaving 36 for 9 builders, which takes 4 more days, so 8 days in total. Answering 4 counts only the days after the extra builders arrive."
+     "explain": "The job is 6 × 10 = 60 builder-days. The first 4 days complete 24 builder-days, leaving 36 for 9 builders, which takes 4 more days, so 8 days in total. Answering 10 ignores the extra builders altogether."
     },
     {
      "id": "T3-Q2M-07",
@@ -1429,7 +1430,7 @@
       5,
       9
      ],
-     "explain": "The points with |x − y| ≥ 2 form two corner triangles, one above the line y = x + 2 and one below the line y = x − 2, each with legs of length 4 and area 8. The favourable region therefore has area 36 − 16 = 20, and the probability is 20/36 = 5/9. Treating the band around the diagonal as a strip of width 2 on each side of a 6-unit diagonal mismeasures it.",
+     "explain": "The points with |x − y| ≥ 2 form two corner triangles, one above the line y = x + 2 and one below the line y = x − 2, each with legs of length 4 and area 8. The favorable region therefore has area 36 − 16 = 20, and the probability is 20/36 = 5/9. Treating the band around the diagonal as a strip of width 2 on each side of a 6-unit diagonal mismeasures it.",
      "why": "The band around the diagonal is found most easily by subtracting the two corner triangles."
     },
     {
@@ -1472,9 +1473,9 @@
      "skill": "Data interpretation",
      "table": "t3-materials-orders",
      "difficulty": 3,
-     "stem": "The concrete not delivered by 30 June was delivered in July at a price per cubic metre 15% higher than the price shown. What was the total cost, in dollars, of all the concrete ordered?",
+     "stem": "The concrete not delivered by 30 June was delivered in July at a price per cubic meter 15% higher than the price shown. What was the total cost, in dollars, of all the concrete ordered?",
      "answer": 93280,
-     "explain": "60% of 800 is 480 cubic metres at $110, costing $52,800. The other 320 cubic metres cost $110 × 1.15 = $126.50 each, or $40,480. The total is $93,280; applying the 15% rise to all 800 cubic metres would overstate it."
+     "explain": "60% of 800 is 480 cubic meters at $110, costing $52,800. The other 320 cubic meters cost $110 × 1.15 = $126.50 each, or $40,480. The total is $93,280; applying the 15% rise to all 800 cubic meters would overstate it."
     },
     {
      "id": "T3-Q2M-15",

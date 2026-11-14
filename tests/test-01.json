@@ -18,9 +18,9 @@
   "t1-model-books": [
    "When an unusual motif, such as a dragon whose tail coils three times around a capital letter, turns up in manuscripts produced at monasteries a hundred miles apart, historians of medieval illumination have often concluded that a single itinerant artist decorated them all.",
    "The inference seemed especially secure when the motif was rare, since a rare design is unlikely to have been invented twice.",
-   "The survival of several model books, collections of drawings that workshops lent to one another and copied, has weakened that reasoning: a rare design could have travelled on parchment rather than in the memory of one painter.",
+   "The survival of several model books, collections of drawings that workshops lent to one another and copied, has weakened that reasoning: a rare design could have traveled on parchment rather than in the memory of one painter.",
    "Yet the model books do not dissolve the problem entirely.",
-   "A copyist working from a drawing reproduces its outline but must supply for himself the colour, the modelling of folds and the pressure of the brush, and it is in these features, which no drawing records, that individual habits show most plainly.",
+   "A copyist working from a drawing reproduces its outline but must supply for himself the color, the modeling of folds and the pressure of the brush, and it is in these features, which no drawing records, that individual habits show most plainly.",
    "Where manuscripts share both a motif and these unrecorded habits, a common hand therefore remains the most economical explanation; where they share the motif alone, the case for an itinerant artist rests on little more than a rarity that the model books have shown to be ambiguous."
   ],
   "t1-island-seabirds": [
@@ -28,12 +28,12 @@
    "Five years ago rats were eradicated from Marrow Island, and since then the number of seabird nests on Marrow has tripled.",
    "Some ecologists suggest that the increase reflects birds moving to Marrow from nearby islands, which still have rats, rather than any improvement in breeding success.",
    "But nest counts on the nearby islands have not fallen over the same period.",
-   "So the eradication must have increased the number of chicks successfully raised on Marrow."
+   "So the increase in nests must result from improved breeding success on Marrow."
   ],
   "t1-railway-savings": [
    "It was long taken for granted that the railways were indispensable to the growth of the nineteenth-century American economy.",
    "In a celebrated study, one economic historian tested that assumption by estimating how much more it would have cost to move the nation's freight in 1890 had there been no railways, using instead the waterways and wagon roads that already existed.",
-   "The answer, a few per cent of national income, implied that the economy would have been somewhat poorer without railways but not transformed.",
+   "The answer, a few percent of national income, implied that the economy would have been somewhat poorer without railways but not transformed.",
    "Critics accepted much of the arithmetic but questioned the frame: by holding everything except transport costs constant, the calculation ignored whatever the railways themselves had brought into being, from new towns on the prairie to the large firms that grew up to serve a national market.",
    "The study is thus best read as a measure of the railways' advantage over their rivals in carrying goods, not of their total contribution to growth."
   ],
@@ -60,14 +60,14 @@
   },
   "t1-still-life": [
    "Art historians of the mid-twentieth century read Dutch still-life paintings of the seventeenth century as moral sermons in paint: a half-peeled lemon signified the deceptive sweetness of worldly pleasure, a guttering candle the brevity of life.",
-   "Later scholars objected that the evidence for such readings came almost entirely from emblem books, which paired images with moralising mottoes, and that the inventories in which owners listed their paintings describe them by subject and price, never by message.",
+   "Later scholars objected that the evidence for such readings came almost entirely from emblem books, which paired images with moralizing mottoes, and that the inventories in which owners listed their paintings describe them by subject and price, never by message.",
    "The second part of the objection is weaker than it first appears, since an inventory is not the kind of document in which one would expect meanings to be recorded.",
    "Still, the objection exposes a real flaw in the older method, which assumed that if some objects in these pictures carried moral meanings, every object must."
   ],
   "t1-debasement": [
    "Between 1542 and 1551 the silver content of the realm's coins was cut by more than half, and over the same period prices in the realm roughly doubled.",
    "Some historians attribute the inflation instead to the silver then flowing into Europe from the Americas.",
-   "But that flow raised prices across the continent, and during these years prices in the realm rose far faster than in neighbouring states.",
+   "But that flow raised prices across the continent, and during these years prices in the realm rose far faster than in neighboring states.",
    "So the debasement, not American silver, was chiefly responsible for the realm's inflation."
   ],
   "t1-industrious-households": {
@@ -76,12 +76,12 @@
      "Between the mid-seventeenth and the late eighteenth centuries, the daily wages of labourers in much of north-western Europe, measured in the bread and fuel they could buy, barely rose and in some decades fell, a stagnation that historians of living standards have documented in town after town.",
      "Yet the same households, judged by the goods recorded at their members' deaths, came to own more clothing, more furniture and more of the new colonial groceries, such as sugar and tea, than their grandparents had.",
      "One influential explanation reconciles the two observations by shifting attention from the wage to the household: families, it proposes, worked more days in the year and sent wives and children into paid employment, earning more in total even as the rate for each day stood still.",
-     "On this view the desire for goods came first, and the extra labour was undertaken in order to satisfy it."
+     "On this view the desire for goods came first, and the extra labor was undertaken in order to satisfy it."
     ],
     [
      "The evidence that people worked more is substantial.",
      "Court testimony, in which witnesses mentioned in passing what they had been doing at a given hour on a given day, suggests that the working year lengthened considerably as the observance of saints' days and of the informal Monday holiday declined.",
-     "But the same evidence is equally compatible with a darker story, in which households laboured longer not because they wanted sugar and calico but because stagnant wages left them no other way to buy bread and pay their rent.",
+     "But the same evidence is equally compatible with a darker story, in which households labored longer not because they wanted sugar and calico but because stagnant wages left them no other way to buy bread and pay their rent.",
      "Testimony about how people spent their hours records what they did, not why they did it."
     ],
     [
@@ -92,7 +92,7 @@
    ]
   },
   "t1-cave-fish": [
-   "Fish that colonise lightless caves repeatedly lose their eyes, and for a long time the loss was attributed to the mere absence of selection: once vision was useless, mutations that damaged the eye were no longer weeded out, and they accumulated by chance.",
+   "Fish that colonize lightless caves repeatedly lose their eyes, and for a long time the loss was attributed to the mere absence of selection: once vision was useless, mutations that damaged the eye were no longer weeded out, and they accumulated by chance.",
    "This account struggles with the speed and consistency of the loss, which has occurred within a few thousand generations in population after population.",
    "Chance accumulation of damaging mutations should be slow, and it should leave different populations at very different stages of degeneration.",
    "Measurements showing that the eye and the brain tissue devoted to vision consume a considerable share of a small fish's energy suggest an alternative: in caves, where food is scarce, individuals that invested less in eyes may have survived better.",
@@ -143,7 +143,7 @@
    ]
   },
   "t1-league-season": {
-   "title": "Season results for six teams in a 21-team football league (each team played every other team once, 20 matches in all)",
+   "title": "Season results for six teams in a 21-team soccer league (each team played every other team once, 20 matches in all)",
    "head": [
     "Team",
     "Won",
@@ -276,7 +276,7 @@
      "answer": [
       0
      ],
-     "explain": "'But' sets the letters against the recluse image, and a man who rarely dines alone and misses his visitors is gregarious (fond of company). 'Taciturn' and 'misanthropic' would confirm the recluse image rather than contradict it, and 'peripatetic' (travelling about) says nothing about company."
+     "explain": "'But' sets the letters against the recluse image, and a man who rarely dines alone and misses his visitors is gregarious (fond of company). 'Taciturn' and 'misanthropic' would confirm the recluse image rather than contradict it, and 'peripatetic' (traveling about) says nothing about company."
     },
     {
      "id": "T1-V1-02",
@@ -290,7 +290,7 @@
        "betrayed",
        "mirrored",
        "prompted",
-       "publicised"
+       "publicized"
       ]
      ],
      "answer": [
@@ -304,7 +304,7 @@
      "type": "tc",
      "skill": "Text completion",
      "difficulty": 4,
-     "stem": "The novelist's admirers praise the (i)______ of her work, pointing to the dozen genres she has tried, yet even they concede that such range has come at the cost of (ii)______: no single book of hers is as fully realised as the best work of writers who have confined themselves to one form.",
+     "stem": "The novelist's admirers praise the (i)______ of her work, pointing to the dozen genres she has tried, yet even they concede that such range has come at the cost of (ii)______: no single book of hers is as fully realized as the best work of writers who have confined themselves to one form.",
      "blanks": [
       [
        "catholicity",
@@ -322,7 +322,7 @@
       0
      ],
      "why": "'Catholicity' is used in its secular sense of breadth, and 'finish' in its sense of polish, so both keys are unfamiliar uses of familiar words.",
-     "explain": "A dozen genres and 'such range' call for catholicity (breadth of interest); 'parochialism' is its opposite. What the range costs is shown after the colon: no book is fully realised, so it lacks finish (refinement). 'Range' cannot be the cost of range, and nothing suggests the books are hard to read."
+     "explain": "A dozen genres and 'such range' call for catholicity (breadth of interest); 'parochialism' is its opposite. What the range costs is shown after the colon: no book is fully realized, so it lacks finish (refinement). 'Range' cannot be the cost of range, and nothing suggests the books are hard to read."
     },
     {
      "id": "T1-V1-04",
@@ -380,7 +380,7 @@
      "type": "se",
      "skill": "Sentence equivalence",
      "difficulty": 4,
-     "stem": "Hardly a ______ observer of the court, the diarist owed her position to the queen's favour and repaid it with portraits so flattering that historians now read them with caution.",
+     "stem": "Hardly a ______ observer of the court, the diarist owed her position to the queen's favor and repaid it with portraits so flattering that historians now read them with caution.",
      "options": [
       "disinterested",
       "detached",
@@ -429,7 +429,7 @@
       1
      ],
      "why": "The rare motif is exactly the evidence the passage says has become ambiguous, and identical outlines are what copying produces.",
-     "explain": "The passage says individual habits show in features no drawing records, such as the modelling of folds and the pressure of the brush, so matching brushwork in the draperies points to one hand. A copyist reproduces outlines, so identical outlines fit copying just as well. A motif's rarity is the very evidence that model books have made ambiguous."
+     "explain": "The passage says individual habits show in features no drawing records, such as the modeling of folds and the pressure of the brush, so matching brushwork in the draperies points to one hand. A copyist reproduces outlines, so identical outlines fit copying just as well. A motif's rarity is the very evidence that model books have made ambiguous."
     },
     {
      "id": "T1-V1-09",
@@ -442,8 +442,8 @@
       "is not by itself sufficient evidence that one artist decorated both",
       "is irrelevant to attribution once model books are taken into account",
       "proves that the motif was copied from a model book",
-      "is a more reliable guide to attribution than the modelling of folds",
-      "was overvalued only by historians who never examined the colouring of manuscripts"
+      "is a more reliable guide to attribution than the modeling of folds",
+      "was overvalued only by historians who never examined the coloring of manuscripts"
      ],
      "answer": 0,
      "why": "'Irrelevant' overstates the author's position: rarity is called ambiguous, not worthless.",
@@ -538,7 +538,7 @@
      "blanks": [
       [
        "chary",
-       "enamoured",
+       "enamored",
        "ignorant",
        "tolerant",
        "heedless"
@@ -547,7 +547,7 @@
      "answer": [
       0
      ],
-     "explain": "Two failures and 'however promising' show the board resists borrowing even when it looks attractive, so it is chary (wary) of such proposals. 'Enamoured' and 'tolerant' point the wrong way, and 'heedless' would mean careless, the opposite of a burned board."
+     "explain": "Two failures and 'however promising' show the board resists borrowing even when it looks attractive, so it is chary (wary) of such proposals. 'Enamored' and 'tolerant' point the wrong way, and 'heedless' would mean careless, the opposite of a burned board."
     },
     {
      "id": "T1-V2M-03",
@@ -637,13 +637,13 @@
       "refute",
       "undermine",
       "supplant",
-      "summarise"
+      "summarize"
      ],
      "answer": [
       0,
       1
      ],
-     "explain": "Adding detail without changing the main lines is to augment or amplify (expand on) the account. 'Refute' and 'undermine' are the trap pair: they repeat 'overturn' instead of contrasting with it. 'Supplant' also means replace, and 'summarise' would remove detail."
+     "explain": "Adding detail without changing the main lines is to augment or amplify (expand on) the account. 'Refute' and 'undermine' are the trap pair: they repeat 'overturn' instead of contrasting with it. 'Supplant' also means replace, and 'summarize' would remove detail."
     },
     {
      "id": "T1-V2M-07",
@@ -671,7 +671,7 @@
      "type": "se",
      "skill": "Sentence equivalence",
      "difficulty": 4,
-     "stem": "Colleagues found her ______ manner disarming: she would concede a point the moment the evidence went against her, without any of the face-saving manoeuvres they had come to expect from senior scholars.",
+     "stem": "Colleagues found her ______ manner disarming: she would concede a point the moment the evidence went against her, without any of the face-saving maneuvers they had come to expect from senior scholars.",
      "options": [
       "artless",
       "guileless",
@@ -685,7 +685,7 @@
       1
      ],
      "why": "'Artless' sounds like an insult, but here it means free of guile, and the trap pair 'disingenuous'/'calculating' reverses the sense.",
-     "explain": "Conceding at once, with no face-saving manoeuvres, shows a manner free of calculation: artless or guileless. 'Disingenuous' and 'calculating' are a matching pair but describe the manoeuvres she avoided, and 'obstinate' contradicts her readiness to concede."
+     "explain": "Conceding at once, with no face-saving maneuvers, shows a manner free of calculation: artless or guileless. 'Disingenuous' and 'calculating' are a matching pair but describe the maneuvers she avoided, and 'obstinate' contradicts her readiness to concede."
     },
     {
      "id": "T1-V2M-09",
@@ -747,9 +747,9 @@
      "skill": "Reading comprehension",
      "passage": "t1-urban-song",
      "difficulty": 3,
-     "stem": "Select the sentence in which the author explains why a newly observed behaviour undermines the original evidence for an evolutionary explanation.",
+     "stem": "Select the sentence in which the author explains why a newly observed behavior undermines the original evidence for an evolutionary explanation.",
      "answer": 5,
-     "explain": "The sentence beginning 'Such flexibility requires no genetic change at all' explains that flexible birds would produce the very pattern credited to selection. The sentence before it only reports the behaviour, and the one after it reports the critics' further claim."
+     "explain": "The sentence beginning 'Such flexibility requires no genetic change at all' explains that flexible birds would produce the very pattern credited to selection. The sentence before it only reports the behavior, and the one after it reports the critics' further claim."
     },
     {
      "id": "T1-V2M-13",
@@ -784,7 +784,7 @@
       0,
       2
      ],
-     "why": "The answers depend on separating the author's partial defence of the old readings from the flaw the author concedes.",
+     "why": "The answers depend on separating the author's partial defense of the old readings from the flaw the author concedes.",
      "explain": "The flaw the author names is the leap from 'some objects carried meanings' to 'every object must', which leaves the first claim standing and condemns readings of every object. The author explicitly discounts the inventories' silence, since such documents would not record meanings in any case."
     },
     {
@@ -795,15 +795,15 @@
      "difficulty": 4,
      "stem": "The argument depends on which of the following assumptions?",
      "options": [
-      "The realm did not receive substantially more American silver, relative to its size, than the neighbouring states did.",
-      "Prices in the neighbouring states did not rise at all between 1542 and 1551.",
+      "The realm did not receive substantially more American silver, relative to its size, than the neighboring states did.",
+      "Prices in the neighboring states did not rise at all between 1542 and 1551.",
       "Debasing a coinage always raises prices in proportion to the reduction in its silver content.",
       "The debasement was the only measure taken by the realm's government that affected prices.",
       "The flow of American silver into Europe had ended by 1551."
      ],
      "answer": 0,
-     "why": "The comparison with neighbouring states only isolates the debasement if American silver reached the realm and its neighbours in similar measure.",
-     "explain": "The argument treats the realm's faster inflation as the debasement's doing because American silver affected the whole continent. If the realm had received far more of that silver than its neighbours, the silver could explain the gap and the argument would collapse. The argument does not need neighbouring prices to have stayed flat, only to have risen more slowly, and other minor measures would not undermine it."
+     "why": "The comparison with neighboring states only isolates the debasement if American silver reached the realm and its neighbors in similar measure.",
+     "explain": "The argument treats the realm's faster inflation as the debasement's doing because American silver affected the whole continent. If the realm had received far more of that silver than its neighbors, the silver could explain the gap and the argument would collapse. The argument does not need neighboring prices to have stayed flat, only to have risen more slowly, and other minor measures would not undermine it."
     }
    ]
   },
@@ -838,7 +838,7 @@
      "type": "tc",
      "skill": "Text completion",
      "difficulty": 4,
-     "stem": "The biography's portrait of its subject is relentlessly (i)______, but the author's refusal to grant him a single virtue ultimately (ii)______ her case: readers begin to suspect a grudge rather than a judgement.",
+     "stem": "The biography's portrait of its subject is relentlessly (i)______, but the author's refusal to grant him a single virtue ultimately (ii)______ her case: readers begin to suspect a grudge rather than a judgment.",
      "blanks": [
       [
        "censorious",
@@ -848,7 +848,7 @@
       [
        "hampers",
        "bolsters",
-       "epitomises"
+       "epitomizes"
       ]
      ],
      "answer": [
@@ -872,7 +872,7 @@
       ],
       [
        "elasticity",
-       "rigour",
+       "rigor",
        "concision"
       ]
      ],
@@ -881,7 +881,7 @@
       0
      ],
      "why": "The 'less X than Y' frame means the first blank is a quality the treaty's survival is usually credited to, not the real cause.",
-     "explain": "The colon explains the treaty's survival by language loose enough for every party to read its own interests into it: elasticity, not rigour or concision. 'Less a tribute to' sets up a merit that might otherwise get the credit, the drafters' acumen; nobody pays tribute to rashness, and pedantry would have produced precise wording."
+     "explain": "The colon explains the treaty's survival by language loose enough for every party to read its own interests into it: elasticity, not rigor or concision. 'Less a tribute to' sets up a merit that might otherwise get the credit, the drafters' acumen; nobody pays tribute to rashness, and pedantry would have produced precise wording."
     },
     {
      "id": "T1-V2H-04",
@@ -1010,7 +1010,7 @@
       "arguing that households worked longer because their wages fell",
       "showing that court testimony is an unreliable historical source",
       "explaining why the observance of saints' days declined",
-      "defending the view that the desire for consumer goods drove the growth of household labour"
+      "defending the view that the desire for consumer goods drove the growth of household labor"
      ],
      "answer": 0,
      "why": "The passage gives the 'darker story' a fair hearing, which tempts readers to think the author endorses it.",
@@ -1022,7 +1022,7 @@
      "skill": "Reading comprehension",
      "passage": "t1-industrious-households",
      "difficulty": 5,
-     "stem": "The author's response to the proponents' reply in the third paragraph implies that the purchase of coats and tea by labouring households",
+     "stem": "The author's response to the proponents' reply in the third paragraph implies that the purchase of coats and tea by laboring households",
      "options": [
       "would support the proponents' explanation only if such goods were not, for those households, practical requirements",
       "shows that those households were not in fact short of money for bread",
@@ -1061,7 +1061,7 @@
      "difficulty": 4,
      "stem": "Select the sentence that gives the reason a particular kind of source cannot, by itself, decide between the two explanations of why households worked more.",
      "answer": 7,
-     "why": "Two neighbouring sentences also concern the limits of the evidence, but one only asserts that it fits both stories and the other speaks of all the evidence rather than one source.",
+     "why": "Two neighboring sentences also concern the limits of the evidence, but one only asserts that it fits both stories and the other speaks of all the evidence rather than one source.",
      "explain": "The sentence 'Testimony about how people spent their hours records what they did, not why they did it' gives the reason court testimony cannot settle the question of motive. The sentence before it says only that the evidence fits a darker story, without saying why, and the final sentence sums up all the evidence rather than one kind of source."
     },
     {
@@ -1073,14 +1073,14 @@
      "stem": "The author mentions the energy consumed by visual tissue primarily in order to",
      "options": [
       "support an explanation in which smaller eyes gave cave fish an advantage",
-      "show that cave fish have smaller brains than fish living near the surface",
+      "explain why chance mutations would leave different populations at different stages of degeneration",
       "explain why damaging mutations accumulate slowly",
       "refute the claim that vision is useless in caves",
       "demonstrate that the absence of selection played no part in eye loss"
      ],
      "answer": 0,
      "why": "'Played no part' is too strong: the author says the two mechanisms are not exclusive.",
-     "explain": "The energy cost is what makes the alternative work: where food is scarce, fish that spend less on eyes may survive better, so smaller eyes are favoured. The author explicitly says the two mechanisms are not exclusive, so the energy finding cannot show that relaxed selection played no part."
+     "explain": "The energy cost is what makes the alternative work: where food is scarce, fish that spend less on eyes may survive better, so smaller eyes are favored. The author explicitly says the two mechanisms are not exclusive, so the energy finding cannot show that relaxed selection played no part. The uneven stages of degeneration are the author's objection to the chance account, made before the energy finding is introduced."
     },
     {
      "id": "T1-V2H-14",
@@ -1088,9 +1088,9 @@
      "skill": "Reading comprehension",
      "passage": "t1-cave-fish",
      "difficulty": 5,
-     "stem": "Which of the following findings, if made, would count against the explanation proposed in the fourth sentence of the passage? Select all that apply.",
+     "stem": "Which of the following findings, if made, would count against the alternative explanation that the author bases on measurements of energy use? Select all that apply.",
      "options": [
-      "In a cave with plentiful food, fish lost their eyes as quickly as fish in caves where food is scarce.",
+      "In a cave with plentiful food, fish lost their eyes as quickly and as consistently as fish in caves where food is scarce.",
       "In a cave where food is scarce, fish with smaller eyes survived no better than fish with larger eyes.",
       "In cave fish, the tissue devoted to vision uses less energy than the tissue devoted to smell."
      ],
@@ -1178,7 +1178,7 @@
      "type": "mc",
      "skill": "Mixtures",
      "difficulty": 3,
-     "stem": "A farmer has 40 litres of liquid fertiliser that is 15% nitrogen by volume. How many litres of a fertiliser that is 40% nitrogen by volume must be mixed in to produce a mixture that is 30% nitrogen by volume?",
+     "stem": "A farmer has 40 liters of liquid fertilizer that is 15% nitrogen by volume. How many liters of a fertilizer that is 40% nitrogen by volume must be mixed in to produce a mixture that is 30% nitrogen by volume?",
      "options": [
       "20",
       "30",
@@ -1187,7 +1187,7 @@
       "75"
      ],
      "answer": 3,
-     "explain": "The first fertiliser contains 0.15 × 40 = 6 litres of nitrogen. With x litres added, 6 + 0.4x = 0.3(40 + x), so 0.1x = 6 and x = 60; check: 30 litres of nitrogen in 100 litres is 30%. Because 30% is twice as far from 15% as from 40%, the mixture needs twice as much of the stronger fertiliser, not a smaller amount such as 20 or 30 litres."
+     "explain": "The first fertilizer contains 0.15 × 40 = 6 liters of nitrogen. With x liters added, 6 + 0.4x = 0.3(40 + x), so 0.1x = 6 and x = 60; check: 30 liters of nitrogen in 100 liters is 30%. Because 30% is twice as far from 15% as from 40%, the mixture needs twice as much of the stronger fertilizer, not a smaller amount such as 20 or 30 liters."
     },
     {
      "id": "T1-Q1-06",
@@ -1236,7 +1236,7 @@
       "6"
      ],
      "answer": 3,
-     "explain": "The area fixes the height: ½ × 6 × y = 12, so P lies on the line y = 4. If PO = PB, P is (3, 4). If OP = OB = 6, then x² + 16 = 36 and x = ±√20, giving two points; if BP = BO = 6, then x = 6 ± √20, two more. None of these coincide or make an equilateral triangle, so there are 5; answering 1 or 3 means treating OB only as the base.",
+     "explain": "The area fixes the height: ½ × 6 × y = 12, so P lies on the line y = 4. If PO = PB, P is (3, 4). If OP = OB = 6, then x² + 16 = 36 and x = ±√20, giving two points; if BP = BO = 6, then x = 6 ± √20, two more. None of these coincide or make an equilateral triangle, so there are 5; answering 3 counts only one of the two ways OB can be an equal side.",
      "why": "OB can be one of the two equal sides as well as the base, which adds four points off the perpendicular bisector."
     },
     {
@@ -1522,17 +1522,15 @@
      "stem": "Unless stated otherwise, teams earn 3 points for a win, 1 point for a draw and 0 points for a loss. Which of the following statements are true? Indicate all such statements.",
      "options": [
       "If a win earned 2 points instead of 3 (with 1 point for a draw), the six teams would finish in the same order by points.",
-      "Every team that won more matches than the Falcons also conceded fewer goals than the Falcons.",
-      "The team that scored the most goals also had the greatest goal difference (goals scored minus goals conceded).",
       "The Falcons earned a greater percent of their points from draws than any other team did.",
       "If each of the Harriers' drawn matches had been a win instead, the Harriers would have earned more points than the Kestrels."
      ],
      "answer": [
       0,
-      4
+      2
      ],
-     "explain": "With 3 points per win the order is Kestrels 40, Harriers 38, Ospreys 35, Falcons 30, Merlins 23, Buzzards 15; with 2 it is 29, 26, 25, 22, 17, 11, the same order. The Ospreys won more matches than the Falcons but conceded 28 goals to their 26. The Harriers scored the most (41), but their goal difference of 16 trails the Kestrels' 18. The Merlins took 5 of 23 points (about 22%) from draws, more than the Falcons' 6 of 30 (20%), while 14 wins would give the Harriers 42 points, beating the Kestrels' 40.",
-     "why": "Each false statement fails on a single team: the Ospreys' goals conceded, the Kestrels' goal difference and the Merlins' share of points from draws."
+     "explain": "With 3 points per win the order is Kestrels 40, Harriers 38, Ospreys 35, Falcons 30, Merlins 23, Buzzards 15; with 2 it is 29, 26, 25, 22, 17, 11, the same order. The Merlins took 5 of 23 points (about 22%) from draws, more than the Falcons' 6 of 30 (20%). Turning the Harriers' 2 draws into wins gives 14 wins and 42 points, beating the Kestrels' 40.",
+     "why": "The draw-share statement fails only on the Merlins, whose small points total makes 5 draw points a larger share than the Falcons' 6."
     }
    ]
   },
@@ -1581,20 +1579,19 @@
      "id": "T1-Q2H-04",
      "type": "qc",
      "skill": "Probability",
-     "difficulty": 4,
+     "difficulty": 3,
      "given": "Each of 4 seeds planted in a tray will fail to sprout with probability 1/6, independently of the others.",
      "qa": "The probability that at least one of the 4 seeds fails to sprout",
      "qb": "1/2",
      "answer": 0,
-     "explain": "All four sprout with probability (5/6)⁴ = 625/1,296, so at least one fails with probability 671/1,296, slightly more than 648/1,296 = 1/2. Adding 1/6 four times (2/3) overcounts the cases where two or more seeds fail, and guessing below 1/2 because each failure is unlikely is the other trap.",
-     "why": "The value is only just above 1/2, so estimating from 4 × 1/6 or from intuition fails."
+     "explain": "All four sprout with probability (5/6)⁴ = 625/1,296, so at least one fails with probability 671/1,296, slightly more than 648/1,296 = 1/2. Adding 1/6 four times (2/3) overcounts the cases where two or more seeds fail, and guessing below 1/2 because each failure is unlikely is the other trap."
     },
     {
      "id": "T1-Q2H-05",
      "type": "qc",
      "skill": "Mixtures",
      "difficulty": 4,
-     "given": "Fertiliser X is 30% nitrogen by weight and fertiliser Y is 60% nitrogen by weight. A blend of x kilograms of X and y kilograms of Y, where x > 0 and y > 0, is more than 40% nitrogen by weight.",
+     "given": "Fertilizer X is 30% nitrogen by weight and fertilizer Y is 60% nitrogen by weight. A blend of x kilograms of X and y kilograms of Y, where x > 0 and y > 0, is more than 40% nitrogen by weight.",
      "qa": "x",
      "qb": "2y",
      "answer": 1,
@@ -1642,7 +1639,7 @@
      "difficulty": 3,
      "stem": "The interior angles of a convex polygon add up to 2,340°. How many diagonals does the polygon have?",
      "answer": 90,
-     "explain": "(n − 2) × 180 = 2,340 gives n − 2 = 13, so n = 15. Each vertex is joined by a diagonal to the n − 3 = 12 vertices that are neither itself nor its neighbours, and each diagonal is counted from both ends: 15 × 12 ÷ 2 = 90. Forgetting to halve gives 180."
+     "explain": "(n − 2) × 180 = 2,340 gives n − 2 = 13, so n = 15. Each vertex is joined by a diagonal to the n − 3 = 12 vertices that are neither itself nor its neighbors, and each diagonal is counted from both ends: 15 × 12 ÷ 2 = 90. Forgetting to halve gives 180."
     },
     {
      "id": "T1-Q2H-09",
@@ -1747,22 +1744,20 @@
      "type": "multi",
      "skill": "Data interpretation",
      "chart": "t1-farm-crops",
-     "difficulty": 5,
+     "difficulty": 4,
      "stem": "Which of the following statements are true? Indicate all such statements.",
      "options": [
       "Oats made up a greater percent of the total area planted with the three crops in 2025 than in 2021.",
-      "In each year from 2022 to 2025, the total area planted with the three crops was more than 3% greater than in the previous year.",
-      "In each year shown, the area planted with barley was at least 1.5 times the area planted with oats.",
+      "In each year from 2022 to 2025, the total area planted with the three crops was more than 5% greater than in the previous year.",
       "The only year in which the wheat area decreased from the previous year was also the year with the largest increase in barley area.",
       "The median of the five annual areas planted with oats is greater than their average (arithmetic mean)."
      ],
      "answer": [
       0,
-      1,
-      3
+      2
      ],
-     "explain": "Oats rose from 30/230 ≈ 13% of the total to 60/330 ≈ 18%. The totals 230, 260, 290, 320 and 330 rise by about 13%, 12%, 10% and 3.1% (10/320 = 3.125%), each above 3%. In 2022 barley was only 70/50 = 1.4 times oats. Wheat fell only in 2024, the year barley rose most (by 30 hectares); and the oat areas 30, 50, 50, 60 and 60 have median 50 and mean 250/5 = 50, which are equal.",
-     "why": "Two statements turn on close calls: the 2025 rise is 3.125%, just over 3%, and the oats median equals the mean rather than exceeding it."
+     "explain": "Oats rose from 30/230 ≈ 13% of the total to 60/330 ≈ 18%. The totals 230, 260, 290, 320 and 330 rise by about 13%, 12%, 10% and then only 3% (10/320), so not every year exceeds 5%. Wheat fell only in 2024, the year barley rose most (by 30 hectares). The oat areas 30, 50, 50, 60 and 60 have median 50 and mean 250/5 = 50, which are equal, not one greater than the other.",
+     "why": "The totals rise steadily until 2025, when the increase drops to about 3%, and the oats median equals the mean rather than exceeding it."
     }
    ]
   }

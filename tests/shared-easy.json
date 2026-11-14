@@ -12,7 +12,7 @@
      "Beginning in the 1990s, however, a number of urban designers argued that forgiving design rested on a mistaken picture of how people drive.",
      "Drivers, they pointed out, do not hold to a fixed speed and simply enjoy the benefit of extra space; instead, they adjust their speed to how risky a road appears.",
      "A wide, straight, unobstructed street looks safe, and so it invites faster driving, which can cancel out the margin for error that the design was meant to provide.",
-     "Studies of city streets lent some support to this view: on several urban roads where lanes had been narrowed or trees planted along the kerb, average speeds fell and the number of crashes did not rise, even though drivers now had less room to correct their mistakes.",
+     "Studies of city streets lent some support to this view: on several urban roads where lanes had been narrowed or trees planted along the curb, average speeds fell and the number of crashes did not rise, even though drivers now had less room to correct their mistakes.",
      "Because the harm done when a car strikes a pedestrian depends heavily on the car's speed, the critics concluded that on busy urban streets a design that feels slightly less comfortable to drive may in fact be the safer one."
     ],
     [
@@ -40,10 +40,10 @@
    "title": "Monthly sales at a sports shop, January to April",
    "head": [
     "Month",
-    "Footballs sold",
-    "Price per football (£)",
-    "Pairs of trainers sold",
-    "Price per pair (£)"
+    "Soccer balls sold",
+    "Price per soccer ($)",
+    "Pairs of sneakers sold",
+    "Price per pair ($)"
    ],
    "rows": [
     [
@@ -300,7 +300,7 @@
      "difficulty": 3,
      "stem": "Which of the following can be inferred from the passage about forgiving design? Select all that apply.",
      "options": [
-      "Its supporters assumed that giving drivers more space would not lead them to change their behaviour in a way that cancels the benefit.",
+      "Its supporters assumed that giving drivers more space would not lead them to change their behavior in a way that cancels the benefit.",
       "It remains appropriate for some kinds of road.",
       "It was first developed for residential streets and only later extended to highways."
      ],
@@ -367,10 +367,10 @@
       "In its first month, the new yoghurt sold slightly less than the original had sold in the month before.",
       "In a separate blind tasting, the same panels rated a version with 20 percent less sugar and no added aroma as exactly as sweet as the original.",
       "Some panellists said that the new recipe tasted more strongly of strawberry than the original.",
-      "Aroma compounds are known to affect how sweet some other fruit-flavoured foods taste."
+      "Aroma compounds are known to affect how sweet some other fruit-flavored foods taste."
      ],
      "answer": 2,
-     "explain": "If the panels could not detect the 20 percent cut even without extra aroma, there was no lost sweetness for the aroma to make up, so the tasting results no longer support the company's explanation. Sales figures are tempting but concern a different month and many other factors, not perceived sweetness. The point about other fruit-flavoured foods strengthens the conclusion rather than weakening it."
+     "explain": "If the panels could not detect the 20 percent cut even without extra aroma, there was no lost sweetness for the aroma to make up, so the tasting results no longer support the company's explanation. Sales figures are tempting but concern a different month and many other factors, not perceived sweetness. The point about other fruit-flavored foods strengthens the conclusion rather than weakening it."
     }
    ]
   },
@@ -384,11 +384,11 @@
      "type": "qc",
      "skill": "Percentages",
      "difficulty": 3,
-     "given": "A jacket priced at £80 has its price raised by 25%. The new price is then reduced by 25%.",
-     "qa": "The final price of the jacket, in pounds",
+     "given": "A jacket priced at $80 has its price raised by 25%. The new price is then reduced by 25%.",
+     "qa": "The final price of the jacket, in dollars",
      "qb": "80",
      "answer": 1,
-     "explain": "After the rise the price is 80 × 1.25 = £100, and 25% off £100 is £25, leaving £75. The two changes do not cancel, because the cut is taken from a larger amount than the rise was. So Quantity B is greater."
+     "explain": "After the rise the price is 80 × 1.25 = $100, and 25% off $100 is $25, leaving $75. The two changes do not cancel, because the cut is taken from a larger amount than the rise was. So Quantity B is greater."
     },
     {
      "id": "E-Q-02",
@@ -417,11 +417,11 @@
      "type": "qc",
      "skill": "Geometry",
      "difficulty": 2,
-     "given": "A rectangular floor measuring 6 metres by 4 metres is covered exactly, with no gaps or overlaps, by square tiles with sides of 50 centimetres.",
+     "given": "A rectangular floor measuring 6 meters by 4 meters is covered exactly, with no gaps or overlaps, by square tiles with sides of 50 centimeters.",
      "qa": "The number of tiles used",
      "qb": "96",
      "answer": 2,
-     "explain": "Along the 6-metre side 600 ÷ 50 = 12 tiles fit, and along the 4-metre side 400 ÷ 50 = 8 fit, so 12 × 8 = 96 tiles are used. A common slip is dividing the area 24 m² by 0.5, which gives 48; each tile covers 0.5 × 0.5 = 0.25 m², and 24 ÷ 0.25 = 96. The quantities are equal."
+     "explain": "Along the 6-meter side 600 ÷ 50 = 12 tiles fit, and along the 4-meter side 400 ÷ 50 = 8 fit, so 12 × 8 = 96 tiles are used. A common slip is dividing the area 24 m² by 0.5, which gives 48; each tile covers 0.5 × 0.5 = 0.25 m², and 24 ÷ 0.25 = 96. The quantities are equal."
     },
     {
      "id": "E-Q-05",
@@ -439,7 +439,7 @@
      "type": "mc",
      "skill": "Rates",
      "difficulty": 3,
-     "stem": "A cyclist rides 24 kilometres to a lake at an average speed of 12 kilometres per hour and returns along the same 24-kilometre route at an average speed of 8 kilometres per hour. What is her average speed for the whole round trip, in kilometres per hour?",
+     "stem": "A cyclist rides 24 kilometers to a lake at an average speed of 12 kilometers per hour and returns along the same 24-kilometer route at an average speed of 8 kilometers per hour. What is her average speed for the whole round trip, in kilometers per hour?",
      "options": [
       "9.2",
       "9.6",
@@ -455,7 +455,7 @@
      "type": "mc",
      "skill": "Algebra",
      "difficulty": 2,
-     "stem": "Tickets for a school play cost £4 for students and £7 for adults. On opening night, 150 tickets were sold for a total of £795. How many adult tickets were sold?",
+     "stem": "Tickets for a school play cost $4 for students and $7 for adults. On opening night, 150 tickets were sold for a total of $795. How many adult tickets were sold?",
      "options": [
       "50",
       "55",
@@ -464,14 +464,14 @@
       "70"
      ],
      "answer": 3,
-     "explain": "If all 150 tickets had been student tickets the takings would be 150 × 4 = £600. Each adult ticket adds £3 more, and the extra is 795 − 600 = £195, so there were 195 ÷ 3 = 65 adult tickets. Check: 85 × 4 + 65 × 7 = 340 + 455 = 795."
+     "explain": "If all 150 tickets had been student tickets the takings would be 150 × 4 = $600. Each adult ticket adds $3 more, and the extra is 795 − 600 = $195, so there were 195 ÷ 3 = 65 adult tickets. Check: 85 × 4 + 65 × 7 = 340 + 455 = 795."
     },
     {
      "id": "E-Q-08",
      "type": "numeric",
      "skill": "Geometry",
      "difficulty": 2,
-     "stem": "A rectangular lawn measures 18 metres by 12 metres. A path 1 metre wide runs around the outside of the lawn, along all four sides. What is the area of the path, in square metres?",
+     "stem": "A rectangular lawn measures 18 meters by 12 meters. A path 1 meter wide runs around the outside of the lawn, along all four sides. What is the area of the path, in square meters?",
      "answer": 64,
      "explain": "The lawn and path together form a rectangle (18 + 2) by (12 + 2) = 20 m by 14 m, with area 280 m². Subtracting the lawn's 18 × 12 = 216 m² leaves 64 m². Multiplying the lawn's perimeter, 60 m, by the 1 m width gives 60 and misses the four 1 m by 1 m corner squares."
     },
@@ -517,7 +517,7 @@
      "type": "fraction",
      "skill": "Fractions",
      "difficulty": 2,
-     "stem": "Priya spent 1/4 of her holiday money on a train ticket and then spent 1/3 of what remained on a hotel. What fraction of her original holiday money did she have left? Give your answer as a fraction.",
+     "stem": "Priya spent 1/4 of her vacation money on a train ticket and then spent 1/3 of what remained on a hotel. What fraction of her original vacation money did she have left? Give your answer as a fraction.",
      "answer": [
       1,
       2
@@ -529,7 +529,7 @@
      "type": "mc",
      "skill": "Geometry",
      "difficulty": 3,
-     "stem": "A café sells round pizzas in two sizes: a large with a diameter of 36 centimetres and a small with a diameter of 24 centimetres. Both pizzas have the same thickness. The area of the large pizza is how many times the area of the small pizza?",
+     "stem": "A café sells round pizzas in two sizes: a large with a diameter of 36 centimeters and a small with a diameter of 24 centimeters. Both pizzas have the same thickness. The area of the large pizza is how many times the area of the small pizza?",
      "options": [
       "1.25",
       "1.5",
@@ -546,7 +546,7 @@
      "skill": "Data interpretation",
      "difficulty": 2,
      "table": "e-sports-shop",
-     "stem": "By approximately what percent did the total number of items sold (footballs plus pairs of trainers) increase from January to April?",
+     "stem": "By approximately what percent did the total number of items sold (soccer balls plus pairs of sneakers) increase from January to April?",
      "options": [
       "36%",
       "47%",
@@ -555,7 +555,7 @@
       "75%"
      ],
      "answer": 2,
-     "explain": "January's total is 40 + 20 = 60 items and April's is 70 + 24 = 94, an increase of 34. As a percent of the January figure that is 34 ÷ 60 ≈ 57%. Dividing by April's 94 gives about 36%, and 75% is the increase in footballs alone."
+     "explain": "January's total is 40 + 20 = 60 items and April's is 70 + 24 = 94, an increase of 34. As a percent of the January figure that is 34 ÷ 60 ≈ 57%. Dividing by April's 94 gives about 36%, and 75% is the increase in soccer balls alone."
     },
     {
      "id": "E-Q-14",
@@ -563,9 +563,9 @@
      "skill": "Data interpretation",
      "difficulty": 3,
      "table": "e-sports-shop",
-     "stem": "In January, what was the average (arithmetic mean) revenue per item sold, in pounds, counting footballs and pairs of trainers together?",
+     "stem": "In January, what was the average (arithmetic mean) revenue per item sold, in dollars, counting soccer balls and pairs of sneakers together?",
      "answer": 30,
-     "explain": "Footballs brought in 40 × 15 = £600 and trainers 20 × 60 = £1,200, a total of £1,800 from 60 items, so the mean is 1,800 ÷ 60 = £30. Averaging the two prices, (15 + 60) ÷ 2 = 37.5, ignores that twice as many footballs as pairs of trainers were sold."
+     "explain": "Soccer balls brought in 40 × 15 = $600 and sneakers 20 × 60 = $1,200, a total of $1,800 from 60 items, so the mean is 1,800 ÷ 60 = $30. Averaging the two prices, (15 + 60) ÷ 2 = 37.5, ignores that twice as many soccer balls as pairs of sneakers were sold."
     },
     {
      "id": "E-Q-15",
@@ -573,7 +573,7 @@
      "skill": "Data interpretation",
      "difficulty": 3,
      "table": "e-sports-shop",
-     "stem": "In which of the four months was the shop's revenue from trainers more than 1.5 times its revenue from footballs? Indicate all such months.",
+     "stem": "In which of the four months was the shop's revenue from sneakers more than 1.5 times its revenue from soccer balls? Indicate all such months.",
      "options": [
       "January",
       "February",
@@ -584,7 +584,7 @@
       0,
       1
      ],
-     "explain": "Trainer and football revenues are £1,200 and £600 in January (ratio 2), £1,500 and £900 in February (about 1.67), £1,350 and £900 in March (exactly 1.5) and £1,320 and £1,120 in April (about 1.18). March is exactly 1.5 times, not more, so only January and February qualify."
+     "explain": "Trainer and soccer revenues are $1,200 and $600 in January (ratio 2), $1,500 and $900 in February (about 1.67), $1,350 and $900 in March (exactly 1.5) and $1,320 and $1,120 in April (about 1.18). March is exactly 1.5 times, not more, so only January and February qualify."
     }
    ]
   }

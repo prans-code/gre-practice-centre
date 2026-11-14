@@ -102,13 +102,10 @@ def _q2m_13():
 
 def _q2m_15():
     order = lambda win: sorted(LEAGUE, key=lambda k: -_pts(k, win))
-    gd = {k: v[3] - v[4] for k, v in LEAGUE.items()}
     draw_share = {k: F(v[1], _pts(k)) for k, v in LEAGUE.items()}
     h = LEAGUE["Harriers"]
     stmts = [
         lambda: order(3) == order(2) and len({_pts(k, 2) for k in LEAGUE}) == 6 and len({_pts(k) for k in LEAGUE}) == 6,
-        lambda: all(LEAGUE[k][4] < LEAGUE["Falcons"][4] for k in LEAGUE if LEAGUE[k][0] > LEAGUE["Falcons"][0]),
-        lambda: max(LEAGUE, key=lambda k: LEAGUE[k][3]) == max(gd, key=gd.get),
         lambda: all(draw_share["Falcons"] > s for k, s in draw_share.items() if k != "Falcons"),
         lambda: 3 * (h[0] + h[1]) > _pts("Kestrels"),
     ]
@@ -169,8 +166,7 @@ def _q2h_15():
     db = [BARLEY[i] - BARLEY[i - 1] for i in range(1, 5)]
     stmts = [
         lambda: F(OATS[4], TOTAL[4]) > F(OATS[0], TOTAL[0]),
-        lambda: all(F(TOTAL[i], TOTAL[i - 1]) > F(103, 100) for i in range(1, 5)),
-        lambda: all(b >= F(3, 2) * o for b, o in zip(BARLEY, OATS)),
+        lambda: all(F(TOTAL[i], TOTAL[i - 1]) > F(105, 100) for i in range(1, 5)),
         lambda: [i for i in range(4) if dw[i] < 0] == [db.index(max(db))] and db.count(max(db)) == 1,
         lambda: median(OATS) > F(sum(OATS), len(OATS)),
     ]
