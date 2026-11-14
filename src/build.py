@@ -231,10 +231,6 @@ def mix_ok(key, diffs):
     return n(2, 3) == len(diffs)  # V2E, Q2E
 
 
-# shortcut: mix not enforced on these until their content is rewritten (plan Tasks 5-6); remove then
-MIX_PENDING = {"test-01"}
-
-
 def check_all(tests, shared=None):
     """Validate every test plus cross-test rules; returns the list of problems."""
     global problems
@@ -250,7 +246,7 @@ def check_all(tests, shared=None):
                 for k in shared.get(kind, {}):
                     seen_keys[(kind, k)] = "shared-easy"
             for k, s in shared["sections"].items():
-                if "shared-easy" not in MIX_PENDING and not mix_ok(k, [q["difficulty"] for q in s["questions"]]):
+                if not mix_ok(k, [q["difficulty"] for q in s["questions"]]):
                     fail(f"shared-easy {k} difficulty mix off")
         for t in tests:
             check_test(t, shared_keys)
@@ -261,7 +257,7 @@ def check_all(tests, shared=None):
                     if q["id"] in seen_ids and seen_ids[q["id"]] != t["id"]:
                         fail(f"{t['id']}: duplicate id {q['id']} (also in {seen_ids[q['id']]})")
                     seen_ids[q["id"]] = t["id"]
-                if t["id"] not in MIX_PENDING and not mix_ok(k, [q["difficulty"] for q in s["questions"]]):
+                if not mix_ok(k, [q["difficulty"] for q in s["questions"]]):
                     fail(f"{t['id']}: {k} difficulty mix off")
             for kind in ("passages", "tables", "charts"):
                 for k in t.get(kind, {}):
@@ -272,9 +268,9 @@ def check_all(tests, shared=None):
                     seen_keys[(kind, k)] = t["id"]
         for t in tests:
             for k, s in t["sections"].items():
-                if k in LAYOUT and (k not in shared_keys and t["id"] not in MIX_PENDING) and slot_layout(s) != LAYOUT[k]:
+                if k in LAYOUT and k not in shared_keys and slot_layout(s) != LAYOUT[k]:
                     fail(f"{t['id']}: {k} layout differs from the section spec")
-        if shared and "shared-easy" not in MIX_PENDING:
+        if shared:
             for k, s in shared["sections"].items():
                 if slot_layout(s) != LAYOUT[k]:
                     fail(f"shared-easy: {k} layout differs from the section spec")

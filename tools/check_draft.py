@@ -29,7 +29,6 @@ def main(path):
             "passages": draft.get("passages", {}), "tables": draft.get("tables", {}), "charts": draft.get("charts", {}),
             "sections": {k: {"measure": "Quant" if k.startswith("Q") else "Verbal", "minutes": ref["sections"][k]["minutes"],
                              "label": ref["sections"][k]["label"], "questions": qs} for k, qs in draft["sections"].items()}}
-    verify_quant.PENDING = set()  # a draft must have every check
     probs = [p for p in build.check_all([ref, fake]) if p.startswith(("draft", "T", "E-")) or ": " in p]
     probs = [p for p in probs if "missing section" not in p and "duplicate" not in p and not p.startswith(("Q1-", "QM-", "QH-", "V1-", "VM-", "VH-"))]
     for k, s in fake["sections"].items():

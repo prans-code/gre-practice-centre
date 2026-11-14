@@ -9,13 +9,6 @@ in the form the test file stores it:
 The build fails if a check is missing or disagrees with the stored key.
 """
 from fractions import Fraction as F
-from itertools import permutations, product
-import math
-
-# Tests whose quant items are being rewritten; missing checks are not reported for them yet.
-# shortcut: remove each id once its rewrite lands (plan Tasks 5-6)
-PENDING = {"test-01"}
-
 
 def qc(cases):
     """Relationship of (A, B) pairs over the allowed values: 0 A>B, 1 B>A, 2 equal, 3 cannot be determined."""
@@ -44,24 +37,7 @@ def pick(options, pred):
     return [i for i, o in enumerate(options) if pred(o)]
 
 
-CHECKS = {
-    # ---- test-01, kept hard items
-    "Q1-8": lambda: pick([-9, -8, -6, -5, 0, 7], lambda v: v in {x * x - 6 * x for x in range(-10, 20) if abs(x - 4) < 3}),
-    "Q1-9": lambda: [7, 14, 17, 19, 21].index(sum(
-        x for x in range(-100, 200) if F(28 + x, 5) == sorted([2, 5, 9, 12, x])[2])),
-    "QH-1": lambda: sum(1 for n in range(1, 1000) if sum(map(int, str(n))) == 10),
-    "QH-2": lambda: qc((n % 4, n % 3) for n in range(4, 400, 6)),
-    "QH-3": lambda: qc((x, x * x) for x in [i / 100 for i in range(-500, 501)] if x ** 3 < x),
-    "QH-5": lambda: sum(1 for n in range(5001, 10000) if n % 2 and len(set(str(n))) == 4),
-    "QH-6": lambda: [0, 4, 7, 10, 14].index(max(0, 40 + 38 + 36 - 2 * 50)),
-    "QH-8": lambda: pick([
-        lambda n: (n * n + 1) % 2 == 0, lambda n: (3 * n) % 2 == 0, lambda n: (n * (n + 1)) % 2 == 0,
-        lambda n: ((n + 3) // 2) % 2 == 1, lambda n: (n * n - 1) % 8 == 0],
-        lambda f: all(f(n) for n in range(-99, 100, 2))),
-    "QH-10": lambda: [8, 9, 10, 11, 12].index(sum(1 for x in range(-100, 100) if abs(x - 3) + abs(x + 2) < 9)),
-    # p + q = 1/12 and 6p + 21q = 1  ->  p = (1 - 21/12) / (6 - 21)
-    "QH-12": lambda: [12, 15, 16, 18, 20].index(1 / ((1 - F(21, 12)) / (6 - 21))),
-}
+CHECKS = {}  # filled from tools/checks/*.py
 
 
 def _load_check_modules():
@@ -77,7 +53,8 @@ def _load_check_modules():
             CHECKS[k] = fn
 
 
-_load_check_modules()
+if __name__ != "__main__":  # the runner below goes through build, which imports this module by name
+    _load_check_modules()
 
 
 def verify(tests):
@@ -93,9 +70,7 @@ def verify(tests):
                 done.add(q["id"])
                 fn = CHECKS.get(q["id"])
                 if fn is None:
-                    pending = "shared-easy" in PENDING if q["id"].startswith("E-") else t["id"] in PENDING
-                    if not pending:
-                        probs.append(f"{q['id']}: no quant check")
+                    probs.append(f"{q['id']}: no quant check")
                     continue
                 try:
                     got = fn()
@@ -118,5 +93,5 @@ if __name__ == "__main__":
     sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src"))
     import build
     tests, shared = build.load_tests(build.ROOT)
-    out = verify(tests)
-    print("\n".join(out) or f"all {sum(1 for _ in CHECKS)} quant checks agree")
+    out = build.verify_quant.verify(tests)
+    print("\n".join(out) or f"all {len(build.verify_quant.CHECKS)} quant checks agree")

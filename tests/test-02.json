@@ -1,0 +1,1728 @@
+{
+ "id": "test-02",
+ "title": "Practice Test 2",
+ "blurb": "New questions, Quant first.",
+ "order": [
+  "Q1",
+  "Q2",
+  "V1",
+  "V2"
+ ],
+ "essay": {
+  "minutes": 30,
+  "variant": "claim-reason",
+  "prompt": "Claim: When experts explain their findings to the public, they should present their conclusions without dwelling on the uncertainty behind them.\nReason: People who hear about the uncertainty in expert findings tend to discount sound conclusions along with doubtful ones.",
+  "instructions": "Write a response in which you discuss how far you agree or disagree with the claim and with the reason on which it is based. As you develop your position, consider whether the reason actually supports the claim, and explain how your view of the reason shapes your view of the claim."
+ },
+ "passages": {
+  "t2-food-sharing": [
+   "For much of the twentieth century, anthropologists treated food sharing among foraging peoples as the expression of an egalitarian ethic: hunters, it was said, gave away meat because their societies prized generosity above accumulation.",
+   "Later fieldworkers, recording who actually received each portion, complicated this picture.",
+   "Sharing turned out to follow predictable channels, with the largest shares going to close kin and to households that had given most in the past, a pattern more consistent with long-term insurance against the risk of a failed hunt than with indiscriminate generosity.",
+   "Some researchers concluded that the egalitarian ethic was an ideology masking calculated self-interest.",
+   "That conclusion, however, assumes that a practice must be explained either by values or by interests, as though the two could not coincide.",
+   "A hunter who shares because he has been raised to regard hoarding as shameful may still, without intending to, be insuring himself; indeed, the norm may persist precisely because it makes the insurance reliable.",
+   "The measured patterns of sharing thus reveal what the norm accomplishes without showing that the norm is insincere."
+  ],
+  "t2-asteroid-camera": [
+   "Since a regional observatory replaced its camera with a far more sensitive model, the number of near-Earth asteroids it discovers each year has doubled.",
+   "The observatory's director argues that the upgrade, rather than any change in the sky, accounts for the increase.",
+   "She therefore urges the national funding agency to install the same camera at its four other observatories, predicting that their annual discoveries will roughly double as well."
+  ],
+  "t2-serial-novels": [
+   "Critics have often blamed the sprawling plots of Victorian novels on the economics of serial publication: paid by the instalment and obliged to fill a fixed number of pages each month, novelists supposedly padded their stories with subplots and digressions.",
+   "The explanation has the appeal of hard-headed realism, but it fits the evidence less well than its popularity suggests.",
+   "Several novelists who published their books complete, and so had no monthly pages to fill, wrote at comparable length, while some serial novelists cut material that their editors would happily have printed.",
+   "Serialisation may well have shaped the novels in subtler ways, encouraging a suspenseful turn at the close of each instalment, for instance, but length itself seems to have answered to readers' tastes at least as much as to publishers' contracts."
+  ],
+  "t2-gyrochronology": {
+   "paragraphs": [
+    [
+     "Determining the age of an isolated star is one of the more stubborn problems in astronomy, because a star like the Sun changes remarkably little in brightness or temperature during the long middle period of its life.",
+     "Several decades ago, however, astronomers noticed a regularity that seemed to offer a way around the difficulty: among stars in clusters whose ages were already known, the older stars rotated more slowly, apparently because a magnetised wind carries angular momentum away from a star and brakes its spin at a steady rate.",
+     "If the relation held generally, a star's rotation period, which can be measured from the regular dimming caused by dark spots crossing its face, would serve as a clock, and the method, known as gyrochronology, was eventually applied to thousands of stars monitored by space telescopes."
+    ],
+    [
+     "The clock, however, had been calibrated almost entirely on young stars, for the simple reason that the clusters with securely established ages are mostly young.",
+     "When astronomers finally obtained independent ages for a sample of older stars, by measuring the minute oscillations of their surfaces and using them to probe their interiors, many of the stars turned out to be spinning faster than gyrochronology predicted for their ages.",
+     "The most widely discussed explanation is that magnetic braking weakens markedly once a star reaches roughly the age of the Sun, perhaps because the structure of its magnetic field changes, so that its spin thereafter declines far more slowly than before.",
+     "If that is right, a star whose rotation period indicates an age of five billion years under the original calibration might in fact be eight billion years old."
+    ],
+    [
+     "It would be premature, though, to conclude that rotation is useless as a measure of age.",
+     "For stars younger than the Sun, the original relation continues to agree well with ages derived by other means, and for older stars a revised calibration that allows for weakened braking may restore much of the method's value.",
+     "What the episode chiefly exposes is the hazard of extending an empirical rule beyond the conditions under which it was established: the rule broke down precisely in the range where it had been assumed rather than tested."
+    ]
+   ]
+  },
+  "t2-ritual-efficacy": [
+   "Anthropologists confronted with rites meant to bring rain or cure illness have often been reluctant to take participants' claims about their efficacy at face value.",
+   "One influential response treats such rites as expressive rather than instrumental: on this view, a rain dance does not attempt to cause rain but dramatises a community's dependence on it.",
+   "The interpretation spares observers the awkwardness of attributing false beliefs to the people they study, yet it carries a cost of its own.",
+   "Participants frequently insist that the rites work, and some communities abandon a rite that seems to have failed, behaviour that is hard to square with a purely symbolic purpose.",
+   "A more defensible position may be that many rites are both at once, their expressive force sustained in part by the expectation that they will have effects."
+  ],
+  "t2-stylometry": [
+   "An anonymous eighteenth-century novel has long been attributed to a minor playwright, chiefly on the strength of gossip recorded at the time of its publication.",
+   "A computer analysis has now found that the novel's rates of use of common function words, such as 'upon' and 'whilst', closely match the rates in the surviving letters of a well-known essayist and differ sharply from those in the playwright's comedies.",
+   "The analysts conclude that the essayist, not the playwright, wrote the novel."
+  ],
+  "t2-genetic-criticism": {
+   "paragraphs": [
+    [
+     "For most of the twentieth century, editors of literary works sought to establish a single authoritative text, usually the version that came closest to what they took to be the author's final intentions.",
+     "Manuscripts, drafts and proofs mattered to this enterprise chiefly as evidence: they allowed the editor to detect a compositor's error or a censor's interference and to restore the reading the author had wanted.",
+     "Once the authoritative text was fixed, the drafts that had helped to fix it could be set aside."
+    ],
+    [
+     "Genetic criticism, which took shape in France from the 1970s onward, reversed this order of priority.",
+     "Its practitioners treat drafts not as scaffolding to be removed once the building stands but as the primary object of study, a record of writing as a process in which the published version is only one moment, and not necessarily a privileged one.",
+     "A deletion, on this view, is less an error corrected than a possibility explored and set aside, and the critic who attends to it may learn more about how a work means than the critic who reads only the finished page."
+    ],
+    [
+     "The approach has undeniably enlarged what counts as literary evidence, but its more ambitious claims are open to doubt.",
+     "To say that the published text enjoys no special status is to ignore that authors themselves usually drew a sharp line between what they released and what they kept in a drawer, and that many destroyed drafts precisely so that they would not be read.",
+     "Moreover, the drafts that survive are seldom a complete record; they reflect accidents of preservation as much as stages of composition, so that a narrative of a work's genesis built on them may owe as much to the critic's ingenuity as to the writer's practice.",
+     "None of this diminishes the value of the manuscripts, but it suggests that genetic criticism is most persuasive when it treats the drafts as one witness among several rather than as a court of final appeal."
+    ]
+   ]
+  },
+  "t2-galaxy-rotation": [
+   "Stars in the outer regions of spiral galaxies orbit faster than the gravity of the galaxies' visible matter can account for.",
+   "The usual explanation invokes halos of unseen 'dark' matter, but a rival proposal instead modifies the law of gravity at very low accelerations, and for individual galaxies its record is impressive: from the distribution of visible matter alone, it predicts orbital speeds that dark-matter models can match only by adjusting each halo separately.",
+   "Its defenders regard this economy as decisive.",
+   "Yet the same modified law, applied to clusters of galaxies, still falls short of the observed motions unless some unseen mass is added after all.",
+   "The modification may therefore capture a genuine regularity in how galaxies behave without supplying the whole explanation for it."
+  ],
+  "t2-wedding-cattle": [
+   "Over the past thirty years, the proportion of households in a highland farming region that own cattle has fallen by half, and the price of cattle has risen sharply relative to that of other goods.",
+   "Yet anthropologists working in the region report that the number of cattle transferred at weddings, traditionally the largest transfers of wealth in local life, has increased over the same period."
+  ]
+ },
+ "tables": {
+  "t2-hardware-shop": {
+   "title": "Prices and unit sales of five products at a hardware shop, January–March and April–June",
+   "head": [
+    "Product",
+    "Price, Jan–Mar (£)",
+    "Units sold, Jan–Mar",
+    "Price, Apr–Jun (£)",
+    "Units sold, Apr–Jun"
+   ],
+   "rows": [
+    [
+     "Paint (tin)",
+     "12",
+     "250",
+     "15",
+     "220"
+    ],
+    [
+     "Brush",
+     "4",
+     "600",
+     "4",
+     "540"
+    ],
+    [
+     "Drill",
+     "80",
+     "45",
+     "72",
+     "60"
+    ],
+    [
+     "Ladder",
+     "50",
+     "30",
+     "55",
+     "36"
+    ],
+    [
+     "Screws (box)",
+     "6",
+     "400",
+     "5",
+     "520"
+    ]
+   ]
+  },
+  "t2-bus-journeys": {
+   "title": "Journeys on a city bus network by fare type, 2023 and 2024 (thousands)",
+   "head": [
+    "Fare type",
+    "2023",
+    "2024"
+   ],
+   "rows": [
+    [
+     "Adult",
+     "480",
+     "432"
+    ],
+    [
+     "Student",
+     "160",
+     "200"
+    ],
+    [
+     "Child",
+     "120",
+     "138"
+    ],
+    [
+     "Senior",
+     "200",
+     "226"
+    ],
+    [
+     "Disability pass",
+     "40",
+     "40"
+    ],
+    [
+     "Total",
+     "1,000",
+     "1,036"
+    ]
+   ]
+  }
+ },
+ "charts": {
+  "t2-ferry-routes": {
+   "kind": "bar",
+   "title": "Monthly passengers on two ferry routes, January–June (thousands)",
+   "categories": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun"
+   ],
+   "series": [
+    {
+     "name": "Route North",
+     "values": [
+      25,
+      30,
+      35,
+      45,
+      55,
+      60
+     ]
+    },
+    {
+     "name": "Route South",
+     "values": [
+      40,
+      35,
+      45,
+      50,
+      60,
+      70
+     ]
+    }
+   ],
+   "yLabel": "Passengers (thousands)",
+   "yMax": 80,
+   "yTicks": 16
+  }
+ },
+ "sections": {
+  "V1": {
+   "measure": "Verbal",
+   "minutes": 18,
+   "label": "Verbal Reasoning: Section 1",
+   "questions": [
+    {
+     "id": "T2-V1-01",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 3,
+     "stem": "The comet's much-heralded brightening proved so ______ that the observatory's press office, having promised a spectacle visible even from city centres, quietly withdrew its viewing guide.",
+     "blanks": [
+      [
+       "negligible",
+       "prodigious",
+       "conspicuous",
+       "protracted",
+       "spectacular"
+      ]
+     ],
+     "answer": [
+      0
+     ],
+     "explain": "Withdrawing a viewing guide after promising a spectacle means the brightening was too slight to see: negligible. 'Prodigious', 'conspicuous' and 'spectacular' describe the promised outcome, not what happened, and 'protracted' concerns how long the brightening lasted, which would not make the guide useless."
+    },
+    {
+     "id": "T2-V1-02",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 3,
+     "stem": "Critics who dismiss the poet as merely ______ overlook how thoroughly her borrowings transform their sources: a line lifted from a hymn becomes, in her hands, an argument against the very faith it once expressed.",
+     "blanks": [
+      [
+       "iconoclastic",
+       "imitative",
+       "sentimental",
+       "obscure",
+       "prolix"
+      ]
+     ],
+     "answer": [
+      1
+     ],
+     "explain": "'Borrowings' and 'a line lifted from a hymn' show that the critics' complaint is that she copies others: imitative. 'Iconoclastic' tempts because the transformed line attacks a faith, but that transformation is what the critics overlook, not what they accuse her of."
+    },
+    {
+     "id": "T2-V1-03",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 4,
+     "stem": "The physicist's reputation for (i)______ was, her colleagues insisted, undeserved: what outsiders took for an inability to commit to a conclusion was a principled refusal to claim more than the data warranted, a (ii)______ that was vindicated when the anomaly she had declined to endorse vanished on reanalysis.",
+     "blanks": [
+      [
+       "credulity",
+       "irresolution",
+       "arrogance"
+      ],
+      [
+       "temerity",
+       "pedantry",
+       "prudence"
+      ]
+     ],
+     "answer": [
+      1,
+      2
+     ],
+     "why": "'Pedantry' also names excessive caution, but it is a fault, and the sentence says the refusal was vindicated.",
+     "explain": "An 'inability to commit to a conclusion' is irresolution, the unflattering reputation her colleagues reject. They recast the same habit as a virtue that events vindicated: prudence. 'Credulity' and 'temerity' describe the opposite habit of believing or claiming too readily, and 'pedantry' is a fault that no outcome could vindicate."
+    },
+    {
+     "id": "T2-V1-04",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 5,
+     "stem": "Anthropologists who regard the market town's elaborate haggling as mere (i)______, a ritual whose outcome is settled before it begins, must explain why so many bargaining sessions end without a sale; the more (ii)______ reading is that the exchange is a genuine contest, though one governed by conventions so (iii)______ that outsiders mistake its moves for empty formality.",
+     "blanks": [
+      [
+       "chicanery",
+       "pageantry",
+       "barter"
+      ],
+      [
+       "parsimonious",
+       "credulous",
+       "recondite"
+      ],
+      [
+       "codified",
+       "capricious",
+       "implicit"
+      ]
+     ],
+     "answer": [
+      1,
+      0,
+      2
+     ],
+     "why": "'Codified' looks like a natural partner for 'conventions', but written rules would be easy for outsiders to read; the logic needs rules that go unstated.",
+     "explain": "A ritual 'settled before it begins' is show without substance: pageantry, which matches the later phrase 'empty formality'. Because failed sales are hard to explain on that view, the contest reading accounts for the evidence with fewer assumptions: parsimonious, whereas 'credulous' and 'recondite' would disparage the reading the author favours. Outsiders can mistake real moves for formality only if the rules go unstated, so the conventions are implicit; codified rules would be legible to anyone, and capricious ones would not be conventions at all."
+    },
+    {
+     "id": "T2-V1-05",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 3,
+     "stem": "Because the faint galaxy's distance could be estimated only from its colour, a method notorious for large errors, the team presented its figure as strictly ______, to be revised once spectroscopic measurements became available.",
+     "options": [
+      "provisional",
+      "definitive",
+      "interim",
+      "authoritative",
+      "arbitrary",
+      "peripheral"
+     ],
+     "answer": [
+      0,
+      2
+     ],
+     "explain": "A figure 'to be revised' once better data arrive is temporary: provisional and interim. 'Definitive' and 'authoritative' form a pair, but they contradict the planned revision, and 'arbitrary' is too strong for an estimate based on a recognised, if error-prone, method."
+    },
+    {
+     "id": "T2-V1-06",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 4,
+     "stem": "Reviewers who found the memoir merely ______ had evidently missed its irony: the author's praise of her own achievements is so relentless that it can only be a parody of the genre's habitual self-congratulation.",
+     "options": [
+      "immodest",
+      "satirical",
+      "diffident",
+      "pompous",
+      "self-effacing",
+      "ironic"
+     ],
+     "answer": [
+      0,
+      3
+     ],
+     "why": "'Satirical' and 'ironic' form an obvious pair, but reviewers who saw the satire could not have missed the irony.",
+     "explain": "The reviewers took the relentless self-praise at face value, so they judged the memoir self-glorifying: immodest and pompous. 'Satirical' and 'ironic' are a pair, yet reviewers who saw that would not have missed the irony, and 'diffident' and 'self-effacing' contradict the relentless self-praise."
+    },
+    {
+     "id": "T2-V1-07",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "t2-food-sharing",
+     "difficulty": 3,
+     "stem": "The primary purpose of the passage is to",
+     "options": [
+      "challenge an inference that some researchers drew from evidence about how food is shared",
+      "defend the view that foragers share food out of generosity alone",
+      "show that food sharing among foragers has no economic function",
+      "explain why later fieldworkers recorded sharing more accurately than earlier ones",
+      "argue that moral norms are generally disguised forms of self-interest"
+     ],
+     "answer": 0,
+     "explain": "After describing the new evidence, the author spends the rest of the passage disputing the conclusion that the ethic is a mask for self-interest, so the passage challenges an inference. The author does not defend generosity 'alone', since the insurance pattern is accepted, and the claim that norms are disguised self-interest is the very view the author rejects."
+    },
+    {
+     "id": "T2-V1-08",
+     "type": "multi",
+     "skill": "Reading comprehension",
+     "passage": "t2-food-sharing",
+     "difficulty": 4,
+     "stem": "It can be inferred from the passage that the researchers who concluded that the egalitarian ethic was an ideology did which of the following? Select all that apply.",
+     "options": [
+      "Based their conclusion on observed patterns in who received shares of meat.",
+      "Treated an explanation in terms of interests as ruling out an explanation in terms of values.",
+      "Denied that sharing reduced the risks faced by individual hunters."
+     ],
+     "answer": [
+      0,
+      1
+     ],
+     "why": "The first statement is never said outright; it follows from the conclusion's place right after the new evidence and from the final sentence's reply to it.",
+     "explain": "Their conclusion follows the fieldworkers' findings, and the final sentence answers it by saying the 'measured patterns' do not show insincerity, so they reasoned from those patterns. The author says their conclusion 'assumes' a practice must be explained by values or interests but not both, which is the second statement. They did not deny the insurance effect; their view depends on it."
+    },
+    {
+     "id": "T2-V1-09",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "t2-food-sharing",
+     "difficulty": 4,
+     "stem": "The author mentions a hunter 'raised to regard hoarding as shameful' primarily in order to",
+     "options": [
+      "illustrate how a sincerely held motive and a self-interested effect can coexist in a single act",
+      "establish that the norm against hoarding originated as a strategy for insuring against failed hunts",
+      "suggest that shame is a more powerful motive among foragers than self-interest",
+      "show that most hunters are unaware of the norms that govern their behaviour",
+      "concede that the later fieldworkers' measurements of sharing were unreliable"
+     ],
+     "answer": 0,
+     "why": "The same sentence says the norm 'may persist' because of its insurance value, which tempts the option about origins, but persistence is not origin and 'may' is not 'establish'.",
+     "explain": "The hunter shares out of a sincere sense of shame yet, 'without intending to', insures himself, a concrete case of values and interests coinciding, which answers the assumption in the previous sentence. The option about the norm's origins overstates a hedged remark about why the norm persists, and nothing suggests the measurements were unreliable."
+    },
+    {
+     "id": "T2-V1-10",
+     "type": "mc",
+     "skill": "Reading comprehension (argument)",
+     "passage": "t2-asteroid-camera",
+     "difficulty": 4,
+     "stem": "Which of the following, if true, most seriously weakens the director's prediction?",
+     "options": [
+      "At the other four observatories, the faintest objects that can be detected are limited by haze and city lighting rather than by the sensitivity of the cameras.",
+      "The number of near-Earth asteroids passing within range of the observatories has not changed appreciably in recent years.",
+      "Asteroids discovered with the new camera are, on average, fainter than those the observatory discovered before the upgrade.",
+      "The new camera costs considerably more than the cameras currently in use at the other observatories.",
+      "Astronomers at the other observatories have asked the agency for new equipment several times in the past decade."
+     ],
+     "answer": 0,
+     "why": "The tempting answers address the director's explanation or the cost; the gap is the step from one observatory to four others with different conditions.",
+     "explain": "The prediction assumes that what held back the other observatories is their cameras. If haze and city lighting set their limit, a more sensitive camera will add little. An unchanged asteroid population and fainter new discoveries both support the director, and the camera's cost bears on whether to buy it, not on what it would achieve."
+    },
+    {
+     "id": "T2-V1-11",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "t2-serial-novels",
+     "difficulty": 2,
+     "stem": "According to the passage, some novelists who published in serial form",
+     "options": [
+      "removed material that their editors would have been willing to print",
+      "were paid more per page than novelists who published complete books",
+      "refused their editors' requests to add subplots",
+      "ended fewer instalments with suspenseful turns than their contemporaries did",
+      "later reissued their novels in shorter, complete editions"
+     ],
+     "answer": 0,
+     "explain": "The passage says that 'some serial novelists cut material that their editors would happily have printed'. Nothing is said about rates of pay, refused requests or later editions, and the suspenseful endings are offered as a general effect of serialisation, not a comparison between novelists."
+    },
+    {
+     "id": "T2-V1-12",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "t2-serial-novels",
+     "difficulty": 3,
+     "stem": "The author's attitude toward the economic explanation of the length of Victorian novels is best described as",
+     "options": [
+      "sceptical of its adequacy, while allowing that serial publication influenced the novels in other ways",
+      "dismissive of any connection between a novel's form and the way it was published",
+      "persuaded by it, though doubtful that it applies to every novelist",
+      "indifferent, since the author regards length as unimportant",
+      "convinced that it reverses the true relationship between payment and length"
+     ],
+     "answer": 0,
+     "explain": "The author says the explanation 'fits the evidence less well than its popularity suggests' yet grants that serialisation 'may well have shaped the novels in subtler ways'. Being 'dismissive of any connection' ignores that concession, and nothing suggests the author is persuaded by the explanation."
+    }
+   ]
+  },
+  "V2M": {
+   "measure": "Verbal",
+   "minutes": 23,
+   "label": "Verbal Reasoning: Section 2",
+   "questions": [
+    {
+     "id": "T2-V2M-01",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 3,
+     "stem": "The biographer's ______ treatment of her subject's failings, which she mentions only in passing and always with an excuse ready to hand, has led several reviewers to call the book a work of advocacy rather than of scholarship.",
+     "blanks": [
+      [
+       "censorious",
+       "exhaustive",
+       "partial",
+       "scathing",
+       "dispassionate"
+      ]
+     ],
+     "answer": [
+      2
+     ],
+     "explain": "Mentioning failings only in passing and always excusing them is biased in the subject's favour, which is why reviewers call the book advocacy: partial. 'Censorious' and 'scathing' describe the opposite bias, 'exhaustive' contradicts 'only in passing', and 'dispassionate' is incompatible with advocacy."
+    },
+    {
+     "id": "T2-V2M-02",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 3,
+     "stem": "Far from proving ______, the new measurement of the neutron's lifetime has deepened the disagreement it was meant to resolve, since it matches neither of the values that rival laboratories had already reported.",
+     "blanks": [
+      [
+       "contentious",
+       "decisive",
+       "anomalous",
+       "imprecise",
+       "provocative"
+      ]
+     ],
+     "answer": [
+      1
+     ],
+     "explain": "'Far from' sets the blank against deepening a disagreement, so the measurement failed to settle the dispute: decisive. 'Contentious', 'provocative' and 'anomalous' all describe what the measurement turned out to be, and 'imprecise' has nothing to do with settling or deepening the dispute."
+    },
+    {
+     "id": "T2-V2M-03",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 3,
+     "stem": "The ethnographer cautions against reading the island's funeral feasts as mere (i)______: the hosts may appear to squander their wealth, but every pig they slaughter places the guests' families under an (ii)______ that must be discharged at a future feast.",
+     "blanks": [
+      [
+       "parsimony",
+       "prodigality",
+       "piety"
+      ],
+      [
+       "obligation",
+       "illusion",
+       "exemption"
+      ]
+     ],
+     "answer": [
+      1,
+      0
+     ],
+     "explain": "Appearing to 'squander their wealth' is prodigality, the reading the ethnographer warns against. Something that 'must be discharged' later is a debt: obligation. 'Parsimony' is the opposite of squandering, 'piety' does not match it, and an 'exemption' is never discharged."
+    },
+    {
+     "id": "T2-V2M-04",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 4,
+     "stem": "The irregular dimming of the distant star was at first (i)______ in the popular press as evidence of an alien megastructure, but astronomers soon showed that the dips were deeper in blue light than in red, a pattern that pointed instead to (ii)______ dust; the episode illustrates how readily (iii)______ explanations rush in to fill the gaps left by incomplete data.",
+     "blanks": [
+      [
+       "discounted",
+       "promoted",
+       "ignored"
+      ],
+      [
+       "artificial",
+       "exotic",
+       "mundane"
+      ],
+      [
+       "outlandish",
+       "empirical",
+       "parsimonious"
+      ]
+     ],
+     "answer": [
+      1,
+      2,
+      0
+     ],
+     "why": "'Parsimonious' sounds like praise for an explanation, but the sentence criticises the explanation that rushed in, the megastructure.",
+     "explain": "The 'but' shows the press initially pushed the megastructure idea: promoted. 'Instead' contrasts the dust with an alien structure, so it is ordinary: mundane, not 'artificial' or 'exotic'. The explanation that filled the gap was the megastructure, an outlandish idea; 'empirical' and 'parsimonious' would praise it."
+    },
+    {
+     "id": "T2-V2M-05",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 3,
+     "stem": "Though the novel's plot is ______, turning on a chain of coincidences that strains belief, its portrait of provincial life is so exact that most readers forgive the contrivance.",
+     "options": [
+      "implausible",
+      "credible",
+      "leisurely",
+      "improbable",
+      "convincing",
+      "autobiographical"
+     ],
+     "answer": [
+      0,
+      3
+     ],
+     "explain": "Coincidences that 'strain belief' make the plot hard to credit: implausible and improbable. 'Credible' and 'convincing' are a pair with the opposite meaning, and 'leisurely' and 'autobiographical' are not explained by a chain of coincidences."
+    },
+    {
+     "id": "T2-V2M-06",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 3,
+     "stem": "The astronomer was known for her ______ approach to observation, logging every variable from the humidity to the temperature of the telescope's mirror before she would trust a single measurement.",
+     "options": [
+      "cavalier",
+      "meticulous",
+      "intuitive",
+      "slapdash",
+      "painstaking",
+      "theoretical"
+     ],
+     "answer": [
+      1,
+      4
+     ],
+     "explain": "Logging every variable before trusting a measurement shows great care: meticulous and painstaking. 'Cavalier' and 'slapdash' form a pair meaning careless, the reverse, and an 'intuitive' approach would not depend on exhaustive records."
+    },
+    {
+     "id": "T2-V2M-07",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 3,
+     "stem": "Although the ritual's outward form has remained ______ for generations, its meaning for participants has shifted considerably: a ceremony once understood as a plea for rain is now performed chiefly as an affirmation of village identity.",
+     "options": [
+      "immutable",
+      "fluid",
+      "obsolete",
+      "invariant",
+      "mutable",
+      "clandestine"
+     ],
+     "answer": [
+      0,
+      3
+     ],
+     "explain": "'Although' contrasts the form with a meaning that has 'shifted', so the form has stayed the same: immutable and invariant. 'Fluid' and 'mutable' are a pair meaning changeable, which removes the contrast, and 'obsolete' contradicts the fact that the ceremony is still performed."
+    },
+    {
+     "id": "T2-V2M-08",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 4,
+     "stem": "Critics charge that the theory has become so ______ that it can accommodate any conceivable observation, and a theory that no result could contradict has ceased to predict anything at all.",
+     "options": [
+      "rigid",
+      "pliable",
+      "abstruse",
+      "inflexible",
+      "malleable",
+      "parsimonious"
+     ],
+     "answer": [
+      1,
+      4
+     ],
+     "why": "'Rigid' and 'inflexible' are a ready-made synonym pair, but they describe the opposite of a theory that fits every result.",
+     "explain": "A theory that can be bent to fit any observation is easily reshaped: pliable and malleable. 'Rigid' and 'inflexible' are a pair but mean the reverse, 'parsimonious' describes a lean theory that rules much out, and being 'abstruse' would not let a theory fit every result."
+    },
+    {
+     "id": "T2-V2M-09",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "t2-gyrochronology",
+     "difficulty": 3,
+     "stem": "The primary purpose of the passage is to",
+     "options": [
+      "describe a method of estimating stellar ages and evaluate a difficulty that has emerged in its use",
+      "argue that gyrochronology should be replaced by the study of stellar oscillations",
+      "explain how magnetised winds remove angular momentum from stars",
+      "compare several methods of determining the ages of star clusters",
+      "defend the original calibration of gyrochronology against recent criticism"
+     ],
+     "answer": 0,
+     "explain": "The first paragraph presents gyrochronology, the second the evidence that it fails for older stars, and the third weighs what that failure means. The author explicitly rejects abandoning rotation as a measure of age, and the original calibration is the thing found wanting, not defended."
+    },
+    {
+     "id": "T2-V2M-10",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "t2-gyrochronology",
+     "difficulty": 4,
+     "stem": "It can be inferred from the passage that, if magnetic braking does weaken markedly in stars older than the Sun, the original calibration of gyrochronology tends to",
+     "options": [
+      "overestimate the ages of such stars",
+      "underestimate the ages of such stars",
+      "give reliable ages for such stars provided their spots can be observed",
+      "overstate the rotation periods of such stars",
+      "assign accurate ages to old stars but not to young ones"
+     ],
+     "answer": 1,
+     "why": "Readers who link 'weakened braking' with 'older' pick the reversed option; the faster spin reads as youth.",
+     "explain": "With weaker braking, old stars spin faster than the original rule expects, and faster spin reads as youth, so the rule gives ages that are too low; the passage's own example has a star read as five billion years old that may be eight. The calibration reads ages from measured periods, so it cannot overstate the periods themselves."
+    },
+    {
+     "id": "T2-V2M-11",
+     "type": "multi",
+     "skill": "Reading comprehension",
+     "passage": "t2-gyrochronology",
+     "difficulty": 4,
+     "stem": "The passage suggests that which of the following contributed to the inaccuracy of gyrochronology for older stars? Select all that apply.",
+     "options": [
+      "Most of the stars on which the method was calibrated were young.",
+      "The rotation periods of older stars cannot be measured from their spots.",
+      "Until recently, few older stars had ages that had been determined independently of their rotation."
+     ],
+     "answer": [
+      0,
+      2
+     ],
+     "why": "The third statement rests on 'finally' and on the remark that securely dated clusters are mostly young, neither of which states it outright.",
+     "explain": "The clock 'had been calibrated almost entirely on young stars' because securely dated clusters are mostly young, and astronomers only 'finally' obtained independent ages for older stars, so both of those statements are supported. Nothing suggests that the periods of older stars cannot be measured; their fast spin was itself measured."
+    },
+    {
+     "id": "T2-V2M-12",
+     "type": "sentence",
+     "skill": "Reading comprehension",
+     "passage": "t2-gyrochronology",
+     "difficulty": 3,
+     "stem": "Select the sentence that illustrates, with a hypothetical example, a consequence of the explanation that the author describes as the most widely discussed.",
+     "answer": 6,
+     "explain": "The sentence beginning 'If that is right' turns the weakened-braking explanation into a concrete case: a star read as five billion years old might be eight. The sentence before it states the explanation itself but gives no example, and the later sentence about younger stars concerns where the original rule still works."
+    },
+    {
+     "id": "T2-V2M-13",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "t2-ritual-efficacy",
+     "difficulty": 3,
+     "stem": "The passage suggests that the expressive interpretation appeals to anthropologists partly because it",
+     "options": [
+      "allows them to avoid ascribing mistaken beliefs to the people they study",
+      "accounts for communities' abandonment of rites that seem to fail",
+      "agrees with the accounts that participants give of their own rites",
+      "applies equally well to rites of every kind",
+      "has been confirmed by observers who took part in the rites themselves"
+     ],
+     "answer": 0,
+     "explain": "The interpretation 'spares observers the awkwardness of attributing false beliefs to the people they study'. Abandoning failed rites and participants' insistence that rites work are exactly the evidence the passage says the interpretation struggles with, so those options reverse the passage."
+    },
+    {
+     "id": "T2-V2M-14",
+     "type": "multi",
+     "skill": "Reading comprehension",
+     "passage": "t2-ritual-efficacy",
+     "difficulty": 4,
+     "stem": "Based on the passage, which of the following would be difficult to reconcile with the expressive interpretation? Select all that apply.",
+     "options": [
+      "A community stops performing a healing rite after several of the patients it was used to treat die.",
+      "Participants in a rain rite tell an observer that the rite is a way of making rain fall.",
+      "A village goes on performing a harvest rite for decades after it has begun irrigating its fields."
+     ],
+     "answer": [
+      0,
+      1
+     ],
+     "why": "The harvest rite looks like one more piece of ritual evidence, but continuing a rite that no longer serves a practical end actually fits the symbolic reading.",
+     "explain": "The passage names two kinds of behaviour 'hard to square with a purely symbolic purpose': insisting that rites work and abandoning a rite that seems to have failed, and the first two cases are instances of these. A rite kept up after irrigation removed any practical need suggests the rite is valued for what it expresses, which supports the interpretation."
+    },
+    {
+     "id": "T2-V2M-15",
+     "type": "mc",
+     "skill": "Reading comprehension (argument)",
+     "passage": "t2-stylometry",
+     "difficulty": 4,
+     "stem": "The analysts' conclusion depends on which of the following assumptions?",
+     "options": [
+      "A writer's rates of use of common function words do not differ greatly between dramatic dialogue and other kinds of writing.",
+      "The gossip that attributed the novel to the playwright was spread by the playwright's rivals.",
+      "The essayist is known to have written at least one other work of fiction.",
+      "The playwright's comedies were more widely read in the eighteenth century than the essayist's letters.",
+      "Gossip recorded at the time of a book's publication is never a reliable guide to its authorship."
+     ],
+     "answer": 0,
+     "why": "The genre gap is hidden: the novel is matched against letters on one side and stage comedies on the other.",
+     "explain": "The analysts compare the novel's prose with the essayist's letters but with the playwright's comedies. If writers used function words very differently in dialogue, the mismatch with the comedies would say nothing about whether the playwright wrote the novel. The argument rests on the analysis, not on discrediting gossip, so it need not assume that gossip is 'never' reliable."
+    }
+   ]
+  },
+  "V2H": {
+   "measure": "Verbal",
+   "minutes": 23,
+   "label": "Verbal Reasoning: Section 2",
+   "questions": [
+    {
+     "id": "T2-V2H-01",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 4,
+     "stem": "So thoroughly has the poet's reputation been rehabilitated that it is now hard to recall how ______ she once was: within a decade of her death her books were out of print, and anthologies that had once opened with her poems omitted them altogether.",
+     "blanks": [
+      [
+       "celebrated",
+       "obscure",
+       "imitated",
+       "prolific",
+       "influential"
+      ]
+     ],
+     "answer": [
+      1
+     ],
+     "why": "The anthologies that 'once opened with her' tempt 'celebrated', but a rehabilitated poet is celebrated now, so that is not what is hard to recall.",
+     "explain": "A reputation that has been 'rehabilitated' was once low, and the colon supplies the evidence: books out of print and poems dropped from anthologies. What is hard to recall is how obscure she was. 'Celebrated' and 'influential' describe her standing now, so recalling them would not be hard."
+    },
+    {
+     "id": "T2-V2H-02",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 5,
+     "stem": "The physicist's 1931 paper was long cited as an early (i)______ of the effect, yet a careful rereading shows that he mentioned the anomaly only to dismiss it as instrumental error, so that crediting him with the discovery is less an act of historical justice than of (ii)______.",
+     "blanks": [
+      [
+       "refutation",
+       "identification",
+       "popularisation"
+      ],
+      [
+       "scholarship",
+       "plagiarism",
+       "presentism"
+      ]
+     ],
+     "answer": [
+      1,
+      2
+     ],
+     "why": "Dismissing the anomaly sounds like refuting the effect, but then the 'yet' would have nothing to contrast with.",
+     "explain": "'Yet' shows that the rereading undercuts the citation, so the paper was cited as recognising the effect: identification. 'Refutation' fits what he actually did and so leaves the 'yet' with nothing to contrast. Crediting him reads today's knowledge back into a paper that rejected the effect, which is presentism; 'scholarship' is no contrast with justice, and no one's work is being copied, so 'plagiarism' fails."
+    },
+    {
+     "id": "T2-V2H-03",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 4,
+     "stem": "The ethnographer's account is ______ in the best sense: rather than forcing her observations into a single explanatory scheme, she lets apparently contradictory practices stand side by side, trusting readers to see that the contradictions belong to the community rather than to her analysis.",
+     "blanks": [
+      [
+       "systematic",
+       "tendentious",
+       "reductive",
+       "untidy",
+       "polemical"
+      ]
+     ],
+     "answer": [
+      3
+     ],
+     "why": "'In the best sense' signals a word normally taken as a fault, while 'systematic' sounds like praise but names what she avoids.",
+     "explain": "She declines to force her observations into one scheme and leaves contradictions standing, so the account is untidy, a usual fault that 'in the best sense' turns into praise. 'Systematic' and 'reductive' describe the single scheme she refuses, and 'tendentious' and 'polemical' clash with her even-handed trust in readers."
+    },
+    {
+     "id": "T2-V2H-04",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 5,
+     "stem": "Literary historians have tended to read the novelist's late fables as a retreat from the realism of her earlier work, yet the fables are in some respects the more (i)______ books: having (ii)______ the dense description through which the novels documented rural poverty, they lay bare the economic logic that such description had (iii)______.",
+     "blanks": [
+      [
+       "whimsical",
+       "incisive",
+       "derivative"
+      ],
+      [
+       "intensified",
+       "imitated",
+       "jettisoned"
+      ],
+      [
+       "illuminated",
+       "occluded",
+       "quantified"
+      ]
+     ],
+     "answer": [
+      1,
+      2,
+      1
+     ],
+     "why": "Each blank depends on reading 'lay bare' as the reverse of what the description did; 'illuminated' feels apt for realist description but makes the fables' achievement redundant.",
+     "explain": "'Yet' reverses the 'retreat' reading, so the fables are sharper in their grasp of reality: incisive, not 'whimsical'. Fables lack dense description, so they have jettisoned it. If the fables 'lay bare' the economic logic, the description must have hidden it: occluded; logic the novels had already illuminated would need no laying bare."
+    },
+    {
+     "id": "T2-V2H-05",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 3,
+     "stem": "Though the eclipse expedition's photographs were later hailed as decisive, the measurements taken from them were so ______ that a sceptic could have read them as supporting either theory.",
+     "options": [
+      "conclusive",
+      "imprecise",
+      "ingenious",
+      "unimpeachable",
+      "inexact",
+      "voluminous"
+     ],
+     "answer": [
+      1,
+      4
+     ],
+     "explain": "Measurements that could support either theory lacked precision: imprecise and inexact. 'Conclusive' and 'unimpeachable' form a pair, but they repeat the 'decisive' verdict that 'though' sets against the blank, and neither 'ingenious' nor 'voluminous' would leave the result open to either reading."
+    },
+    {
+     "id": "T2-V2H-06",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 4,
+     "stem": "The novelist's prose, once dismissed as merely ______, has been reassessed by critics who find in its plainness a deliberate refusal of the ornamental style that her contemporaries mistook for depth.",
+     "options": [
+      "florid",
+      "pedestrian",
+      "opaque",
+      "ornate",
+      "prosaic",
+      "polemical"
+     ],
+     "answer": [
+      1,
+      4
+     ],
+     "why": "'Florid' and 'ornate' are a ready-made pair, but they describe the contemporaries' style, not her plain prose.",
+     "explain": "The prose is plain, and the dismissal treated that plainness as dullness: pedestrian and prosaic. 'Florid' and 'ornate' are a pair, but they describe the ornamental style she refused, and 'opaque' and 'polemical' have nothing to do with plainness."
+    },
+    {
+     "id": "T2-V2H-07",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 4,
+     "stem": "The census-takers' local assistants were anything but ______ instruments of the colonial administration: they quietly reshaped its categories, recording clan affiliations for which the forms had no column and merging groups that the administrators had insisted were distinct.",
+     "options": [
+      "subversive",
+      "passive",
+      "salaried",
+      "refractory",
+      "obedient",
+      "literate"
+     ],
+     "answer": [
+      1,
+      4
+     ],
+     "why": "'Subversive' and 'refractory' form a tempting pair that describes the assistants accurately, which is exactly why 'anything but' rules them out.",
+     "explain": "'Anything but' needs the opposite of reshaping the administration's categories, so the assistants were not compliant tools: passive and obedient. 'Subversive' and 'refractory' describe what they actually were, which 'anything but' denies, and 'salaried' and 'literate' have no bearing on reshaping the categories."
+    },
+    {
+     "id": "T2-V2H-08",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 5,
+     "stem": "Her reviews were so consistently ______ that a single word of reproach from her could sink a debut novel, whereas her approval, being what everyone expected, did little for sales.",
+     "options": [
+      "caustic",
+      "indulgent",
+      "influential",
+      "acerbic",
+      "lenient",
+      "anonymous"
+     ],
+     "answer": [
+      1,
+      4
+     ],
+     "why": "'Caustic' and 'acerbic' fit the image of a feared critic, but the sentence says her reproach mattered because it was rare and her approval was expected.",
+     "explain": "Her approval was 'what everyone expected', so her reviews were habitually generous, which is also why a rare reproach carried such weight: indulgent and lenient. 'Caustic' and 'acerbic' are a pair, but a habitually harsh critic's approval would be the surprising thing, and 'influential' clashes with approval that did little for sales."
+    },
+    {
+     "id": "T2-V2H-09",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "t2-genetic-criticism",
+     "difficulty": 4,
+     "stem": "Which of the following best describes the relationship between the editors discussed in the first paragraph and the genetic critics discussed in the second?",
+     "options": [
+      "The editors ignored drafts, whereas the genetic critics were the first to examine them.",
+      "Both examine drafts, but they disagree about whether the drafts or a finished text is the proper object of study.",
+      "The genetic critics accept the editors' authoritative texts but dispute the methods used to establish them.",
+      "Both treat an author's final intentions as the standard against which a text should be judged.",
+      "The editors valued deletions as evidence of an author's thinking, whereas the genetic critics regard them as errors."
+     ],
+     "answer": 1,
+     "why": "Skimmers recall that editors 'set aside' drafts and pick the first option, missing that editors used drafts as evidence first.",
+     "explain": "Editors used drafts 'chiefly as evidence' for fixing an authoritative text, while genetic critics 'reversed this order of priority', making drafts the 'primary object of study'. The editors did not ignore drafts; they set them aside only after using them. The option about deletions reverses the passage, since genetic critics treat a deletion as a possibility explored rather than an error."
+    },
+    {
+     "id": "T2-V2H-10",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "t2-genetic-criticism",
+     "difficulty": 5,
+     "stem": "The author mentions authors who destroyed their drafts primarily in order to",
+     "options": [
+      "illustrate how accidents of preservation distort the record of a work's composition",
+      "argue that editors should refrain from publishing an author's drafts",
+      "suggest that writers themselves granted their released work a standing that their drafts lacked",
+      "explain why genetic criticism developed later than editorial scholarship",
+      "concede that genetic criticism has enlarged what counts as literary evidence"
+     ],
+     "answer": 2,
+     "why": "Destroying drafts does shrink the surviving record, so the option about preservation tempts, but the passage cites it as evidence of the line authors drew between released and kept work.",
+     "explain": "The point appears in the sentence rejecting the claim that the published text 'enjoys no special status': authors drew a sharp line between what they released and what they kept, and destroying drafts shows that line. The incompleteness of the record is the next sentence's separate point, and it concerns 'accidents', whereas destruction was deliberate."
+    },
+    {
+     "id": "T2-V2H-11",
+     "type": "multi",
+     "skill": "Reading comprehension",
+     "passage": "t2-genetic-criticism",
+     "difficulty": 4,
+     "stem": "Based on the passage, a genetic critic would most likely agree with which of the following statements? Select all that apply.",
+     "options": [
+      "A passage that an author struck out of a draft can shed light on the meaning of the published work.",
+      "The published version of a work is the stage of its composition that most deserves a critic's attention.",
+      "Drafts remain worth studying even after an editor has used them to establish an authoritative text."
+     ],
+     "answer": [
+      0,
+      2
+     ],
+     "why": "The third statement is never stated; it follows from treating drafts as the object of study rather than as scaffolding to be removed.",
+     "explain": "Genetic critics hold that attending to a deletion may teach 'how a work means', which supports the first statement, and they treat drafts as the 'primary object of study' rather than scaffolding discarded once the text is fixed, which supports the third. The second contradicts their view that the published version is 'not necessarily a privileged' moment."
+    },
+    {
+     "id": "T2-V2H-12",
+     "type": "sentence",
+     "skill": "Reading comprehension",
+     "passage": "t2-genetic-criticism",
+     "difficulty": 4,
+     "stem": "Select the sentence in which the author questions the reliability of the evidence genetic critics work from, rather than the status they assign to that evidence.",
+     "answer": 8,
+     "why": "The sentence about authors who destroyed drafts also criticises genetic criticism, but it disputes the status of the published text, not the reliability of the drafts.",
+     "explain": "The sentence beginning 'Moreover' says surviving drafts are 'seldom a complete record' and reflect 'accidents of preservation', so accounts built on them may reflect the critic's ingenuity: a doubt about the evidence itself. The sentence before it disputes the claim that the published text has no special status, and the final sentence is about how much weight the drafts should carry."
+    },
+    {
+     "id": "T2-V2H-13",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "t2-galaxy-rotation",
+     "difficulty": 3,
+     "stem": "The 'economy' that the rival proposal's defenders regard as decisive consists in the proposal's",
+     "options": [
+      "predicting galaxies' orbital speeds without a separate adjustment for each galaxy",
+      "accounting for the motions of galaxies within clusters",
+      "agreeing with the standard law of gravity at high accelerations",
+      "showing that dark-matter models cannot reproduce orbital speeds at all",
+      "relying on observations of clusters rather than of single galaxies"
+     ],
+     "answer": 0,
+     "explain": "The proposal predicts orbital speeds 'from the distribution of visible matter alone', whereas dark-matter models must adjust 'each halo separately'; that contrast is the economy. Clusters are where the proposal falls short, and dark-matter models can match the speeds, so the option saying they cannot is too strong."
+    },
+    {
+     "id": "T2-V2H-14",
+     "type": "multi",
+     "skill": "Reading comprehension",
+     "passage": "t2-galaxy-rotation",
+     "difficulty": 4,
+     "stem": "Which of the following can be inferred from the passage? Select all that apply.",
+     "options": [
+      "Dark-matter models can reproduce the orbital speeds of individual galaxies.",
+      "The modified law of gravity, without additional unseen mass, does not account for all the motions observed in clusters of galaxies.",
+      "The author regards the proposal to modify the law of gravity as having been refuted."
+     ],
+     "answer": [
+      0,
+      1
+     ],
+     "why": "The first statement hides inside 'can match only by adjusting', which readers take as a criticism and miss as a concession.",
+     "explain": "Dark-matter models 'can match' the speeds, if only by adjusting each halo, and the modified law 'falls short' in clusters 'unless some unseen mass is added', so the first two statements follow. The author says the modification 'may capture a genuine regularity', which is not the language of refutation."
+    },
+    {
+     "id": "T2-V2H-15",
+     "type": "mc",
+     "skill": "Reading comprehension (argument)",
+     "passage": "t2-wedding-cattle",
+     "difficulty": 4,
+     "stem": "Which of the following, if true, most helps to explain the apparent discrepancy described above?",
+     "options": [
+      "Many families now buy wedding cattle with money sent home by relatives working in distant cities, and a generous cattle payment has become a way of showing that a family's absent members are prospering.",
+      "The rise in the price of cattle is largely the result of a series of droughts that reduced the size of the region's herds.",
+      "Couples in the region now marry, on average, several years later than they did thirty years ago.",
+      "Some families have begun to substitute cash for part of the cattle traditionally given at weddings.",
+      "In neighbouring lowland regions, the number of cattle transferred at weddings has declined over the past thirty years."
+     ],
+     "answer": 0,
+     "why": "The drought option explains half the puzzle, the price rise, and so looks relevant, but it makes rising wedding transfers more surprising, not less.",
+     "explain": "The puzzle is how scarcer, dearer cattle can be given away in greater numbers. Money from outside the local herding economy supplies the means, and the display value of a costly gift supplies the motive. The drought explains only the higher price, and substituting cash for cattle would predict fewer cattle at weddings, not more."
+    }
+   ]
+  },
+  "Q1": {
+   "measure": "Quant",
+   "minutes": 21,
+   "label": "Quantitative Reasoning: Section 1",
+   "questions": [
+    {
+     "id": "T2-Q1-01",
+     "type": "qc",
+     "skill": "Number properties",
+     "difficulty": 3,
+     "given": "n is a positive integer, and n² is divisible by 72.",
+     "qa": "The least possible value of n",
+     "qb": "12",
+     "answer": 2,
+     "explain": "72 = 2³ × 3², and every prime in n² appears to an even power, so n² must contain at least 2⁴ × 3². That means n must be a multiple of 2² × 3 = 12, and 12² = 144 = 2 × 72 works. Trying 6 fails, because 36 is only half of 72."
+    },
+    {
+     "id": "T2-Q1-02",
+     "type": "qc",
+     "skill": "Algebra",
+     "difficulty": 3,
+     "given": "x + y = 10 and x − y > 4",
+     "qa": "xy",
+     "qb": "21",
+     "answer": 1,
+     "explain": "Use 4xy = (x + y)² − (x − y)² = 100 − (x − y)². Since (x − y)² > 16, 4xy < 84, so xy < 21. For example, x = 7.5 and y = 2.5 give xy = 18.75."
+    },
+    {
+     "id": "T2-Q1-03",
+     "type": "qc",
+     "skill": "Geometry",
+     "difficulty": 4,
+     "given": "A rectangle has a perimeter of 40 and a diagonal of length 15.",
+     "qa": "The area of the rectangle",
+     "qb": "87.5",
+     "answer": 2,
+     "explain": "If the sides are l and w, then l + w = 20 and l² + w² = 15² = 225. Squaring the first gives 400 = l² + w² + 2lw = 225 + 2lw, so lw = 87.5. The sides themselves are not whole numbers, but the area is fixed.",
+     "why": "The sides cannot be found easily, which tempts 'cannot be determined', yet the area follows directly from (l + w)²."
+    },
+    {
+     "id": "T2-Q1-04",
+     "type": "qc",
+     "skill": "Probability",
+     "difficulty": 3,
+     "given": "A rack holds 5 test tubes with red caps and 3 with blue caps. Two tubes are taken from the rack at random, without replacement.",
+     "qa": "The probability that the two tubes have caps of the same colour",
+     "qb": "The probability that the two tubes have caps of different colours",
+     "answer": 1,
+     "explain": "There are C(8, 2) = 28 equally likely pairs. Same colour: C(5, 2) + C(3, 2) = 10 + 3 = 13 pairs; different colours: 5 × 3 = 15 pairs. So B (15/28) is greater, even though red caps are in the majority."
+    },
+    {
+     "id": "T2-Q1-05",
+     "type": "mc",
+     "skill": "Percent",
+     "difficulty": 3,
+     "stem": "A shop sets the list price of a coat 60% above what the coat cost the shop. In a sale, the coat sells for 25% less than its list price, and the shop makes a profit of £36 on the sale. What did the coat cost the shop?",
+     "options": [
+      "£150",
+      "£180",
+      "£216",
+      "£240",
+      "£270"
+     ],
+     "answer": 1,
+     "explain": "If the cost is c, the sale price is c × 1.6 × 0.75 = 1.2c, so the profit is 0.2c = £36 and c = £180. £216 is the sale price, not the cost, and subtracting the percentages (60% − 25% = 35% profit) is the trap: percent changes multiply."
+    },
+    {
+     "id": "T2-Q1-06",
+     "type": "numeric",
+     "skill": "Rates",
+     "difficulty": 3,
+     "unit": "km",
+     "stem": "Stations P and Q are 330 kilometres apart on a railway line. A train leaves P at 10:00 and travels towards Q at a constant 60 km/h. A second train leaves Q at 10:30 and travels towards P at a constant 90 km/h. How many kilometres from P are the trains when they pass each other?",
+     "answer": 150,
+     "explain": "By 10:30 the first train has covered 30 km, leaving a 300 km gap that closes at 60 + 90 = 150 km/h, so they meet 2 hours later, at 12:30. The first train has then run for 2.5 hours: 2.5 × 60 = 150 km from P. Ignoring the half-hour delay gives 330 × 60/150 = 132, the trap."
+    },
+    {
+     "id": "T2-Q1-07",
+     "type": "multi",
+     "skill": "Number properties",
+     "difficulty": 4,
+     "stem": "When the positive integer n is divided by 7, the remainder is 3. Which of the following could be the remainder when n² is divided by 21? Indicate all such values.",
+     "options": [
+      "2",
+      "4",
+      "9",
+      "11",
+      "16",
+      "18"
+     ],
+     "answer": [
+      2,
+      4
+     ],
+     "explain": "n is 3, 10, 17, 24, …, and modulo 21 these repeat as 3, 10, 17. Their squares are 9, 100 and 289, which leave remainders 9, 16 and 16 when divided by 21. So only 9 and 16 are possible.",
+     "why": "Testing only n = 3 finds 9 and misses 16, because n can fall into three different classes modulo 21."
+    },
+    {
+     "id": "T2-Q1-08",
+     "type": "mc",
+     "skill": "Statistics",
+     "difficulty": 5,
+     "stem": "A list of seven integers has an average (arithmetic mean) of 10 and a median of 12, and 14 is its only mode. What is the greatest possible value of the smallest integer in the list?",
+     "options": [
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "answer": 3,
+     "explain": "The total is 70 and the middle value is 12, so the three values above 12 should be as small as possible. With 14, 14, 14 (total 42) the lowest three total 16 and may include a repeated value, since 14 appears three times: 5, 5, 6 gives a smallest value of 5. The cheaper-looking 13, 14, 14 (total 41) lets 14 appear only twice, so the lowest three must be different and total 17, and the smallest can then be at most 4 (for example 4, 6, 7).",
+     "why": "Making the upper three as small as possible (13, 14, 14) seems best but forces the lower three to be distinct, giving 4 instead of 5."
+    },
+    {
+     "id": "T2-Q1-09",
+     "type": "fraction",
+     "skill": "Probability",
+     "difficulty": 4,
+     "stem": "An integer is chosen at random from the integers 1 to 60, inclusive. What is the probability that it is divisible by 4 or by 6, but not by both? Give your answer as a fraction.",
+     "answer": [
+      1,
+      4
+     ],
+     "explain": "There are 15 multiples of 4 and 10 multiples of 6, and 5 numbers (the multiples of 12) are in both lists. Numbers in exactly one list: 15 + 10 − 2 × 5 = 15, so the probability is 15/60 = 1/4. Subtracting the overlap only once gives 20/60, which counts the multiples of 12.",
+     "why": "'Not by both' means removing the multiples of 12 from both lists, so the overlap is subtracted twice."
+    },
+    {
+     "id": "T2-Q1-10",
+     "type": "mc",
+     "skill": "Data interpretation",
+     "table": "t2-hardware-shop",
+     "difficulty": 3,
+     "stem": "For the product whose number of units sold rose by the greatest percentage from January–March to April–June, by approximately what percent did its revenue (price × units sold) rise?",
+     "options": [
+      "8%",
+      "10%",
+      "15%",
+      "18%",
+      "20%"
+     ],
+     "answer": 4,
+     "explain": "Units sold rose by 15/45 ≈ 33% for drills, 120/400 = 30% for screws and 6/30 = 20% for ladders, so drills had the greatest rise. Drill revenue went from 45 × £80 = £3,600 to 60 × £72 = £4,320, a rise of 20%. Screws had the largest rise in units, but their revenue rose only about 8%."
+    },
+    {
+     "id": "T2-Q1-11",
+     "type": "mc",
+     "skill": "Data interpretation",
+     "table": "t2-hardware-shop",
+     "difficulty": 4,
+     "stem": "Considering every unit of the five products sold in April–June, what was the approximate average (arithmetic mean) price paid per unit?",
+     "options": [
+      "£10.44",
+      "£14.36",
+      "£24.40",
+      "£30.20",
+      "£36.00"
+     ],
+     "answer": 0,
+     "explain": "Revenue in April–June was £3,300 + £2,160 + £4,320 + £1,980 + £2,600 = £14,360 from 220 + 540 + 60 + 36 + 520 = 1,376 units, or about £10.44 per unit. Averaging the five prices gives £30.20, but that ignores how many of each product were sold.",
+     "why": "The mean must be weighted by units sold; the plain average of the five listed prices is the trap."
+    },
+    {
+     "id": "T2-Q1-12",
+     "type": "multi",
+     "skill": "Data interpretation",
+     "table": "t2-hardware-shop",
+     "difficulty": 4,
+     "stem": "For which products was the percent change in revenue (price × units sold) from January–March to April–June greater than the percent change in units sold? (A decrease counts as a negative percent change.) Indicate all such values.",
+     "options": [
+      "Paint (tin)",
+      "Brush",
+      "Drill",
+      "Ladder",
+      "Screws (box)"
+     ],
+     "answer": [
+      0,
+      3
+     ],
+     "explain": "Revenue is price × units, so revenue grows by a larger percentage than units exactly when the price rose. Prices rose only for paint (£12 to £15) and ladders (£50 to £55). Brush revenue and units both fell by 10%, so they are equal, not greater.",
+     "why": "Spotting that only the price change matters saves the arithmetic; the brush, with an unchanged price, ties rather than qualifies."
+    }
+   ]
+  },
+  "Q2M": {
+   "measure": "Quant",
+   "minutes": 26,
+   "label": "Quantitative Reasoning: Section 2",
+   "questions": [
+    {
+     "id": "T2-Q2M-01",
+     "type": "qc",
+     "skill": "Coordinate geometry",
+     "difficulty": 3,
+     "given": "In the xy-plane, point A is at (−3, 4) and point B is at (5, −2).",
+     "qa": "The distance between the origin and the midpoint of segment AB",
+     "qb": "1.4",
+     "answer": 0,
+     "explain": "The midpoint is ((−3 + 5)/2, (4 − 2)/2) = (1, 1), which is √2 ≈ 1.414 from the origin. Comparing squares: 2 > 1.96, so A is greater."
+    },
+    {
+     "id": "T2-Q2M-02",
+     "type": "qc",
+     "skill": "Algebra",
+     "difficulty": 3,
+     "given": "0 < x < 1",
+     "qa": "(x² + 1) / x",
+     "qb": "2",
+     "answer": 0,
+     "explain": "Since x > 0, multiply both quantities by x: compare x² + 1 with 2x. Their difference is x² − 2x + 1 = (x − 1)², which is positive because x ≠ 1. So A is always greater."
+    },
+    {
+     "id": "T2-Q2M-03",
+     "type": "qc",
+     "skill": "Statistics",
+     "difficulty": 3,
+     "given": "List X is 3, 5, 7, 9, 11. List Y is formed by multiplying each number in list X by −2 and then adding 30.",
+     "qa": "The standard deviation of list Y",
+     "qb": "Twice the standard deviation of list X",
+     "answer": 2,
+     "explain": "Adding 30 shifts every value without changing the spread. Multiplying by −2 doubles every distance from the mean and the sign only flips the list over, so the standard deviation exactly doubles. Y is 24, 20, 16, 12, 8: gaps of 4 instead of 2."
+    },
+    {
+     "id": "T2-Q2M-04",
+     "type": "qc",
+     "skill": "Number properties",
+     "difficulty": 2,
+     "qa": "The number of positive divisors of 36",
+     "qb": "The number of positive divisors of 40",
+     "answer": 0,
+     "explain": "36 = 2² × 3² has (2 + 1)(2 + 1) = 9 divisors, and 40 = 2³ × 5 has (3 + 1)(1 + 1) = 8. The larger number does not have more divisors."
+    },
+    {
+     "id": "T2-Q2M-05",
+     "type": "qc",
+     "skill": "Coordinate geometry",
+     "difficulty": 4,
+     "given": "In the xy-plane, the point (a, b) lies on the line 2x + 3y = 12, with a > 0 and b > 0.",
+     "qa": "ab",
+     "qb": "6",
+     "answer": 3,
+     "explain": "From the line, b = (12 − 2a)/3, so ab = (12a − 2a²)/3 = 6 − (2/3)(a − 3)². The greatest value is 6, reached at (3, 2); any other point, such as (3/2, 3) with ab = 4.5, gives less. A can equal B or be smaller.",
+     "why": "The maximum of ab is exactly 6, so trying only the point (3, 2) suggests 'equal' when other points give less."
+    },
+    {
+     "id": "T2-Q2M-06",
+     "type": "mc",
+     "skill": "Functions",
+     "difficulty": 3,
+     "stem": "The function f is defined by f(x) = x² − 4x for all numbers x. If f(t) = f(t + 3), what is the value of t?",
+     "options": [
+      "−1",
+      "−1/2",
+      "1/2",
+      "1",
+      "2"
+     ],
+     "answer": 2,
+     "explain": "t² − 4t = (t + 3)² − 4(t + 3) = t² + 2t − 3, so −4t = 2t − 3 and t = 1/2. As a check, the parabola is symmetric about x = 2, and 1/2 and 7/2 sit 1.5 on either side of it."
+    },
+    {
+     "id": "T2-Q2M-07",
+     "type": "mc",
+     "skill": "Mixtures",
+     "difficulty": 4,
+     "stem": "A lab technician has 300 millilitres of a solution that is 20% acid by volume. She pours off some of the solution and replaces it with the same volume of pure acid, giving 300 millilitres of a solution that is 30% acid. How many millilitres did she pour off?",
+     "options": [
+      "30",
+      "37.5",
+      "45",
+      "50",
+      "60"
+     ],
+     "answer": 1,
+     "explain": "If x mL is replaced, the acid is 0.2(300 − x) + x = 60 + 0.8x, which must equal 0.3 × 300 = 90. So 0.8x = 30 and x = 37.5. The answer 30 forgets that the solution poured off also took some acid with it.",
+     "why": "Each millilitre swapped adds only 0.8 mL of acid, not 1 mL, because the liquid removed already contained 20% acid."
+    },
+    {
+     "id": "T2-Q2M-08",
+     "type": "numeric",
+     "skill": "Rates",
+     "difficulty": 4,
+     "unit": "km/h",
+     "stem": "A bus route is 36 kilometres long. On one trip, the bus averages 24 km/h over the first 12 kilometres. What average speed, in kilometres per hour, must the bus keep over the remaining 24 kilometres so that its average speed for the whole route is 32 km/h?",
+     "answer": 38.4,
+     "explain": "The whole route must take 36/32 = 1.125 hours, and the first 12 km took 12/24 = 0.5 hours. That leaves 0.625 hours for 24 km: 24 ÷ 0.625 = 38.4 km/h. Weighting the speeds by distance gives 36 km/h, but average speed must be found from total distance over total time.",
+     "why": "Averaging speeds, by distance or otherwise, gives 36 or 40; only total distance ÷ total time is right."
+    },
+    {
+     "id": "T2-Q2M-09",
+     "type": "multi",
+     "skill": "Geometry",
+     "difficulty": 4,
+     "stem": "Two sides of a triangle have lengths 6 and 10, and the angle between these two sides is obtuse. Which of the following could be the area of the triangle? Indicate all such values.",
+     "options": [
+      "15",
+      "24",
+      "29",
+      "30",
+      "31"
+     ],
+     "answer": [
+      0,
+      1,
+      2
+     ],
+     "explain": "Take the side of length 10 as the base. The height is the distance from the far end of the side of length 6 to the line of the base, which equals 6 only when the angle is a right angle and is less than 6 otherwise. So the area, 5 × height, can be any value between 0 and 30 but not 30 itself.",
+     "why": "The maximum area of 30 needs a right angle, which an obtuse angle rules out."
+    },
+    {
+     "id": "T2-Q2M-10",
+     "type": "mc",
+     "skill": "Counting",
+     "difficulty": 3,
+     "stem": "A shop assistant is arranging 6 different handbags in a row on a shelf. Two of the bags, one red and one blue, must not be placed next to each other. In how many different orders can the 6 bags be arranged?",
+     "options": [
+      "120",
+      "240",
+      "360",
+      "480",
+      "600"
+     ],
+     "answer": 3,
+     "explain": "There are 6! = 720 orders in all. Treating the red and blue bags as one block gives 5! = 120 orders, and the two bags can sit in the block in 2 orders, so 240 orders have them together. 720 − 240 = 480; forgetting to double the block gives 600."
+    },
+    {
+     "id": "T2-Q2M-11",
+     "type": "fraction",
+     "skill": "Probability",
+     "difficulty": 3,
+     "stem": "In a biology lab, 3 of the 10 cell cultures in a rack are contaminated. A technician selects 3 of the 10 cultures at random. What is the probability that exactly one of the selected cultures is contaminated? Give your answer as a fraction.",
+     "answer": [
+      21,
+      40
+     ],
+     "explain": "There are C(10, 3) = 120 equally likely selections. Exactly one contaminated means choosing 1 of the 3 contaminated and 2 of the 7 clean cultures: 3 × 21 = 63. The probability is 63/120 = 21/40."
+    },
+    {
+     "id": "T2-Q2M-12",
+     "type": "mc",
+     "skill": "Number properties",
+     "difficulty": 3,
+     "stem": "How many positive integers less than 200 are multiples of 6 but not multiples of 9?",
+     "options": [
+      "22",
+      "24",
+      "27",
+      "30",
+      "33"
+     ],
+     "answer": 0,
+     "explain": "The multiples of 6 below 200 run from 6 to 198: 33 numbers. Those that are also multiples of 9 are the multiples of 18 (the least common multiple), from 18 to 198: 11 numbers. 33 − 11 = 22; using 6 × 9 = 54 instead of 18 gives 30."
+    },
+    {
+     "id": "T2-Q2M-13",
+     "type": "mc",
+     "skill": "Data interpretation",
+     "table": "t2-bus-journeys",
+     "difficulty": 3,
+     "stem": "Journeys on all fare types other than adult, taken together, increased by approximately what percent from 2023 to 2024?",
+     "options": [
+      "4%",
+      "8%",
+      "12%",
+      "14%",
+      "16%"
+     ],
+     "answer": 4,
+     "explain": "Non-adult journeys were 1,000 − 480 = 520 thousand in 2023 and 1,036 − 432 = 604 thousand in 2024. The rise of 84 thousand is 84/520 ≈ 16%. The total grew by only 3.6% because adult journeys fell."
+    },
+    {
+     "id": "T2-Q2M-14",
+     "type": "numeric",
+     "skill": "Data interpretation",
+     "table": "t2-bus-journeys",
+     "difficulty": 4,
+     "stem": "Suppose that after 2024, adult journeys fall each year by the same percentage as they did from 2023 to 2024, and student journeys rise each year by the same number as they did from 2023 to 2024. In what year would the number of student journeys first exceed the number of adult journeys?",
+     "answer": 2027,
+     "explain": "Adult journeys fell 10% (480 to 432) and student journeys rose by 40 thousand. Adult: 388.8 in 2025, 349.92 in 2026, 314.928 in 2027; student: 240, 280, 320. Student journeys first exceed adult ones in 2027.",
+     "why": "One series shrinks by a percentage and the other grows by a fixed amount, so the gap has to be tracked year by year."
+    },
+    {
+     "id": "T2-Q2M-15",
+     "type": "multi",
+     "skill": "Data interpretation",
+     "table": "t2-bus-journeys",
+     "difficulty": 4,
+     "stem": "For which fare types was the share of total journeys greater in 2024 than in 2023? Indicate all such values.",
+     "options": [
+      "Adult",
+      "Student",
+      "Child",
+      "Senior",
+      "Disability pass"
+     ],
+     "answer": [
+      1,
+      2,
+      3
+     ],
+     "explain": "Total journeys grew by 3.6%, so a fare type's share rose only if its journeys grew by more than 3.6%. Student (+25%), child (+15%) and senior (+13%) qualify. Disability-pass journeys did not change, so their share fell from 4% to about 3.9%, and adult journeys fell.",
+     "why": "An unchanged count looks like an unchanged share, but the share falls when the total grows."
+    }
+   ]
+  },
+  "Q2H": {
+   "measure": "Quant",
+   "minutes": 26,
+   "label": "Quantitative Reasoning: Section 2",
+   "questions": [
+    {
+     "id": "T2-Q2H-01",
+     "type": "qc",
+     "skill": "Number properties",
+     "difficulty": 4,
+     "given": "x and y are positive integers, and x² − y² = 45.",
+     "qa": "The number of different pairs (x, y) that satisfy the equation",
+     "qb": "3",
+     "answer": 2,
+     "explain": "Write (x − y)(x + y) = 45, where x − y is the smaller factor and both factors are odd. The factor pairs 1 × 45, 3 × 15 and 5 × 9 give (23, 22), (9, 6) and (7, 2). So there are exactly 3 pairs.",
+     "why": "Students often stop after the first one or two factor pairs and miss 5 × 9."
+    },
+    {
+     "id": "T2-Q2H-02",
+     "type": "qc",
+     "skill": "Inequalities",
+     "difficulty": 4,
+     "given": "a and b are nonzero numbers, and a/b > 1.",
+     "qa": "a²",
+     "qb": "ab",
+     "answer": 0,
+     "explain": "a/b > 1 means a and b have the same sign and |a| > |b|. Then a² − ab = a(a − b): if both are positive, a > b and the product is positive; if both are negative, a < b < 0, so a and a − b are both negative and the product is again positive. For example, a = −4 and b = −2 give 16 against 8.",
+     "why": "Negative values seem to break the comparison, but the case a < b < 0 still gives A greater."
+    },
+    {
+     "id": "T2-Q2H-03",
+     "type": "qc",
+     "skill": "Geometry",
+     "difficulty": 4,
+     "given": "A circle is inscribed in a square, and a smaller square is inscribed in the circle, with its four vertices on the circle.",
+     "qa": "The area of the region inside the larger square but outside the circle",
+     "qb": "The area of the region inside the circle but outside the smaller square",
+     "answer": 1,
+     "explain": "Let the radius be r. The larger square has side 2r and area 4r²; the smaller square has diagonal 2r and area 2r²; the circle has area πr². A = (4 − π)r² ≈ 0.86r² and B = (π − 2)r² ≈ 1.14r², so B is greater because π > 3.",
+     "why": "The four corner regions look larger than the four thin slivers, but comparing 4 − π with π − 2 shows otherwise."
+    },
+    {
+     "id": "T2-Q2H-04",
+     "type": "qc",
+     "skill": "Statistics",
+     "difficulty": 4,
+     "given": "List L consists of 20 numbers, not all equal, with average (arithmetic mean) m. Exactly two of the numbers in L are equal to m. List M is formed by removing those two numbers from L.",
+     "qa": "The standard deviation of list L",
+     "qb": "The standard deviation of list M",
+     "answer": 1,
+     "explain": "Removing two values equal to m leaves the mean at m and leaves the sum of squared distances from the mean unchanged, since those two values contributed 0. The same total is now shared among 18 values instead of 20, so the typical distance from the mean grows and M has the greater standard deviation.",
+     "why": "Removing values sounds as if it cannot widen a list, but removing values at the centre does."
+    },
+    {
+     "id": "T2-Q2H-05",
+     "type": "qc",
+     "skill": "Counting",
+     "difficulty": 4,
+     "given": "A luggage locker at a railway station opens with a 4-digit code. Each digit can be any of 0 to 9, and digits may repeat.",
+     "qa": "The number of possible codes in which at least one digit appears more than once",
+     "qb": "The number of possible codes in which all four digits are different",
+     "answer": 1,
+     "explain": "All four digits different: 10 × 9 × 8 × 7 = 5,040. There are 10⁴ = 10,000 codes in all, so 10,000 − 5,040 = 4,960 have a repeat. B is greater, though only just.",
+     "why": "Intuition about repeats can point either way, and the two counts differ by only 80, so they must be counted."
+    },
+    {
+     "id": "T2-Q2H-06",
+     "type": "mc",
+     "skill": "Functions",
+     "difficulty": 5,
+     "stem": "The function g is defined by g(x) = |x − 3| − |x + 1| for all numbers x. For how many integers k does the equation g(x) = k have exactly one solution?",
+     "options": [
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "answer": 2,
+     "explain": "For x ≤ −1, g(x) = (3 − x) − (−x − 1) = 4; for x ≥ 3, g(x) = −4; between them g(x) = 2 − 2x, which falls steadily from 4 to −4. So each k strictly between −4 and 4 is reached exactly once, while 4 and −4 are reached infinitely often. The integers −3 to 3 give 7.",
+     "why": "Including k = 4 and k = −4 gives 9, but those values are taken on whole rays, not at a single point."
+    },
+    {
+     "id": "T2-Q2H-07",
+     "type": "mc",
+     "skill": "Work",
+     "difficulty": 4,
+     "stem": "Two pumps fill a tank in a marine-biology lab. Working alone, pump P can fill the tank in 6 hours and pump Q in 9 hours. Both pumps start together on the empty tank; after a while, pump P breaks down, and pump Q fills the rest of the tank alone. The tank is full exactly 5 hours after the start. For how long did pump P run?",
+     "options": [
+      "2 h",
+      "2 h 10 min",
+      "2 h 20 min",
+      "2 h 30 min",
+      "2 h 40 min"
+     ],
+     "answer": 4,
+     "explain": "Pump Q ran for all 5 hours and filled 5/9 of the tank, so pump P filled the other 4/9. At 1/6 of the tank per hour, that took (4/9) × 6 = 8/3 hours, or 2 h 40 min.",
+     "why": "Q works for the full 5 hours; treating it as working only after P stops leads to a wrong equation."
+    },
+    {
+     "id": "T2-Q2H-08",
+     "type": "numeric",
+     "skill": "Coordinate geometry",
+     "difficulty": 4,
+     "stem": "In the xy-plane, a triangle has vertices at (0, 0), (8, 0) and (0, 6). How many points with integer coordinates lie inside the triangle or on its sides?",
+     "answer": 33,
+     "explain": "The triangle is x ≥ 0, y ≥ 0 and 3x + 4y ≤ 24. For x = 0, 1, …, 8 the number of allowed integer y values (0 up to (24 − 3x)/4) is 7, 6, 5, 4, 4, 3, 2, 1, 1. These add up to 33.",
+     "why": "The hypotenuse passes through the lattice point (4, 3), which is easy to miss or to count twice."
+    },
+    {
+     "id": "T2-Q2H-09",
+     "type": "multi",
+     "skill": "Number properties",
+     "difficulty": 5,
+     "stem": "The positive integer n has exactly three positive divisors. Which of the following could be the number of positive divisors of 4n? Indicate all such values.",
+     "options": [
+      "3",
+      "5",
+      "6",
+      "8",
+      "9",
+      "12"
+     ],
+     "answer": [
+      1,
+      4
+     ],
+     "explain": "Only squares of primes have exactly three divisors, so n = p². If p is odd, 4n = 2² × p² has 3 × 3 = 9 divisors. If p = 2, then n = 4 and 4n = 16 = 2⁴ has 5 divisors.",
+     "why": "Assuming p is odd gives only 9; the case p = 2 merges the primes and gives 5."
+    },
+    {
+     "id": "T2-Q2H-10",
+     "type": "mc",
+     "skill": "Statistics",
+     "difficulty": 4,
+     "stem": "Five different positive integers have a median of 10 and an average (arithmetic mean) of 12. What is the greatest possible difference between the largest and the smallest of the five integers?",
+     "options": [
+      "33",
+      "35",
+      "36",
+      "37",
+      "38"
+     ],
+     "answer": 1,
+     "explain": "The total is 60 and the middle value is 10. To stretch the range, make the smallest two as small as possible (1 and 2) and the fourth as small as possible (11); the largest is then 60 − 1 − 2 − 10 − 11 = 36, and the range is 36 − 1 = 35. Allowing repeats (1, 1, 10, 10, 38) would give 37.",
+     "why": "The integers must be different, which pushes the second value up to 2 and the fourth up to 11."
+    },
+    {
+     "id": "T2-Q2H-11",
+     "type": "fraction",
+     "skill": "Probability",
+     "difficulty": 5,
+     "stem": "Each of 5 tourists is assigned at random to one of 3 tour buses; for each tourist, each bus is equally likely, independently of the others. What is the probability that every bus is assigned at least one tourist? Give your answer as a fraction.",
+     "answer": [
+      50,
+      81
+     ],
+     "explain": "There are 3⁵ = 243 equally likely assignments. Assignments that leave a particular bus empty number 2⁵ = 32, and those that leave two particular buses empty number 1. By inclusion–exclusion, 3 × 32 − 3 × 1 = 93 leave some bus empty, so 243 − 93 = 150 fill every bus: 150/243 = 50/81.",
+     "why": "Subtracting 3 × 32 alone double-counts the 3 assignments that put everyone on one bus."
+    },
+    {
+     "id": "T2-Q2H-12",
+     "type": "mc",
+     "skill": "Geometry",
+     "difficulty": 3,
+     "stem": "A storage box in the shape of a rectangular solid has a square base with sides of 6 centimetres. The straight-line distance through the inside of the box from one corner to the opposite corner is 11 centimetres. What is the height of the box, in centimetres?",
+     "options": [
+      "7",
+      "8",
+      "9",
+      "√85",
+      "11"
+     ],
+     "answer": 0,
+     "explain": "The space diagonal satisfies 6² + 6² + h² = 11², so h² = 121 − 72 = 49 and h = 7. Using only one side of the base (121 − 36 = 85) gives √85."
+    },
+    {
+     "id": "T2-Q2H-13",
+     "type": "mc",
+     "skill": "Data interpretation",
+     "chart": "t2-ferry-routes",
+     "difficulty": 4,
+     "stem": "In how many of the six months did Route North carry more than 45% of the two routes' combined passengers?",
+     "options": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+     ],
+     "answer": 3,
+     "explain": "North's share exceeds 45% when North > 0.45(North + South), that is when 11 × North > 9 × South. This holds in February (330 > 315), April (495 > 450), May (605 > 540) and June (660 > 630), but not in January (275 < 360) or March (385 < 405).",
+     "why": "Several months are close to 45%, so eyeballing the bars is not enough; a quick exact test is needed."
+    },
+    {
+     "id": "T2-Q2H-14",
+     "type": "numeric",
+     "skill": "Data interpretation",
+     "chart": "t2-ferry-routes",
+     "difficulty": 4,
+     "stem": "Suppose Route North carries x thousand passengers in July. If North's average (arithmetic mean) monthly number of passengers for January–July equals South's average monthly number of passengers for January–June, what is the value of x?",
+     "answer": 100,
+     "explain": "South carried 40 + 35 + 45 + 50 + 60 + 70 = 300 thousand in six months, an average of 50. North carried 25 + 30 + 35 + 45 + 55 + 60 = 250 thousand, so its seven-month total must be 7 × 50 = 350, giving x = 100. Answering 50 forgets that July must make up North's shortfall over the first six months.",
+     "why": "The seven-month mean needs a seven-month total, so x must lift North's whole total, not just match South's average."
+    },
+    {
+     "id": "T2-Q2H-15",
+     "type": "multi",
+     "skill": "Data interpretation",
+     "chart": "t2-ferry-routes",
+     "difficulty": 4,
+     "stem": "For which months was the percent increase in Route North's passengers over the previous month greater than the percent increase in Route South's passengers over the previous month? (A decrease counts as a negative percent increase.) Indicate all such values.",
+     "options": [
+      "February",
+      "March",
+      "April",
+      "May",
+      "June"
+     ],
+     "answer": [
+      0,
+      2,
+      3
+     ],
+     "explain": "North vs South: February +20% vs −12.5%; March +16.7% vs +28.6%; April +28.6% vs +11.1%; May +22.2% vs +20%; June +9.1% vs +16.7%. North's increase is greater in February, April and May. In May both routes gained 10 thousand, but North's smaller base makes its percentage larger.",
+     "why": "Equal rises in passengers (May) or a larger rise for South (June) must be judged against each route's starting value."
+    }
+   ]
+  }
+ }
+}
