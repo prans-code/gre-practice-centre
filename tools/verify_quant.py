@@ -14,7 +14,7 @@ import math
 
 # Tests whose quant items are being rewritten; missing checks are not reported for them yet.
 # shortcut: remove each id once its rewrite lands (plan Tasks 5-6)
-PENDING = {"test-01", "shared-easy"}
+PENDING = {"test-01"}
 
 
 def qc(cases):
@@ -102,7 +102,11 @@ def verify(tests):
                 except Exception as e:  # a broken check must fail the build, not crash it
                     probs.append(f"{q['id']}: check raised {e!r}")
                     continue
-                if not same_key(q, got):
+                try:
+                    ok = same_key(q, got)
+                except Exception:  # e.g. a check returning the wrong shape
+                    ok = False
+                if not ok:
                     probs.append(f"{q['id']}: key {q['answer']}, check says {got}")
     return probs
 

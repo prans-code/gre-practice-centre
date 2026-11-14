@@ -232,7 +232,7 @@ def mix_ok(key, diffs):
 
 
 # shortcut: mix not enforced on these until their content is rewritten (plan Tasks 5-6); remove then
-MIX_PENDING = {"test-01", "shared-easy"}
+MIX_PENDING = {"test-01"}
 
 
 def check_all(tests, shared=None):

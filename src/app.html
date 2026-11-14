@@ -270,7 +270,7 @@ __RANDOM_JS__
   function saveAttempt(rec) {
     history = mergeHist([rec], history); lsSet(kHist(), history);
     if (db) db.collection("attempts").doc(rec.id).set(rec).catch(function () { toast("Saved in this browser only. Your account store could not be reached."); });
-    if (account) upsert([rec]).then(function (ok) { if (!ok) toast("Saved in this browser only. Your account could not be reached; it will sync next time you log in."); });
+    if (account) upsert([rec]).then(function (ok) { if (!ok) toast("Saved in this browser only. Your account could not be reached; it will upload the next time you open this site."); });
   }
   function updateAttempt(id, patch) {
     history = history.map(function (h) { return h.id === id ? Object.assign({}, h, patch) : h; }); lsSet(kHist(), history);
