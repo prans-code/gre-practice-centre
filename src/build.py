@@ -305,7 +305,8 @@ def main():
 
     data = {"config": CONFIG, "tests": tests, "shared": list(shared["sections"]) if shared else []}
     payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
-    html = (ROOT / "src" / "app.html").read_text(encoding="utf-8").replace("__DATA__", payload)
+    random_js = (ROOT / "src" / "random.js").read_text(encoding="utf-8")
+    html = (ROOT / "src" / "app.html").read_text(encoding="utf-8").replace("__RANDOM_JS__", random_js).replace("__DATA__", payload)
     (ROOT / "src" / "artifact.html").write_text(html, encoding="utf-8")
     local = ('<!doctype html>\n<html lang="en-GB">\n<head>\n<meta charset="utf-8">\n'
              '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'

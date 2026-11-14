@@ -161,10 +161,14 @@ details > summary { cursor: pointer; font-weight: 600; padding-block: 6px }
 
 <script id="data" type="application/json">__DATA__</script>
 <script>
+__RANDOM_JS__
+</script>
+<script>
 (function () {
   "use strict";
   var DATA = JSON.parse(document.getElementById("data").textContent);
   var CFG = DATA.config, TESTS = DATA.tests;
+  var RIX = GRE_RANDOM.indexTests(TESTS, DATA.shared || []), randomCache = {};
   var K_PROG = "gre-app-v2-progress", K_HIST = "gre-app-v2-history";
   var LET = "ABCDEFGHIJ";
   var QC_OPTS = ["Quantity A is greater.", "Quantity B is greater.", "The two quantities are equal.", "The relationship cannot be determined from the information given."];
@@ -208,7 +212,16 @@ details > summary { cursor: pointer; font-weight: 600; padding-block: 6px }
   function blankify(s) { return esc(s).replace(/\((i{1,3})\)______|______/g, function (m, r) { return '<span style="display:inline-block;min-width:4.5em;border-bottom:2px solid currentColor;text-align:center">' + (r ? "(" + r + ")" : "") + "</span>"; }); }
   function fmt(sec) { sec = Math.max(0, Math.ceil(sec)); var m = Math.floor(sec / 60), s = sec % 60; return m + ":" + (s < 10 ? "0" : "") + s; }
   function on(id, fn) { var el = document.getElementById(id); if (el) el.addEventListener("click", fn); }
-  function testById(id) { for (var i = 0; i < TESTS.length; i++) if (TESTS[i].id === id) return TESTS[i]; return null; }
+  function isRandomId(id) { return String(id).indexOf("random-") === 0; }
+  function testById(id) {
+    for (var i = 0; i < TESTS.length; i++) if (TESTS[i].id === id) return TESTS[i];
+    if (!isRandomId(id)) return null;
+    if (randomCache[id]) return randomCache[id];
+    var comp = progress[id] && progress[id].composition;
+    if (!comp) history.forEach(function (h) { if (h.testId === id && h.composition) comp = h.composition; });
+    return comp ? (randomCache[id] = GRE_RANDOM.materialize(comp, RIX, id)) : null;
+  }
+  function hasRemoved(test) { return Object.keys(test.sections).some(function (k) { return test.sections[k].questions.some(function (q) { return q.type === "removed"; }); }); }
   function fmtDate(iso) { try { return new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }); } catch (e) { return iso; } }
   function ordinal(n) { var s = ["th", "st", "nd", "rd"], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); }
   var toastT = null;
@@ -292,7 +305,7 @@ details > summary { cursor: pointer; font-weight: 600; padding-block: 6px }
         (last ? '<button class="btn" data-practice="' + t.id + '">Practice mode</button>' : "") + "</div>" +
         (ui.confirm === "discard:" + t.id ? '<div class="confirm small stack" style="gap:8px">Discard this unfinished attempt? Your answers so far will be deleted.<div class="row"><button class="btn primary" data-yesdiscard="' + t.id + '">Yes, discard</button><button class="btn" data-nodiscard="1">Cancel</button></div></div>' : "") +
         "</div>";
-    }).join("");
+    }).join("") + randomCard();
     var hist = history.length ? '<div class="panel scroll-x"><table class="plain"><thead><tr><th>Date</th><th>Test</th><th>Verbal</th><th>Quant</th><th>Writing</th><th></th></tr></thead><tbody>' +
       history.map(function (h) {
         var t = testById(h.testId);
@@ -315,11 +328,22 @@ details > summary { cursor: pointer; font-weight: 600; padding-block: 6px }
     app.querySelectorAll("[data-nodiscard]").forEach(function (b) { b.addEventListener("click", function () { ui.confirm = null; render(); }); });
     app.querySelectorAll("[data-report]").forEach(function (b) { b.addEventListener("click", function () { go({ name: "report", attemptId: b.dataset.report }); }); });
     app.querySelectorAll("[data-practice]").forEach(function (b) { b.addEventListener("click", function () { go({ name: "practice", testId: b.dataset.practice }); }); });
+    on("startRandom", function () { startAttempt("random-" + Date.now(), GRE_RANDOM.compose(RIX, Math.random)); });
+  }
+
+  function randomCard() {
+    var rid = Object.keys(progress).filter(isRandomId)[0], done = history.filter(function (h) { return isRandomId(h.testId); }).length;
+    var status = rid ? '<span class="pill warn">In progress</span>' : done ? '<span class="pill good">Taken ' + done + "×</span>" : '<span class="pill skip">Not taken</span>';
+    return '<div class="panel tcard"><div class="row" style="justify-content:space-between"><h3>Randomized test</h3>' + status + "</div>" +
+      '<div class="meta">A new full-length test every time, mixing questions from all the practice tests. You may meet questions you have already seen.</div>' +
+      '<div class="row">' + (rid ? '<button class="btn primary" data-resume="' + rid + '">Resume</button><button class="btn" data-discard="' + rid + '">Discard attempt</button>' : '<button class="btn primary" id="startRandom">Start randomized test</button>') + "</div>" +
+      (rid && ui.confirm === "discard:" + rid ? '<div class="confirm small stack" style="gap:8px">Discard this unfinished attempt? Your answers so far will be deleted.<div class="row"><button class="btn primary" data-yesdiscard="' + rid + '">Yes, discard</button><button class="btn" data-nodiscard="1">Cancel</button></div></div>' : "") +
+      "</div>";
   }
 
   // ---------- attempt flow ----------
-  function startAttempt(testId) {
-    progress[testId] = { testId: testId, phase: "ack", step: 0, route: {}, answers: {}, marked: {}, essay: "", timeLeft: {}, current: 0, essayUsed: 0, startedAt: new Date().toISOString(), hideTime: false };
+  function startAttempt(testId, composition) {
+    progress[testId] = { testId: testId, composition: composition, phase: "ack", step: 0, route: {}, answers: {}, marked: {}, essay: "", timeLeft: {}, current: 0, essayUsed: 0, startedAt: new Date().toISOString(), hideTime: false };
     saveProg(); go({ name: "attempt", testId: testId });
   }
   function seq(test) { return ["AW"].concat(test.order); }
@@ -680,7 +704,7 @@ details > summary { cursor: pointer; font-weight: 600; padding-block: 6px }
     var V = measureResult(test, "Verbal", A.answers, A.route), Q = measureResult(test, "Quant", A.answers, A.route);
     function strip(r) { return { est: r.est, lo: r.lo, hi: r.hi, pct: r.est ? r.pct : null, raw: r.raw, r1: r.r1, r2: r.r2, tier: r.tier }; }
     return { id: test.id + "-" + Date.now(), testId: test.id, testTitle: test.title, testVersion: test.version, cfgVersion: CFG.version, date: new Date().toISOString(), status: status,
-      verbal: strip(V), quant: strip(Q), route: A.route, answers: A.answers,
+      verbal: strip(V), quant: strip(Q), route: A.route, answers: A.answers, composition: A.composition,
       aw: { prompt: test.essay.prompt, instructions: test.essay.instructions, text: A.essay, words: (A.essay.match(/\S+/g) || []).length, secondsUsed: Math.round(A.essayUsed || 0), score: null, feedback: null } };
   }
   function renderReportChoice(test, A) {
@@ -774,7 +798,7 @@ details > summary { cursor: pointer; font-weight: 600; padding-block: 6px }
       return;
     }
     // If the test or the scoring has changed since this attempt, show the scores stored at the time and skip the per-question review.
-    var stale = !test || h.testVersion !== test.version || h.cfgVersion !== CFG.version;
+    var stale = !test || h.testVersion !== test.version || h.cfgVersion !== CFG.version || (test.random && hasRemoved(test));
     var V = stale ? Object.assign({ measure: "Verbal" }, h.verbal) : measureResult(test, "Verbal", h.answers, h.route);
     var Q = stale ? Object.assign({ measure: "Quant" }, h.quant) : measureResult(test, "Quant", h.answers, h.route);
     var unofficial = view.fresh ? '<div class="panel stack" style="gap:10px"><span class="eyebrow">Unofficial scores, as shown on test day</span><div class="unofficial"><div>Verbal Reasoning<b>' + (V.est || "NS") + "</b></div><div>Quantitative Reasoning<b>" + (Q.est || "NS") + '</b></div></div><p class="small muted" style="margin:0">Official scores, including Analytical Writing, arrive about 8–10 days after the real test.</p></div>' : "";
