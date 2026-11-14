@@ -13,7 +13,7 @@ var GRE_RANDOM = (function () {
   }
 
   function indexTests(tests, sharedKeys) {
-    var ix = { q: {}, passages: {}, tables: {}, charts: {}, essays: {}, testIds: [], meta: {}, slots: {}, shared: sharedKeys || [] };
+    var ix = { q: {}, passages: {}, tables: {}, charts: {}, essays: {}, testIds: [], meta: {}, slots: {}, shared: sharedKeys || [], version: tests.map(function (t) { return t.version; }).join("|") };
     tests.forEach(function (t) {
       ix.testIds.push(t.id);
       ix.essays[t.id] = t.essay;
@@ -43,7 +43,7 @@ var GRE_RANDOM = (function () {
   function materialize(comp, ix, id) {
     var t = { id: id, title: "Randomized test", blurb: "A new mix of questions drawn from all the practice tests.",
       order: ["V1", "V2", "Q1", "Q2"], essay: ix.essays[comp.essayFrom] || ix.essays[ix.testIds[0]],
-      passages: ix.passages, tables: ix.tables, charts: ix.charts, sections: {}, version: "random", random: true };
+      passages: ix.passages, tables: ix.tables, charts: ix.charts, sections: {}, version: "random:" + ix.version, random: true };
     for (var sk in comp.sections) {
       var m = ix.meta[sk] || { measure: sk.charAt(0) === "Q" ? "Quant" : "Verbal" };
       t.sections[sk] = { measure: m.measure, minutes: m.minutes, label: m.label,

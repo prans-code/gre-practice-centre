@@ -184,7 +184,7 @@ var GRE_RANDOM = (function () {
   }
 
   function indexTests(tests, sharedKeys) {
-    var ix = { q: {}, passages: {}, tables: {}, charts: {}, essays: {}, testIds: [], meta: {}, slots: {}, shared: sharedKeys || [] };
+    var ix = { q: {}, passages: {}, tables: {}, charts: {}, essays: {}, testIds: [], meta: {}, slots: {}, shared: sharedKeys || [], version: tests.map(function (t) { return t.version; }).join("|") };
     tests.forEach(function (t) {
       ix.testIds.push(t.id);
       ix.essays[t.id] = t.essay;
@@ -214,7 +214,7 @@ var GRE_RANDOM = (function () {
   function materialize(comp, ix, id) {
     var t = { id: id, title: "Randomized test", blurb: "A new mix of questions drawn from all the practice tests.",
       order: ["V1", "V2", "Q1", "Q2"], essay: ix.essays[comp.essayFrom] || ix.essays[ix.testIds[0]],
-      passages: ix.passages, tables: ix.tables, charts: ix.charts, sections: {}, version: "random", random: true };
+      passages: ix.passages, tables: ix.tables, charts: ix.charts, sections: {}, version: "random:" + ix.version, random: true };
     for (var sk in comp.sections) {
       var m = ix.meta[sk] || { measure: sk.charAt(0) === "Q" ? "Quant" : "Verbal" };
       t.sections[sk] = { measure: m.measure, minutes: m.minutes, label: m.label,
@@ -326,9 +326,12 @@ if (typeof module !== "undefined") module.exports = GRE_RANDOM;
   }
   function logOut() {
     var w = who;
-    (sb ? sb.auth.signOut() : Promise.resolve()).then(function () {}, function () {}).then(function () {
+    upsert(history).then(function (ok) { // results saved offline must reach the account before they are wiped
+      if (!ok) { toast("Not logged out: your account can't be reached and some results haven't uploaded yet."); return; }
+      return (sb ? sb.auth.signOut() : Promise.resolve()).then(function () {}, function () {}).then(function () {
       lsDel(kHist(w)); lsDel(kProg(w)); // shared laptops: nothing of this person stays behind
       switchUser(null);
+    });
     });
   }
   function mergeHist(a, b) { var m = {}; b.concat(a).forEach(function (h) { m[h.id] = Object.assign({}, m[h.id] || {}, h); }); return Object.keys(m).map(function (k) { return m[k]; }).sort(function (x, y) { return x.date < y.date ? 1 : -1; }); }

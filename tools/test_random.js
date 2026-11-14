@@ -22,6 +22,14 @@ const idx = R.indexTests(tests, ["V2E"]);
 function seeded(s) { return function () { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; }; }
 
 const T = {
+  version_follows_fixed_tests() {
+    const a = tests.map(t => Object.assign({}, t, { version: "v1" }));
+    const b = a.map((t, i) => Object.assign({}, t, { version: i ? "v1" : "v2" }));
+    const comp = R.compose(R.indexTests(a, ["V2E"]), seeded(7));
+    const va = R.materialize(comp, R.indexTests(a, ["V2E"]), "random-1").version;
+    assert.notStrictEqual(va, R.materialize(comp, R.indexTests(b, ["V2E"]), "random-1").version, "editing a fixed test must change the randomized version");
+    assert.strictEqual(va, R.materialize(comp, R.indexTests(a, ["V2E"]), "random-1").version);
+  },
   compose_counts() {
     for (let s = 1; s < 30; s++) {
       const c = R.compose(idx, seeded(s));
