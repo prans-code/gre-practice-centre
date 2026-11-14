@@ -4,6 +4,7 @@ import pathlib
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src"))
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import build  # noqa: E402
 
 
@@ -69,6 +70,44 @@ def test_difficulty_mix():
 def test_slot_layout():
     sec = {"questions": [q("1", "qc"), q("2", "mc", passage="p"), q("3", "multi", passage="p"), q("4", "mc"), q("5", "mc", table="t"), q("6", "numeric", table="t")]}
     assert build.slot_layout(sec) == [("qc",), ("mc", "multi"), ("mc",), ("mc", "numeric")], build.slot_layout(sec)
+
+
+def test_qc_cannot_determine():
+    import verify_quant
+    assert verify_quant.qc([(1, 2), (3, 2)]) == 3
+
+
+def test_qc_equal():
+    import verify_quant
+    assert verify_quant.qc([(2, 2), (5, 5)]) == 2
+
+
+def test_fraction_equivalence():
+    import verify_quant
+    assert verify_quant.same_key({"type": "fraction", "answer": [1, 2]}, [2, 4])
+    assert not verify_quant.same_key({"type": "fraction", "answer": [1, 2]}, [2, 5])
+    assert verify_quant.same_key({"type": "numeric", "answer": 0.5}, 1 / 2)
+
+
+def test_missing_check_reported():
+    import verify_quant
+    t = make_test("a", {"Q1": [q("NO-SUCH-ID")]})
+    assert any("NO-SUCH-ID: no quant check" in p for p in verify_quant.verify([t]))
+
+
+def test_wrong_key_reported():
+    import verify_quant
+    verify_quant.CHECKS["TMP-1"] = lambda: 2
+    try:
+        t = make_test("a", {"Q1": [q("TMP-1")]})
+        assert any("TMP-1: key 1, check says 2" in p for p in verify_quant.verify([t]))
+    finally:
+        del verify_quant.CHECKS["TMP-1"]
+
+
+def test_check_all_runs_quant_verifier():
+    t = make_test("a", {"Q1": [q("NO-SUCH-ID")]})
+    assert any("NO-SUCH-ID: no quant check" in p for p in problems_for([t]))
 
 
 def test_real_tests_build_clean():

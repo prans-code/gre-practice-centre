@@ -17,6 +17,8 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+import verify_quant  # noqa: E402
 SECTIONS = {"V1": 12, "V2E": 15, "V2M": 15, "V2H": 15, "Q1": 12, "Q2E": 15, "Q2M": 15, "Q2H": 15}
 TYPES = {"tc", "se", "mc", "multi", "sentence", "qc", "numeric", "fraction"}
 problems = []
@@ -249,6 +251,7 @@ def check_all(tests, shared=None):
                 for k, s in t["sections"].items():
                     if k in first["sections"] and slot_layout(s) != slot_layout(first["sections"][k]):
                         fail(f"{t['id']}: {k} layout differs from {first['id']}")
+        problems.extend(verify_quant.verify(tests))
         return problems
     finally:
         problems = saved
