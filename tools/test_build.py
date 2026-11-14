@@ -105,6 +105,12 @@ def test_wrong_key_reported():
         del verify_quant.CHECKS["TMP-1"]
 
 
+def test_checks_modules_loaded():
+    import verify_quant
+    assert verify_quant.CHECKS.get("SELFTEST-1") is not None, "tools/checks/*.py CHECKS must be merged"
+    assert verify_quant.CHECKS["SELFTEST-1"]() == 3
+
+
 def test_check_all_runs_quant_verifier():
     t = make_test("a", {"Q1": [q("NO-SUCH-ID")]})
     assert any("NO-SUCH-ID: no quant check" in p for p in problems_for([t]))

@@ -64,6 +64,22 @@ CHECKS = {
 }
 
 
+def _load_check_modules():
+    """Merge CHECKS from every tools/checks/*.py (one file per test and measure)."""
+    import importlib.util
+    import pathlib
+    for path in sorted((pathlib.Path(__file__).resolve().parent / "checks").glob("*.py")):
+        spec = importlib.util.spec_from_file_location("checks_" + path.stem, path)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        for k, fn in getattr(mod, "CHECKS", {}).items():
+            assert k not in CHECKS, f"quant check {k} defined twice ({path.name})"
+            CHECKS[k] = fn
+
+
+_load_check_modules()
+
+
 def verify(tests):
     """Problems for quant items with no check or a check that disagrees with the key."""
     probs, done = [], set()
@@ -77,7 +93,8 @@ def verify(tests):
                 done.add(q["id"])
                 fn = CHECKS.get(q["id"])
                 if fn is None:
-                    if t["id"] not in PENDING and not q["id"].startswith("E-"):
+                    pending = "shared-easy" in PENDING if q["id"].startswith("E-") else t["id"] in PENDING
+                    if not pending:
                         probs.append(f"{q['id']}: no quant check")
                     continue
                 try:
