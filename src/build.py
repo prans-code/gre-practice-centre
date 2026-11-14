@@ -112,8 +112,8 @@ def shuffle_q(q):
 LETTER_REF = re.compile(r"\b(option|choice|answer)\s+\(?[A-F]\)?\b|\([A-E]\)", re.I)
 
 
-def check_test(test, path):
-    tid = test.get("id", path.name)
+def check_test(test, shared_keys=()):
+    tid = test.get("id")
     for k in ("id", "title", "order", "essay", "passages", "sections"):
         if k not in test:
             fail(f"{tid}: missing {k}")
@@ -168,7 +168,7 @@ def check_test(test, path):
                 fail(f"{qid}: unknown chart")
             if t == "fraction" and (len(q["answer"]) != 2 or q["answer"][1] == 0):
                 fail(f"{qid}: fraction answer wrong")
-            if sec["measure"] == "Verbal":
+            if sec["measure"] == "Verbal" and key not in shared_keys:
                 shuffle_q(q)
     # answer-position spread after shuffling
     pos = [q["answer"] for s in test["sections"].values() for q in s["questions"] if q["type"] == "mc"]
@@ -179,35 +179,140 @@ def check_test(test, path):
         fail(f"{tid}: too many text-completion answers in the first position")
 
 
+def slot_layout(section):
+    """One tuple of question types per slot; a slot is a run sharing a passage/table/chart, else one question."""
+    slots, last = [], None
+    for q in section["questions"]:
+        g = q.get("passage") or q.get("table") or q.get("chart")
+        if g and g == last:
+            slots[-1] = slots[-1] + (q["type"],)
+        else:
+            slots.append((q["type"],))
+        last = g
+    return slots
+
+
+def mix_ok(key, diffs):
+    """Difficulty mix per section (design doc, section 4)."""
+    n = lambda lo, hi: sum(lo <= d <= hi for d in diffs)
+    if key in ("V1", "Q1"):
+        return n(3, 4) >= 8 * len(diffs) / 12 and n(5, 5) >= 1 and n(1, 2) <= 2
+    if key in ("V2H", "Q2H"):
+        return n(4, 5) >= 10 * len(diffs) / 15 and n(1, 2) == 0
+    if key in ("V2M", "Q2M"):
+        return n(3, 4) >= 11 * len(diffs) / 15 and n(1, 1) == 0
+    return n(2, 3) == len(diffs)  # V2E, Q2E
+
+
+# shortcut: mix not enforced on these until their content is rewritten (plan Tasks 5-6); remove then
+MIX_PENDING = {"test-01", "shared-easy"}
+
+
+def check_all(tests, shared=None):
+    """Validate every test plus cross-test rules; returns the list of problems."""
+    global problems
+    saved, problems = problems, []
+    try:
+        shared_keys = tuple(shared["sections"]) if shared else ()
+        seen_ids, seen_keys = {}, {}
+        if shared:
+            for s in shared["sections"].values():
+                for q in s["questions"]:
+                    seen_ids[q["id"]] = "shared-easy"
+            for kind in ("passages", "tables", "charts"):
+                for k in shared.get(kind, {}):
+                    seen_keys[(kind, k)] = "shared-easy"
+            for k, s in shared["sections"].items():
+                if "shared-easy" not in MIX_PENDING and not mix_ok(k, [q["difficulty"] for q in s["questions"]]):
+                    fail(f"shared-easy {k} difficulty mix off")
+        for t in tests:
+            check_test(t, shared_keys)
+            for k, s in t["sections"].items():
+                if k in shared_keys:
+                    continue
+                for q in s["questions"]:
+                    if q["id"] in seen_ids and seen_ids[q["id"]] != t["id"]:
+                        fail(f"{t['id']}: duplicate id {q['id']} (also in {seen_ids[q['id']]})")
+                    seen_ids[q["id"]] = t["id"]
+                if t["id"] not in MIX_PENDING and not mix_ok(k, [q["difficulty"] for q in s["questions"]]):
+                    fail(f"{t['id']}: {k} difficulty mix off")
+            for kind in ("passages", "tables", "charts"):
+                for k in t.get(kind, {}):
+                    if shared and k in shared.get(kind, {}):
+                        continue
+                    if (kind, k) in seen_keys:
+                        fail(f"{t['id']}: duplicate {kind[:-1]} key {k} (also in {seen_keys[(kind, k)]})")
+                    seen_keys[(kind, k)] = t["id"]
+        if tests:
+            first = tests[0]
+            for t in tests[1:]:
+                for k, s in t["sections"].items():
+                    if k in first["sections"] and slot_layout(s) != slot_layout(first["sections"][k]):
+                        fail(f"{t['id']}: {k} layout differs from {first['id']}")
+        return problems
+    finally:
+        problems = saved
+
+
+def merge_shared(test, shared):
+    """Copy the shared easy sections and their passages/tables/charts into a test (same objects, no copy)."""
+    for k, s in shared["sections"].items():
+        test["sections"][k] = s
+    for kind in ("passages", "tables", "charts"):
+        test.setdefault(kind, {}).update(shared.get(kind, {}))
+
+
+def load_tests(root):
+    """Read tests/test-*.json and tests/shared-easy.json; returns (tests, shared)."""
+    shared_path = root / "tests" / "shared-easy.json"
+    shared = json.loads(shared_path.read_text(encoding="utf-8")) if shared_path.exists() else None
+    if shared:
+        for s in shared["sections"].values():
+            if s["measure"] == "Verbal":
+                for q in s["questions"]:
+                    shuffle_q(q)  # once, so every test shows the same order
+    tests = []
+    for path in sorted((root / "tests").glob("test-*.json")):
+        raw = path.read_text(encoding="utf-8")
+        t = json.loads(raw)
+        t["version"] = hashlib.sha256((raw + json.dumps(shared, sort_keys=True)).encode()).hexdigest()[:10]  # changes when the test or shared file changes
+        if shared:
+            merge_shared(t, shared)
+        tests.append(t)
+    return tests, shared
+
+
 CONFIG["version"] = hashlib.sha256(json.dumps([ROUTING, CONVERSION]).encode()).hexdigest()[:10]
 
-tests = []
-for path in sorted((ROOT / "tests").glob("test-*.json")):
-    raw = path.read_text(encoding="utf-8")
-    t = json.loads(raw)
-    t["version"] = hashlib.sha256(raw.encode()).hexdigest()[:10]  # changes whenever the test file changes
-    check_test(t, path)
-    tests.append(t)
 
-if "--table" in sys.argv:
-    print("raw  easier medium harder")
-    for r in range(28):
-        print(f"{r:>3}  " + "  ".join(f"{CONVERSION[t][r] if r in REACH[t] else '  - ':>6}" for t in ("easier", "medium", "harder")))
+def main():
+    tests, shared = load_tests(ROOT)
+    probs = problems + check_all(tests, shared)
 
-if problems:
-    print("BUILD FAILED:")
-    for p in problems:
-        print(" -", p)
-    sys.exit(1)
+    if "--table" in sys.argv:
+        print("raw  easier medium harder")
+        for r in range(28):
+            print(f"{r:>3}  " + "  ".join(f"{CONVERSION[t][r] if r in REACH[t] else '  - ':>6}" for t in ("easier", "medium", "harder")))
 
-payload = json.dumps({"config": CONFIG, "tests": tests}, ensure_ascii=False).replace("</", "<\\/")
-html = (ROOT / "src" / "app.html").read_text(encoding="utf-8").replace("__DATA__", payload)
-(ROOT / "src" / "artifact.html").write_text(html, encoding="utf-8")
-local = ('<!doctype html>\n<html lang="en-GB">\n<head>\n<meta charset="utf-8">\n'
-         '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
-         + html.replace("<style>", "<style>\n[hidden]{display:none!important}", 1)
-         .replace('<div id="bar"', '</head>\n<body>\n<div id="bar"', 1)
-         + "\n</body>\n</html>\n")
-(ROOT / "GRE-Practice-Centre.html").write_text(local, encoding="utf-8")
-(ROOT / "index.html").write_text(local, encoding="utf-8")  # served by GitHub Pages
-print(f"Built {len(tests)} test(s): {', '.join(t['id'] for t in tests)} ({len(local):,} bytes)")
+    if probs:
+        print("BUILD FAILED:")
+        for p in probs:
+            print(" -", p)
+        sys.exit(1)
+
+    data = {"config": CONFIG, "tests": tests, "shared": list(shared["sections"]) if shared else []}
+    payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+    html = (ROOT / "src" / "app.html").read_text(encoding="utf-8").replace("__DATA__", payload)
+    (ROOT / "src" / "artifact.html").write_text(html, encoding="utf-8")
+    local = ('<!doctype html>\n<html lang="en-GB">\n<head>\n<meta charset="utf-8">\n'
+             '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
+             + html.replace("<style>", "<style>\n[hidden]{display:none!important}", 1)
+             .replace('<div id="bar"', '</head>\n<body>\n<div id="bar"', 1)
+             + "\n</body>\n</html>\n")
+    (ROOT / "GRE-Practice-Centre.html").write_text(local, encoding="utf-8")
+    (ROOT / "index.html").write_text(local, encoding="utf-8")  # served by GitHub Pages
+    print(f"Built {len(tests)} test(s): {', '.join(t['id'] for t in tests)} ({len(local):,} bytes)")
+
+
+if __name__ == "__main__":
+    main()

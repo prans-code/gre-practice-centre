@@ -1,0 +1,542 @@
+{
+ "id": "shared-easy",
+ "passages": {
+  "e-bees": [
+   "Honeybees communicate the location of food sources through a series of movements known as the waggle dance.",
+   "A forager returning to the hive moves in a straight line while shaking its body, then circles back to repeat the run.",
+   "The direction of the straight run, relative to vertical, indicates the direction of the food relative to the sun, while the duration of the run indicates the distance.",
+   "Researchers once assumed that other bees simply followed the dancer to the food.",
+   "Experiments in which dancers were tricked into misreporting distance, however, showed that recruits searched at the reported distance rather than the true one, demonstrating that they were decoding the dance itself."
+  ],
+  "e-bikes": [
+   "Many cities have introduced bicycle-sharing schemes in the hope of reducing car traffic.",
+   "Surveys suggest, however, that most trips made on shared bicycles replace journeys that would otherwise have been made on foot or by public transport, not by car.",
+   "Supporters of the schemes argue that this finding understates their value, since the bicycles also make public transport more attractive by solving the problem of getting from a station to a final destination."
+  ]
+ },
+ "tables": {},
+ "charts": {},
+ "sections": {
+  "V2E": {
+   "measure": "Verbal",
+   "minutes": 23,
+   "label": "Verbal Reasoning: Section 2",
+   "tier": "easier",
+   "questions": [
+    {
+     "id": "E-V-01",
+     "type": "tc",
+     "skill": "Text completion",
+     "stem": "The instructions were so ______ that even first-time users assembled the shelf without difficulty.",
+     "blanks": [
+      [
+       "convoluted",
+       "lucid",
+       "terse",
+       "outdated",
+       "ornate"
+      ]
+     ],
+     "answer": [
+      1
+     ],
+     "explain": "Easy assembly means the instructions were clear: lucid.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-V-02",
+     "type": "tc",
+     "skill": "Text completion",
+     "stem": "Rather than ______ the mistake, the company admitted it publicly and offered refunds.",
+     "blanks": [
+      [
+       "concealing",
+       "celebrating",
+       "repeating",
+       "investigating",
+       "announcing"
+      ]
+     ],
+     "answer": [
+      0
+     ],
+     "explain": "'Rather than' contrasts with admitting publicly, so the blank is hiding it: concealing.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-V-03",
+     "type": "tc",
+     "skill": "Text completion",
+     "stem": "Critics found the film's plot ______: every twist could be seen coming long before it arrived.",
+     "blanks": [
+      [
+       "intricate",
+       "predictable",
+       "harrowing",
+       "innovative",
+       "obscure"
+      ]
+     ],
+     "answer": [
+      1
+     ],
+     "explain": "The colon explains the blank: twists seen coming = predictable.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-V-04",
+     "type": "tc",
+     "skill": "Text completion",
+     "stem": "The town's population, once (i)______, has (ii)______ steadily since the factory closed, and many houses now stand empty.",
+     "blanks": [
+      [
+       "thriving",
+       "dwindling",
+       "sparse"
+      ],
+      [
+       "declined",
+       "grown",
+       "stabilised"
+      ]
+     ],
+     "answer": [
+      0,
+      0
+     ],
+     "explain": "Empty houses show the population declined; 'once' signals it used to be the opposite: thriving.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-V-05",
+     "type": "tc",
+     "skill": "Text completion",
+     "stem": "Although the speech was (i)______, lasting barely five minutes, it was far from (ii)______; listeners remembered its key arguments for years.",
+     "blanks": [
+      [
+       "brief",
+       "rambling",
+       "tedious"
+      ],
+      [
+       "forgettable",
+       "concise",
+       "controversial"
+      ]
+     ],
+     "answer": [
+      0,
+      0
+     ],
+     "explain": "'Barely five minutes' = brief. Remembered for years = far from forgettable.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-V-06",
+     "type": "tc",
+     "skill": "Text completion",
+     "stem": "The new policy was meant to (i)______ congestion in the city centre, but by making parking cheaper it actually (ii)______ more drivers, and traffic grew (iii)______.",
+     "blanks": [
+      [
+       "ease",
+       "worsen",
+       "measure"
+      ],
+      [
+       "attracted",
+       "discouraged",
+       "fined"
+      ],
+      [
+       "heavier",
+       "lighter",
+       "safer"
+      ]
+     ],
+     "answer": [
+      0,
+      0,
+      0
+     ],
+     "explain": "'Meant to ... but ... actually' signals the policy backfired: meant to ease congestion, but cheaper parking attracted drivers and traffic grew heavier.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-V-07",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "stem": "The professor was known for her ______ lectures, which students found difficult to sit through.",
+     "options": [
+      "inspiring",
+      "tedious",
+      "brief",
+      "wearisome",
+      "popular",
+      "humorous"
+     ],
+     "answer": [
+      1,
+      3
+     ],
+     "explain": "Hard to sit through = boring: tedious and wearisome.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-V-08",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "stem": "The hikers were ______ after the long climb and rested for an hour before continuing.",
+     "options": [
+      "elated",
+      "lost",
+      "exhausted",
+      "early",
+      "fatigued",
+      "hungry"
+     ],
+     "answer": [
+      2,
+      4
+     ],
+     "explain": "Resting after a long climb implies tiredness: exhausted and fatigued. 'Hungry' may fit the sentence but has no matching synonym.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-V-09",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "stem": "Though the plan seemed ______ at first, it proved to be entirely practical.",
+     "options": [
+      "sensible",
+      "fanciful",
+      "expensive",
+      "ordinary",
+      "popular",
+      "unrealistic"
+     ],
+     "answer": [
+      1,
+      5
+     ],
+     "explain": "'Though' contrasts with 'practical', so the plan seemed impractical: fanciful and unrealistic.",
+     "difficulty": 2
+    },
+    {
+     "id": "E-V-10",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "stem": "The diplomat's ______ remarks helped calm an otherwise tense meeting.",
+     "options": [
+      "provocative",
+      "lengthy",
+      "conciliatory",
+      "technical",
+      "rude",
+      "soothing"
+     ],
+     "answer": [
+      2,
+      5
+     ],
+     "explain": "Remarks that calm tension are conciliatory (peace-making) and soothing.",
+     "difficulty": 2
+    },
+    {
+     "id": "E-V-11",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "e-bees",
+     "stem": "The passage is primarily concerned with",
+     "options": [
+      "describing how honeybees signal the location of food and how other bees use that signal",
+      "comparing honeybees with other insects that live in colonies",
+      "arguing that bees cannot perceive the position of the sun",
+      "explaining why bees perform the waggle dance only at night",
+      "criticising the experimental methods of early bee researchers"
+     ],
+     "answer": 0,
+     "explain": "The passage describes the dance, then reports experiments showing recruits decode it. The other options are not discussed.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-V-12",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "e-bees",
+     "stem": "According to the passage, the duration of the straight run indicates the",
+     "options": [
+      "direction of the food",
+      "distance to the food",
+      "quality of the food",
+      "number of bees needed",
+      "time of day"
+     ],
+     "answer": 1,
+     "explain": "Sentence 3: 'the duration of the run indicates the distance'.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-V-13",
+     "type": "multi",
+     "skill": "Reading comprehension",
+     "passage": "e-bees",
+     "stem": "Which of the following can be inferred about the experiments described in the final sentence? Select all that apply.",
+     "options": [
+      "They showed that recruits relied on information contained in the dance.",
+      "They contradicted an assumption that researchers had previously held.",
+      "They proved that bees cannot locate food by smell."
+     ],
+     "answer": [
+      0,
+      1
+     ],
+     "explain": "Recruits searched where the dance said, so they used the dance itself, which contradicts the earlier assumption that bees simply followed the dancer. Smell is never mentioned.",
+     "difficulty": 2
+    },
+    {
+     "id": "E-V-14",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "e-bikes",
+     "stem": "The surveys mentioned in the passage suggest that bicycle-sharing schemes",
+     "options": [
+      "have greatly reduced car traffic",
+      "mostly replace trips that would have been made on foot or by public transport",
+      "are rarely used by residents",
+      "cost more to run than public transport",
+      "are popular mainly with tourists"
+     ],
+     "answer": 1,
+     "explain": "Sentence 2 says exactly this.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-V-15",
+     "type": "sentence",
+     "skill": "Reading comprehension",
+     "passage": "e-bikes",
+     "stem": "Select the sentence that presents a response to the survey findings.",
+     "answer": 2,
+     "explain": "The third sentence gives the supporters' reply: the findings understate the schemes' value.",
+     "difficulty": 1
+    }
+   ]
+  },
+  "Q2E": {
+   "measure": "Quant",
+   "minutes": 26,
+   "label": "Quantitative Reasoning: Section 2",
+   "tier": "easier",
+   "questions": [
+    {
+     "id": "E-Q-01",
+     "type": "qc",
+     "skill": "Arithmetic",
+     "qa": "0.5 × 40",
+     "qb": "40 ÷ 2",
+     "answer": 2,
+     "explain": "Both equal 20.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-Q-02",
+     "type": "qc",
+     "skill": "Algebra",
+     "given": "x = −3",
+     "qa": "x²",
+     "qb": "2x",
+     "answer": 0,
+     "explain": "x² = 9 and 2x = −6.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-Q-03",
+     "type": "qc",
+     "skill": "Arithmetic",
+     "qa": "The number of minutes in 3 hours",
+     "qb": "The number of seconds in 4 minutes",
+     "answer": 1,
+     "explain": "3 × 60 = 180 minutes; 4 × 60 = 240 seconds.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-Q-04",
+     "type": "qc",
+     "skill": "Algebra",
+     "given": "y > 0",
+     "qa": "y",
+     "qb": "y²",
+     "answer": 3,
+     "explain": "If y = 2, B is bigger; if y = 0.5, A is bigger; if y = 1 they're equal. Cannot be determined.",
+     "difficulty": 2
+    },
+    {
+     "id": "E-Q-05",
+     "type": "mc",
+     "skill": "Percentages",
+     "stem": "What is 15% of 80?",
+     "options": [
+      "8",
+      "10",
+      "12",
+      "15",
+      "20"
+     ],
+     "answer": 2,
+     "explain": "0.15 × 80 = 12.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-Q-06",
+     "type": "mc",
+     "skill": "Algebra",
+     "stem": "If 5x + 4 = 29, what is the value of x?",
+     "options": [
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+     ],
+     "answer": 1,
+     "explain": "5x = 25, so x = 5.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-Q-07",
+     "type": "numeric",
+     "skill": "Geometry",
+     "stem": "A rectangle has length 12 cm and width 5 cm. What is the length of its diagonal, in centimetres?",
+     "answer": 13,
+     "explain": "√(144 + 25) = √169 = 13.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-Q-08",
+     "type": "mc",
+     "skill": "Ratios",
+     "stem": "In a class of 40 students, the ratio of boys to girls is 3 : 5. How many girls are in the class?",
+     "options": [
+      "15",
+      "20",
+      "24",
+      "25",
+      "30"
+     ],
+     "answer": 3,
+     "explain": "3 + 5 = 8 parts; each part = 40 ÷ 8 = 5 students. Girls = 5 × 5 = 25.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-Q-09",
+     "type": "multi",
+     "skill": "Number properties",
+     "stem": "Which of the following numbers are prime? Select all that apply.",
+     "options": [
+      "2",
+      "9",
+      "11",
+      "15",
+      "17",
+      "21"
+     ],
+     "answer": [
+      0,
+      2,
+      4
+     ],
+     "explain": "2, 11 and 17 are prime. 9 = 3 × 3, 15 = 3 × 5, 21 = 3 × 7.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-Q-10",
+     "type": "numeric",
+     "skill": "Rates",
+     "stem": "A car travels 150 km in 2.5 hours. What is its average speed, in kilometres per hour?",
+     "answer": 60,
+     "explain": "150 ÷ 2.5 = 60 km/h.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-Q-11",
+     "type": "mc",
+     "skill": "Algebra",
+     "stem": "If a = 2 and b = −3, what is the value of a² − ab?",
+     "options": [
+      "−2",
+      "2",
+      "6",
+      "10",
+      "12"
+     ],
+     "answer": 3,
+     "explain": "a² = 4; ab = −6; 4 − (−6) = 10.",
+     "difficulty": 2
+    },
+    {
+     "id": "E-Q-12",
+     "type": "fraction",
+     "skill": "Arithmetic",
+     "stem": "What is 1/3 + 1/4? Give your answer as a fraction.",
+     "answer": [
+      7,
+      12
+     ],
+     "explain": "Common denominator 12: 4/12 + 3/12 = 7/12.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-Q-13",
+     "type": "mc",
+     "skill": "Geometry",
+     "stem": "What is the sum of the interior angles of a hexagon (a six-sided polygon)?",
+     "options": [
+      "360°",
+      "540°",
+      "720°",
+      "900°",
+      "1080°"
+     ],
+     "answer": 2,
+     "explain": "(n − 2) × 180° = 4 × 180° = 720°.",
+     "difficulty": 2
+    },
+    {
+     "id": "E-Q-14",
+     "type": "multi",
+     "skill": "Algebra",
+     "stem": "If x² = 16, which of the following could be the value of x? Select all that apply.",
+     "options": [
+      "−4",
+      "−2",
+      "2",
+      "4",
+      "8"
+     ],
+     "answer": [
+      0,
+      3
+     ],
+     "explain": "Both 4² and (−4)² equal 16.",
+     "difficulty": 1
+    },
+    {
+     "id": "E-Q-15",
+     "type": "mc",
+     "skill": "Statistics",
+     "stem": "What is the median of the numbers 3, 9, 4, 7, 12 and 5?",
+     "options": [
+      "5",
+      "6",
+      "6.5",
+      "7",
+      "8"
+     ],
+     "answer": 1,
+     "explain": "In order: 3, 4, 5, 7, 9, 12. With six numbers the median is the average of the middle two: (5 + 7) ÷ 2 = 6.",
+     "difficulty": 1
+    }
+   ]
+  }
+ }
+}
