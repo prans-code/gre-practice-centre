@@ -194,6 +194,31 @@ def slot_layout(section):
     return slots
 
 
+def parse_layout(spec):
+    """'qc mc [mc multi]' -> [('qc',), ('mc',), ('mc', 'multi')]; brackets = one passage/table/chart set."""
+    slots, group = [], None
+    for tok in spec.replace("[", " [ ").replace("]", " ] ").split():
+        if tok == "[":
+            group = []
+        elif tok == "]":
+            slots.append(tuple(group))
+            group = None
+        elif group is not None:
+            group.append(tok)
+        else:
+            slots.append((tok,))
+    return slots
+
+
+# Fixed slot layout of every section, close to the real test: Quant opens with its comparison block and has one
+# data set; Verbal is about half reading, with one argument paragraph and one select-the-sentence item per test.
+_V2 = "tc tc tc tc se se se se [mc mc multi sentence] [mc multi] [mc]"
+_Q2 = "qc qc qc qc qc mc mc numeric multi mc fraction mc [mc numeric multi]"
+LAYOUT = {k: parse_layout(v) for k, v in {
+    "V1": "tc tc tc tc se se [mc multi mc] [mc] [mc mc]", "V2E": _V2, "V2M": _V2, "V2H": _V2,
+    "Q1": "qc qc qc qc mc numeric multi mc fraction [mc mc multi]", "Q2E": _Q2, "Q2M": _Q2, "Q2H": _Q2}.items()}
+
+
 def mix_ok(key, diffs):
     """Difficulty mix per section (design doc, section 4)."""
     n = lambda lo, hi: sum(lo <= d <= hi for d in diffs)
@@ -245,12 +270,14 @@ def check_all(tests, shared=None):
                     if (kind, k) in seen_keys:
                         fail(f"{t['id']}: duplicate {kind[:-1]} key {k} (also in {seen_keys[(kind, k)]})")
                     seen_keys[(kind, k)] = t["id"]
-        if tests:
-            first = tests[0]
-            for t in tests[1:]:
-                for k, s in t["sections"].items():
-                    if k in first["sections"] and slot_layout(s) != slot_layout(first["sections"][k]):
-                        fail(f"{t['id']}: {k} layout differs from {first['id']}")
+        for t in tests:
+            for k, s in t["sections"].items():
+                if k in LAYOUT and (k not in shared_keys and t["id"] not in MIX_PENDING) and slot_layout(s) != LAYOUT[k]:
+                    fail(f"{t['id']}: {k} layout differs from the section spec")
+        if shared and "shared-easy" not in MIX_PENDING:
+            for k, s in shared["sections"].items():
+                if slot_layout(s) != LAYOUT[k]:
+                    fail(f"shared-easy: {k} layout differs from the section spec")
         problems.extend(verify_quant.verify(tests))
         return problems
     finally:

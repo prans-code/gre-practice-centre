@@ -58,8 +58,12 @@ def test_shared_easy_not_duplicate():
 
 def test_layout_mismatch():
     a = make_test("a", {"Q1": [q("a1", "qc"), q("a2")]})
-    b = make_test("b", {"Q1": [q("b1"), q("b2", "qc")]})
-    assert any("Q1 layout differs" in p for p in problems_for([a, b]))
+    assert any("a: Q1 layout differs" in p for p in problems_for([a]))
+
+
+def test_layout_spec_parsed():
+    assert build.parse_layout("qc mc [mc multi] [mc]") == [("qc",), ("mc",), ("mc", "multi"), ("mc",)]
+    assert sum(len(s) for s in build.LAYOUT["Q2H"]) == 15 and sum(len(s) for s in build.LAYOUT["V1"]) == 12
 
 
 def test_difficulty_mix():
