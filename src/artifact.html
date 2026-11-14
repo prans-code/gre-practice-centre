@@ -232,14 +232,27 @@ if (typeof module !== "undefined") module.exports = GRE_RANDOM;
   var TIER_SUFFIX = { easier: "E", medium: "M", harder: "H" };
 
   // ---------- storage ----------
+  // Accounts (Supabase). Leave either value empty to run in guest mode only. See docs/supabase-setup.md.
+  var SUPABASE_URL = "https://vopabjehgprfdhycgokt.supabase.co";
+  var SUPABASE_KEY = "sb_publishable_W3sK8Isz8800jabO4YwwWg_xabk4hfz"; // publishable: safe to publish, row-level security protects the data
+  var SUPABASE_JS = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js";
+  var K_WHO = "gre-app-v3-who";
   function lsGet(k, d) { try { var t = localStorage.getItem(k); return t ? JSON.parse(t) : d; } catch (e) { return d; } }
   function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
-  var db = null, history = lsGet(K_HIST, []), store = "browser", pushed = false;
+  function lsDel(k) { try { localStorage.removeItem(k); } catch (e) {} }
+  // history and unfinished attempts are kept per person in this browser: "guest" or the account's user id
+  (function migrate() { // pre-accounts data belongs to the guest
+    [K_HIST, K_PROG].forEach(function (k) { var v = lsGet(k, null); if (v !== null) { if (lsGet(k + ":guest", null) === null) lsSet(k + ":guest", v); lsDel(k); } });
+  })();
+  var who = lsGet(K_WHO, "guest");
+  function kHist(w) { return K_HIST + ":" + (w || who); }
+  function kProg(w) { return K_PROG + ":" + (w || who); }
+  var db = null, sb = null, account = null, accountsOff = false, history = lsGet(kHist(), []), store = who === "guest" ? "browser" : "account", pushed = false;
   function initDb() {
-    if (!window.claude || typeof window.claude.use !== "function") return;
+    if (!window.claude || typeof window.claude.use !== "function") return initAccounts();
     window.claude.use("db").then(function (d) {
       if (!d) return;
-      db = d; store = "account";
+      db = d; store = "claude";
       var timer = setTimeout(function () { if (view.name === "home") render(); }, 10000);
       d.collection("attempts").onSnapshot(function (snap) {
         clearTimeout(timer);
@@ -247,22 +260,82 @@ if (typeof module !== "undefined") module.exports = GRE_RANDOM;
         var ids = {}; remote.forEach(function (r) { ids[r.id] = true; });
         // push local-only attempts up, but only against a confirmed (non-cached) view of the store
         if (!snap.metadata.fromCache && !pushed) { pushed = true; history.filter(function (h) { return !ids[h.id]; }).forEach(function (h) { d.collection("attempts").doc(h.id).set(h).catch(function () {}); }); }
-        history = mergeHist(remote, history); lsSet(K_HIST, history);
+        history = mergeHist(remote, history); lsSet(kHist(), history);
         if (view.name === "home" || view.name === "report") render();
       }, function () { db = null; store = "browser"; });
     }).catch(function () {});
   }
+  function accountsDown() { accountsOff = true; if (who !== "guest") switchUser(null); else if (view.name === "home") render(); }
+  function initAccounts() {
+    if (!SUPABASE_URL || !SUPABASE_KEY) return accountsDown();
+    var el = document.createElement("script");
+    el.src = SUPABASE_JS;
+    el.onerror = accountsDown;
+    el.onload = function () {
+      try { sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY); } catch (e) { return accountsDown(); }
+      sb.auth.onAuthStateChange(function (event, session) {
+        if (event === "PASSWORD_RECOVERY") { ui.recovery = true; }
+        var u = session && session.user;
+        if ((u ? u.id : "guest") !== who || (u && !account)) switchUser(u || null);
+        else if (view.name === "home") render();
+      });
+    };
+    document.head.appendChild(el);
+  }
+  function switchUser(u) {
+    who = u ? u.id : "guest"; lsSet(K_WHO, who);
+    account = u ? { id: u.id, email: u.email } : null;
+    store = u ? "account" : "browser";
+    history = lsGet(kHist(), []); progress = lsGet(kProg(), {}); randomCache = {};
+    if (u) syncFromServer();
+    if (view.name === "home" || (view.name === "attempt" && !progress[view.testId])) go({ name: "home" });
+  }
+  function upsert(recs) {
+    if (!sb || !account || !recs.length) return Promise.resolve(true);
+    return sb.from("attempts").upsert(recs.map(function (r) { return { user_id: account.id, id: r.id, data: r, updated_at: new Date().toISOString() }; }), { onConflict: "user_id,id" })
+      .then(function (res) { return !res.error; }, function () { return false; });
+  }
+  function syncFromServer() {
+    var uid = account.id;
+    sb.from("attempts").select("data").then(function (res) {
+      if (!account || account.id !== uid) return;
+      if (res.error) { toast("Could not reach your account. Showing results saved in this browser."); return; }
+      var remote = res.data.map(function (r) { return r.data; }), ids = {};
+      remote.forEach(function (r) { ids[r.id] = true; });
+      upsert(history.filter(function (h) { return !ids[h.id]; }));
+      history = mergeHist(remote, history); lsSet(kHist(), history);
+      if (view.name === "home" || view.name === "report") render();
+    }, function () { toast("Could not reach your account. Showing results saved in this browser."); });
+  }
+  function importGuest(yes) {
+    var g = lsGet(kHist("guest"), []);
+    lsSet("gre-app-v3-import-asked:" + account.id, true);
+    if (yes && g.length) {
+      history = mergeHist(g, history); lsSet(kHist(), history);
+      upsert(g).then(function (ok) { if (ok) lsDel(kHist("guest")); else toast("Copied in this browser; your account could not be reached, so they will sync next time."); });
+    }
+    render();
+  }
+  function logOut() {
+    var w = who;
+    (sb ? sb.auth.signOut() : Promise.resolve()).then(function () {}, function () {}).then(function () {
+      lsDel(kHist(w)); lsDel(kProg(w)); // shared laptops: nothing of this person stays behind
+      switchUser(null);
+    });
+  }
   function mergeHist(a, b) { var m = {}; b.concat(a).forEach(function (h) { m[h.id] = Object.assign({}, m[h.id] || {}, h); }); return Object.keys(m).map(function (k) { return m[k]; }).sort(function (x, y) { return x.date < y.date ? 1 : -1; }); }
   function saveAttempt(rec) {
-    history = mergeHist([rec], history); lsSet(K_HIST, history);
+    history = mergeHist([rec], history); lsSet(kHist(), history);
     if (db) db.collection("attempts").doc(rec.id).set(rec).catch(function () { toast("Saved in this browser only. Your account store could not be reached."); });
+    if (account) upsert([rec]).then(function (ok) { if (!ok) toast("Saved in this browser only. Your account could not be reached; it will sync next time you log in."); });
   }
   function updateAttempt(id, patch) {
-    history = history.map(function (h) { return h.id === id ? Object.assign({}, h, patch) : h; }); lsSet(K_HIST, history);
+    history = history.map(function (h) { return h.id === id ? Object.assign({}, h, patch) : h; }); lsSet(kHist(), history);
     if (db) db.collection("attempts").doc(id).update(patch).catch(function () {});
+    if (account) upsert(history.filter(function (h) { return h.id === id; }));
   }
-  var progress = lsGet(K_PROG, {});
-  function saveProg() { lsSet(K_PROG, progress); }
+  var progress = lsGet(kProg(), {});
+  function saveProg() { lsSet(kProg(), progress); }
 
   // ---------- helpers ----------
   function esc(s) { return String(s === undefined || s === null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
@@ -375,8 +448,9 @@ if (typeof module !== "undefined") module.exports = GRE_RANDOM;
     app.innerHTML = '<div class="stack">' +
       '<div class="stack" style="gap:6px"><span class="eyebrow">Current shorter GRE format · 1 hour 58 minutes</span><h1>GRE Practice Centre</h1></div>' +
       '<p class="prose" style="margin:0">Full-length, timed practice tests that follow ETS test-day procedure: the essay first, then two Verbal and two Quantitative sections. Your first section in each measure decides whether your second section is easier, medium or harder.</p>' +
+      authPanel() +
       '<div class="tests">' + cards + "</div>" +
-      '<div class="stack" style="gap:8px"><h2>Score history</h2><p class="small muted" style="margin:0">' + (store === "account" ? "Saved to your private score store on this link, so it follows you across devices. Claude can read it to mark your essays." : "Saved in this browser only.") + "</p>" + hist + "</div>" +
+      '<div class="stack" style="gap:8px"><h2>Score history</h2><p class="small muted" style="margin:0">' + (store === "claude" ? "Saved to your private score store on this link, so it follows you across devices. Claude can read it to mark your essays." : store === "account" ? "Saved to your account, so it follows you on any device." : accountsOff ? "Saved in this browser only." : "Saved in this browser only. Log in to keep it in an account.") + "</p>" + hist + "</div>" +
       '<div class="note small prose">All questions are original practice material written to ETS\'s published specifications, not ETS questions. Verbal and Quant scores are estimates. For the most accurate benchmark, also take ETS\'s free official POWERPREP tests.</div></div>';
     app.querySelectorAll("[data-start]").forEach(function (b) { b.addEventListener("click", function () { startAttempt(b.dataset.start); }); });
     app.querySelectorAll("[data-resume]").forEach(function (b) { b.addEventListener("click", function () { var A = progress[b.dataset.resume]; if (A.phase === "inSection") A.phase = "sectionIntro"; saveProg(); go({ name: "attempt", testId: b.dataset.resume }); }); });
@@ -385,7 +459,51 @@ if (typeof module !== "undefined") module.exports = GRE_RANDOM;
     app.querySelectorAll("[data-nodiscard]").forEach(function (b) { b.addEventListener("click", function () { ui.confirm = null; render(); }); });
     app.querySelectorAll("[data-report]").forEach(function (b) { b.addEventListener("click", function () { go({ name: "report", attemptId: b.dataset.report }); }); });
     app.querySelectorAll("[data-practice]").forEach(function (b) { b.addEventListener("click", function () { go({ name: "practice", testId: b.dataset.practice }); }); });
+    wireAuth();
     on("startRandom", function () { startAttempt("random-" + Date.now(), GRE_RANDOM.compose(RIX, Math.random)); });
+  }
+
+  // ---------- account panel ----------
+  function authPanel() {
+    if (store === "claude") return "";
+    var msg = ui.authMsg ? '<p class="small" role="status" style="margin:0">' + esc(ui.authMsg) + "</p>" : "";
+    if (ui.recovery && account) return '<div class="panel stack" style="gap:8px"><h3>Choose a new password</h3>' +
+      '<div class="row"><input id="newPw" class="numin" type="password" autocomplete="new-password" aria-label="New password" placeholder="New password (8+ characters)" style="width:auto;flex:1;min-width:12em"><button class="btn primary" id="setPw">Save password</button></div>' + msg + "</div>";
+    if (account) {
+      var g = lsGet(kHist("guest"), []), ask = g.length && !lsGet("gre-app-v3-import-asked:" + account.id, false);
+      return '<div class="panel stack" style="gap:8px"><div class="row" style="justify-content:space-between"><span>Signed in as <strong>' + esc(account.email) + "</strong></span>" +
+        (ui.confirm === "logout" ? "" : '<button class="btn" id="logout">Log out</button>') + "</div>" +
+        (ui.confirm === "logout" ? '<div class="confirm small stack" style="gap:8px">Log out?' + (Object.keys(progress).length ? " Your unfinished test on this device will be deleted." : "") + ' Your finished results stay in your account.<div class="row"><button class="btn primary" id="yesLogout">Log out</button><button class="btn" data-nodiscard="1">Cancel</button></div></div>' : "") +
+        (ask ? '<div class="confirm small stack" style="gap:8px">This browser has ' + g.length + " guest result" + (g.length > 1 ? "s" : "") + '. Copy them into your account?<div class="row"><button class="btn primary" id="importYes">Copy them</button><button class="btn" id="importNo">No thanks</button></div></div>' : "") + msg + "</div>";
+    }
+    if (accountsOff || !sb) return '<div class="panel small muted">' + (accountsOff ? "Accounts are unavailable right now, so you are in guest mode: results are saved in this browser only." : "Connecting to accounts…") + "</div>";
+    return '<div class="panel stack" style="gap:8px"><h3>Log in or sign up</h3><p class="small muted" style="margin:0">With an account your results follow you to any device. Or just start a test as a guest: results then stay in this browser.</p>' +
+      '<form id="authForm" class="row" style="gap:8px" onsubmit="return false"><input id="email" class="numin" type="email" autocomplete="email" aria-label="Email" placeholder="Email" style="width:auto;flex:1;min-width:12em">' +
+      '<input id="pw" class="numin" type="password" autocomplete="current-password" aria-label="Password" placeholder="Password" style="width:auto;flex:1;min-width:10em">' +
+      '<button class="btn primary" id="login">Log in</button><button class="btn" id="signup">Sign up</button><button class="btn" id="forgot">Forgot password</button></form>' + msg + "</div>";
+  }
+  function authErr(e) { return (e && e.message) || "Something went wrong. Check your connection and try again."; }
+  function wireAuth() {
+    function creds() { return { email: (document.getElementById("email").value || "").trim(), password: document.getElementById("pw").value || "" }; }
+    function say(m) { ui.authMsg = m; render(); }
+    function busy(p) { ui.authMsg = "Working…"; render(); return p.then(function (r) { return r; }, function (e) { return { error: e }; }); }
+    on("login", function () { var c = creds(); if (!c.email || !c.password) return say("Enter your email and password."); busy(sb.auth.signInWithPassword(c)).then(function (r) { ui.authMsg = r.error ? authErr(r.error) : ""; render(); }); });
+    on("signup", function () {
+      var c = creds(); if (!c.email || c.password.length < 8) return say("Enter your email and a password of at least 8 characters.");
+      busy(sb.auth.signUp(c)).then(function (r) { ui.authMsg = r.error ? authErr(r.error) : r.data && !r.data.session ? "Account created. Check your email to confirm it, then log in." : ""; render(); });
+    });
+    on("forgot", function () {
+      var c = creds(); if (!c.email) return say("Enter your email first, then click Forgot password.");
+      busy(sb.auth.resetPasswordForEmail(c.email, { redirectTo: location.origin + location.pathname })).then(function (r) { say(r.error ? authErr(r.error) : "If that email has an account, a reset link is on its way."); });
+    });
+    on("setPw", function () {
+      var pw = document.getElementById("newPw").value || ""; if (pw.length < 8) return say("Use at least 8 characters.");
+      busy(sb.auth.updateUser({ password: pw })).then(function (r) { if (!r.error) ui.recovery = false; say(r.error ? authErr(r.error) : "Password changed."); });
+    });
+    on("logout", function () { ui.confirm = "logout"; ui.authMsg = ""; render(); });
+    on("yesLogout", function () { ui.confirm = null; logOut(); });
+    on("importYes", function () { importGuest(true); });
+    on("importNo", function () { importGuest(false); });
   }
 
   function randomCard() {
@@ -836,7 +954,7 @@ if (typeof module !== "undefined") module.exports = GRE_RANDOM;
     if (aw.score !== null && aw.score !== undefined) return '<div class="score"><span class="eyebrow">Analytical Writing · marked by Claude</span><div class="big">' + aw.score.toFixed(1) + "</div>" +
       '<p class="small" style="margin:0">About the <strong>' + ordinal(CFG.percentiles.AW[aw.score.toFixed(1)]) + " percentile</strong>.</p>" + (aw.feedback ? '<details class="small"><summary>Feedback</summary><div style="white-space:pre-wrap">' + esc(aw.feedback) + "</div></details>" : "") + "</div>";
     return '<div class="score"><span class="eyebrow">Analytical Writing</span><div style="font:600 24px/1.2 var(--f-ui);margin:16px 0">Awaiting marking</div>' +
-      '<p class="small" style="margin:0">' + (store === "account" ? "Your essay is saved. In your chat with Claude, ask it to mark your essay for " + esc(h.testTitle) + ". The score appears here once marked." : "Copy your essay below and paste it to Claude to get a 0–6 score with feedback.") + "</p></div>";
+      '<p class="small" style="margin:0">' + (store === "claude" ? "Your essay is saved. In your chat with Claude, ask it to mark your essay for " + esc(h.testTitle) + ". The score appears here once marked." : "Copy your essay below and paste it to Claude to get a 0–6 score with feedback.") + "</p></div>";
   }
   function copyText(h) {
     return "GRE PRACTICE: ESSAY FOR MARKING\nTest: " + h.testTitle + " · " + fmtDate(h.date) + "\n" +
