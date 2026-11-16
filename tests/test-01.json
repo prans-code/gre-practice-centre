@@ -1,6 +1,7 @@
 {
  "id": "test-01",
  "title": "Practice Test 1",
+ "blurb": "Rewritten at 160+ difficulty.",
  "order": [
   "V1",
   "V2",
@@ -14,199 +15,241 @@
   "instructions": "Write a response in which you discuss how far you agree or disagree with this recommendation and explain the reasoning behind your position. As you develop your position, consider specific situations in which following the recommendation would and would not be beneficial, and explain how these situations shape your view."
  },
  "passages": {
-  "guilds": [
-   "For much of the twentieth century, historians treated the medieval guild primarily as an obstacle to economic growth.",
-   "Guilds, the argument ran, restricted entry into trades, fixed prices and suppressed innovation in order to protect the incomes of existing masters.",
-   "More recent scholarship has complicated this picture.",
-   "Several economic historians have pointed out that guilds also enforced quality standards, which allowed buyers in distant markets to trust goods they could not inspect in person.",
-   "Others have noted that guild apprenticeships provided a structured way of passing on skills at a time when few other forms of training existed.",
-   "None of these scholars claims that guilds were economically benign; rather, they argue that the institutions' effects varied with local circumstances and cannot be summarised by a single verdict."
+  "t1-model-books": [
+   "When an unusual motif, such as a dragon whose tail coils three times around a capital letter, turns up in manuscripts produced at monasteries a hundred miles apart, historians of medieval illumination have often concluded that a single itinerant artist decorated them all.",
+   "The inference seemed especially secure when the motif was rare, since a rare design is unlikely to have been invented twice.",
+   "The survival of several model books, collections of drawings that workshops lent to one another and copied, has weakened that reasoning: a rare design could have traveled on parchment rather than in the memory of one painter.",
+   "Yet the model books do not dissolve the problem entirely.",
+   "A copyist working from a drawing reproduces its outline but must supply for himself the color, the modeling of folds and the pressure of the brush, and it is in these features, which no drawing records, that individual habits show most plainly.",
+   "Where manuscripts share both a motif and these unrecorded habits, a common hand therefore remains the most economical explanation; where they share the motif alone, the case for an itinerant artist rests on little more than a rarity that the model books have shown to be ambiguous."
   ],
-  "predators": [
-   "Some ecologists have proposed reintroducing large predators, such as wolves, to regions from which they were eliminated, on the grounds that predators regulate populations of grazing animals and thereby allow vegetation to recover.",
-   "Critics respond that the evidence for such cascading effects is drawn largely from a handful of well-publicised cases, and that in many landscapes human activity, rather than grazing, is the main constraint on plant growth.",
-   "In such places, they argue, reintroduced predators might reduce grazing without producing any visible recovery in vegetation."
+  "t1-island-seabirds": [
+   "On the islands of the Felder archipelago, a ground-nesting seabird declined steeply after rats were introduced.",
+   "Five years ago rats were eradicated from Marrow Island, and since then the number of seabird nests on Marrow has tripled.",
+   "Some ecologists suggest that the increase reflects birds moving to Marrow from nearby islands, which still have rats, rather than any improvement in breeding success.",
+   "But nest counts on the nearby islands have not fallen over the same period.",
+   "So the increase in nests must result from improved breeding success on Marrow."
   ],
-  "bees": [
-   "Honeybees communicate the location of food sources through a series of movements known as the waggle dance.",
-   "A forager returning to the hive moves in a straight line while shaking its body, then circles back to repeat the run.",
-   "The direction of the straight run, relative to vertical, indicates the direction of the food relative to the sun, while the duration of the run indicates the distance.",
-   "Researchers once assumed that other bees simply followed the dancer to the food.",
-   "Experiments in which dancers were tricked into misreporting distance, however, showed that recruits searched at the reported distance rather than the true one, demonstrating that they were decoding the dance itself."
+  "t1-railway-savings": [
+   "It was long taken for granted that the railways were indispensable to the growth of the nineteenth-century American economy.",
+   "In a celebrated study, one economic historian tested that assumption by estimating how much more it would have cost to move the nation's freight in 1890 had there been no railways, using instead the waterways and wagon roads that already existed.",
+   "The answer, a few percent of national income, implied that the economy would have been somewhat poorer without railways but not transformed.",
+   "Critics accepted much of the arithmetic but questioned the frame: by holding everything except transport costs constant, the calculation ignored whatever the railways themselves had brought into being, from new towns on the prairie to the large firms that grew up to serve a national market.",
+   "The study is thus best read as a measure of the railways' advantage over their rivals in carrying goods, not of their total contribution to growth."
   ],
-  "bikes": [
-   "Many cities have introduced bicycle-sharing schemes in the hope of reducing car traffic.",
-   "Surveys suggest, however, that most trips made on shared bicycles replace journeys that would otherwise have been made on foot or by public transport, not by car.",
-   "Supporters of the schemes argue that this finding understates their value, since the bicycles also make public transport more attractive by solving the problem of getting from a station to a final destination."
-  ],
-  "industry": [
-   "The standard account of the Industrial Revolution emphasises technological invention: the steam engine, the spinning jenny and the power loom are presented as the engines of transformation.",
-   "Yet economic historians have long observed that many of these devices were known for decades before they were widely adopted.",
-   "Robert Allen has argued that the timing of adoption is better explained by relative prices.",
-   "In eighteenth-century Britain, wages were high and coal was cheap compared with continental Europe, so machines that substituted cheap energy for expensive labour were profitable there but not elsewhere.",
-   "On this view, invention was less a cause of industrialisation than a response to it: inventors directed their efforts toward the technologies that local conditions rewarded.",
-   "Critics have questioned whether British wages were in fact as high as Allen claims, but even they generally accept that the profitability of a technique, rather than its mere existence, determined how quickly it spread."
-  ],
-  "maps-history": [
-   "Historians of cartography once judged early modern maps chiefly by their accuracy, ranking each according to how closely its coastlines matched those revealed by later surveys.",
-   "This approach produced a tidy story of steady progress, but it obscured the purposes for which many maps were made.",
-   "A map commissioned to support a territorial claim, for instance, might deliberately exaggerate the extent of a ruler's lands, while one produced for merchants might leave out inland regions altogether because they were irrelevant to trade.",
-   "To call such maps 'inaccurate' is to judge them by a standard their makers did not share.",
-   "Recent scholars have therefore begun to read maps as arguments rather than as mere records, asking whom a map was meant to persuade, and of what.",
-   "This shift has not abandoned the question of accuracy entirely; rather, it treats accuracy as one aim among several, and not always the most important one."
-  ],
-  "night-pollination": [
-   "Many plants that flower at night produce pale, strongly scented blossoms, traits long assumed to attract moths, which forage in darkness.",
-   "Because moths are less efficient pollinators than bees (they visit fewer flowers per hour and carry less pollen), botanists generally regarded night-time pollination as a minor supplement to daytime activity.",
-   "A recent field study challenges this view.",
-   "By covering flowers either during the day or during the night, the researchers found that, for several species, flowers open to visitors only at night set nearly as many seeds as flowers open to visitors only during the day.",
-   "The authors suggest that moths' long flights between plants may make up for their slow pace, since pollen carried farther is more likely to reach a genetically different plant."
-  ],
-  "halden-hygiene": [
-   "Two years ago the town of Halden began requiring every restaurant to display its official hygiene rating at its entrance.",
-   "In the year after the rule took effect, the number of recorded cases of food poisoning in Halden fell by 30 per cent.",
-   "The town council has concluded that displaying the ratings led restaurants to improve their hygiene."
-  ],
-  "household-ledgers": {
+  "t1-urban-song": {
    "paragraphs": [
     [
-     "Economic historians who set out to measure women's contribution to pre-industrial economies long relied on tax rolls and guild registers, sources that recorded property and formal occupations.",
-     "Because married women seldom held property or guild membership in their own names, these records tended to erase them from the economic landscape, and historians concluded, not unreasonably given their evidence, that women's work had been marginal to the market.",
-     "Over the past few decades, however, researchers have turned to a less obvious source: household account books, in which families noted day-to-day purchases, sales and debts, often naming the member of the household who had handled each one.",
-     "These ledgers show wives selling surplus dairy produce, lending small sums to neighbours and bargaining with merchants, activities for which the official records had no column."
+     "When biologists began comparing birds in cities with birds of the same species in nearby forests, one difference appeared again and again: urban males sang at a higher minimum pitch.",
+     "Because traffic noise is concentrated at low frequencies, a higher song should carry better to rivals and potential mates, and many researchers took the difference as a textbook case of rapid evolution, in which males whose songs carried best left the most offspring and passed their pitch on to their sons.",
+     "The appeal of the interpretation was plain: cities are only a few centuries old, and here, apparently, was natural selection reshaping a trait within that span, quickly enough to be measured by researchers within their own careers."
     ],
     [
-     "It would be tempting to conclude that the earlier picture was simply wrong and that women were as economically active as men.",
-     "Yet account books, for all the detail they preserve, have biases of their own.",
-     "They survive disproportionately from literate and relatively prosperous households, and they were often kept by husbands, who may have entered a wife's transactions under their own names or left out those they regarded as trivial.",
-     "The ledgers therefore do not so much replace the older evidence as expose an assumption built into every source: each type of record makes some kinds of work visible precisely by rendering others invisible.",
-     "What historians can reasonably claim, then, is not a precise measure of women's economic activity but a recognition that its apparent scale has always depended on the documents chosen to measure it."
+     "Recordings that followed individual birds through the day, rather than sampling whole populations, soon complicated the story.",
+     "Males of several species were found to raise their pitch within minutes when noise increased and to lower it again when the noise subsided, so that the same bird might sing like a forest bird at dawn and like a city bird at the morning rush hour.",
+     "Such flexibility requires no genetic change at all, and a population of birds that differed from their forest relatives only because they lived in noisier places would show exactly the pattern that had been attributed to selection.",
+     "Some critics went further, suggesting that the whole literature on urban song had mistaken a reflex for an adaptation."
+    ],
+    [
+     "That conclusion, however, outruns the evidence.",
+     "The capacity to adjust pitch is not equally developed in every individual, and if the birds that adjust most readily are also the ones that raise the most young in noisy places, then selection may be acting on flexibility itself rather than on any fixed pitch.",
+     "Distinguishing these possibilities requires raising birds from city and forest nests under identical conditions and observing how their songs respond to noise, an undertaking that is slow and costly and has so far been attempted for only a handful of the species concerned.",
+     "Until more such studies exist, the most that can be said is that urban song shows how quickly animals can respond to cities, while leaving open how much of that response is written in their genes."
     ]
    ]
   },
-  "inhaler-cap": [
-   "Critics of a proposed cap on the price of a widely used asthma inhaler argue that it would discourage manufacturers from developing improved inhalers.",
-   "Their reasoning is that the cap would reduce manufacturers' revenues, and that lower revenues mean smaller research budgets.",
-   "Yet the cap would apply only to existing inhalers, not to any improved model brought to market later.",
-   "If anything, then, the cap would make developing an improved inhaler more attractive, since a new model would be a manufacturer's only way to escape it."
+  "t1-still-life": [
+   "Art historians of the mid-twentieth century read Dutch still-life paintings of the seventeenth century as moral sermons in paint: a half-peeled lemon signified the deceptive sweetness of worldly pleasure, a guttering candle the brevity of life.",
+   "Later scholars objected that the evidence for such readings came almost entirely from emblem books, which paired images with moralizing mottoes, and that the inventories in which owners listed their paintings describe them by subject and price, never by message.",
+   "The second part of the objection is weaker than it first appears, since an inventory is not the kind of document in which one would expect meanings to be recorded.",
+   "Still, the objection exposes a real flaw in the older method, which assumed that if some objects in these pictures carried moral meanings, every object must."
+  ],
+  "t1-debasement": [
+   "Between 1542 and 1551 the silver content of the realm's coins was cut by more than half, and over the same period prices in the realm roughly doubled.",
+   "Some historians attribute the inflation instead to the silver then flowing into Europe from the Americas.",
+   "But that flow raised prices across the continent, and during these years prices in the realm rose far faster than in neighboring states.",
+   "So the debasement, not American silver, was chiefly responsible for the realm's inflation."
+  ],
+  "t1-industrious-households": {
+   "paragraphs": [
+    [
+     "Between the mid-seventeenth and the late eighteenth centuries, the daily wages of labourers in much of north-western Europe, measured in the bread and fuel they could buy, barely rose and in some decades fell, a stagnation that historians of living standards have documented in town after town.",
+     "Yet the same households, judged by the goods recorded at their members' deaths, came to own more clothing, more furniture and more of the new colonial groceries, such as sugar and tea, than their grandparents had.",
+     "One influential explanation reconciles the two observations by shifting attention from the wage to the household: families, it proposes, worked more days in the year and sent wives and children into paid employment, earning more in total even as the rate for each day stood still.",
+     "On this view the desire for goods came first, and the extra labor was undertaken in order to satisfy it."
+    ],
+    [
+     "The evidence that people worked more is substantial.",
+     "Court testimony, in which witnesses mentioned in passing what they had been doing at a given hour on a given day, suggests that the working year lengthened considerably as the observance of saints' days and of the informal Monday holiday declined.",
+     "But the same evidence is equally compatible with a darker story, in which households labored longer not because they wanted sugar and calico but because stagnant wages left them no other way to buy bread and pay their rent.",
+     "Testimony about how people spent their hours records what they did, not why they did it."
+    ],
+    [
+     "Proponents of the first explanation reply that a household driven by want alone would have spent its additional earnings on necessities, whereas the inventories show it buying goods, such as sugar, tea and printed cottons, that no one needed in order to survive.",
+     "The reply has force, but it assumes that the line between necessity and luxury was drawn then where historians draw it now; for a servant seeking a place in a respectable household, a decent coat or the ability to serve tea properly may have been as indispensable as bread.",
+     "What the evidence secures, then, is the fact of greater industry; its motive, on which the larger argument depends, remains a matter of interpretation."
+    ]
+   ]
+  },
+  "t1-cave-fish": [
+   "Fish that colonize lightless caves repeatedly lose their eyes, and for a long time the loss was attributed to the mere absence of selection: once vision was useless, mutations that damaged the eye were no longer weeded out, and they accumulated by chance.",
+   "This account struggles with the speed and consistency of the loss, which has occurred within a few thousand generations in population after population.",
+   "Chance accumulation of damaging mutations should be slow, and it should leave different populations at very different stages of degeneration.",
+   "Measurements showing that the eye and the brain tissue devoted to vision consume a considerable share of a small fish's energy suggest an alternative: in caves, where food is scarce, individuals that invested less in eyes may have survived better.",
+   "The two mechanisms are not exclusive, but rapid and parallel loss is what one would expect if the second had been at work."
+  ],
+  "t1-pigment-sky": [
+   "Conservators have found that the blue sky of a landscape long attributed to the sixteenth-century painter Corvetti contains a pigment that was not manufactured until two centuries after his death.",
+   "Some scholars conclude that the painting is a later forgery.",
+   "That conclusion is premature.",
+   "Old paintings were often retouched by restorers, and the pigment appears only in the sky, an area especially prone to damage; elsewhere, the paint layers contain only materials available in Corvetti's lifetime.",
+   "The pigment's presence therefore tells us about the painting's later history, not about who made it."
   ]
  },
  "tables": {
-  "bookshop": {
-   "title": "Annual sales at a bookshop, by category (thousands of units)",
+  "t1-factory-output": {
+   "title": "Units produced and units rejected at four factories of one manufacturer, 2025",
    "head": [
-    "Category",
-    "2023",
-    "2024"
+    "Factory",
+    "Units produced (thousands)",
+    "Units rejected (thousands)",
+    "Employees"
    ],
    "rows": [
     [
-     "Fiction",
-     "40",
-     "46"
+     "Aldgate",
+     "240",
+     "7.2",
+     "160"
     ],
     [
-     "Non-fiction",
-     "25",
-     "30"
-    ],
-    [
-     "Children's",
-     "15",
-     "12"
-    ],
-    [
-     "Other",
-     "20",
-     "12"
-    ],
-    [
-     "Total",
-     "100",
+     "Brindle",
+     "180",
+     "7.2",
      "100"
+    ],
+    [
+     "Carrow",
+     "300",
+     "6.0",
+     "250"
+    ],
+    [
+     "Dunmore",
+     "120",
+     "6.0",
+     "60"
     ]
    ]
   },
-  "commute-towns": {
-   "title": "Main way of travelling to work among surveyed workers in two towns (number of workers)",
+  "t1-league-season": {
+   "title": "Season results for six teams in a 21-team soccer league (each team played every other team once, 20 matches in all)",
    "head": [
-    "Mode",
-    "Northfield",
-    "Southbury"
+    "Team",
+    "Won",
+    "Drawn",
+    "Lost",
+    "Goals scored",
+    "Goals conceded"
    ],
    "rows": [
     [
-     "Car",
-     "120",
-     "90"
+     "Harriers",
+     "12",
+     "2",
+     "6",
+     "41",
+     "25"
     ],
     [
-     "Bus",
-     "60",
-     "75"
+     "Kestrels",
+     "11",
+     "7",
+     "2",
+     "33",
+     "15"
     ],
     [
-     "Rail",
-     "45",
+     "Ospreys",
+     "10",
+     "5",
+     "5",
+     "36",
+     "28"
+    ],
+    [
+     "Falcons",
+     "8",
+     "6",
+     "6",
+     "27",
+     "26"
+    ],
+    [
+     "Merlins",
+     "6",
+     "5",
+     "9",
+     "24",
      "30"
     ],
     [
-     "Bicycle",
-     "30",
-     "45"
-    ],
-    [
-     "Walking",
-     "45",
-     "60"
-    ],
-    [
-     "Total",
-     "300",
-     "300"
+     "Buzzards",
+     "4",
+     "3",
+     "13",
+     "19",
+     "44"
     ]
    ]
   }
  },
  "charts": {
-  "museum-visitors": {
+  "t1-farm-crops": {
    "kind": "bar",
-   "title": "Annual visitors to two museums, 2019–2024 (thousands)",
+   "title": "Area planted with three crops on a farm, 2021–2025 (hectares)",
    "categories": [
-    "2019",
-    "2020",
     "2021",
     "2022",
     "2023",
-    "2024"
+    "2024",
+    "2025"
    ],
    "series": [
     {
-     "name": "Museum A",
+     "name": "Wheat",
      "values": [
-      40,
-      45,
-      20,
-      35,
-      50,
-      70
+      120,
+      140,
+      150,
+      140,
+      170
      ]
     },
     {
-     "name": "Museum B",
+     "name": "Barley",
      "values": [
-      35,
+      80,
+      70,
+      90,
+      120,
+      100
+     ]
+    },
+    {
+     "name": "Oats",
+     "values": [
       30,
-      20,
-      25,
-      40,
-      50
+      50,
+      50,
+      60,
+      60
      ]
     }
    ],
-   "yLabel": "Visitors (thousands)",
-   "yMax": 80,
-   "yTicks": 16
+   "yLabel": "Area (hectares)",
+   "yMax": 180,
+   "yTicks": 18
   }
  },
  "sections": {
@@ -216,541 +259,248 @@
    "label": "Verbal Reasoning: Section 1",
    "questions": [
     {
-     "id": "V1-1",
+     "id": "T1-V1-01",
      "type": "tc",
      "skill": "Text completion",
      "difficulty": 3,
-     "stem": "The scholar's prose is anything but ______: she qualifies nearly every claim, as though afraid of being pinned to a position.",
+     "stem": "Popular accounts portray the composer as a recluse, but his letters reveal a man so ______ that he rarely dined alone and grew restless whenever illness kept his visitors away.",
      "blanks": [
       [
-       "tentative",
-       "categorical",
-       "circumspect",
-       "laborious",
-       "elliptical"
+       "gregarious",
+       "taciturn",
+       "misanthropic",
+       "fastidious",
+       "peripatetic"
       ]
      ],
      "answer": [
-      1
+      0
      ],
-     "explain": "'Anything but' needs the opposite of constant qualification, which is categorical (stated without reservation). 'Circumspect' and 'tentative' are the trap: they describe what her prose actually is."
+     "explain": "'But' sets the letters against the recluse image, and a man who rarely dines alone and misses his visitors is gregarious (fond of company). 'Taciturn' and 'misanthropic' would confirm the recluse image rather than contradict it, and 'peripatetic' (traveling about) says nothing about company."
     },
     {
-     "id": "V1-2",
+     "id": "T1-V1-02",
      "type": "tc",
      "skill": "Text completion",
-     "difficulty": 3,
-     "stem": "Although the reform was hailed as a ______ for the region's water shortages, engineers warned that it treated only the symptoms of a deeper problem.",
+     "difficulty": 4,
+     "stem": "The committee's unanimous public endorsement of the plan ______ the bitter divisions that, as minutes released years later revealed, had marked its private deliberations.",
      "blanks": [
-      [
-       "palliative",
-       "pretext",
-       "panacea",
-       "precedent",
-       "liability"
-      ]
-     ],
-     "answer": [
-      2
-     ],
-     "explain": "'Although' sets the praise against a mere treatment of symptoms, so the reform was hailed as a cure-all: panacea. 'Palliative' (relieving symptoms only) is the engineers' view, so it creates no contrast."
-    },
-    {
-     "id": "V1-3",
-     "type": "tc",
-     "skill": "Text completion",
-     "difficulty": 3,
-     "stem": "Though the critics' warnings were (i)______ as alarmist at the time, events have since (ii)______ them: nearly every risk they identified has materialised.",
-     "blanks": [
-      [
-       "heeded",
-       "derided",
-       "echoed"
-      ],
       [
        "belied",
-       "obscured",
-       "vindicated"
+       "betrayed",
+       "mirrored",
+       "prompted",
+       "publicized"
       ]
-     ],
-     "answer": [
-      1,
-      2
-     ],
-     "explain": "'As alarmist' and 'though' show the warnings were mocked at first: derided. Risks that materialised prove the critics right, so events vindicated them; 'belied' (shown to be false) is the reverse."
-    },
-    {
-     "id": "V1-4",
-     "type": "tc",
-     "skill": "Text completion",
-     "difficulty": 3,
-     "stem": "The director's early films were praised for their (i)______, each scene pared to essentials; her later work, by contrast, strikes many critics as (ii)______, so crowded with subplots and digressions that its (iii)______ concerns are hard to discern.",
-     "blanks": [
-      [
-       "exuberance",
-       "economy",
-       "ambiguity"
-      ],
-      [
-       "austere",
-       "derivative",
-       "diffuse"
-      ],
-      [
-       "central",
-       "peripheral",
-       "trivial"
-      ]
-     ],
-     "answer": [
-      1,
-      2,
-      0
-     ],
-     "explain": "Scenes 'pared to essentials' show economy. 'By contrast' and 'crowded with subplots' make the later work diffuse (spread out, unfocused), and what gets lost in the clutter is its central concerns; 'austere' would repeat the early praise."
-    },
-    {
-     "id": "V1-5",
-     "type": "se",
-     "skill": "Sentence equivalence",
-     "difficulty": 3,
-     "stem": "The minister's apology was so ______ that it seemed designed less to acknowledge wrongdoing than to end the discussion as quickly as possible.",
-     "options": [
-      "perfunctory",
-      "heartfelt",
-      "cursory",
-      "elaborate",
-      "contrite",
-      "sincere"
-     ],
-     "answer": [
-      0,
-      2
-     ],
-     "explain": "An apology aimed at ending discussion quickly is done with minimal effort: perfunctory and cursory. 'Heartfelt' and 'sincere' are the trap pair: synonyms, but they contradict the rest of the sentence."
-    },
-    {
-     "id": "V1-6",
-     "type": "se",
-     "skill": "Sentence equivalence",
-     "difficulty": 2,
-     "stem": "Initially ______ about the merger, the board grew more enthusiastic once the projected savings were confirmed.",
-     "options": [
-      "tepid",
-      "ardent",
-      "lukewarm",
-      "hostile",
-      "vocal",
-      "fervent"
-     ],
-     "answer": [
-      0,
-      2
-     ],
-     "explain": "'Grew more enthusiastic' implies a little enthusiasm at first, so tepid and lukewarm. 'Ardent' and 'fervent' form a pair but leave no room to grow more enthusiastic, and 'hostile' has no partner."
-    },
-    {
-     "id": "V1-7",
-     "type": "se",
-     "skill": "Sentence equivalence",
-     "difficulty": 3,
-     "stem": "Though she was ______ in conversation, rarely offering an opinion unless pressed, her letters reveal decided and often caustic views.",
-     "options": [
-      "diffident",
-      "opinionated",
-      "reserved",
-      "voluble",
-      "dogmatic",
-      "gregarious"
-     ],
-     "answer": [
-      0,
-      2
-     ],
-     "explain": "'Rarely offering an opinion' calls for diffident or reserved. 'Opinionated' and 'dogmatic' are the trap pair: they describe the letters, not her conversation."
-    },
-    {
-     "id": "V1-8",
-     "type": "mc",
-     "skill": "Reading comprehension",
-     "passage": "guilds",
-     "difficulty": 3,
-     "stem": "The sentence 'More recent scholarship has complicated this picture' functions primarily to",
-     "options": [
-      "introduce the author's rejection of the twentieth-century view",
-      "signal a shift from an established view to evidence that qualifies it",
-      "summarise the evidence presented in the preceding sentence",
-      "concede a weakness in the recent scholarship",
-      "identify the historians whose view the passage defends"
-     ],
-     "answer": 1,
-     "explain": "The sentence turns from the older 'obstacle' view to newer findings that add to it. 'Complicated' is weaker than 'rejected', and the last sentence confirms that the older criticisms are not dismissed, so outright rejection is the trap."
-    },
-    {
-     "id": "V1-9",
-     "type": "multi",
-     "skill": "Reading comprehension",
-     "passage": "guilds",
-     "difficulty": 3,
-     "stem": "It can be inferred that the recent scholars described in the passage would agree with which of the following? Select all that apply.",
-     "options": [
-      "Some of the restrictive effects attributed to guilds by earlier historians may have been real.",
-      "Guilds had broadly similar economic effects wherever they existed.",
-      "Earlier historians were mistaken in claiming that guilds restricted entry into trades."
      ],
      "answer": [
       0
      ],
-     "explain": "The scholars deny that guilds were 'economically benign', so they leave room for the restrictive effects. They say effects 'varied with local circumstances', which rules out uniform effects, and they never dispute the claim about entry into trades."
+     "why": "'Betrayed' looks like a near-synonym of 'belied' but means revealed, the reverse of what a unanimous front does.",
+     "explain": "A unanimous public front gave a false picture of a deeply divided committee, so the endorsement belied the divisions. 'Betrayed' would mean the endorsement exposed them, yet it took the minutes, years later, to do that. 'Prompted' fails on timing, since the divisions came first."
     },
     {
-     "id": "V1-10",
-     "type": "sentence",
-     "skill": "Reading comprehension",
-     "passage": "guilds",
-     "difficulty": 3,
-     "stem": "Select the sentence that suggests how an institution that restricted competition might nonetheless have helped trade.",
-     "answer": 3,
-     "explain": "The fourth sentence explains that guild quality standards let buyers in distant markets trust goods they could not inspect, which would help trade. The apprenticeship sentence concerns training, not trade."
-    },
-    {
-     "id": "V1-11",
-     "type": "mc",
-     "skill": "Reading comprehension",
-     "passage": "predators",
-     "stem": "The critics mentioned in the passage would most likely agree that",
-     "options": [
-      "predators never affect populations of grazing animals",
-      "wolves should be removed from regions where they now live",
-      "vegetation recovery is caused mainly by human activity",
-      "the benefits of reintroducing predators may depend on local conditions",
-      "the well-publicised cases were based on fabricated data"
-     ],
-     "answer": 3,
-     "explain": "The critics say that 'in many landscapes' other factors limit plant growth, so the benefit depends on the place. They never deny predators affect grazing.",
-     "difficulty": 2
-    },
-    {
-     "id": "V1-12",
-     "type": "mc",
-     "skill": "Reading comprehension (argument)",
-     "passage": "predators",
-     "difficulty": 3,
-     "stem": "Which of the following, if true, would most strengthen the critics' position?",
-     "options": [
-      "In several regions, vegetation recovered soon after wolves were reintroduced.",
-      "In regions where wolves were reintroduced, grazing animals spent less time feeding in open valleys.",
-      "In regions where wolves were reintroduced, plant cover recovered only in areas where farming and road-building had been limited.",
-      "Wolf populations in reintroduced regions have grown faster than expected.",
-      "Many people living near reintroduction sites oppose the presence of wolves."
-     ],
-     "answer": 2,
-     "explain": "The critics claim that human activity, not grazing, often limits plant growth; recovery only where human activity was limited supports exactly that. Grazing animals avoiding open valleys supports the reintroduction case, not the critics."
-    }
-   ]
-  },
-  "V2E": {
-   "measure": "Verbal",
-   "minutes": 23,
-   "label": "Verbal Reasoning: Section 2",
-   "tier": "easier",
-   "questions": [
-    {
-     "id": "VE-1",
+     "id": "T1-V1-03",
      "type": "tc",
      "skill": "Text completion",
-     "stem": "The instructions were so ______ that even first-time users assembled the shelf without difficulty.",
+     "difficulty": 4,
+     "stem": "The novelist's admirers praise the (i)______ of her work, pointing to the dozen genres she has tried, yet even they concede that such range has come at the cost of (ii)______: no single book of hers is as fully realized as the best work of writers who have confined themselves to one form.",
      "blanks": [
       [
-       "convoluted",
-       "lucid",
-       "terse",
-       "outdated",
-       "ornate"
+       "catholicity",
+       "parochialism",
+       "punctiliousness"
+      ],
+      [
+       "finish",
+       "range",
+       "accessibility"
       ]
      ],
      "answer": [
+      0,
+      0
+     ],
+     "why": "'Catholicity' is used in its secular sense of breadth, and 'finish' in its sense of polish, so both keys are unfamiliar uses of familiar words.",
+     "explain": "A dozen genres and 'such range' call for catholicity (breadth of interest); 'parochialism' is its opposite. What the range costs is shown after the colon: no book is fully realized, so it lacks finish (refinement). 'Range' cannot be the cost of range, and nothing suggests the books are hard to read."
+    },
+    {
+     "id": "T1-V1-04",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 5,
+     "stem": "Critics who expected the retrospective to (i)______ the painter's reputation were surprised: by hanging the early and late canvases side by side, the curators revealed not a decline but a (ii)______ development, in which ideas first sketched tentatively in the 1950s were (iii)______ rather than abandoned.",
+     "blanks": [
+      [
+       "deflate",
+       "burnish",
+       "revive"
+      ],
+      [
+       "coherent",
+       "erratic",
+       "precipitous"
+      ],
+      [
+       "elaborated",
+       "repudiated",
+       "forgotten"
+      ]
+     ],
+     "answer": [
+      0,
+      0,
+      0
+     ],
+     "why": "The first blank can only be filled from the end of the sentence: the critics' surprise at 'not a decline' shows they expected the show to hurt the painter.",
+     "explain": "The critics were surprised to find 'not a decline', so they had expected the show to expose one and deflate the reputation; expecting it to burnish or revive the reputation leaves nothing to be surprised by. Ideas taken up early and developed 'rather than abandoned' were elaborated, and a career that builds on its early ideas shows a coherent development, not an erratic or precipitous one."
+    },
+    {
+     "id": "T1-V1-05",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 3,
+     "stem": "The spokesperson's ______ answers, which managed to sound responsive while committing the ministry to nothing, frustrated even sympathetic reporters.",
+     "options": [
+      "equivocal",
+      "evasive",
+      "candid",
+      "forthright",
+      "terse",
+      "belligerent"
+     ],
+     "answer": [
+      0,
       1
      ],
-     "explain": "Easy assembly means the instructions were clear: lucid.",
-     "difficulty": 1
+     "explain": "Answers that sound responsive but commit to nothing are equivocal or evasive. 'Candid' and 'forthright' form the trap pair: they agree with each other but contradict 'committing the ministry to nothing'. 'Terse' answers would not sound responsive, and 'belligerent' has no partner."
     },
     {
-     "id": "VE-2",
-     "type": "tc",
-     "skill": "Text completion",
-     "stem": "Rather than ______ the mistake, the company admitted it publicly and offered refunds.",
-     "blanks": [
-      [
-       "concealing",
-       "celebrating",
-       "repeating",
-       "investigating",
-       "announcing"
-      ]
+     "id": "T1-V1-06",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 4,
+     "stem": "Hardly a ______ observer of the court, the diarist owed her position to the queen's favor and repaid it with portraits so flattering that historians now read them with caution.",
+     "options": [
+      "disinterested",
+      "detached",
+      "partisan",
+      "biased",
+      "perceptive",
+      "garrulous"
      ],
      "answer": [
-      0
-     ],
-     "explain": "'Rather than' contrasts with admitting publicly, so the blank is hiding it: concealing.",
-     "difficulty": 1
-    },
-    {
-     "id": "VE-3",
-     "type": "tc",
-     "skill": "Text completion",
-     "stem": "Critics found the film's plot ______: every twist could be seen coming long before it arrived.",
-     "blanks": [
-      [
-       "intricate",
-       "predictable",
-       "harrowing",
-       "innovative",
-       "obscure"
-      ]
-     ],
-     "answer": [
+      0,
       1
      ],
-     "explain": "The colon explains the blank: twists seen coming = predictable.",
-     "difficulty": 1
+     "why": "'Disinterested' means impartial, not bored, and the trap pair 'partisan'/'biased' describes what she was rather than what she was hardly.",
+     "explain": "A diarist who owed her place to the queen and flattered her in return was hardly impartial, so disinterested or detached. 'Partisan' and 'biased' are a matching pair, but 'hardly' needs the opposite of what she was. 'Perceptive' misses the point: the caution comes from her loyalty, not from any lack of insight."
     },
     {
-     "id": "VE-4",
-     "type": "tc",
-     "skill": "Text completion",
-     "stem": "The town's population, once (i)______, has (ii)______ steadily since the factory closed, and many houses now stand empty.",
-     "blanks": [
-      [
-       "thriving",
-       "dwindling",
-       "sparse"
-      ],
-      [
-       "declined",
-       "grown",
-       "stabilised"
-      ]
-     ],
-     "answer": [
-      0,
-      0
-     ],
-     "explain": "Empty houses show the population declined; 'once' signals it used to be the opposite: thriving.",
-     "difficulty": 1
-    },
-    {
-     "id": "VE-5",
-     "type": "tc",
-     "skill": "Text completion",
-     "stem": "Although the speech was (i)______, lasting barely five minutes, it was far from (ii)______; listeners remembered its key arguments for years.",
-     "blanks": [
-      [
-       "brief",
-       "rambling",
-       "tedious"
-      ],
-      [
-       "forgettable",
-       "concise",
-       "controversial"
-      ]
-     ],
-     "answer": [
-      0,
-      0
-     ],
-     "explain": "'Barely five minutes' = brief. Remembered for years = far from forgettable.",
-     "difficulty": 1
-    },
-    {
-     "id": "VE-6",
-     "type": "tc",
-     "skill": "Text completion",
-     "stem": "The new policy was meant to (i)______ congestion in the city centre, but by making parking cheaper it actually (ii)______ more drivers, and traffic grew (iii)______.",
-     "blanks": [
-      [
-       "ease",
-       "worsen",
-       "measure"
-      ],
-      [
-       "attracted",
-       "discouraged",
-       "fined"
-      ],
-      [
-       "heavier",
-       "lighter",
-       "safer"
-      ]
-     ],
-     "answer": [
-      0,
-      0,
-      0
-     ],
-     "explain": "'Meant to ... but ... actually' signals the policy backfired: meant to ease congestion, but cheaper parking attracted drivers and traffic grew heavier.",
-     "difficulty": 1
-    },
-    {
-     "id": "VE-7",
-     "type": "se",
-     "skill": "Sentence equivalence",
-     "stem": "The professor was known for her ______ lectures, which students found difficult to sit through.",
-     "options": [
-      "inspiring",
-      "tedious",
-      "brief",
-      "wearisome",
-      "popular",
-      "humorous"
-     ],
-     "answer": [
-      1,
-      3
-     ],
-     "explain": "Hard to sit through = boring: tedious and wearisome.",
-     "difficulty": 1
-    },
-    {
-     "id": "VE-8",
-     "type": "se",
-     "skill": "Sentence equivalence",
-     "stem": "The hikers were ______ after the long climb and rested for an hour before continuing.",
-     "options": [
-      "elated",
-      "lost",
-      "exhausted",
-      "early",
-      "fatigued",
-      "hungry"
-     ],
-     "answer": [
-      2,
-      4
-     ],
-     "explain": "Resting after a long climb implies tiredness: exhausted and fatigued. 'Hungry' may fit the sentence but has no matching synonym.",
-     "difficulty": 1
-    },
-    {
-     "id": "VE-9",
-     "type": "se",
-     "skill": "Sentence equivalence",
-     "stem": "Though the plan seemed ______ at first, it proved to be entirely practical.",
-     "options": [
-      "sensible",
-      "fanciful",
-      "expensive",
-      "ordinary",
-      "popular",
-      "unrealistic"
-     ],
-     "answer": [
-      1,
-      5
-     ],
-     "explain": "'Though' contrasts with 'practical', so the plan seemed impractical: fanciful and unrealistic.",
-     "difficulty": 2
-    },
-    {
-     "id": "VE-10",
-     "type": "se",
-     "skill": "Sentence equivalence",
-     "stem": "The diplomat's ______ remarks helped calm an otherwise tense meeting.",
-     "options": [
-      "provocative",
-      "lengthy",
-      "conciliatory",
-      "technical",
-      "rude",
-      "soothing"
-     ],
-     "answer": [
-      2,
-      5
-     ],
-     "explain": "Remarks that calm tension are conciliatory (peace-making) and soothing.",
-     "difficulty": 2
-    },
-    {
-     "id": "VE-11",
+     "id": "T1-V1-07",
      "type": "mc",
      "skill": "Reading comprehension",
-     "passage": "bees",
+     "passage": "t1-model-books",
+     "difficulty": 3,
      "stem": "The passage is primarily concerned with",
      "options": [
-      "describing how honeybees signal the location of food and how other bees use that signal",
-      "comparing honeybees with other insects that live in colonies",
-      "arguing that bees cannot perceive the position of the sun",
-      "explaining why bees perform the waggle dance only at night",
-      "criticising the experimental methods of early bee researchers"
+      "assessing how much of a traditional method of linking manuscripts to one artist survives a discovery that weakened it",
+      "arguing that model books were the chief means by which designs spread between monasteries",
+      "defending the traditional practice of attributing rare motifs to itinerant artists",
+      "explaining why medieval workshops lent their drawings to one another",
+      "contrasting the working methods of copyists with those of original designers"
      ],
      "answer": 0,
-     "explain": "The passage describes the dance, then reports experiments showing recruits decode it. The other options are not discussed.",
-     "difficulty": 1
+     "explain": "The passage describes the old inference from rare motifs, shows how model books weakened it, and then sets out what remains of it: shared handling still points to one hand. Defending the traditional practice is too strong, since the author says a shared motif alone proves little, and the passage never argues that model books were the chief route for designs."
     },
     {
-     "id": "VE-12",
-     "type": "mc",
-     "skill": "Reading comprehension",
-     "passage": "bees",
-     "stem": "According to the passage, the duration of the straight run indicates the",
-     "options": [
-      "direction of the food",
-      "distance to the food",
-      "quality of the food",
-      "number of bees needed",
-      "time of day"
-     ],
-     "answer": 1,
-     "explain": "Sentence 3: 'the duration of the run indicates the distance'.",
-     "difficulty": 1
-    },
-    {
-     "id": "VE-13",
+     "id": "T1-V1-08",
      "type": "multi",
      "skill": "Reading comprehension",
-     "passage": "bees",
-     "stem": "Which of the following can be inferred about the experiments described in the final sentence? Select all that apply.",
+     "passage": "t1-model-books",
+     "difficulty": 4,
+     "stem": "According to the passage, which of the following would support the conclusion that two manuscripts were decorated by the same artist rather than copied from a shared model book? Select all that apply.",
      "options": [
-      "They showed that recruits relied on information contained in the dance.",
-      "They contradicted an assumption that researchers had previously held.",
-      "They proved that bees cannot locate food by smell."
+      "The two manuscripts share a motif found in no other surviving manuscript.",
+      "The draperies in both manuscripts are shaded with the same unusual sequence of brushstrokes.",
+      "The figures in the two manuscripts have identical outlines."
      ],
      "answer": [
-      0,
       1
      ],
-     "explain": "Recruits searched where the dance said, so they used the dance itself, which contradicts the earlier assumption that bees simply followed the dancer. Smell is never mentioned.",
-     "difficulty": 2
+     "why": "The rare motif is exactly the evidence the passage says has become ambiguous, and identical outlines are what copying produces.",
+     "explain": "The passage says individual habits show in features no drawing records, such as the modeling of folds and the pressure of the brush, so matching brushwork in the draperies points to one hand. A copyist reproduces outlines, so identical outlines fit copying just as well. A motif's rarity is the very evidence that model books have made ambiguous."
     },
     {
-     "id": "VE-14",
+     "id": "T1-V1-09",
      "type": "mc",
      "skill": "Reading comprehension",
-     "passage": "bikes",
-     "stem": "The surveys mentioned in the passage suggest that bicycle-sharing schemes",
+     "passage": "t1-model-books",
+     "difficulty": 4,
+     "stem": "The author would most likely agree that the rarity of a motif shared by two manuscripts",
      "options": [
-      "have greatly reduced car traffic",
-      "mostly replace trips that would have been made on foot or by public transport",
-      "are rarely used by residents",
-      "cost more to run than public transport",
-      "are popular mainly with tourists"
+      "is not by itself sufficient evidence that one artist decorated both",
+      "is irrelevant to attribution once model books are taken into account",
+      "proves that the motif was copied from a model book",
+      "is a more reliable guide to attribution than the modeling of folds",
+      "was overvalued only by historians who never examined the coloring of manuscripts"
      ],
-     "answer": 1,
-     "explain": "Sentence 2 says exactly this.",
-     "difficulty": 1
+     "answer": 0,
+     "why": "'Irrelevant' overstates the author's position: rarity is called ambiguous, not worthless.",
+     "explain": "The last sentence says that where only the motif is shared, the case for one artist rests on a rarity that model books have made ambiguous, so rarity alone is not enough. Calling it irrelevant goes too far, and the passage never says rarity proves copying; it says rarity fits either explanation."
     },
     {
-     "id": "VE-15",
-     "type": "sentence",
+     "id": "T1-V1-10",
+     "type": "mc",
+     "skill": "Reading comprehension (argument)",
+     "passage": "t1-island-seabirds",
+     "difficulty": 5,
+     "stem": "Which of the following, if true, most seriously weakens the argument?",
+     "options": [
+      "The seabird does not breed until it is at least six years old, and many birds breeding for the first time choose an island other than the one where they hatched.",
+      "Since the eradication, nests on Marrow have on average produced more chicks than nests on the nearby islands.",
+      "Several other seabird species have also become more numerous on Marrow since the eradication.",
+      "The bait used to eradicate the rats on Marrow is not toxic to seabirds.",
+      "The nearby islands offer more suitable nesting ground than Marrow does."
+     ],
+     "answer": 0,
+     "why": "The rebuttal about nearby nest counts looks decisive, but chicks hatched since the eradication cannot yet be nesting, so the new nests must belong to incomers who were not nesting nearby.",
+     "explain": "If birds first breed at six or older, no chick raised on Marrow in the last five years could yet have built a nest, so the tripling in nests cannot come from improved breeding there; it must come from first-time breeders arriving from elsewhere, whose arrival would not reduce nest counts on the nearby islands. More chicks per nest on Marrow is the tempting choice, but it supports the conclusion rather than weakening it."
+    },
+    {
+     "id": "T1-V1-11",
+     "type": "mc",
      "skill": "Reading comprehension",
-     "passage": "bikes",
-     "stem": "Select the sentence that presents a response to the survey findings.",
-     "answer": 2,
-     "explain": "The third sentence gives the supporters' reply: the findings understate the schemes' value.",
-     "difficulty": 1
+     "passage": "t1-railway-savings",
+     "difficulty": 3,
+     "stem": "According to the passage, the critics' objection to the study was chiefly that it",
+     "options": [
+      "left out of account developments that the railways themselves helped to bring about",
+      "overestimated the cost of moving freight by waterway and road",
+      "relied on figures from a single year",
+      "concluded that the railways had no effect on national income",
+      "assumed that the existing waterways could not have been improved"
+     ],
+     "answer": 0,
+     "explain": "The critics 'accepted much of the arithmetic but questioned the frame': holding all else constant ignored what the railways created, such as prairie towns and national firms. Because they accepted the arithmetic, a complaint about the cost estimates misdescribes them, and the study found the economy would have been 'somewhat poorer', not unaffected."
+    },
+    {
+     "id": "T1-V1-12",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "t1-railway-savings",
+     "difficulty": 4,
+     "stem": "Which of the following, if true, would most strengthen the critics' objection as it is described in the passage?",
+     "options": [
+      "Many of the firms that served a national market in 1890 grew up in places no waterway reached, and only after a railway arrived.",
+      "In 1890, moving freight by wagon cost many times as much as moving it by rail.",
+      "The historian's estimate of the freight carried in 1890 was later found to be slightly too low.",
+      "The national income of the United States grew more slowly in the decade after 1890 than in the decade before.",
+      "Several European countries with dense railway networks grew more slowly than the United States did."
+     ],
+     "answer": 0,
+     "why": "The cost-of-wagons option bears on the arithmetic, which the critics accepted, not on the frame they attacked.",
+     "explain": "The critics' point is that the calculation ignored what the railways brought into being; firms that arose only where and after a railway arrived are exactly such effects. The comparison of wagon and rail costs, and the revised freight figure, concern the arithmetic, which the critics largely accepted, so they would change the estimate without supporting the objection to its frame."
     }
    ]
   },
@@ -758,291 +508,302 @@
    "measure": "Verbal",
    "minutes": 23,
    "label": "Verbal Reasoning: Section 2",
-   "tier": "medium",
    "questions": [
     {
-     "id": "VM-1",
+     "id": "T1-V2M-01",
      "type": "tc",
      "skill": "Text completion",
      "difficulty": 3,
-     "stem": "The biographer's portrait is scrupulously ______: she records her subject's generosity and his pettiness with equal care, neither extenuating the one nor magnifying the other.",
+     "stem": "The film's costumes are meticulously researched, which makes its dialogue, peppered with modern slang, all the more jarringly ______.",
      "blanks": [
       [
-       "hagiographic",
-       "tendentious",
-       "dispassionate",
-       "elegiac",
-       "desultory"
+       "anachronistic",
+       "archaic",
+       "authentic",
+       "laconic",
+       "ornate"
       ]
      ],
      "answer": [
-      2
-     ],
-     "explain": "Treating virtues and faults with equal care, excusing neither, is dispassionate (impartial). 'Hagiographic' (treating the subject as a saint) and 'tendentious' (slanted towards a view) both imply the bias the sentence denies."
-    },
-    {
-     "id": "VM-2",
-     "type": "tc",
-     "skill": "Text completion",
-     "difficulty": 3,
-     "stem": "Though the minister insisted that the new rules were merely ______, opponents argued that they would transform the way every school in the country was run.",
-     "blanks": [
-      [
-       "sweeping",
-       "costly",
-       "welcome",
-       "cosmetic",
-       "controversial"
-      ]
-     ],
-     "answer": [
-      3
-     ],
-     "explain": "'Though' and 'merely' set up a contrast with 'transform': the minister claimed the change was only on the surface, which is cosmetic. 'Sweeping' is the opponents' view, not the minister's."
-    },
-    {
-     "id": "VM-3",
-     "type": "tc",
-     "skill": "Text completion",
-     "difficulty": 3,
-     "stem": "Early reports on the drug were (i)______, citing dramatic improvements in small trials; only when larger studies failed to repeat those results did the medical community's enthusiasm begin to (ii)______.",
-     "blanks": [
-      [
-       "guarded",
-       "effusive",
-       "hostile"
-      ],
-      [
-       "intensify",
-       "spread",
-       "wane"
-      ]
-     ],
-     "answer": [
-      1,
-      2
-     ],
-     "explain": "Reports that cite 'dramatic improvements' and create 'enthusiasm' are effusive (gushing). 'Only when ... failed' signals that the enthusiasm then faded: wane."
-    },
-    {
-     "id": "VM-4",
-     "type": "tc",
-     "skill": "Text completion",
-     "difficulty": 3,
-     "stem": "The archive's new catalogue was meant to make its holdings easier to (i)______; in practice, however, its categories were so (ii)______ that researchers often found documents only by (iii)______, coming across them while looking for something else.",
-     "blanks": [
-      [
-       "preserve",
-       "navigate",
-       "acquire"
-      ],
-      [
-       "intuitive",
-       "comprehensive",
-       "idiosyncratic"
-      ],
-      [
-       "serendipity",
-       "design",
-       "appointment"
-      ]
-     ],
-     "answer": [
-      1,
-      2,
       0
      ],
-     "explain": "A catalogue exists to help people find their way through a collection: navigate. 'However' means it failed, so its categories were idiosyncratic (peculiar to their maker), and finding things 'while looking for something else' is serendipity (happy accident). 'Comprehensive' is the trap: thoroughness would not make documents hard to find."
+     "explain": "Modern slang in a carefully researched period film belongs to the wrong time: it is anachronistic. 'Archaic' means old-fashioned, the reverse of modern slang, and 'authentic' contradicts 'jarringly'."
     },
     {
-     "id": "VM-5",
+     "id": "T1-V2M-02",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 3,
+     "stem": "Having been burned by two failed expansions, the firm's board is now ______ of any proposal that requires borrowing, however promising its projected returns.",
+     "blanks": [
+      [
+       "chary",
+       "enamored",
+       "ignorant",
+       "tolerant",
+       "heedless"
+      ]
+     ],
+     "answer": [
+      0
+     ],
+     "explain": "Two failures and 'however promising' show the board resists borrowing even when it looks attractive, so it is chary (wary) of such proposals. 'Enamored' and 'tolerant' point the wrong way, and 'heedless' would mean careless, the opposite of a burned board."
+    },
+    {
+     "id": "T1-V2M-03",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 4,
+     "stem": "The reviewer's praise was so (i)______, hedged with qualifications in nearly every sentence, that the author could be forgiven for reading it as (ii)______ in disguise.",
+     "blanks": [
+      [
+       "grudging",
+       "fulsome",
+       "unstinting"
+      ],
+      [
+       "disparagement",
+       "adulation",
+       "plagiarism"
+      ]
+     ],
+     "answer": [
+      0,
+      0
+     ],
+     "why": "'Fulsome' sounds like the right word for overdone praise, but praise hedged in every sentence is grudging.",
+     "explain": "Praise hedged with qualifications throughout is grudging; 'fulsome' (excessive) and 'unstinting' both contradict the hedging. Praise that reluctant could pass for criticism, so disparagement in disguise; 'adulation' would be praise disguised as praise."
+    },
+    {
+     "id": "T1-V2M-04",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 4,
+     "stem": "Early studies of the policy were largely (i)______, each drawing sweeping conclusions from the experience of a single town; only when researchers (ii)______ data from dozens of regions did it become clear that the policy's effects, far from uniform, were (iii)______ local conditions.",
+     "blanks": [
+      [
+       "anecdotal",
+       "exhaustive",
+       "belated"
+      ],
+      [
+       "aggregated",
+       "suppressed",
+       "fabricated"
+      ],
+      [
+       "contingent on",
+       "immune to",
+       "irrelevant to"
+      ]
+     ],
+     "answer": [
+      0,
+      0,
+      0
+     ],
+     "why": "'Exhaustive' tempts because the sentence is about data, but a study of one town cannot be exhaustive.",
+     "explain": "Sweeping conclusions from a single town make the early studies anecdotal. The contrast 'only when' requires researchers to have combined, or aggregated, data from many regions. Effects that are 'far from uniform' vary with place, so they are contingent on local conditions; 'immune to' and 'irrelevant to' would make them uniform."
+    },
+    {
+     "id": "T1-V2M-05",
      "type": "se",
      "skill": "Sentence equivalence",
      "difficulty": 3,
-     "stem": "The mayor's response to the flooding was widely criticised as ______: officials took nearly a week to visit the worst-affected neighbourhoods.",
+     "stem": "Though the museum's founder was famously ______ in his personal habits, wearing the same coat for twenty years, he spent lavishly on acquisitions.",
      "options": [
-      "dilatory",
-      "heavy-handed",
-      "tardy",
-      "lavish",
-      "partisan",
-      "transparent"
+      "frugal",
+      "economical",
+      "profligate",
+      "extravagant",
+      "gregarious",
+      "reclusive"
      ],
      "answer": [
       0,
-      2
+      1
      ],
-     "explain": "Taking nearly a week shows slowness: dilatory and tardy both mean late or slow to act. 'Heavy-handed' and 'partisan' are criticisms too, but nothing in the sentence supports them and they have no partner."
+     "explain": "'Though' sets his personal habits against his lavish buying, and twenty years in one coat shows thrift: frugal or economical. 'Profligate' and 'extravagant' form the trap pair, but they remove the contrast that 'though' requires."
     },
     {
-     "id": "VM-6",
+     "id": "T1-V2M-06",
      "type": "se",
      "skill": "Sentence equivalence",
-     "difficulty": 2,
-     "stem": "Although the scientist was ______ in private, often joking with her students, her public lectures were famously formal.",
+     "difficulty": 3,
+     "stem": "The newly discovered letters do not so much overturn the received account of the expedition as ______ it, adding detail without altering its main lines.",
      "options": [
-      "reserved",
-      "jocular",
-      "earnest",
-      "stern",
-      "playful",
-      "punctual"
-     ],
-     "answer": [
-      1,
-      4
-     ],
-     "explain": "'Often joking' defines the blank, and 'although' contrasts it with 'formal': jocular and playful. 'Reserved' and 'stern' describe the public lectures, not her private manner."
-    },
-    {
-     "id": "VM-7",
-     "type": "se",
-     "skill": "Sentence equivalence",
-     "difficulty": 2,
-     "stem": "The proposal was ______ by the board, which voted unanimously to reject it without further discussion.",
-     "options": [
-      "rebuffed",
-      "endorsed",
-      "amended",
-      "spurned",
-      "postponed",
-      "examined"
+      "augment",
+      "amplify",
+      "refute",
+      "undermine",
+      "supplant",
+      "summarize"
      ],
      "answer": [
       0,
-      3
+      1
      ],
-     "explain": "Rejecting a proposal outright is to rebuff or spurn it. 'Endorsed' is the opposite, and 'postponed' and 'amended' do not match a unanimous rejection."
+     "explain": "Adding detail without changing the main lines is to augment or amplify (expand on) the account. 'Refute' and 'undermine' are the trap pair: they repeat 'overturn' instead of contrasting with it. 'Supplant' also means replace, and 'summarize' would remove detail."
     },
     {
-     "id": "VM-8",
-     "type": "mc",
-     "skill": "Reading comprehension",
-     "passage": "maps-history",
-     "difficulty": 2,
-     "stem": "The passage is primarily concerned with",
+     "id": "T1-V2M-07",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 4,
+     "stem": "The ______ tone of the inquiry's report, which reduced years of documented neglect to a few bloodless sentences, struck the victims' families as an insult.",
      "options": [
-      "arguing that early modern maps were more accurate than historians have assumed",
-      "explaining the surveying methods used by early modern mapmakers",
-      "describing a change in how historians interpret early modern maps and the reasoning behind it",
-      "criticising recent scholars for ignoring questions of accuracy",
-      "comparing maps made for rulers with maps made for merchants"
+      "clinical",
+      "antiseptic",
+      "impassioned",
+      "fervent",
+      "hyperbolic",
+      "lyrical"
      ],
-     "answer": 2,
-     "explain": "The passage moves from the old accuracy-based approach to the newer view of maps as arguments, and explains why. Rulers' and merchants' maps are only examples, and the last sentence rules out the claim that recent scholars ignore accuracy."
+     "answer": [
+      0,
+      1
+     ],
+     "why": "'Antiseptic' is used in its secondary sense of coldly impersonal, which many readers do not know.",
+     "explain": "A tone that turns years of neglect into a few bloodless sentences is coldly impersonal: clinical or antiseptic. 'Impassioned' and 'fervent' form the trap pair and contradict 'bloodless', and 'hyperbolic' contradicts 'reduced'."
     },
     {
-     "id": "VM-9",
+     "id": "T1-V2M-08",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 4,
+     "stem": "Colleagues found her ______ manner disarming: she would concede a point the moment the evidence went against her, without any of the face-saving maneuvers they had come to expect from senior scholars.",
+     "options": [
+      "artless",
+      "guileless",
+      "disingenuous",
+      "calculating",
+      "obstinate",
+      "pedantic"
+     ],
+     "answer": [
+      0,
+      1
+     ],
+     "why": "'Artless' sounds like an insult, but here it means free of guile, and the trap pair 'disingenuous'/'calculating' reverses the sense.",
+     "explain": "Conceding at once, with no face-saving maneuvers, shows a manner free of calculation: artless or guileless. 'Disingenuous' and 'calculating' are a matching pair but describe the maneuvers she avoided, and 'obstinate' contradicts her readiness to concede."
+    },
+    {
+     "id": "T1-V2M-09",
      "type": "mc",
      "skill": "Reading comprehension",
-     "passage": "maps-history",
-     "difficulty": 2,
-     "stem": "The author mentions a map 'produced for merchants' primarily in order to",
+     "passage": "t1-urban-song",
+     "difficulty": 3,
+     "stem": "The primary purpose of the passage is to",
      "options": [
-      "illustrate how a map's purpose could shape what it included",
-      "show that merchants valued accuracy more than rulers did",
-      "suggest that commercial maps were more reliable than political ones",
-      "explain why inland regions were poorly understood in the early modern period",
-      "criticise merchants for neglecting inland trade"
+      "weigh competing interpretations of a pattern and argue that the evidence does not yet decide between them",
+      "defend the claim that higher-pitched urban song is a product of natural selection",
+      "argue that critics were right to treat urban song as a reflex rather than an adaptation",
+      "describe a method for recording bird song in noisy surroundings",
+      "explain why traffic noise is concentrated at low frequencies"
      ],
      "answer": 0,
-     "explain": "The merchants' map leaves out inland regions because they did not matter for trade, so the example shows purpose deciding content. The passage says nothing about how well inland regions were understood, which is the trap."
+     "explain": "The passage sets out the selection account, the flexibility objection and the critics' stronger claim, then concludes that how much of the response is genetic remains open. It does not defend the selection account, and it explicitly says the critics' conclusion 'outruns the evidence'."
     },
     {
-     "id": "VM-10",
+     "id": "T1-V2M-10",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "t1-urban-song",
+     "difficulty": 4,
+     "stem": "The author's view of the critics who said that the literature on urban song had mistaken a reflex for an adaptation is that they",
+     "options": [
+      "drew from the evidence of flexible singing a conclusion it does not support",
+      "were correct that urban birds have undergone no genetic change",
+      "overlooked the finding that individual birds adjust their pitch",
+      "relied on recordings made at the wrong times of day",
+      "were right about the pattern but wrong about the frequencies of traffic noise"
+     ],
+     "answer": 0,
+     "why": "The author rejects the critics' conclusion but not their evidence, so 'correct that there has been no genetic change' tempts by overstating them.",
+     "explain": "The author says the critics' conclusion 'outruns the evidence', because selection might act on flexibility itself. The critics built their case on flexible singing, so they did not overlook it, and the author leaves open how much of the response is genetic, so saying there has been no genetic change goes beyond the passage."
+    },
+    {
+     "id": "T1-V2M-11",
      "type": "multi",
      "skill": "Reading comprehension",
-     "passage": "maps-history",
-     "difficulty": 3,
-     "stem": "Based on the passage, the author would most likely agree with which of the following statements? Select all that apply.",
+     "passage": "t1-urban-song",
+     "difficulty": 4,
+     "stem": "Which of the following findings would support the possibility, raised in the third paragraph, that selection has acted on the ability to adjust pitch? Select all that apply.",
      "options": [
-      "A map's omissions may reflect its intended use rather than its maker's ignorance.",
-      "Accuracy is irrelevant to the study of early modern maps.",
-      "The older approach to the history of cartography gave an incomplete picture."
+      "In a noisy city, males that raise their pitch most readily rear more young than males that adjust little.",
+      "Birds hatched in city nests and forest nests and raised under identical conditions differ in how readily they raise their pitch in response to noise.",
+      "Forest birds exposed to recorded traffic noise sing at a higher pitch within minutes."
+     ],
+     "answer": [
+      0,
+      1
+     ],
+     "why": "The forest-bird finding shows flexibility exists, which is the critics' evidence, not evidence that selection has acted on it.",
+     "explain": "Selection on flexibility needs the most flexible birds to raise the most young, which the first finding shows, and an inherited difference in flexibility, which the common-rearing finding shows. Forest birds adjusting within minutes only shows that flexibility exists everywhere; it says nothing about whether it has been selected in cities."
+    },
+    {
+     "id": "T1-V2M-12",
+     "type": "sentence",
+     "skill": "Reading comprehension",
+     "passage": "t1-urban-song",
+     "difficulty": 3,
+     "stem": "Select the sentence in which the author explains why a newly observed behavior undermines the original evidence for an evolutionary explanation.",
+     "answer": 5,
+     "explain": "The sentence beginning 'Such flexibility requires no genetic change at all' explains that flexible birds would produce the very pattern credited to selection. The sentence before it only reports the behavior, and the one after it reports the critics' further claim."
+    },
+    {
+     "id": "T1-V2M-13",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "t1-still-life",
+     "difficulty": 3,
+     "stem": "The author's view of the later scholars' objection is best described by which of the following?",
+     "options": [
+      "Part of it rests on evidence that cannot bear the weight placed on it, but it still identifies a genuine weakness in the older approach.",
+      "It decisively refutes the moral readings of Dutch still-life paintings.",
+      "It is mistaken, because emblem books are reliable guides to the meanings of paintings.",
+      "It shows that owners of still-life paintings were indifferent to their meaning.",
+      "It applies only to paintings that include lemons and candles."
+     ],
+     "answer": 0,
+     "explain": "The author calls the inventory argument weaker than it seems, since inventories would not record meanings anyway, yet says the objection 'exposes a real flaw' in the older method. That mixed verdict rules out a decisive refutation, and the passage never vouches for emblem books."
+    },
+    {
+     "id": "T1-V2M-14",
+     "type": "multi",
+     "skill": "Reading comprehension",
+     "passage": "t1-still-life",
+     "difficulty": 4,
+     "stem": "The passage suggests that the author would accept which of the following? Select all that apply.",
+     "options": [
+      "Some objects in Dutch still-life paintings may have carried moral meanings.",
+      "The silence of owners' inventories about meaning is good evidence that the paintings had none.",
+      "A reading that assigns a moral message to every object in a still life rests on an unwarranted assumption."
      ],
      "answer": [
       0,
       2
      ],
-     "explain": "The merchants' map omits inland regions on purpose, and the older approach 'obscured' the maps' purposes, so it was incomplete. The final sentence says accuracy remains one aim among several, so it is not irrelevant."
+     "why": "The answers depend on separating the author's partial defense of the old readings from the flaw the author concedes.",
+     "explain": "The flaw the author names is the leap from 'some objects carried meanings' to 'every object must', which leaves the first claim standing and condemns readings of every object. The author explicitly discounts the inventories' silence, since such documents would not record meanings in any case."
     },
     {
-     "id": "VM-11",
-     "type": "sentence",
-     "skill": "Reading comprehension",
-     "passage": "maps-history",
-     "difficulty": 3,
-     "stem": "Select the sentence in which the author indicates that the newer approach retains a concern that was central to the older approach.",
-     "answer": 5,
-     "explain": "The last sentence says the shift 'has not abandoned the question of accuracy', which was the older approach's central concern. The sentence about calling maps 'inaccurate' rejects the older standard rather than keeping it."
-    },
-    {
-     "id": "VM-12",
-     "type": "mc",
-     "skill": "Reading comprehension",
-     "passage": "night-pollination",
-     "difficulty": 3,
-     "stem": "The botanists' view described in the second sentence depends on the assumption that",
-     "options": [
-      "moths visit only plants that flower at night",
-      "bees are more numerous than moths in most habitats",
-      "a pollinator's contribution depends chiefly on how many flowers it visits and how much pollen it carries",
-      "night-flowering plants are never visited by bees",
-      "pale blossoms attract bees as well as moths"
-     ],
-     "answer": 2,
-     "explain": "The botanists judged moths minor only because they visit fewer flowers and carry less pollen, which assumes that those quantities are what count. The study's suggestion that the distance pollen travels also matters attacks exactly this assumption."
-    },
-    {
-     "id": "VM-13",
-     "type": "mc",
-     "skill": "Reading comprehension",
-     "passage": "night-pollination",
-     "difficulty": 2,
-     "stem": "The researchers covered flowers either during the day or during the night primarily in order to",
-     "options": [
-      "prevent moths from damaging the flowers",
-      "measure how much pollen each moth carried",
-      "identify which species of moth visited each plant",
-      "test whether scent attracts moths more strongly than colour does",
-      "separate the contribution of night-time visitors to seed production from that of daytime visitors"
-     ],
-     "answer": 4,
-     "explain": "Covering flowers at one time of day leaves them open only at the other, so the seed counts show what night visitors and day visitors each achieve. Nothing was measured about pollen loads, moth species or scent."
-    },
-    {
-     "id": "VM-14",
-     "type": "mc",
-     "skill": "Reading comprehension",
-     "passage": "night-pollination",
-     "difficulty": 3,
-     "stem": "The authors' suggestion in the final sentence implies which of the following?",
-     "options": [
-      "Moths visit more flowers per hour than bees do.",
-      "Pollen from a genetically different plant can be more useful for reproduction than pollen from a neighbouring plant.",
-      "Bees seldom carry pollen between plants of the same species.",
-      "Night-flowering plants cannot set seed without moths.",
-      "A pollinator's speed is the main factor in its effectiveness."
-     ],
-     "answer": 1,
-     "explain": "Long flights can only 'make up for' slowness if pollen that reaches a genetically different plant is worth more than pollen from close by. The idea that moths visit more flowers per hour contradicts the passage, and the claim about bees goes far beyond it."
-    },
-    {
-     "id": "VM-15",
+     "id": "T1-V2M-15",
      "type": "mc",
      "skill": "Reading comprehension (argument)",
-     "passage": "halden-hygiene",
-     "difficulty": 2,
-     "stem": "Which of the following, if true, would most seriously weaken the council's conclusion?",
+     "passage": "t1-debasement",
+     "difficulty": 4,
+     "stem": "The argument depends on which of the following assumptions?",
      "options": [
-      "The hygiene ratings were awarded by the same inspectors who had inspected Halden's restaurants before the rule.",
-      "Neighbouring towns that did not introduce the rule saw no fall in recorded food poisoning over the same period.",
-      "Some diners in Halden say they rarely notice the ratings displayed at restaurant entrances.",
-      "In the same year, Halden's health service changed its procedures so that mild cases of food poisoning were no longer recorded.",
-      "Restaurants in Halden that received low ratings lost customers after the rule took effect."
+      "The realm did not receive substantially more American silver, relative to its size, than the neighboring states did.",
+      "Prices in the neighboring states did not rise at all between 1542 and 1551.",
+      "Debasing a coinage always raises prices in proportion to the reduction in its silver content.",
+      "The debasement was the only measure taken by the realm's government that affected prices.",
+      "The flow of American silver into Europe had ended by 1551."
      ],
-     "answer": 3,
-     "explain": "If mild cases simply stopped being recorded, the 30 per cent fall could reflect a change in counting rather than better hygiene. Unaffected neighbouring towns and customers deserting low-rated restaurants support the council; 'some diners' not noticing the ratings is too weak to matter."
+     "answer": 0,
+     "why": "The comparison with neighboring states only isolates the debasement if American silver reached the realm and its neighbors in similar measure.",
+     "explain": "The argument treats the realm's faster inflation as the debasement's doing because American silver affected the whole continent. If the realm had received far more of that silver than its neighbors, the silver could explain the gap and the argument would collapse. The argument does not need neighboring prices to have stayed flat, only to have risen more slowly, and other minor measures would not undermine it."
     }
    ]
   },
@@ -1050,304 +811,313 @@
    "measure": "Verbal",
    "minutes": 23,
    "label": "Verbal Reasoning: Section 2",
-   "tier": "harder",
    "questions": [
     {
-     "id": "VH-1",
+     "id": "T1-V2H-01",
      "type": "tc",
      "skill": "Text completion",
-     "stem": "Far from being ______, the historian's prose is so dense with qualification that readers often lose track of her argument.",
+     "difficulty": 4,
+     "stem": "Critics who call the institute ______ overlook how readily it abandoned its founding doctrine once its own data turned against it.",
      "blanks": [
       [
-       "limpid",
-       "prolix",
-       "recondite",
-       "tortuous",
-       "pedantic"
+       "hidebound",
+       "mercurial",
+       "venal",
+       "profligate",
+       "credulous"
       ]
      ],
      "answer": [
       0
      ],
-     "explain": "'Far from being' needs the opposite of dense and hard to follow: limpid (perfectly clear). The other options all describe difficult prose.",
-     "difficulty": 3
+     "why": "'Mercurial' matches the institute's readiness to change, but the critics' label must be the opposite of what they overlook.",
+     "explain": "The critics overlook the institute's readiness to drop its doctrine, so their label must mean the opposite: hidebound (rigidly attached to tradition). 'Mercurial' describes the very flexibility the critics ignore, and 'venal' and 'profligate' have nothing to do with holding doctrine."
     },
     {
-     "id": "VH-2",
+     "id": "T1-V2H-02",
      "type": "tc",
      "skill": "Text completion",
      "difficulty": 4,
-     "stem": "Although the essayist cultivated a reputation for ______, her private notebooks reveal a writer who drafted and redrafted even her most seemingly offhand remarks.",
+     "stem": "The biography's portrait of its subject is relentlessly (i)______, but the author's refusal to grant him a single virtue ultimately (ii)______ her case: readers begin to suspect a grudge rather than a judgment.",
      "blanks": [
       [
-       "fastidiousness",
-       "erudition",
-       "artlessness",
-       "reticence",
-       "candour"
-      ]
-     ],
-     "answer": [
-      2
-     ],
-     "explain": "'Although' contrasts the reputation with careful redrafting, so the reputation was for unstudied naturalness: artlessness. 'Fastidiousness' describes what the notebooks show, and 'candour' is tempting but is not the opposite of careful drafting."
-    },
-    {
-     "id": "VH-4",
-     "type": "tc",
-     "skill": "Text completion",
-     "difficulty": 4,
-     "stem": "The historian argues that the treaty's (i)______ was the source of both its success and its eventual failure: language vague enough for each government to claim victory secured (ii)______ in the short term, but because the underlying disputes had been (iii)______ rather than settled, they resurfaced within a decade.",
-     "blanks": [
-      [
-       "severity",
-       "equivocation",
-       "brevity"
+       "censorious",
+       "hagiographic",
+       "even-handed"
       ],
       [
-       "scrutiny",
-       "repudiation",
-       "ratification"
-      ],
-      [
-       "papered over",
-       "adjudicated",
-       "exacerbated"
-      ]
-     ],
-     "answer": [
-      1,
-      2,
-      0
-     ],
-     "explain": "Language 'vague enough for each government to claim victory' is equivocation, which explains the short-term success: both sides accepted it (ratification). Disputes that were hidden 'rather than settled' and later resurfaced were papered over; 'adjudicated' would mean settled, which the sentence denies."
-    },
-    {
-     "id": "VH-5",
-     "type": "tc",
-     "skill": "Text completion",
-     "stem": "Scholars once regarded the poet's late works as (i)______, the hasty products of a mind in decline; yet a closer reading reveals a deliberate (ii)______, a stripping away of ornament in pursuit of clarity.",
-     "blanks": [
-      [
-       "slapdash",
-       "sublime",
-       "derivative"
-      ],
-      [
-       "austerity",
-       "extravagance",
-       "ambiguity"
+       "hampers",
+       "bolsters",
+       "epitomizes"
       ]
      ],
      "answer": [
       0,
       0
      ],
-     "explain": "'Hasty products' = slapdash (careless). 'Stripping away of ornament' = austerity (plainness).",
-     "difficulty": 3
+     "why": "'Bolsters' tempts because a relentless case sounds strong, but 'but', 'ultimately' and the readers' suspicion mark the case as self-defeating.",
+     "explain": "Refusing the subject a single virtue makes the portrait censorious (severely critical); 'hagiographic' and 'even-handed' contradict that refusal. When readers suspect a grudge, the one-sidedness damages the argument, so it hampers her case rather than bolstering it."
     },
     {
-     "id": "VH-6",
+     "id": "T1-V2H-03",
      "type": "tc",
      "skill": "Text completion",
      "difficulty": 4,
-     "stem": "The minister's (i)______ on the subject, long taken as evidence of indifference, now appears to have been (ii)______: newly released papers show that she was quietly (iii)______ the very policy she declined to discuss in public.",
+     "stem": "That the treaty has endured for a century is less a tribute to the (i)______ of its drafters than to the (ii)______ of its language: phrased so loosely that each signatory could read its own interests into the text, it has survived precisely by never forcing a dispute to resolution.",
      "blanks": [
       [
-       "garrulity",
-       "taciturnity",
-       "forthrightness"
+       "acumen",
+       "rashness",
+       "pedantry"
       ],
       [
-       "inadvertent",
-       "calculated",
-       "characteristic"
-      ],
-      [
-       "undermining",
-       "publicising",
-       "neglecting"
+       "elasticity",
+       "rigor",
+       "concision"
       ]
      ],
      "answer": [
-      1,
-      1,
+      0,
       0
      ],
-     "explain": "Declining to discuss the policy is taciturnity (habitual silence). Silence mistaken for indifference but concealing active work was calculated, and the work must be something done quietly that is not indifference: undermining. 'Neglecting' would confirm the indifference, and 'publicising' contradicts 'quietly'."
+     "why": "The 'less X than Y' frame means the first blank is a quality the treaty's survival is usually credited to, not the real cause.",
+     "explain": "The colon explains the treaty's survival by language loose enough for every party to read its own interests into it: elasticity, not rigor or concision. 'Less a tribute to' sets up a merit that might otherwise get the credit, the drafters' acumen; nobody pays tribute to rashness, and pedantry would have produced precise wording."
     },
     {
-     "id": "VH-8",
-     "type": "se",
-     "skill": "Sentence equivalence",
-     "difficulty": 4,
-     "stem": "Ordinarily the most ______ of reviewers, she astonished readers by devoting an entire column to unqualified praise of a first novel.",
-     "options": [
-      "captious",
-      "effusive",
-      "perspicacious",
-      "carping",
-      "laudatory",
-      "prolific"
+     "id": "T1-V2H-04",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 5,
+     "stem": "The prevailing view holds that the shipyard's decline was (i)______, the inevitable result of forces no firm could have resisted; yet its own records suggest that its managers, far from being the (ii)______ victims of circumstance, (iii)______ their predicament by repeatedly rejecting reforms that rival yards adopted with success.",
+     "blanks": [
+      [
+       "foreordained",
+       "gradual",
+       "reversible"
+      ],
+      [
+       "helpless",
+       "culpable",
+       "willing"
+      ],
+      [
+       "aggravated",
+       "alleviated",
+       "foresaw"
+      ]
      ],
      "answer": [
       0,
-      3
+      0,
+      0
      ],
-     "explain": "Her astonishing praise must contrast with her usual manner, so she is normally fault-finding: captious and carping. 'Effusive' and 'laudatory' are the trap: they are close in meaning but describe the praise, not her ordinary habit."
+     "why": "Three linked blanks: 'far from' flips the second blank, and rejecting successful reforms worsened rather than eased the yard's plight.",
+     "explain": "The appositive 'the inevitable result of forces no firm could have resisted' defines the first blank: foreordained; 'gradual' says nothing about inevitability. The prevailing view casts the managers as helpless victims, which 'far from' denies. Rejecting reforms that worked elsewhere made matters worse, so they aggravated their predicament; 'alleviated' reverses the logic."
     },
     {
-     "id": "VH-9",
-     "type": "se",
-     "skill": "Sentence equivalence",
-     "difficulty": 3,
-     "stem": "Far from ______ the committee's concerns, the chair's reassurances only deepened them, since they rested on the very figures the committee had already shown to be unreliable.",
-     "options": [
-      "exacerbating",
-      "allaying",
-      "articulating",
-      "assuaging",
-      "aggravating",
-      "corroborating"
-     ],
-     "answer": [
-      1,
-      3
-     ],
-     "explain": "'Far from' sets the blank against 'only deepened them', so it must mean easing: allaying and assuaging. 'Exacerbating' and 'aggravating' form a pair too, but they mean deepening, which the sentence says the reassurances did rather than failed to do."
-    },
-    {
-     "id": "VH-10",
+     "id": "T1-V2H-05",
      "type": "se",
      "skill": "Sentence equivalence",
      "difficulty": 4,
-     "stem": "The scholar's later essays are ______ in a way that her admirers call economy and her detractors call evasion: she gestures towards conclusions she never quite states.",
+     "stem": "The scheme's promise of limitless cheap power proved ______: in thirty years of trials the reactor never once produced more energy than it consumed.",
      "options": [
-      "oblique",
-      "prolix",
-      "elliptical",
-      "didactic",
-      "verbose",
-      "strident"
-     ],
-     "answer": [
-      0,
-      2
-     ],
-     "explain": "Gesturing at conclusions without stating them is indirect and allusive: oblique and elliptical. 'Prolix' and 'verbose' are the trap pair: they are synonyms, but wordiness is the opposite of the 'economy' her admirers see."
-    },
-    {
-     "id": "VH-11",
-     "type": "mc",
-     "skill": "Reading comprehension",
-     "passage": "industry",
-     "difficulty": 3,
-     "stem": "Which of the following is most strongly supported by the passage?",
-     "options": [
-      "Allen's critics reject his explanation of why machinery spread faster in Britain than elsewhere.",
-      "Allen holds that invention played no part in industrialisation.",
-      "The long delay between the invention of many devices and their adoption is better accounted for by Allen's view than by the standard account.",
-      "Inventors in continental Europe were less skilled than those in Britain.",
-      "If British wages had been as high as Allen claims, his critics would accept his account in full."
-     ],
-     "answer": 2,
-     "explain": "The 'Yet' after the standard account presents the delay as a problem for it, and Allen's price explanation is offered as accounting for the timing of adoption. The critics accept his central point about profitability, and calling invention 'less a cause of industrialisation than a response to it' does not mean invention played no part."
-    },
-    {
-     "id": "VH-12",
-     "type": "multi",
-     "skill": "Reading comprehension",
-     "passage": "industry",
-     "stem": "Allen's argument, as described in the passage, would predict which of the following? Select all that apply.",
-     "options": [
-      "A labour-saving machine would be adopted more quickly where wages are high.",
-      "Inventors would focus on technologies that local prices made profitable.",
-      "Countries with expensive coal would be the first to adopt coal-powered machines."
+      "chimerical",
+      "fanciful",
+      "prescient",
+      "prophetic",
+      "lucrative",
+      "tendentious"
      ],
      "answer": [
       0,
       1
      ],
-     "explain": "High wages make a labour-saving machine profitable, and inventors respond to what local prices reward, so both of those predictions follow from Allen's view. The claim about countries with expensive coal reverses his logic: dear coal would discourage coal-powered machines.",
-     "difficulty": 3
+     "why": "'Chimerical' is rare, and the trap pair 'prescient'/'prophetic' agree with each other while contradicting the reactor's failure.",
+     "explain": "A reactor that never produced net energy in thirty years shows the promise was unrealistic: chimerical or fanciful. 'Prescient' and 'prophetic' are a matching pair, but they would mean the promise came true. 'Lucrative' and 'tendentious' have no partner and no support."
     },
     {
-     "id": "VH-13",
-     "type": "mc",
-     "skill": "Reading comprehension",
-     "passage": "industry",
-     "difficulty": 3,
-     "stem": "The final sentence of the passage primarily serves to",
-     "options": [
-      "show that Allen's critics have refuted his estimate of British wages",
-      "indicate that a central element of Allen's position survives a dispute over one of his premises",
-      "concede that Allen's argument depends entirely on his estimate of wages",
-      "suggest that the existence of a technique matters more than its profitability",
-      "introduce a new explanation for the timing of industrialisation"
-     ],
-     "answer": 1,
-     "explain": "The critics question Allen's wage figures, a premise, yet still accept that profitability rather than mere existence governed adoption, his central claim. They only 'questioned' the wages, so 'refuted' overstates their position."
-    },
-    {
-     "id": "VH-3",
-     "type": "mc",
-     "skill": "Reading comprehension",
-     "passage": "household-ledgers",
+     "id": "T1-V2H-06",
+     "type": "se",
+     "skill": "Sentence equivalence",
      "difficulty": 4,
-     "stem": "The author would most likely agree with which of the following statements about the historians who relied on tax rolls and guild registers?",
+     "stem": "Having once championed the method, the economist now ______ it entirely, conceding that her early results owed more to faulty data than to any genuine effect.",
      "options": [
-      "Their conclusions would have been reversed had they consulted household account books.",
-      "Their error lay less in how they reasoned from their sources than in treating those sources as complete.",
-      "They were right that women's work was marginal, though for the wrong reasons.",
-      "They reasoned carelessly from evidence that should have warned them of its gaps.",
-      "Their methods are no longer used by economic historians."
+      "abjures",
+      "forswears",
+      "endorses",
+      "espouses",
+      "qualifies",
+      "revisits"
      ],
-     "answer": 1,
-     "explain": "The author calls their conclusion 'not unreasonably given their evidence' but shows the records had no column for much of women's work, so the fault was in the sources' coverage, not the reasoning. 'Reversed' is the trap: the author warns that the ledgers do not simply show the earlier picture was wrong."
+     "answer": [
+      0,
+      1
+     ],
+     "why": "'Qualifies' tempts because she admits a flaw, but 'entirely' and results owed to faulty data call for total renunciation.",
+     "explain": "'Having once championed' and the admission that her results were artefacts point to rejecting the method: she abjures or forswears it. 'Endorses' and 'espouses' form the trap pair that repeats her old stance, and 'qualifies' clashes with 'entirely'."
     },
     {
-     "id": "VH-7",
+     "id": "T1-V2H-07",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 5,
+     "stem": "Authors came to dread her reviews less for their severity than for their pettiness; so ______ was she that she would spend a paragraph on a misplaced comma and ignore the book's argument altogether.",
+     "options": [
+      "captious",
+      "carping",
+      "trenchant",
+      "incisive",
+      "magnanimous",
+      "laudatory"
+     ],
+     "answer": [
+      0,
+      1
+     ],
+     "why": "The pair 'trenchant'/'incisive' fits 'severity', but the sentence turns on pettiness, which only 'captious' and 'carping' convey.",
+     "explain": "Fixing on a comma while ignoring the argument is fault-finding over trifles: captious or carping. 'Trenchant' and 'incisive' are the trap pair; they mean sharply penetrating, which a reviewer who ignores the argument is not. 'Magnanimous' and 'laudatory' contradict the dread."
+    },
+    {
+     "id": "T1-V2H-08",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 4,
+     "stem": "Pitched at a handful of specialists, the lecture's ______ allusions, to unpublished manuscripts and long-forgotten controversies, left most of the audience bewildered.",
+     "options": [
+      "arcane",
+      "esoteric",
+      "pellucid",
+      "limpid",
+      "hackneyed",
+      "ribald"
+     ],
+     "answer": [
+      0,
+      1
+     ],
+     "why": "The trap pair 'pellucid'/'limpid' is itself obscure vocabulary meaning clear, the reverse of what the sentence needs.",
+     "explain": "Allusions to unpublished manuscripts, aimed at specialists and baffling to everyone else, are arcane or esoteric. 'Pellucid' and 'limpid' both mean clear, which would not bewilder anyone, and 'hackneyed' (overused) clashes with 'long-forgotten'."
+    },
+    {
+     "id": "T1-V2H-09",
      "type": "mc",
      "skill": "Reading comprehension",
-     "passage": "household-ledgers",
-     "difficulty": 3,
-     "stem": "The sentence 'It would be tempting to conclude that the earlier picture was simply wrong and that women were as economically active as men' functions primarily to",
+     "passage": "t1-industrious-households",
+     "difficulty": 4,
+     "stem": "The passage is primarily concerned with",
      "options": [
-      "introduce an overstatement that the author goes on to qualify",
-      "state the conclusion that the account books establish",
-      "summarise the view of the historians who relied on tax rolls",
-      "concede a limitation of account books as historical evidence",
-      "present the author's main thesis"
+      "assessing how far the evidence supports one explanation of an apparent paradox in early modern economic history",
+      "arguing that households worked longer because their wages fell",
+      "showing that court testimony is an unreliable historical source",
+      "explaining why the observance of saints' days declined",
+      "defending the view that the desire for consumer goods drove the growth of household labor"
      ],
      "answer": 0,
-     "explain": "'Tempting' signals a conclusion the author will resist, and the next sentence ('Yet account books, for all the detail they preserve, have biases of their own') begins to qualify it. Treating it as the author's thesis is the trap: the thesis comes in the final sentence."
+     "why": "The passage gives the 'darker story' a fair hearing, which tempts readers to think the author endorses it.",
+     "explain": "The passage poses the puzzle of flat wages and rising possessions, presents the extra-work explanation, and concludes that the evidence secures the extra work but not its motive. The author treats the darker story only as an equally compatible alternative, not a conclusion, and calls the testimony 'substantial' evidence of longer working, not unreliable."
     },
     {
-     "id": "VH-14",
+     "id": "T1-V2H-10",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "t1-industrious-households",
+     "difficulty": 5,
+     "stem": "The author's response to the proponents' reply in the third paragraph implies that the purchase of coats and tea by laboring households",
+     "options": [
+      "would support the proponents' explanation only if such goods were not, for those households, practical requirements",
+      "shows that those households were not in fact short of money for bread",
+      "proves that the darker story described in the second paragraph is correct",
+      "confirms that the desire for goods preceded the increase in work",
+      "was recorded inaccurately by the inventories on which historians rely"
+     ],
+     "answer": 0,
+     "why": "The key restates the author's doubt as a condition; the trap 'proves the darker story' turns a doubt into a verdict.",
+     "explain": "The proponents treat such purchases as proof that households were not working from want; the author replies that a coat or tea may have been a necessity for someone seeking a place in service. The purchases therefore count for the proponents only if they were not practical requirements. The author's last sentence leaves the motive open, so the purchases prove neither story."
+    },
+    {
+     "id": "T1-V2H-11",
+     "type": "multi",
+     "skill": "Reading comprehension",
+     "passage": "t1-industrious-households",
+     "difficulty": 4,
+     "stem": "Which of the following can be inferred from the passage? Select all that apply.",
+     "options": [
+      "The explanation described in the first paragraph does not require that daily wage rates rose.",
+      "The court testimony shows that workers gave up holidays in order to buy goods.",
+      "The author regards the fact that households worked more as better established than the reason they did so."
+     ],
+     "answer": [
+      0,
+      2
+     ],
+     "why": "The testimony option borrows the passage's words about lost holidays but adds a motive the author says testimony cannot reveal.",
+     "explain": "The first explanation has families 'earning more in total even as the rate for each day stood still', so it needs no rise in wage rates, and the final sentence says the evidence secures greater industry while its motive remains a matter of interpretation. The testimony shows only that holidays declined; the author stresses that it records 'what they did, not why'."
+    },
+    {
+     "id": "T1-V2H-12",
      "type": "sentence",
      "skill": "Reading comprehension",
-     "passage": "household-ledgers",
-     "difficulty": 3,
-     "stem": "Select the sentence in which the author moves from the shortcomings of one kind of record to a claim about records of every kind.",
+     "passage": "t1-industrious-households",
+     "difficulty": 4,
+     "stem": "Select the sentence that gives the reason a particular kind of source cannot, by itself, decide between the two explanations of why households worked more.",
      "answer": 7,
-     "explain": "The eighth sentence draws on the ledgers' biases ('therefore') to conclude that every type of record makes some work visible by hiding other work. The sentence before it lists faults of the ledgers alone, and the final sentence states what historians can claim rather than generalising about records."
+     "why": "Two neighboring sentences also concern the limits of the evidence, but one only asserts that it fits both stories and the other speaks of all the evidence rather than one source.",
+     "explain": "The sentence 'Testimony about how people spent their hours records what they did, not why they did it' gives the reason court testimony cannot settle the question of motive. The sentence before it says only that the evidence fits a darker story, without saying why, and the final sentence sums up all the evidence rather than one kind of source."
     },
     {
-     "id": "VH-15",
+     "id": "T1-V2H-13",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "t1-cave-fish",
+     "difficulty": 4,
+     "stem": "The author mentions the energy consumed by visual tissue primarily in order to",
+     "options": [
+      "support an explanation in which smaller eyes gave cave fish an advantage",
+      "explain why chance mutations would leave different populations at different stages of degeneration",
+      "explain why damaging mutations accumulate slowly",
+      "refute the claim that vision is useless in caves",
+      "demonstrate that the absence of selection played no part in eye loss"
+     ],
+     "answer": 0,
+     "why": "'Played no part' is too strong: the author says the two mechanisms are not exclusive.",
+     "explain": "The energy cost is what makes the alternative work: where food is scarce, fish that spend less on eyes may survive better, so smaller eyes are favored. The author explicitly says the two mechanisms are not exclusive, so the energy finding cannot show that relaxed selection played no part. The uneven stages of degeneration are the author's objection to the chance account, made before the energy finding is introduced."
+    },
+    {
+     "id": "T1-V2H-14",
+     "type": "multi",
+     "skill": "Reading comprehension",
+     "passage": "t1-cave-fish",
+     "difficulty": 5,
+     "stem": "Which of the following findings, if made, would count against the alternative explanation that the author bases on measurements of energy use? Select all that apply.",
+     "options": [
+      "In a cave with plentiful food, fish lost their eyes as quickly and as consistently as fish in caves where food is scarce.",
+      "In a cave where food is scarce, fish with smaller eyes survived no better than fish with larger eyes.",
+      "In cave fish, the tissue devoted to vision uses less energy than the tissue devoted to smell."
+     ],
+     "answer": [
+      0,
+      1
+     ],
+     "why": "The plentiful-food cave counts against the explanation only by inference: the energy argument predicts weaker selection where food is not scarce.",
+     "explain": "The proposed explanation rests on food being scarce and on smaller-eyed fish surviving better, so equally fast loss where food is plentiful, and no survival advantage for smaller eyes where it is scarce, both cut against it. A comparison with the tissue used for smell is irrelevant: vision can be costly even if smell costs more."
+    },
+    {
+     "id": "T1-V2H-15",
      "type": "mc",
      "skill": "Reading comprehension (argument)",
-     "passage": "inhaler-cap",
-     "difficulty": 4,
-     "stem": "In the argument, the statement that the cap would apply only to existing inhalers plays which of the following roles?",
+     "passage": "t1-pigment-sky",
+     "difficulty": 5,
+     "stem": "In the argument, the statement that the pigment appears only in the sky plays which of the following roles?",
      "options": [
+      "It is evidence offered in support of an alternative explanation of a finding that some take to show the painting is not authentic.",
       "It is the main conclusion of the argument.",
-      "It is a premise that the critics use to support their prediction.",
-      "It is a premise offered in support of a conclusion that runs counter to the critics' prediction.",
-      "It is a consideration that the author concedes counts against the main conclusion.",
-      "It is offered to show that manufacturers' research budgets do not depend on their revenues."
+      "It is a finding that the scholars mentioned use to support their conclusion.",
+      "It is a consideration that the argument concedes weakens its own conclusion.",
+      "It is offered as evidence that Corvetti painted the landscape."
      ],
-     "answer": 2,
-     "explain": "The author introduces the fact ('Yet') and uses it to reach the final conclusion ('then') that the cap would encourage new models, the opposite of the critics' prediction. The author never disputes the link between revenue and research budgets, which is the tempting wrong role."
+     "answer": 0,
+     "why": "The argument never claims that Corvetti painted the work, only that the pigment cannot show who did, so 'evidence that Corvetti painted it' overshoots.",
+     "explain": "The scholars infer forgery from the late pigment; the author counters that restorers' retouching explains it, and the pigment's confinement to the damage-prone sky supports that account. The conclusion is only that the pigment says nothing about authorship, so the statement is not offered as proof that Corvetti was the painter, and the scholars rely on the pigment's presence, not on where it appears."
     }
    ]
   },
@@ -1357,96 +1127,84 @@
    "label": "Quantitative Reasoning: Section 1",
    "questions": [
     {
-     "id": "Q1-1",
-     "type": "qc",
-     "skill": "Algebra",
-     "given": "x > 0",
-     "qa": "x / (x + 1)",
-     "qb": "(x + 1) / (x + 2)",
-     "answer": 1,
-     "explain": "Cross-multiply (both denominators are positive): compare x(x + 2) = x² + 2x with (x + 1)² = x² + 2x + 1. B is always larger by 1.",
-     "difficulty": 3
-    },
-    {
-     "id": "Q1-2",
+     "id": "T1-Q1-01",
      "type": "qc",
      "skill": "Number properties",
-     "difficulty": 3,
-     "given": "n is a positive integer.",
-     "qa": "The units digit of 7ⁿ",
-     "qb": "The units digit of 3ⁿ",
-     "answer": 3,
-     "explain": "Units digits of powers of 7 cycle 7, 9, 3, 1 and those of 3 cycle 3, 9, 7, 1. n = 1 gives 7 against 3 (A greater), n = 2 gives 9 and 9 (equal), and n = 3 gives 3 against 7 (B greater)."
+     "difficulty": 4,
+     "given": "k is a positive integer, and k² is divisible by 72.",
+     "qa": "The greatest integer that must be a divisor of k",
+     "qb": "12",
+     "answer": 2,
+     "explain": "72 = 2³ × 3², and every prime in a perfect square appears to an even power, so k² must contain at least 2⁴ × 3². Hence k is divisible by 2² × 3 = 12, and k = 12 itself works (144 = 2 × 72), so no larger number must divide k. The tempting answer 6 fails because 6² = 36 is not a multiple of 72.",
+     "why": "The odd exponent in 2³ must be rounded up, so k needs 2², not 2, and the answer is 12, not 6."
     },
     {
-     "id": "Q1-3",
+     "id": "T1-Q1-02",
      "type": "qc",
-     "skill": "Statistics",
-     "difficulty": 3,
-     "given": "The average (arithmetic mean) of x, y and 10 is 20, and x > y.",
+     "skill": "Algebra",
+     "difficulty": 4,
+     "given": "x³ < x",
      "qa": "x",
-     "qb": "25",
-     "answer": 0,
-     "explain": "The three numbers total 60, so x + y = 50. Since x is the larger of two numbers that add to 50, x must be greater than 25."
+     "qb": "x²",
+     "answer": 3,
+     "explain": "x³ − x = x(x − 1)(x + 1) < 0 when 0 < x < 1 or x < −1. For x = 0.5, A (0.5) is greater than B (0.25), but for x = −2, B (4) is greater than A (−2). Assuming that only fractions between 0 and 1 satisfy x³ < x leads to the wrong answer A.",
+     "why": "Most students test only fractions between 0 and 1 and miss that every x < −1 also satisfies x³ < x."
     },
     {
-     "id": "Q1-4",
+     "id": "T1-Q1-03",
      "type": "qc",
      "skill": "Geometry",
-     "difficulty": 2,
-     "given": "A triangle has sides of lengths 7, 10 and x, where x is an integer.",
-     "qa": "x",
-     "qb": "17",
-     "answer": 1,
-     "explain": "Each side must be less than the sum of the other two, so x < 7 + 10 = 17; the largest possible integer is 16. The trap is allowing x = 17, which would flatten the triangle into a line."
-    },
-    {
-     "id": "Q1-5",
-     "type": "mc",
-     "skill": "Ratios",
      "difficulty": 3,
-     "stem": "At an animal shelter, the ratio of cats to dogs is 3 : 5. After 12 cats are adopted and 4 more dogs arrive, the ratio of cats to dogs becomes 1 : 3. How many cats were at the shelter originally?",
-     "options": [
-      "30",
-      "36",
-      "40",
-      "45",
-      "50"
-     ],
+     "given": "In triangle PQR, PQ = 6, QR = 8, and angle PQR is greater than 90°.",
+     "qa": "PR",
+     "qb": "10",
      "answer": 0,
-     "explain": "Write the numbers as 3k cats and 5k dogs. Then (3k − 12) : (5k + 4) = 1 : 3, so 9k − 36 = 5k + 4 and k = 10, giving 30 cats."
+     "explain": "If angle PQR were exactly 90°, PR would be the hypotenuse of a 6–8–10 right triangle. Opening the angle beyond 90° pushes P and R further apart, so PR² > 6² + 8² = 100 and PR > 10. The triangle inequality alone (2 < PR < 14) would not decide the comparison, which is why choosing 'cannot be determined' is tempting."
     },
     {
-     "id": "Q1-6",
+     "id": "T1-Q1-04",
+     "type": "qc",
+     "skill": "Probability",
+     "difficulty": 4,
+     "given": "A packet holds 8 bulbs that look identical: 5 tulip bulbs and 3 daffodil bulbs. A gardener picks 2 of the bulbs at random, without replacement.",
+     "qa": "The probability that the 2 bulbs are of the same kind",
+     "qb": "1/2",
+     "answer": 1,
+     "explain": "There are C(8, 2) = 28 equally likely pairs. Pairs of the same kind number C(5, 2) + C(3, 2) = 10 + 3 = 13, so the probability is 13/28, just under 1/2. With replacement it would be (25 + 9)/64 = 34/64, just over 1/2, which is the trap.",
+     "why": "With replacement the probability is just above 1/2; without replacement it falls just below."
+    },
+    {
+     "id": "T1-Q1-05",
      "type": "mc",
-     "skill": "Coordinate geometry",
+     "skill": "Mixtures",
      "difficulty": 3,
-     "stem": "In the xy-plane, line k passes through the points (1, 2) and (5, 10). Line m is perpendicular to line k and passes through the point (4, 0). What is the y-intercept of line m?",
+     "stem": "A farmer has 40 liters of liquid fertilizer that is 15% nitrogen by volume. How many liters of a fertilizer that is 40% nitrogen by volume must be mixed in to produce a mixture that is 30% nitrogen by volume?",
      "options": [
-      "−4",
-      "−2",
-      "2",
-      "4",
-      "8"
+      "20",
+      "30",
+      "45",
+      "60",
+      "75"
      ],
-     "answer": 2,
-     "explain": "Line k has slope (10 − 2) ÷ (5 − 1) = 2, so line m has slope −1/2. Then y = −(1/2)(x − 4), and at x = 0, y = 2."
+     "answer": 3,
+     "explain": "The first fertilizer contains 0.15 × 40 = 6 liters of nitrogen. With x liters added, 6 + 0.4x = 0.3(40 + x), so 0.1x = 6 and x = 60; check: 30 liters of nitrogen in 100 liters is 30%. Because 30% is twice as far from 15% as from 40%, the mixture needs twice as much of the stronger fertilizer, not a smaller amount such as 20 or 30 liters."
     },
     {
-     "id": "Q1-7",
+     "id": "T1-Q1-06",
      "type": "numeric",
-     "skill": "Rates",
-     "difficulty": 3,
-     "stem": "A driver travels 120 km from town P to town Q at an average speed of 60 km/h and returns along the same road at an average speed of 40 km/h. What is the average speed, in kilometres per hour, for the whole round trip?",
-     "answer": 48,
-     "explain": "The trip out takes 2 hours and the return 3 hours, so 240 km takes 5 hours: 48 km/h. Averaging the two speeds to get 50 is the trap, because more time is spent at the slower speed."
+     "skill": "Number properties",
+     "difficulty": 4,
+     "stem": "How many of the positive divisors of 7,200 are perfect squares?",
+     "answer": 12,
+     "explain": "7,200 = 2⁵ × 3² × 5². A divisor is a perfect square exactly when each exponent is even: 0, 2 or 4 for the 2; 0 or 2 for the 3; 0 or 2 for the 5. That gives 3 × 2 × 2 = 12, including 1 itself. Counting all 6 × 3 × 3 = 54 divisors, or leaving out the exponent 0, are the usual slips.",
+     "why": "The exponent 0 counts as even, so 1 and squares such as 9 and 25 must be included."
     },
     {
-     "id": "Q1-8",
+     "id": "T1-Q1-07",
      "type": "multi",
      "skill": "Algebra",
      "difficulty": 4,
-     "stem": "If x is an integer and |x − 4| < 3, which of the following could be the value of x² − 6x? Select all that apply.",
+     "stem": "If x is an integer and |x − 4| < 3, which of the following could be the value of x² − 6x? Indicate all such values.",
      "options": [
       "−9",
       "−8",
@@ -1461,10 +1219,257 @@
       3,
       4
      ],
-     "explain": "|x − 4| < 3 means 1 < x < 7, so x is 2, 3, 4, 5 or 6. Then x² − 6x is −8, −9, −8, −5 and 0, so −6 and 7 are impossible."
+     "explain": "|x − 4| < 3 means 1 < x < 7, so x is 2, 3, 4, 5 or 6. Then x² − 6x is −8, −9, −8, −5 and 0, so −6 and 7 are impossible. Including x = 7, which would give 7, ignores that the inequality is strict.",
+     "why": "The inequality is strict, so x = 7 (which gives 7) is excluded, and x = 2 and x = 4 give the same value."
     },
     {
-     "id": "Q1-9",
+     "id": "T1-Q1-08",
+     "type": "mc",
+     "skill": "Coordinate geometry",
+     "difficulty": 5,
+     "stem": "In the xy-plane, O is the point (0, 0) and B is the point (6, 0). Point P has a positive y-coordinate, triangle OBP is isosceles, and the area of triangle OBP is 12. How many different points could P be?",
+     "options": [
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "answer": 3,
+     "explain": "The area fixes the height: ½ × 6 × y = 12, so P lies on the line y = 4. If PO = PB, P is (3, 4). If OP = OB = 6, then x² + 16 = 36 and x = ±√20, giving two points; if BP = BO = 6, then x = 6 ± √20, two more. None of these coincide or make an equilateral triangle, so there are 5; answering 3 counts only one of the two ways OB can be an equal side.",
+     "why": "OB can be one of the two equal sides as well as the base, which adds four points off the perpendicular bisector."
+    },
+    {
+     "id": "T1-Q1-09",
+     "type": "fraction",
+     "skill": "Probability",
+     "difficulty": 4,
+     "stem": "In a sports league of 6 teams, each team plays every other team exactly once. If 2 of the league's games are chosen at random, what is the probability that no team plays in both of them? Give your answer as a fraction.",
+     "answer": [
+      3,
+      7
+     ],
+     "explain": "There are C(6, 2) = 15 games. A given game shares a team with 4 + 4 = 8 of the other 14 games, so 6 of the 14 share no team with it. The probability is 6/14 = 3/7. Counting only 4 overlapping games gives 10/14 = 5/7.",
+     "why": "Each of the game's two teams plays 4 other games, so 8 of the other 14 overlap it; counting only 4 overlaps gives 5/7."
+    },
+    {
+     "id": "T1-Q1-10",
+     "type": "mc",
+     "skill": "Data interpretation",
+     "table": "t1-factory-output",
+     "difficulty": 3,
+     "stem": "For the four factories combined, the units rejected were what percent of the units produced, to the nearest tenth of a percent?",
+     "options": [
+      "2.9%",
+      "3.1%",
+      "3.3%",
+      "3.5%",
+      "3.7%"
+     ],
+     "answer": 1,
+     "explain": "Combined, 7.2 + 7.2 + 6.0 + 6.0 = 26.4 thousand units were rejected out of 240 + 180 + 300 + 120 = 840 thousand produced: 26.4/840 ≈ 3.14%, or 3.1%. Averaging the four factories' rates (3%, 4%, 2% and 5%) gives 3.5%, which ignores that the factories produced different amounts."
+    },
+    {
+     "id": "T1-Q1-11",
+     "type": "mc",
+     "skill": "Data interpretation",
+     "table": "t1-factory-output",
+     "difficulty": 4,
+     "stem": "Suppose Dunmore's number of rejected units stays the same. By what percent would Dunmore's production have to increase for its rejection rate (units rejected as a percent of units produced) to equal Aldgate's rate in 2025?",
+     "options": [
+      "40%",
+      "60%",
+      "66⅔%",
+      "80%",
+      "100%"
+     ],
+     "answer": 2,
+     "explain": "Aldgate's rate is 7.2/240 = 3%. Dunmore rejects 6.0 thousand units, and 6.0 is 3% of 200 thousand, so production must rise from 120 to 200 thousand, an increase of 80/120 = 66⅔%. The tempting 40% is how much the rate itself must fall (from 5% to 3%), not how much production must grow.",
+     "why": "Cutting the rate by 40% needs production multiplied by 5/3, not increased by 40%."
+    },
+    {
+     "id": "T1-Q1-12",
+     "type": "multi",
+     "skill": "Data interpretation",
+     "table": "t1-factory-output",
+     "difficulty": 4,
+     "stem": "Which of the following statements are true? Indicate all such statements.",
+     "options": [
+      "The factory with the most employees had the lowest number of units produced per employee.",
+      "Aldgate and Brindle together accounted for more than half of all the units rejected at the four factories.",
+      "Aldgate produced more units per employee than the four factories combined.",
+      "Carrow's share of all the units produced at the four factories was more than twice its share of all the units rejected.",
+      "The median of the four factories' rejection rates was equal to the rejection rate of the four factories combined."
+     ],
+     "answer": [
+      0,
+      1,
+      2
+     ],
+     "explain": "Units produced per employee are 1.5, 1.8, 1.2 and 2.0 thousand, so Carrow, the largest employer, is lowest. Aldgate and Brindle rejected 14.4 of the 26.4 thousand units, about 55%. Combined output per employee is 840/570 ≈ 1.47 thousand, just below Aldgate's 1.5. Carrow's shares are 300/840 ≈ 36% of output and 6.0/26.4 ≈ 23% of rejects, a ratio of about 1.6, not 2; and the median rejection rate is 3.5%, not the combined 3.1%.",
+     "why": "Two statements are close calls (1.47 against 1.5, and a share ratio of about 1.6), and the median rate is easily confused with the combined rate."
+    }
+   ]
+  },
+  "Q2M": {
+   "measure": "Quant",
+   "minutes": 26,
+   "label": "Quantitative Reasoning: Section 2",
+   "questions": [
+    {
+     "id": "T1-Q2M-01",
+     "type": "qc",
+     "skill": "Number properties",
+     "difficulty": 4,
+     "given": "When the positive integer n is divided by 6, the remainder is 4.",
+     "qa": "The remainder when n is divided by 4",
+     "qb": "The remainder when n is divided by 3",
+     "answer": 3,
+     "explain": "n is 4, 10, 16, 22, …, so dividing by 3 always leaves 1. Dividing by 4 leaves 0 when n = 4 or 16 but 2 when n = 10 or 22, so A can be smaller or larger than B. Testing only n = 4 suggests B is always greater.",
+     "why": "n = 4 and n = 10 give different remainders on division by 4, so testing a single value misleads."
+    },
+    {
+     "id": "T1-Q2M-02",
+     "type": "qc",
+     "skill": "Ratios",
+     "difficulty": 3,
+     "given": "At the start of a league match, the home and away supporters in a stadium were in the ratio 7 : 3. Then 400 more away supporters arrived and no one left, after which the ratio was 7 : 4.",
+     "qa": "The number of home supporters in the stadium",
+     "qb": "2,500",
+     "answer": 0,
+     "explain": "Write the groups as 7k and 3k. The home number does not change, so 7k : (3k + 400) = 7 : 4 gives 28k = 21k + 2,800, so k = 400 and there are 2,800 home supporters. Check: 2,800 : 1,600 = 7 : 4. The answer is close to 2,500, so a rough estimate from the ratios is not enough to decide."
+    },
+    {
+     "id": "T1-Q2M-03",
+     "type": "qc",
+     "skill": "Algebra",
+     "difficulty": 3,
+     "given": "a and b are positive, and a/b = 3/5.",
+     "qa": "(a + 3)/(b + 5)",
+     "qb": "3/5",
+     "answer": 2,
+     "explain": "Write a = 3t and b = 5t with t > 0. Then (a + 3)/(b + 5) = (3t + 3)/(5t + 5) = 3(t + 1)/(5(t + 1)) = 3/5. Adding to the top and bottom changes a fraction only when the added amounts are not in the fraction's own ratio; here 3 : 5 matches, so the quantities are always equal."
+    },
+    {
+     "id": "T1-Q2M-04",
+     "type": "qc",
+     "skill": "Geometry",
+     "difficulty": 4,
+     "given": "A square is inscribed in a circle of radius r, and a second square is drawn so that each of its four sides is tangent to the same circle.",
+     "qa": "The area inside the circle but outside the smaller square",
+     "qb": "The area inside the larger square but outside the circle",
+     "answer": 0,
+     "explain": "The smaller square's diagonal is the diameter 2r, so its area is (2r)²/2 = 2r²; the larger square has side 2r and area 4r². A is πr² − 2r² ≈ 1.14r² and B is 4r² − πr² ≈ 0.86r². Assuming the circle lies halfway between the two squares in area is the trap: π is closer to 4 than to 2.",
+     "why": "The circle's area is not midway between the squares' areas (2r² and 4r²), since π − 2 > 4 − π."
+    },
+    {
+     "id": "T1-Q2M-05",
+     "type": "qc",
+     "skill": "Counting",
+     "difficulty": 3,
+     "given": "A sports league has 8 teams.",
+     "qa": "The number of games played if each team plays each other team exactly twice",
+     "qb": "The number of different groups of 3 teams that could be chosen for a play-off",
+     "answer": 2,
+     "explain": "There are C(8, 2) = 28 pairs of teams, each playing twice, so A is 56. B is C(8, 3) = (8 × 7 × 6)/(3 × 2 × 1) = 56. Forgetting the factor of 2 in A (28) or not dividing by 3! in B (336) breaks the tie."
+    },
+    {
+     "id": "T1-Q2M-06",
+     "type": "mc",
+     "skill": "Rates and work",
+     "difficulty": 4,
+     "stem": "In a factory, machines P and Q, working together at their constant rates, can complete an order in 12 hours. On one occasion, P worked alone for 6 hours and then Q, working alone, finished the order in a further 21 hours. How many hours would P take to complete the whole order working alone?",
+     "options": [
+      "12",
+      "15",
+      "16",
+      "18",
+      "20"
+     ],
+     "answer": 4,
+     "explain": "Let the rates be p and q, with p + q = 1/12 and 6p + 21q = 1. Six hours of both together does half the order, so 6p + 6q = 1/2 and therefore 15q = 1/2, giving q = 1/30. Then p = 1/12 − 1/30 = 1/20, so P alone takes 20 hours; 12 is the joint time, not P's.",
+     "why": "The key step is to pair 6 of Q's 21 hours with P's 6 hours (half the order), leaving Q's last 15 hours to do the other half."
+    },
+    {
+     "id": "T1-Q2M-07",
+     "type": "mc",
+     "skill": "Number properties",
+     "difficulty": 3,
+     "stem": "What is the units digit of 7⁴⁵ × 3²²?",
+     "options": [
+      "0",
+      "1",
+      "3",
+      "7",
+      "9"
+     ],
+     "answer": 2,
+     "explain": "Units digits of powers of 7 cycle 7, 9, 3, 1, and those of powers of 3 cycle 3, 9, 7, 1, each with period 4. Since 45 leaves remainder 1 on division by 4 and 22 leaves remainder 2, the units digits are 7 and 9, and 7 × 9 = 63 ends in 3. Swapping the remainders (7² and 3¹) gives 9 × 3 = 27, a units digit of 7, which is the trap."
+    },
+    {
+     "id": "T1-Q2M-08",
+     "type": "numeric",
+     "skill": "Percentages",
+     "difficulty": 3,
+     "stem": "A farm shop raised the price of a box of apples by 25%. In the month after the rise, its revenue from boxes of apples was 10% higher than in the month before the rise. By what percent did the number of boxes sold fall?",
+     "answer": 12,
+     "unit": "%",
+     "explain": "Revenue = price × number sold, so 1.25 × q = 1.10, which gives q = 0.88: the number sold fell by 12%. Subtracting the percentages (25 − 10 = 15) ignores that percent changes multiply rather than add."
+    },
+    {
+     "id": "T1-Q2M-09",
+     "type": "multi",
+     "skill": "Geometry",
+     "difficulty": 4,
+     "stem": "Two sides of a triangle have lengths 5 and 9. Which of the following could be the area of the triangle? Indicate all such values.",
+     "options": [
+      "4",
+      "12",
+      "20",
+      "22.5",
+      "24",
+      "45"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explain": "Take the side of length 9 as the base. The height to it is at most 5, reached when the two given sides meet at a right angle, and it can be made as small as we like by flattening the angle. So the area can be any value greater than 0 and up to ½ × 9 × 5 = 22.5. 45 forgets the ½, and 24 exceeds the maximum.",
+     "why": "The maximum area comes from a right angle between the given sides, and every smaller positive area is also possible, even a small one such as 4."
+    },
+    {
+     "id": "T1-Q2M-10",
+     "type": "mc",
+     "skill": "Probability",
+     "difficulty": 4,
+     "stem": "A gardener plants 4 rose bushes and 3 lavender bushes in a row of 7 holes, in an order chosen at random. What is the probability that no two lavender bushes are next to each other?",
+     "options": [
+      "1/7",
+      "2/7",
+      "2/5",
+      "3/7",
+      "4/7"
+     ],
+     "answer": 1,
+     "explain": "Only which 3 holes get lavender matters, and there are C(7, 3) = 35 equally likely choices. The 4 roses in a row leave 5 gaps (including both ends), and putting the lavenders in 3 different gaps keeps them apart: C(5, 3) = 10 ways. The probability is 10/35 = 2/7; using only the 3 gaps between roses gives 1/35.",
+     "why": "The two ends of the row are gaps too: 4 roses leave 5 gaps, not 3."
+    },
+    {
+     "id": "T1-Q2M-11",
+     "type": "fraction",
+     "skill": "Functions",
+     "difficulty": 3,
+     "stem": "The function g is defined by g(x) = (ax + 1)/(x + 2) for all x ≠ −2, where a is a constant. If g(3) = 2, what is the value of g(g(3))? Give your answer as a fraction.",
+     "answer": [
+      7,
+      4
+     ],
+     "explain": "g(3) = (3a + 1)/5 = 2, so 3a + 1 = 10 and a = 3. Then g(g(3)) = g(2) = (3 × 2 + 1)/(2 + 2) = 7/4. Squaring g(3) to get 4 is the trap; g(g(3)) means applying g to the output 2."
+    },
+    {
+     "id": "T1-Q2M-12",
      "type": "mc",
      "skill": "Statistics",
      "difficulty": 4,
@@ -1477,491 +1482,55 @@
       "21"
      ],
      "answer": 4,
-     "explain": "The sum is 28 + x, so the mean is (28 + x)/5. The median depends on where x falls: if x ≤ 5 the median is 5 and x = −3; if 5 ≤ x ≤ 9 the median is x and x = 7; if x ≥ 9 the median is 9 and x = 17. All three work, so the sum is −3 + 7 + 17 = 21."
+     "explain": "The sum is 28 + x, so the mean is (28 + x)/5. The median depends on where x falls: if x ≤ 5 the median is 5 and x = −3; if 5 ≤ x ≤ 9 the median is x and x = 7; if x ≥ 9 the median is 9 and x = 17. All three work, so the sum is −3 + 7 + 17 = 21; stopping at the middle case gives 7.",
+     "why": "x can be the smallest, middle or largest value, and each case gives a valid x: −3, 7 and 17."
     },
     {
-     "id": "Q1-10",
-     "type": "fraction",
-     "skill": "Probability",
-     "stem": "A bag holds 4 red and 6 blue marbles. Two marbles are drawn at random without replacement. What is the probability that both are red? Give your answer as a fraction.",
-     "answer": [
-      2,
-      15
-     ],
-     "explain": "4/10 × 3/9 = 12/90 = 2/15. Any equivalent fraction is accepted.",
-     "difficulty": 2
-    },
-    {
-     "id": "Q1-11",
+     "id": "T1-Q2M-13",
      "type": "mc",
      "skill": "Data interpretation",
-     "table": "bookshop",
+     "table": "t1-league-season",
      "difficulty": 3,
-     "stem": "In 2024 the average price of a non-fiction book sold at the bookshop was £12, and the bookshop's total revenue from non-fiction was 20% higher than in 2023. What was the average price of a non-fiction book sold in 2023?",
+     "stem": "Teams earn 3 points for a win, 1 point for a draw and 0 points for a loss. How many more points did the team with the most points earn than the team with the most wins?",
      "options": [
-      "£10.00",
-      "£12.00",
-      "£12.50",
-      "£14.40",
-      "£15.00"
-     ],
-     "answer": 1,
-     "explain": "2024 revenue = 30,000 × £12 = £360,000, so 2023 revenue = £360,000 ÷ 1.2 = £300,000. Divided by 25,000 books, that is £12.00: unit sales rose by the same 20% as revenue, so the price did not change."
-    },
-    {
-     "id": "Q1-12",
-     "type": "multi",
-     "skill": "Data interpretation",
-     "table": "bookshop",
-     "difficulty": 3,
-     "stem": "For which categories did sales change by at least 20%, either up or down, from 2023 to 2024? Select all that apply.",
-     "options": [
-      "Fiction",
-      "Non-fiction",
-      "Children's",
-      "Other"
-     ],
-     "answer": [
-      1,
-      2,
-      3
-     ],
-     "explain": "Fiction rose 6/40 = 15%, non-fiction rose 5/25 = 20%, children's fell 3/15 = 20% and other fell 8/20 = 40%. Exactly 20% counts as 'at least 20%', and falls count as well as rises."
-    }
-   ]
-  },
-  "Q2E": {
-   "measure": "Quant",
-   "minutes": 26,
-   "label": "Quantitative Reasoning: Section 2",
-   "tier": "easier",
-   "questions": [
-    {
-     "id": "QE-1",
-     "type": "qc",
-     "skill": "Arithmetic",
-     "qa": "0.5 × 40",
-     "qb": "40 ÷ 2",
-     "answer": 2,
-     "explain": "Both equal 20.",
-     "difficulty": 1
-    },
-    {
-     "id": "QE-2",
-     "type": "qc",
-     "skill": "Algebra",
-     "given": "x = −3",
-     "qa": "x²",
-     "qb": "2x",
-     "answer": 0,
-     "explain": "x² = 9 and 2x = −6.",
-     "difficulty": 1
-    },
-    {
-     "id": "QE-3",
-     "type": "qc",
-     "skill": "Arithmetic",
-     "qa": "The number of minutes in 3 hours",
-     "qb": "The number of seconds in 4 minutes",
-     "answer": 1,
-     "explain": "3 × 60 = 180 minutes; 4 × 60 = 240 seconds.",
-     "difficulty": 1
-    },
-    {
-     "id": "QE-4",
-     "type": "qc",
-     "skill": "Algebra",
-     "given": "y > 0",
-     "qa": "y",
-     "qb": "y²",
-     "answer": 3,
-     "explain": "If y = 2, B is bigger; if y = 0.5, A is bigger; if y = 1 they're equal. Cannot be determined.",
-     "difficulty": 2
-    },
-    {
-     "id": "QE-5",
-     "type": "mc",
-     "skill": "Percentages",
-     "stem": "What is 15% of 80?",
-     "options": [
-      "8",
-      "10",
-      "12",
-      "15",
-      "20"
+      "0",
+      "1",
+      "2",
+      "3",
+      "4"
      ],
      "answer": 2,
-     "explain": "0.15 × 80 = 12.",
-     "difficulty": 1
+     "explain": "The Harriers have the most wins (12) but earn 12 × 3 + 2 = 38 points, while the Kestrels earn 11 × 3 + 7 = 40, the most of any team. The difference is 2. Assuming the team with the most wins also has the most points gives 0."
     },
     {
-     "id": "QE-6",
-     "type": "mc",
-     "skill": "Algebra",
-     "stem": "If 5x + 4 = 29, what is the value of x?",
-     "options": [
-      "4",
-      "5",
-      "6",
-      "7",
-      "8"
-     ],
-     "answer": 1,
-     "explain": "5x = 25, so x = 5.",
-     "difficulty": 1
-    },
-    {
-     "id": "QE-7",
+     "id": "T1-Q2M-14",
      "type": "numeric",
-     "skill": "Geometry",
-     "stem": "A rectangle has length 12 cm and width 5 cm. What is the length of its diagonal, in centimetres?",
-     "answer": 13,
-     "explain": "√(144 + 25) = √169 = 13.",
-     "difficulty": 1
-    },
-    {
-     "id": "QE-8",
-     "type": "mc",
-     "skill": "Ratios",
-     "stem": "In a class of 40 students, the ratio of boys to girls is 3 : 5. How many girls are in the class?",
-     "options": [
-      "15",
-      "20",
-      "24",
-      "25",
-      "30"
-     ],
-     "answer": 3,
-     "explain": "3 + 5 = 8 parts; each part = 40 ÷ 8 = 5 students. Girls = 5 × 5 = 25.",
-     "difficulty": 1
-    },
-    {
-     "id": "QE-9",
-     "type": "multi",
-     "skill": "Number properties",
-     "stem": "Which of the following numbers are prime? Select all that apply.",
-     "options": [
-      "2",
-      "9",
-      "11",
-      "15",
-      "17",
-      "21"
-     ],
-     "answer": [
-      0,
-      2,
-      4
-     ],
-     "explain": "2, 11 and 17 are prime. 9 = 3 × 3, 15 = 3 × 5, 21 = 3 × 7.",
-     "difficulty": 1
-    },
-    {
-     "id": "QE-10",
-     "type": "numeric",
-     "skill": "Rates",
-     "stem": "A car travels 150 km in 2.5 hours. What is its average speed, in kilometres per hour?",
-     "answer": 60,
-     "explain": "150 ÷ 2.5 = 60 km/h.",
-     "difficulty": 1
-    },
-    {
-     "id": "QE-11",
-     "type": "mc",
-     "skill": "Algebra",
-     "stem": "If a = 2 and b = −3, what is the value of a² − ab?",
-     "options": [
-      "−2",
-      "2",
-      "6",
-      "10",
-      "12"
-     ],
-     "answer": 3,
-     "explain": "a² = 4; ab = −6; 4 − (−6) = 10.",
-     "difficulty": 2
-    },
-    {
-     "id": "QE-12",
-     "type": "fraction",
-     "skill": "Arithmetic",
-     "stem": "What is 1/3 + 1/4? Give your answer as a fraction.",
-     "answer": [
-      7,
-      12
-     ],
-     "explain": "Common denominator 12: 4/12 + 3/12 = 7/12.",
-     "difficulty": 1
-    },
-    {
-     "id": "QE-13",
-     "type": "mc",
-     "skill": "Geometry",
-     "stem": "What is the sum of the interior angles of a hexagon (a six-sided polygon)?",
-     "options": [
-      "360°",
-      "540°",
-      "720°",
-      "900°",
-      "1080°"
-     ],
-     "answer": 2,
-     "explain": "(n − 2) × 180° = 4 × 180° = 720°.",
-     "difficulty": 2
-    },
-    {
-     "id": "QE-14",
-     "type": "multi",
-     "skill": "Algebra",
-     "stem": "If x² = 16, which of the following could be the value of x? Select all that apply.",
-     "options": [
-      "−4",
-      "−2",
-      "2",
-      "4",
-      "8"
-     ],
-     "answer": [
-      0,
-      3
-     ],
-     "explain": "Both 4² and (−4)² equal 16.",
-     "difficulty": 1
-    },
-    {
-     "id": "QE-15",
-     "type": "mc",
      "skill": "Statistics",
-     "stem": "What is the median of the numbers 3, 9, 4, 7, 12 and 5?",
-     "options": [
-      "5",
-      "6",
-      "6.5",
-      "7",
-      "8"
-     ],
-     "answer": 1,
-     "explain": "In order: 3, 4, 5, 7, 9, 12. With six numbers the median is the average of the middle two: (5 + 7) ÷ 2 = 6.",
-     "difficulty": 1
-    }
-   ]
-  },
-  "Q2M": {
-   "measure": "Quant",
-   "minutes": 26,
-   "label": "Quantitative Reasoning: Section 2",
-   "tier": "medium",
-   "questions": [
-    {
-     "id": "QM-1",
-     "type": "qc",
-     "skill": "Arithmetic",
-     "difficulty": 3,
-     "qa": "The number of integers between −7.5 and 4.2",
-     "qb": "12",
-     "answer": 2,
-     "explain": "The integers are −7, −6, ..., 3, 4: seven negative integers, zero and four positive integers, which is 12. Forgetting zero gives 11, and including −8 or 5 gives 13."
+     "table": "t1-league-season",
+     "difficulty": 4,
+     "stem": "A team's goal difference is its goals scored minus its goals conceded. What is the median of the six teams' goal differences?",
+     "answer": 4.5,
+     "explain": "The goal differences are 16, 18, 8, 1, −6 and −25. In order they are −25, −6, 1, 8, 16, 18, so the median is (1 + 8)/2 = 4.5. Subtracting the median of goals conceded (27) from the median of goals scored (30) gives 3, but the median of differences is not the difference of medians.",
+     "why": "The median of the differences (4.5) is not the difference of the medians (30 − 27 = 3)."
     },
     {
-     "id": "QM-2",
-     "type": "qc",
-     "skill": "Algebra",
-     "difficulty": 2,
-     "given": "x + y = 10 and x − y = 4",
-     "qa": "xy",
-     "qb": "20",
-     "answer": 0,
-     "explain": "Adding the equations gives 2x = 14, so x = 7 and y = 3. Then xy = 21, which is greater than 20."
-    },
-    {
-     "id": "QM-3",
-     "type": "qc",
-     "skill": "Geometry",
-     "difficulty": 3,
-     "given": "An isosceles triangle has one side of length 5 and another side of length 8.",
-     "qa": "The perimeter of the triangle",
-     "qb": "20",
-     "answer": 3,
-     "explain": "The third side could be 5 (perimeter 18) or 8 (perimeter 21), and both triangles exist. So A could be smaller or larger than 20."
-    },
-    {
-     "id": "QM-4",
-     "type": "qc",
-     "skill": "Number properties",
-     "difficulty": 3,
-     "given": "x and y are integers and xy = 12.",
-     "qa": "x + y",
-     "qb": "7",
-     "answer": 3,
-     "explain": "x = 3, y = 4 gives 7 (equal) and x = 1, y = 12 gives 13 (A greater). The hidden case is negatives: x = −3, y = −4 gives −7 (B greater)."
-    },
-    {
-     "id": "QM-5",
-     "type": "qc",
-     "skill": "Algebra",
-     "difficulty": 3,
-     "given": "−1 < x < 0",
-     "qa": "x",
-     "qb": "x³",
-     "answer": 1,
-     "explain": "x³ − x = x(x² − 1). Here x is negative and x² − 1 is negative, so the product is positive and x³ > x. For example, x = −0.5 gives x³ = −0.125, which is greater than −0.5."
-    },
-    {
-     "id": "QM-6",
-     "type": "mc",
-     "skill": "Percentages",
-     "difficulty": 2,
-     "stem": "In a sale, the price of a coat is reduced by 30%. By approximately what percentage must the sale price be increased to bring it back to the original price?",
-     "options": [
-      "30%",
-      "33.3%",
-      "40%",
-      "42.9%",
-      "70%"
-     ],
-     "answer": 3,
-     "explain": "The sale price is 0.7 of the original, so it must be multiplied by 1 ÷ 0.7 ≈ 1.429, an increase of about 42.9%. The trap is 30%: the increase is measured from the smaller, sale price."
-    },
-    {
-     "id": "QM-7",
-     "type": "mc",
-     "skill": "Algebra",
-     "difficulty": 3,
-     "stem": "If x + 1/x = 4, what is the value of x² + 1/x²?",
-     "options": [
-      "14",
-      "16",
-      "18",
-      "20",
-      "22"
-     ],
-     "answer": 0,
-     "explain": "Square both sides: x² + 2 + 1/x² = 16, so x² + 1/x² = 14. The trap is 16, which forgets the middle term 2 × x × (1/x) = 2."
-    },
-    {
-     "id": "QM-8",
-     "type": "mc",
-     "skill": "Geometry",
-     "difficulty": 3,
-     "stem": "A square is drawn inside a large circle so that all four corners of the square lie on the circle. A small circle is drawn inside the square so that it touches all four sides of the square. What is the ratio of the area of the large circle to the area of the small circle?",
-     "options": [
-      "√2 : 1",
-      "2 : 1",
-      "2√2 : 1",
-      "3 : 1",
-      "4 : 1"
-     ],
-     "answer": 1,
-     "explain": "If the square has side 2, the small circle has radius 1 and the large circle's radius is half the diagonal, √2. The areas are 2π and π, a ratio of 2 : 1. (√2 : 1 is the ratio of the radii, not the areas.)"
-    },
-    {
-     "id": "QM-9",
-     "type": "numeric",
-     "skill": "Number properties",
-     "difficulty": 3,
-     "stem": "How many integers from 1 to 100, inclusive, are multiples of 4 or multiples of 6 (or both)?",
-     "answer": 33,
-     "explain": "There are 25 multiples of 4 and 16 multiples of 6, but the 8 multiples of 12 are counted twice: 25 + 16 − 8 = 33."
-    },
-    {
-     "id": "QM-10",
-     "type": "fraction",
-     "skill": "Probability",
-     "difficulty": 3,
-     "stem": "An integer is chosen at random from the integers 1 to 20, inclusive. What is the probability that it is a multiple of 3 or a prime number (or both)? Give your answer as a fraction.",
-     "answer": [
-      13,
-      20
-     ],
-     "explain": "Multiples of 3: 6 numbers. Primes: 2, 3, 5, 7, 11, 13, 17, 19, which is 8 numbers. The number 3 is in both lists, so 6 + 8 − 1 = 13 of the 20 integers qualify."
-    },
-    {
-     "id": "QM-11",
-     "type": "multi",
-     "skill": "Algebra",
-     "difficulty": 3,
-     "stem": "If x < 0, which of the following must be positive? Select all that apply.",
-     "options": [
-      "x²",
-      "x³",
-      "−x",
-      "x + |x|",
-      "x² − x"
-     ],
-     "answer": [
-      0,
-      2,
-      4
-     ],
-     "explain": "x² and −x are positive for any negative x, and x² − x is a positive number plus a positive number. x³ is negative, and x + |x| = x − x = 0, which is not positive."
-    },
-    {
-     "id": "QM-12",
-     "type": "mc",
-     "skill": "Statistics",
-     "difficulty": 2,
-     "stem": "The average (arithmetic mean) of six numbers is 15. When a seventh number is added, the average of the seven numbers is 17. What is the seventh number?",
-     "options": [
-      "17",
-      "19",
-      "23",
-      "26",
-      "29"
-     ],
-     "answer": 4,
-     "explain": "The six numbers total 6 × 15 = 90 and the seven total 7 × 17 = 119, so the seventh number is 119 − 90 = 29."
-    },
-    {
-     "id": "QM-13",
-     "type": "mc",
-     "skill": "Data interpretation",
-     "table": "commute-towns",
-     "difficulty": 3,
-     "stem": "If 20% of the bus users in each town switched to rail, what percentage of all the surveyed workers in the two towns combined would then travel by rail?",
-     "options": [
-      "12.5%",
-      "15%",
-      "17%",
-      "19.5%",
-      "22.5%"
-     ],
-     "answer": 2,
-     "explain": "Northfield moves 0.2 × 60 = 12 people and Southbury 0.2 × 75 = 15. Rail becomes 45 + 12 + 30 + 15 = 102 out of 600, which is 17%."
-    },
-    {
-     "id": "QM-14",
-     "type": "mc",
-     "skill": "Data interpretation",
-     "table": "commute-towns",
-     "difficulty": 2,
-     "stem": "In Southbury, the number of surveyed workers who cycle or walk to work is what percentage greater than the corresponding number in Northfield?",
-     "options": [
-      "25%",
-      "28.6%",
-      "30%",
-      "40%",
-      "52.5%"
-     ],
-     "answer": 3,
-     "explain": "Southbury: 45 + 60 = 105; Northfield: 30 + 45 = 75. The difference, 30, divided by Northfield's 75 is 40%. Dividing by 105 instead gives the trap answer 28.6%."
-    },
-    {
-     "id": "QM-15",
+     "id": "T1-Q2M-15",
      "type": "multi",
      "skill": "Data interpretation",
-     "table": "commute-towns",
-     "difficulty": 3,
-     "stem": "Which of the following statements are true? Select all that apply.",
+     "table": "t1-league-season",
+     "difficulty": 4,
+     "stem": "Unless stated otherwise, teams earn 3 points for a win, 1 point for a draw and 0 points for a loss. Which of the following statements are true? Indicate all such statements.",
      "options": [
-      "In each town, more of the surveyed workers travel by car than by any other single mode.",
-      "The ratio of rail users to bus users is the same in the two towns.",
-      "If 15 of Northfield's car users switched to rail, rail users would make up exactly 20% of Northfield's surveyed workers."
+      "If a win earned 2 points instead of 3 (with 1 point for a draw), the six teams would finish in the same order by points.",
+      "The Falcons earned a greater percent of their points from draws than any other team did.",
+      "If each of the Harriers' drawn matches had been a win instead, the Harriers would have earned more points than the Kestrels."
      ],
      "answer": [
       0,
       2
      ],
-     "explain": "Car is the largest group in both towns (120 and 90). Rail to bus is 45 : 60 = 3 : 4 in Northfield but 30 : 75 = 2 : 5 in Southbury. Rail would become 45 + 15 = 60, and 60 ÷ 300 = 20%."
+     "explain": "With 3 points per win the order is Kestrels 40, Harriers 38, Ospreys 35, Falcons 30, Merlins 23, Buzzards 15; with 2 it is 29, 26, 25, 22, 17, 11, the same order. The Merlins took 5 of 23 points (about 22%) from draws, more than the Falcons' 6 of 30 (20%). Turning the Harriers' 2 draws into wins gives 14 wins and 42 points, beating the Kestrels' 40.",
+     "why": "The draw-share statement fails only on the Merlins, whose small points total makes 5 draw points a larger share than the Falcons' 6."
     }
    ]
   },
@@ -1969,123 +1538,85 @@
    "measure": "Quant",
    "minutes": 26,
    "label": "Quantitative Reasoning: Section 2",
-   "tier": "harder",
    "questions": [
     {
-     "id": "QH-1",
-     "type": "numeric",
-     "skill": "Counting",
-     "difficulty": 4,
-     "stem": "How many positive integers less than 1,000 have digits that add up to 10?",
-     "answer": 63,
-     "explain": "Write each number as three digits a, b, c (leading zeros allowed) with a + b + c = 10: there are C(12, 2) = 66 ways to split 10 into three non-negative parts. Three of those use a 'digit' of 10 (10 + 0 + 0 in some order), which is impossible, so the answer is 66 − 3 = 63."
-    },
-    {
-     "id": "QH-2",
+     "id": "T1-Q2H-01",
      "type": "qc",
      "skill": "Number properties",
      "difficulty": 4,
-     "given": "When the positive integer n is divided by 6, the remainder is 4.",
-     "qa": "The remainder when n is divided by 4",
-     "qb": "The remainder when n is divided by 3",
+     "given": "x and y are positive integers. x has exactly 6 positive divisors, and y has exactly 4 positive divisors.",
+     "qa": "The number of positive divisors of xy",
+     "qb": "24",
      "answer": 3,
-     "explain": "n is 4, 10, 16, 22, ..., so dividing by 3 always leaves 1. Dividing by 4 leaves 0 when n = 4 or 16 but 2 when n = 10 or 22, so A can be smaller or larger than B."
+     "explain": "If x and y share no prime factor, the divisor counts multiply: x = 12 and y = 35 give xy = 420 = 2² × 3 × 5 × 7, with 3 × 2 × 2 × 2 = 24 divisors. If they share a prime, the count is smaller: x = 12 and y = 6 give xy = 72 = 2³ × 3², with 4 × 3 = 12 divisors. So A can equal B or be less than B.",
+     "why": "Divisor counts multiply only when the two numbers share no prime factor."
     },
     {
-     "id": "QH-3",
+     "id": "T1-Q2H-02",
      "type": "qc",
-     "skill": "Algebra",
+     "skill": "Number properties",
      "difficulty": 4,
-     "given": "x³ < x",
-     "qa": "x",
-     "qb": "x²",
-     "answer": 3,
-     "explain": "x³ − x = x(x − 1)(x + 1) < 0 when 0 < x < 1 or x < −1. For x = 0.5, A (0.5) is greater than B (0.25), but for x = −2, B (4) is greater than A (−2). The trap is to assume only fractions between 0 and 1 satisfy x³ < x."
-    },
-    {
-     "id": "QH-4",
-     "type": "qc",
-     "skill": "Statistics",
-     "difficulty": 3,
-     "qa": "The standard deviation of the list 0, 10, 10, 10, 10, 10, 10, 20",
-     "qb": "The standard deviation of the list 2, 2, 2, 2, 18, 18, 18, 18",
+     "given": "a is a positive integer, and the least common multiple of a and 18 is 90.",
+     "qa": "The least possible value of a",
+     "qb": "The number of possible values of a",
      "answer": 1,
-     "explain": "Both lists have mean 10. In list A only two values are away from the mean (by 10 each), so the standard deviation is √(200 ÷ 8) = 5; in list B every value is 8 away, so it is 8. The trap is to judge by range, where A (20) beats B (16)."
+     "explain": "90 = 2 × 3² × 5 and 18 = 2 × 3², so a must supply the factor 5 and may include 2⁰ or 2¹ and 3⁰, 3¹ or 3², but no other factor. The possible values are 5, 10, 15, 30, 45 and 90: six of them, while the least is 5. Assuming a must be 90 ÷ 18 = 5 and nothing else makes the count 1 and the answer A.",
+     "why": "a needs only the 5 that 18 lacks; its powers of 2 and 3 can be anything up to those in 90, giving 2 × 3 = 6 values."
     },
     {
-     "id": "QH-5",
-     "type": "numeric",
-     "skill": "Counting",
-     "difficulty": 4,
-     "stem": "How many odd four-digit integers greater than 5,000 have four different digits?",
-     "answer": 1232,
-     "explain": "Choose the thousands digit and the units digit first, because they interact. If the thousands digit is odd (5, 7 or 9), the units digit has 4 odd choices left; if it is even (6 or 8), it has all 5: 3 × 4 + 2 × 5 = 22 pairs. The middle two digits then have 8 × 7 = 56 choices, so 22 × 56 = 1,232."
-    },
-    {
-     "id": "QH-6",
-     "type": "mc",
-     "skill": "Overlapping sets",
-     "difficulty": 4,
-     "stem": "In a group of 50 people, 40 like tea, 38 like coffee and 36 like juice. What is the least possible number of people in the group who like all three drinks?",
-     "options": [
-      "0",
-      "4",
-      "7",
-      "10",
-      "14"
-     ],
-     "answer": 4,
-     "explain": "Count the dislikes: 10 dislike tea, 12 coffee and 14 juice, so at most 10 + 12 + 14 = 36 people dislike at least one drink. At least 50 − 36 = 14 must like all three, and 14 is reached when no one dislikes two drinks."
-    },
-    {
-     "id": "QH-7",
+     "id": "T1-Q2H-03",
      "type": "qc",
-     "skill": "Absolute value",
-     "difficulty": 3,
-     "given": "|x − 2| = 2x − 7",
-     "qa": "x",
-     "qb": "5",
+     "skill": "Geometry",
+     "difficulty": 4,
+     "given": "Triangle ABC has AB = AC = 10 and BC = 12. Triangle DEF has DE = DF = 10 and EF = 16.",
+     "qa": "The area of triangle ABC",
+     "qb": "The area of triangle DEF",
      "answer": 2,
-     "explain": "If x ≥ 2, then x − 2 = 2x − 7, so x = 5, which works. If x < 2, then 2 − x = 2x − 7 gives x = 3, which contradicts x < 2 (check: |3 − 2| = 1 but 2 × 3 − 7 = −1). So x = 5 is the only solution, and accepting x = 3 to choose 'cannot be determined' is the trap."
+     "explain": "In each triangle the height from the apex bisects the base. For ABC it is √(10² − 6²) = 8, so the area is ½ × 12 × 8 = 48; for DEF it is √(10² − 8²) = 6, and the area is ½ × 16 × 6 = 48. The longer base is exactly offset by the shorter height, since both triangles are two 6–8–10 right triangles joined together.",
+     "why": "The longer base suggests a larger area, but the height shrinks to match."
     },
     {
-     "id": "QH-8",
-     "type": "multi",
-     "skill": "Number properties",
-     "stem": "If n is an odd integer, which of the following must be true? Select all that apply.",
-     "options": [
-      "n² + 1 is even",
-      "3n is even",
-      "n(n + 1) is even",
-      "(n + 3) / 2 is odd",
-      "n² − 1 is divisible by 8"
-     ],
-     "answer": [
-      0,
-      2,
-      4
-     ],
-     "explain": "Odd × odd is odd, so n² + 1 is even, and n(n + 1) contains the even factor n + 1. n² − 1 = (n − 1)(n + 1) is the product of two consecutive even numbers, one of them a multiple of 4, so 8 divides it. 3n is odd, and n = 1 gives (n + 3)/2 = 2, which is even.",
-     "difficulty": 4
-    },
-    {
-     "id": "QH-9",
-     "type": "mc",
-     "skill": "Coordinate geometry",
+     "id": "T1-Q2H-04",
+     "type": "qc",
+     "skill": "Probability",
      "difficulty": 3,
-     "stem": "In the xy-plane, the parabola y = x² − 4 and the line y = 2x − 1 meet at two points. What is the distance between these two points?",
-     "options": [
-      "4√2",
-      "2√10",
-      "8",
-      "4√5",
-      "4√10"
-     ],
-     "answer": 3,
-     "explain": "Setting x² − 4 = 2x − 1 gives x² − 2x − 3 = 0, so x = 3 or x = −1, giving the points (3, 5) and (−1, −3). Distance = √(4² + 8²) = √80 = 4√5."
+     "given": "Each of 4 seeds planted in a tray will fail to sprout with probability 1/6, independently of the others.",
+     "qa": "The probability that at least one of the 4 seeds fails to sprout",
+     "qb": "1/2",
+     "answer": 0,
+     "explain": "All four sprout with probability (5/6)⁴ = 625/1,296, so at least one fails with probability 671/1,296, slightly more than 648/1,296 = 1/2. Adding 1/6 four times (2/3) overcounts the cases where two or more seeds fail, and guessing below 1/2 because each failure is unlikely is the other trap."
     },
     {
-     "id": "QH-10",
+     "id": "T1-Q2H-05",
+     "type": "qc",
+     "skill": "Mixtures",
+     "difficulty": 4,
+     "given": "Fertilizer X is 30% nitrogen by weight and fertilizer Y is 60% nitrogen by weight. A blend of x kilograms of X and y kilograms of Y, where x > 0 and y > 0, is more than 40% nitrogen by weight.",
+     "qa": "x",
+     "qb": "2y",
+     "answer": 1,
+     "explain": "The condition is 0.3x + 0.6y > 0.4(x + y), which simplifies to 0.2y > 0.1x, or x < 2y. The blend is exactly 40% when x = 2y, because 40% is twice as far from 60% as from 30%. Taking equal amounts as the balance point (which actually gives 45%) leads to comparing x with y instead.",
+     "why": "The blend is exactly 40% when x = 2y, so 'more than 40%' means x is less than 2y."
+    },
+    {
+     "id": "T1-Q2H-06",
+     "type": "mc",
+     "skill": "Number properties",
+     "difficulty": 4,
+     "stem": "How many integers from 1 to 300, inclusive, are divisible by 6 or by 9 but not by both?",
+     "options": [
+      "51",
+      "59",
+      "67",
+      "73",
+      "83"
+     ],
+     "answer": 0,
+     "explain": "There are 50 multiples of 6 and 33 multiples of 9, and a number divisible by both is a multiple of 18 (not 54), of which there are 16. Divisible by 6 only: 50 − 16 = 34; by 9 only: 33 − 16 = 17; together 51. Inclusion–exclusion gives 67, but that still counts the multiples of 18 once, and they must be removed from both lists; using 54 instead of 18 gives 73.",
+     "why": "The lcm of 6 and 9 is 18, not 54, and 'not by both' removes the multiples of 18 from each list."
+    },
+    {
+     "id": "T1-Q2H-07",
      "type": "mc",
      "skill": "Inequalities",
      "difficulty": 4,
@@ -2098,86 +1629,137 @@
       "12"
      ],
      "answer": 0,
-     "explain": "For −2 ≤ x ≤ 3 the sum is always 5, which gives 6 integers. Above 3 the sum is 2x − 1, so x < 5 adds 4, and below −2 it is 1 − 2x, so x > −4 adds −3: 8 integers in all, from −3 to 4. Including −4 and 5, where the sum equals exactly 9, is the trap."
+     "explain": "For −2 ≤ x ≤ 3 the sum is always 5, which gives the 6 integers −2 to 3. Above 3 the sum is 2x − 1, which is less than 9 only for x < 5, adding x = 4; below −2 it is 1 − 2x, which is less than 9 only for x > −4, adding x = −3. That makes 8 integers, from −3 to 4. Counting −4 and 5, where the sum equals exactly 9, gives the trap answer 10.",
+     "why": "x = −4 and x = 5 make the sum exactly 9, which the strict inequality excludes."
     },
     {
-     "id": "QH-11",
-     "type": "fraction",
-     "skill": "Conditional probability",
+     "id": "T1-Q2H-08",
+     "type": "numeric",
+     "skill": "Geometry",
      "difficulty": 3,
-     "stem": "Two fair six-sided dice are rolled. Given that at least one of the dice shows a 6, what is the probability that the sum of the two dice is at least 10? Give your answer as a fraction.",
+     "stem": "The interior angles of a convex polygon add up to 2,340°. How many diagonals does the polygon have?",
+     "answer": 90,
+     "explain": "(n − 2) × 180 = 2,340 gives n − 2 = 13, so n = 15. Each vertex is joined by a diagonal to the n − 3 = 12 vertices that are neither itself nor its neighbors, and each diagonal is counted from both ends: 15 × 12 ÷ 2 = 90. Forgetting to halve gives 180."
+    },
+    {
+     "id": "T1-Q2H-09",
+     "type": "multi",
+     "skill": "Algebra",
+     "difficulty": 5,
+     "stem": "The equation x² − kx + 9 = 0, where k is a constant, has two different real solutions, and both are positive. Which of the following could be the value of k? Indicate all such values.",
+     "options": [
+      "−10",
+      "−7",
+      "−6",
+      "0",
+      "6",
+      "6.5",
+      "9"
+     ],
      "answer": [
       5,
-      11
+      6
      ],
-     "explain": "There are 11 outcomes with at least one 6, not 12, because (6, 6) is counted once. Of these, (6, 4), (4, 6), (6, 5), (5, 6) and (6, 6) have a sum of at least 10, giving 5/11."
+     "explain": "Two different real solutions need k² − 36 > 0, so k > 6 or k < −6. The solutions multiply to 9, so they have the same sign, and they add up to k, so both are positive only if k > 0. Hence k > 6: 6.5 and 9 work, while k = 6 gives a repeated solution and −7 and −10 give two negative solutions.",
+     "why": "k = −7 and k = −10 pass the discriminant test, but their solutions are negative because the solutions add up to k."
     },
     {
-     "id": "QH-12",
+     "id": "T1-Q2H-10",
      "type": "mc",
-     "skill": "Rates and work",
-     "difficulty": 4,
-     "stem": "Working together at their constant rates, machines P and Q can complete a job in 12 hours. On one occasion, P worked alone for 6 hours and then Q, working alone, finished the job in a further 21 hours. How many hours would P take to complete the whole job working alone?",
+     "skill": "Geometry",
+     "difficulty": 5,
+     "stem": "A cube has edges of length 6. An ant walks along the surface of the cube from one vertex to the vertex farthest from it. What is the length of the shortest possible path?",
      "options": [
-      "12",
-      "15",
-      "16",
-      "18",
-      "20"
+      "6√3",
+      "6√5",
+      "6 + 6√2",
+      "6√6",
+      "18"
+     ],
+     "answer": 1,
+     "explain": "Unfold two adjacent faces into a 6 by 12 rectangle; the two vertices become opposite corners, so the shortest path is √(6² + 12²) = √180 = 6√5 ≈ 13.4. The space diagonal 6√3 passes through the inside of the cube, not along its surface. A face diagonal plus an edge (6 + 6√2 ≈ 14.5) bends at a corner, so it is longer than the straight line on the unfolded faces.",
+     "why": "The space diagonal is not on the surface, and the face-diagonal-plus-edge route is beaten by the straight line on the unfolded net."
+    },
+    {
+     "id": "T1-Q2H-11",
+     "type": "fraction",
+     "skill": "Probability",
+     "difficulty": 4,
+     "stem": "In a sports league of 5 teams, each team plays every other team exactly once, and every game has a winner. Suppose each team in a game is equally likely to win it, independently of all other games. What is the probability that at least one team wins all of its games? Give your answer as a fraction.",
+     "answer": [
+      5,
+      16
+     ],
+     "explain": "A given team wins all 4 of its games with probability (1/2)⁴ = 1/16. Two teams cannot both win all their games, because they play each other, so the five events never overlap and the probability is 5 × 1/16 = 5/16. Treating the events as independent, as in 1 − (15/16)⁵, gives a slightly different and wrong value.",
+     "why": "The events 'this team is unbeaten' cannot happen together, so their probabilities add exactly; treating them as independent is wrong."
+    },
+    {
+     "id": "T1-Q2H-12",
+     "type": "mc",
+     "skill": "Overlapping sets",
+     "difficulty": 4,
+     "stem": "Of the 50 farms in a district, 40 grow wheat, 38 grow barley and 36 grow oats. What is the least possible number of these farms that grow all three crops?",
+     "options": [
+      "0",
+      "4",
+      "7",
+      "10",
+      "14"
      ],
      "answer": 4,
-     "explain": "Let the rates be p and q, with p + q = 1/12 and 6p + 21q = 1. Six hours of both together does half the job, so 6p + 6q = 1/2 and therefore 15q = 1/2, giving q = 1/30. Then p = 1/12 − 1/30 = 1/20, so P alone takes 20 hours."
+     "explain": "Count the farms that lack each crop: 10 lack wheat, 12 barley and 14 oats, so at most 10 + 12 + 14 = 36 farms lack at least one crop. At least 50 − 36 = 14 must grow all three, and 14 is reached when no farm lacks two crops. Answering 0 assumes the groups can avoid one another, which 114 crop-growings among 50 farms do not allow.",
+     "why": "Counting the farms that lack each crop, rather than those that grow it, gives the bound directly."
     },
     {
-     "id": "QH-13",
+     "id": "T1-Q2H-13",
      "type": "mc",
      "skill": "Data interpretation",
-     "chart": "museum-visitors",
-     "difficulty": 3,
-     "stem": "For how many of the years from 2020 to 2024 was the ratio of Museum A's visitors to Museum B's visitors greater than it had been in the previous year?",
+     "chart": "t1-farm-crops",
+     "difficulty": 4,
+     "stem": "In which year was the area planted with wheat the smallest percent of the total area planted with the three crops?",
      "options": [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5"
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025"
      ],
-     "answer": 2,
-     "explain": "The ratios are 2019: 40/35 ≈ 1.14; 2020: 1.5; 2021: 1.0; 2022: 1.4; 2023: 1.25; 2024: 1.4. The ratio rose in 2020, 2022 and 2024, so 3 years; tracking only Museum A's growth is the trap."
+     "answer": 3,
+     "explain": "The totals are 230, 260, 290, 320 and 330 hectares, so wheat's shares are about 52%, 54%, 52%, 44% and 52%. The smallest share is in 2024 (140/320 ≈ 44%), when barley jumped to 120 hectares. 2021 has the least wheat (120 hectares) but also the smallest total, so its share is about 52%.",
+     "why": "The year with the least wheat is not the year with the smallest wheat share, because the totals differ."
     },
     {
-     "id": "QH-14",
+     "id": "T1-Q2H-14",
      "type": "numeric",
      "skill": "Data interpretation",
-     "chart": "museum-visitors",
-     "difficulty": 3,
-     "stem": "Suppose that, after 2024, Museum A's visitors grow each year by the same percentage as they grew from 2023 to 2024. How many thousand visitors would Museum A have in 2026? (Enter the number only.)",
-     "answer": 137.2,
-     "explain": "From 2023 to 2024 visitors rose from 50 to 70 thousand, a 40% increase. Two more years give 70 × 1.4 × 1.4 = 137.2 thousand; adding 20 thousand a year (110) is the trap."
+     "chart": "t1-farm-crops",
+     "difficulty": 4,
+     "stem": "In 2025 the farm harvested 8 tonnes per hectare of wheat, 6 tonnes per hectare of barley and 4.5 tonnes per hectare of oats. For all the land planted with the three crops in 2025, what was the average harvest in tonnes per hectare, to the nearest tenth?",
+     "answer": 6.8,
+     "explain": "The harvest was 170 × 8 + 100 × 6 + 60 × 4.5 = 1,360 + 600 + 270 = 2,230 tonnes from 170 + 100 + 60 = 330 hectares, so 2,230/330 ≈ 6.76, or 6.8, tonnes per hectare. The simple average of 8, 6 and 4.5 (about 6.2) ignores that far more land grew wheat.",
+     "why": "The average must be weighted by area; the plain mean of the three yields is about 6.2."
     },
     {
-     "id": "QH-15",
+     "id": "T1-Q2H-15",
      "type": "multi",
      "skill": "Data interpretation",
-     "chart": "museum-visitors",
-     "difficulty": 3,
-     "stem": "Based on the chart, which of the following statements are true? Select all that apply.",
+     "chart": "t1-farm-crops",
+     "difficulty": 4,
+     "stem": "Which of the following statements are true? Indicate all such statements.",
      "options": [
-      "In every year shown, Museum A had more visitors than Museum B.",
-      "Museum B's visitors in 2024 were more than double its visitors in 2020.",
-      "The median of Museum A's six annual visitor numbers is greater than 40 thousand.",
-      "Museum B's average (arithmetic mean) annual number of visitors over the six years is less than 35 thousand.",
-      "From 2022 to 2023, Museum B's visitors increased by a greater percentage than Museum A's."
+      "Oats made up a greater percent of the total area planted with the three crops in 2025 than in 2021.",
+      "In each year from 2022 to 2025, the total area planted with the three crops was more than 5% greater than in the previous year.",
+      "The only year in which the wheat area decreased from the previous year was also the year with the largest increase in barley area.",
+      "The median of the five annual areas planted with oats is greater than their average (arithmetic mean)."
      ],
      "answer": [
-      2,
-      3,
-      4
+      0,
+      2
      ],
-     "explain": "Museum A's values in order are 20, 35, 40, 45, 50, 70, so the median is 42.5. Museum B totals 200, an average of about 33.3, and its 2022–2023 rise is 15/25 = 60% against A's 15/35 ≈ 43%. In 2021 the museums were equal (20 each), and B's 2024 figure (50) is less than double its 2020 figure (30)."
+     "explain": "Oats rose from 30/230 ≈ 13% of the total to 60/330 ≈ 18%. The totals 230, 260, 290, 320 and 330 rise by about 13%, 12%, 10% and then only 3% (10/320), so not every year exceeds 5%. Wheat fell only in 2024, the year barley rose most (by 30 hectares). The oat areas 30, 50, 50, 60 and 60 have median 50 and mean 250/5 = 50, which are equal, not one greater than the other.",
+     "why": "The totals rise steadily until 2025, when the increase drops to about 3%, and the oats median equals the mean rather than exceeding it."
     }
    ]
   }
- },
- "blurb": "The original test, upgraded to three second-section tiers."
+ }
 }

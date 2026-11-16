@@ -1,0 +1,592 @@
+{
+ "id": "shared-easy",
+ "passages": {
+  "e-forgiving-streets": {
+   "paragraphs": [
+    [
+     "For much of the twentieth century, traffic engineers designed streets on a principle sometimes called forgiving design: if a road gave drivers generous room for error, their mistakes would less often turn into crashes.",
+     "Lanes were widened, curves were straightened, and trees and other roadside objects were cleared away, so that a driver who drifted or misjudged a bend would have space to recover.",
+     "The principle seemed self-evident, and it was applied not only to highways but also to residential and shopping streets, where it helped produce the broad, open roads typical of many suburbs built after the Second World War."
+    ],
+    [
+     "Beginning in the 1990s, however, a number of urban designers argued that forgiving design rested on a mistaken picture of how people drive.",
+     "Drivers, they pointed out, do not hold to a fixed speed and simply enjoy the benefit of extra space; instead, they adjust their speed to how risky a road appears.",
+     "A wide, straight, unobstructed street looks safe, and so it invites faster driving, which can cancel out the margin for error that the design was meant to provide.",
+     "Studies of city streets lent some support to this view: on several urban roads where lanes had been narrowed or trees planted along the curb, average speeds fell and the number of crashes did not rise, even though drivers now had less room to correct their mistakes.",
+     "Because the harm done when a car strikes a pedestrian depends heavily on the car's speed, the critics concluded that on busy urban streets a design that feels slightly less comfortable to drive may in fact be the safer one."
+    ],
+    [
+     "This argument does not show that forgiving design was simply wrong.",
+     "On rural highways, where traffic is meant to move quickly and pedestrians are rare, a driver who leaves the road at high speed still benefits greatly from a wide shoulder and a clear roadside.",
+     "The lesson of the debate is rather that no feature of a street is safe or dangerous in itself: its effect depends on how drivers respond to it, and that response depends in turn on what the street is for."
+    ]
+   ]
+  },
+  "e-generation-effect": [
+   "People usually remember a word better if they have produced it themselves than if they have simply read it: someone who completes the pair 'hot–c_ld' is more likely to recall 'cold' later than someone who reads the pair already filled in.",
+   "This advantage, known as the generation effect, was at first attributed to effort: producing a word takes more work than reading it, and the extra work was thought to strengthen the memory.",
+   "Later experiments complicated this account by asking participants to generate made-up nonwords, for example by completing a string of letters according to a rule.",
+   "Although producing the nonwords demanded at least as much effort as producing real words, it gave little or no memory advantage over simply reading them.",
+   "Many researchers now conclude that effort aids memory in this way only when it draws on knowledge already stored there, such as a word's meaning or its links to other words."
+  ],
+  "e-yoghurt-aroma": [
+   "A food manufacturer cut the sugar in its strawberry yoghurt by 20 percent and, to compensate, added extra strawberry aroma.",
+   "In blind tastings, panels of regular yoghurt eaters rated the new recipe exactly as sweet as the original.",
+   "The company concluded that the added aroma had made up for the missing sugar, and it now plans to use the same approach to reduce the sugar in its other desserts."
+  ]
+ },
+ "tables": {
+  "e-sports-shop": {
+   "title": "Monthly sales at a sports shop, January to April",
+   "head": [
+    "Month",
+    "Soccer balls sold",
+    "Price per soccer ($)",
+    "Pairs of sneakers sold",
+    "Price per pair ($)"
+   ],
+   "rows": [
+    [
+     "January",
+     "40",
+     "15",
+     "20",
+     "60"
+    ],
+    [
+     "February",
+     "60",
+     "15",
+     "25",
+     "60"
+    ],
+    [
+     "March",
+     "50",
+     "18",
+     "30",
+     "45"
+    ],
+    [
+     "April",
+     "70",
+     "16",
+     "24",
+     "55"
+    ]
+   ]
+  }
+ },
+ "charts": {},
+ "sections": {
+  "V2E": {
+   "measure": "Verbal",
+   "minutes": 23,
+   "label": "Verbal Reasoning: Section 2",
+   "questions": [
+    {
+     "id": "E-V-01",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 3,
+     "stem": "Far from being ______, the committee's report was so carefully hedged that readers struggled to find a single firm recommendation in it.",
+     "blanks": [
+      [
+       "tentative",
+       "lengthy",
+       "unequivocal",
+       "partisan",
+       "belated"
+      ]
+     ],
+     "answer": [
+      2
+     ],
+     "explain": "A report so hedged that no firm recommendation appears is the opposite of clear and definite, and 'far from being' asks for that opposite: unequivocal. 'Tentative' is the trap, since it describes what the report actually was. Nothing in the sentence concerns length, bias or timing."
+    },
+    {
+     "id": "E-V-02",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 2,
+     "stem": "Because the old factory's brick walls proved far sturdier than expected, the architects decided to ______ them in the new building rather than demolish them, and the exposed brick now gives the lobby much of its character.",
+     "blanks": [
+      [
+       "dismantle",
+       "replicate",
+       "disguise",
+       "retain",
+       "abandon"
+      ]
+     ],
+     "answer": [
+      3
+     ],
+     "explain": "'Rather than demolish them' and the walls still being visible in the lobby show they were kept: retain. 'Disguise' clashes with the brick being exposed, and 'dismantle' means much the same as demolish."
+    },
+    {
+     "id": "E-V-03",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 2,
+     "stem": "Early reviewers dismissed the cookbook as (i)______, a mere collection of familiar recipes, but cooks soon discovered that its methods were genuinely (ii)______, often reversing steps that every other book took for granted.",
+     "blanks": [
+      [
+       "exhaustive",
+       "derivative",
+       "innovative"
+      ],
+      [
+       "conventional",
+       "tedious",
+       "novel"
+      ]
+     ],
+     "answer": [
+      1,
+      2
+     ],
+     "explain": "'A mere collection of familiar recipes' defines the first blank: derivative. 'But' and the methods that reverse standard steps call for the opposite in the second: novel. 'Innovative' in the first blank and 'conventional' in the second would reverse the contrast."
+    },
+    {
+     "id": "E-V-04",
+     "type": "tc",
+     "skill": "Text completion",
+     "difficulty": 3,
+     "stem": "The researcher's early findings were (i)______, drawn from only a handful of participants, so she was careful to describe them as (ii)______ rather than conclusive; only after a much larger study had (iii)______ them did she state them with confidence.",
+     "blanks": [
+      [
+       "controversial",
+       "preliminary",
+       "definitive"
+      ],
+      [
+       "decisive",
+       "misleading",
+       "tentative"
+      ],
+      [
+       "contradicted",
+       "corroborated",
+       "ignored"
+      ]
+     ],
+     "answer": [
+      1,
+      2,
+      1
+     ],
+     "explain": "Results from a handful of participants are preliminary, and 'rather than conclusive' calls for tentative. She became confident only once a larger study had corroborated them; a study that contradicted the findings would have undermined her confidence instead. Nothing suggests the early results were controversial."
+    },
+    {
+     "id": "E-V-05",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 2,
+     "stem": "The manager's ______ approach to spending, which included reusing old folders and refusing to replace chairs that still worked, saved the department thousands of pounds.",
+     "options": [
+      "lavish",
+      "frugal",
+      "careless",
+      "innovative",
+      "thrifty",
+      "generous"
+     ],
+     "answer": [
+      1,
+      4
+     ],
+     "explain": "Reusing folders and keeping old chairs to save money describes careful, economical spending: frugal and thrifty. 'Lavish' and 'generous' are the opposite, and reusing folders is hardly innovative."
+    },
+    {
+     "id": "E-V-06",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 3,
+     "stem": "Despite the critic's reputation for harshness, her review of the young playwright's first play was surprisingly ______.",
+     "options": [
+      "scathing",
+      "laudatory",
+      "lengthy",
+      "severe",
+      "complimentary",
+      "anonymous"
+     ],
+     "answer": [
+      1,
+      4
+     ],
+     "explain": "'Despite' her reputation for harshness, the review must have been the reverse of harsh, that is, full of praise: laudatory and complimentary. 'Scathing' and 'severe' form a matching pair, but they describe exactly the harshness the sentence says was absent."
+    },
+    {
+     "id": "E-V-07",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 2,
+     "stem": "The negotiator remained ______ throughout the tense talks, never once raising her voice even when the other side made insulting remarks.",
+     "options": [
+      "belligerent",
+      "composed",
+      "verbose",
+      "indecisive",
+      "unflappable",
+      "impatient"
+     ],
+     "answer": [
+      1,
+      4
+     ],
+     "explain": "Never raising her voice in the face of insults shows calm self-control: composed and unflappable. 'Belligerent' and 'impatient' contradict that calm, and nothing in the sentence concerns how much she talked or whether she could make decisions."
+    },
+    {
+     "id": "E-V-08",
+     "type": "se",
+     "skill": "Sentence equivalence",
+     "difficulty": 3,
+     "stem": "The council's plan to ______ flooding in the valley by restoring wetlands upstream was praised for reducing, though not eliminating, the risk to nearby homes.",
+     "options": [
+      "mitigate",
+      "eliminate",
+      "predict",
+      "alleviate",
+      "ignore",
+      "cause"
+     ],
+     "answer": [
+      0,
+      3
+     ],
+     "explain": "The plan reduces the risk 'though not eliminating' it, so it lessens the flooding: mitigate and alleviate. 'Eliminate' is the trap the sentence explicitly rules out, and a plan cannot predict or ignore flooding by restoring wetlands."
+    },
+    {
+     "id": "E-V-09",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "e-forgiving-streets",
+     "difficulty": 2,
+     "stem": "The passage is primarily concerned with",
+     "options": [
+      "describing the history of suburban road building in the twentieth century",
+      "arguing that forgiving design should be abandoned on every type of road",
+      "explaining a challenge to a long-standing principle of street design and assessing how far that challenge applies",
+      "comparing the safety records of rural highways with those of city streets",
+      "defending traffic engineers against criticism from urban designers"
+     ],
+     "answer": 2,
+     "explain": "The passage sets out forgiving design, presents the urban designers' objection and its evidence, then limits the objection to busy urban streets. Abandoning forgiving design everywhere is too strong, since the final paragraph says it still helps on rural highways; suburban history is only background in the first paragraph."
+    },
+    {
+     "id": "E-V-10",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "e-forgiving-streets",
+     "difficulty": 3,
+     "stem": "The studies of city streets described in the second paragraph are presented as evidence that",
+     "options": [
+      "narrowing urban streets prevents crashes altogether",
+      "drivers prefer narrow streets to wide ones",
+      "planting trees is the most effective way to slow traffic",
+      "reducing the room drivers have to correct mistakes need not lead to more crashes",
+      "rural highways would also be safer if their lanes were narrowed"
+     ],
+     "answer": 3,
+     "explain": "On the narrowed streets crashes 'did not rise, even though drivers now had less room to correct their mistakes', which is exactly what the critics' view predicts. The studies show no rise in crashes, not their disappearance, and the passage says nothing about drivers' preferences or about narrowing rural highways."
+    },
+    {
+     "id": "E-V-11",
+     "type": "multi",
+     "skill": "Reading comprehension",
+     "passage": "e-forgiving-streets",
+     "difficulty": 3,
+     "stem": "Which of the following can be inferred from the passage about forgiving design? Select all that apply.",
+     "options": [
+      "Its supporters assumed that giving drivers more space would not lead them to change their behavior in a way that cancels the benefit.",
+      "It remains appropriate for some kinds of road.",
+      "It was first developed for residential streets and only later extended to highways."
+     ],
+     "answer": [
+      0,
+      1
+     ],
+     "explain": "The critics say forgiving design rested on a mistaken picture in which drivers 'simply enjoy the benefit of extra space' rather than speeding up, so its supporters assumed no such offsetting change. The final paragraph says rural highways still benefit from it. The passage says it was applied to highways and also to residential streets, but never that residential streets came first."
+    },
+    {
+     "id": "E-V-12",
+     "type": "sentence",
+     "skill": "Reading comprehension",
+     "passage": "e-forgiving-streets",
+     "difficulty": 2,
+     "stem": "Select the sentence in which the author states the general principle that the debate described in the passage illustrates.",
+     "answer": 10,
+     "explain": "The last sentence draws 'the lesson of the debate': no street feature is safe or dangerous in itself, because its effect depends on drivers' response and the street's purpose. The sentence about busy urban streets gives the critics' specific conclusion, not the general principle."
+    },
+    {
+     "id": "E-V-13",
+     "type": "mc",
+     "skill": "Reading comprehension",
+     "passage": "e-generation-effect",
+     "difficulty": 2,
+     "stem": "The experiments with nonwords are mentioned primarily in order to",
+     "options": [
+      "show that the generation effect is stronger for nonwords than for real words",
+      "argue that reading is a more effective way to learn than producing",
+      "demonstrate that people cannot remember nonwords at all",
+      "present evidence that effort alone does not account for the generation effect",
+      "explain why producing real words takes more effort than producing nonwords"
+     ],
+     "answer": 3,
+     "explain": "Producing nonwords took at least as much effort as producing real words yet gave little or no memory advantage, which undercuts the idea that effort by itself explains the effect. The passage says nonwords show a weaker effect, not a stronger one, and it never claims they cannot be remembered at all."
+    },
+    {
+     "id": "E-V-14",
+     "type": "multi",
+     "skill": "Reading comprehension",
+     "passage": "e-generation-effect",
+     "difficulty": 3,
+     "stem": "Which of the following can be inferred from the passage? Select all that apply.",
+     "options": [
+      "The original explanation of the generation effect would predict a memory advantage for nonwords that participants produced themselves.",
+      "Producing material oneself improves later recall whatever kind of material is produced.",
+      "People who read nonwords recall them about as well as people who produce them."
+     ],
+     "answer": [
+      0,
+      2
+     ],
+     "explain": "The original account credited the effect to effort, and producing nonwords took at least as much effort as producing words, so that account predicts an advantage for them. The nonword experiments found 'little or no memory advantage' over reading, so recall was similar either way. That same finding rules out the claim that producing any kind of material helps."
+    },
+    {
+     "id": "E-V-15",
+     "type": "mc",
+     "skill": "Reading comprehension (argument)",
+     "passage": "e-yoghurt-aroma",
+     "difficulty": 3,
+     "stem": "Which of the following, if true, most seriously weakens the company's conclusion?",
+     "options": [
+      "Strawberry aroma costs more per serving than the sugar it replaced.",
+      "In its first month, the new yoghurt sold slightly less than the original had sold in the month before.",
+      "In a separate blind tasting, the same panels rated a version with 20 percent less sugar and no added aroma as exactly as sweet as the original.",
+      "Some panellists said that the new recipe tasted more strongly of strawberry than the original.",
+      "Aroma compounds are known to affect how sweet some other fruit-flavored foods taste."
+     ],
+     "answer": 2,
+     "explain": "If the panels could not detect the 20 percent cut even without extra aroma, there was no lost sweetness for the aroma to make up, so the tasting results no longer support the company's explanation. Sales figures are tempting but concern a different month and many other factors, not perceived sweetness. The point about other fruit-flavored foods strengthens the conclusion rather than weakening it."
+    }
+   ]
+  },
+  "Q2E": {
+   "measure": "Quant",
+   "minutes": 26,
+   "label": "Quantitative Reasoning: Section 2",
+   "questions": [
+    {
+     "id": "E-Q-01",
+     "type": "qc",
+     "skill": "Percentages",
+     "difficulty": 3,
+     "given": "A jacket priced at $80 has its price raised by 25%. The new price is then reduced by 25%.",
+     "qa": "The final price of the jacket, in dollars",
+     "qb": "80",
+     "answer": 1,
+     "explain": "After the rise the price is 80 × 1.25 = $100, and 25% off $100 is $25, leaving $75. The two changes do not cancel, because the cut is taken from a larger amount than the rise was. So Quantity B is greater."
+    },
+    {
+     "id": "E-Q-02",
+     "type": "qc",
+     "skill": "Algebra",
+     "difficulty": 3,
+     "given": "y² = 4y",
+     "qa": "y",
+     "qb": "4",
+     "answer": 3,
+     "explain": "Rearranging gives y² − 4y = 0, so y(y − 4) = 0 and y is 0 or 4. Dividing both sides by y to get y = 4 silently assumes y ≠ 0. If y = 4 the quantities are equal; if y = 0, Quantity B is greater, so the relationship cannot be determined."
+    },
+    {
+     "id": "E-Q-03",
+     "type": "qc",
+     "skill": "Geometry",
+     "difficulty": 2,
+     "given": "A triangle has two sides of lengths 5 and 8.",
+     "qa": "The length of the third side",
+     "qb": "3",
+     "answer": 0,
+     "explain": "Any side of a triangle must be longer than the difference of the other two and shorter than their sum, so the third side is between 8 − 5 = 3 and 8 + 5 = 13. A third side of exactly 3 would make the three points lie on a straight line, so it must be more than 3. Quantity A is greater."
+    },
+    {
+     "id": "E-Q-04",
+     "type": "qc",
+     "skill": "Geometry",
+     "difficulty": 2,
+     "given": "A rectangular floor measuring 6 meters by 4 meters is covered exactly, with no gaps or overlaps, by square tiles with sides of 50 centimeters.",
+     "qa": "The number of tiles used",
+     "qb": "96",
+     "answer": 2,
+     "explain": "Along the 6-meter side 600 ÷ 50 = 12 tiles fit, and along the 4-meter side 400 ÷ 50 = 8 fit, so 12 × 8 = 96 tiles are used. A common slip is dividing the area 24 m² by 0.5, which gives 48; each tile covers 0.5 × 0.5 = 0.25 m², and 24 ÷ 0.25 = 96. The quantities are equal."
+    },
+    {
+     "id": "E-Q-05",
+     "type": "qc",
+     "skill": "Algebra",
+     "difficulty": 3,
+     "given": "p and q are different positive integers, and p + q = 10.",
+     "qa": "pq",
+     "qb": "25",
+     "answer": 1,
+     "explain": "With a fixed sum, the product is largest when the two numbers are as close as possible. The product 25 needs p = q = 5, which is not allowed, so the largest possible product is 4 × 6 = 24. Quantity B is greater."
+    },
+    {
+     "id": "E-Q-06",
+     "type": "mc",
+     "skill": "Rates",
+     "difficulty": 3,
+     "stem": "A cyclist rides 24 kilometers to a lake at an average speed of 12 kilometers per hour and returns along the same 24-kilometer route at an average speed of 8 kilometers per hour. What is her average speed for the whole round trip, in kilometers per hour?",
+     "options": [
+      "9.2",
+      "9.6",
+      "10",
+      "10.4",
+      "12"
+     ],
+     "answer": 1,
+     "explain": "The outward trip takes 24 ÷ 12 = 2 hours and the return takes 24 ÷ 8 = 3 hours, so she covers 48 km in 5 hours: 48 ÷ 5 = 9.6 km/h. The tempting 10 averages the two speeds, but she spends longer at the slower speed, which pulls the average below 10."
+    },
+    {
+     "id": "E-Q-07",
+     "type": "mc",
+     "skill": "Algebra",
+     "difficulty": 2,
+     "stem": "Tickets for a school play cost $4 for students and $7 for adults. On opening night, 150 tickets were sold for a total of $795. How many adult tickets were sold?",
+     "options": [
+      "50",
+      "55",
+      "60",
+      "65",
+      "70"
+     ],
+     "answer": 3,
+     "explain": "If all 150 tickets had been student tickets the takings would be 150 × 4 = $600. Each adult ticket adds $3 more, and the extra is 795 − 600 = $195, so there were 195 ÷ 3 = 65 adult tickets. Check: 85 × 4 + 65 × 7 = 340 + 455 = 795."
+    },
+    {
+     "id": "E-Q-08",
+     "type": "numeric",
+     "skill": "Geometry",
+     "difficulty": 2,
+     "stem": "A rectangular lawn measures 18 meters by 12 meters. A path 1 meter wide runs around the outside of the lawn, along all four sides. What is the area of the path, in square meters?",
+     "answer": 64,
+     "explain": "The lawn and path together form a rectangle (18 + 2) by (12 + 2) = 20 m by 14 m, with area 280 m². Subtracting the lawn's 18 × 12 = 216 m² leaves 64 m². Multiplying the lawn's perimeter, 60 m, by the 1 m width gives 60 and misses the four 1 m by 1 m corner squares."
+    },
+    {
+     "id": "E-Q-09",
+     "type": "multi",
+     "skill": "Number properties",
+     "difficulty": 3,
+     "stem": "A coach divides 36 players into teams so that every player is on exactly one team, all teams are the same size, and each team has more than 3 but fewer than 12 players. Which of the following could be the number of teams? Indicate all such values.",
+     "options": [
+      "3",
+      "4",
+      "6",
+      "8",
+      "9",
+      "12"
+     ],
+     "answer": [
+      1,
+      2,
+      4
+     ],
+     "explain": "The team size must divide 36 and lie between 4 and 11, so it is 4, 6 or 9, giving 9, 6 or 4 teams. Three teams would need 12 players each and twelve teams would need 3 each, both outside the limits. Eight teams is impossible because 8 does not divide 36."
+    },
+    {
+     "id": "E-Q-10",
+     "type": "mc",
+     "skill": "Probability",
+     "difficulty": 2,
+     "stem": "A bag contains 4 red, 5 blue and 3 green counters. Two counters are drawn at random, one after the other, without replacement. What is the probability that both counters are red?",
+     "options": [
+      "1/11",
+      "1/9",
+      "4/33",
+      "1/6",
+      "1/3"
+     ],
+     "answer": 0,
+     "explain": "The first counter is red with probability 4/12. If it was, 3 of the remaining 11 counters are red, so the probability is 4/12 × 3/11 = 12/132 = 1/11. The answer 1/9 comes from (4/12)², which would apply only if the first counter were put back."
+    },
+    {
+     "id": "E-Q-11",
+     "type": "fraction",
+     "skill": "Fractions",
+     "difficulty": 2,
+     "stem": "Priya spent 1/4 of her vacation money on a train ticket and then spent 1/3 of what remained on a hotel. What fraction of her original vacation money did she have left? Give your answer as a fraction.",
+     "answer": [
+      1,
+      2
+     ],
+     "explain": "After the ticket she has 3/4 of her money. The hotel takes 1/3 of that, leaving 2/3 × 3/4 = 1/2. Subtracting 1/4 and 1/3 from the whole, giving 5/12, wrongly treats the second fraction as a share of the original amount."
+    },
+    {
+     "id": "E-Q-12",
+     "type": "mc",
+     "skill": "Geometry",
+     "difficulty": 3,
+     "stem": "A café sells round pizzas in two sizes: a large with a diameter of 36 centimeters and a small with a diameter of 24 centimeters. Both pizzas have the same thickness. The area of the large pizza is how many times the area of the small pizza?",
+     "options": [
+      "1.25",
+      "1.5",
+      "1.75",
+      "2",
+      "2.25"
+     ],
+     "answer": 4,
+     "explain": "The diameters are in the ratio 36 : 24 = 1.5 : 1. Areas of circles scale with the square of the diameter, so the ratio of areas is 1.5² = 2.25. The answer 1.5 compares lengths, not areas."
+    },
+    {
+     "id": "E-Q-13",
+     "type": "mc",
+     "skill": "Data interpretation",
+     "difficulty": 2,
+     "table": "e-sports-shop",
+     "stem": "By approximately what percent did the total number of items sold (soccer balls plus pairs of sneakers) increase from January to April?",
+     "options": [
+      "36%",
+      "47%",
+      "57%",
+      "64%",
+      "75%"
+     ],
+     "answer": 2,
+     "explain": "January's total is 40 + 20 = 60 items and April's is 70 + 24 = 94, an increase of 34. As a percent of the January figure that is 34 ÷ 60 ≈ 57%. Dividing by April's 94 gives about 36%, and 75% is the increase in soccer balls alone."
+    },
+    {
+     "id": "E-Q-14",
+     "type": "numeric",
+     "skill": "Data interpretation",
+     "difficulty": 3,
+     "table": "e-sports-shop",
+     "stem": "In January, what was the average (arithmetic mean) revenue per item sold, in dollars, counting soccer balls and pairs of sneakers together?",
+     "answer": 30,
+     "explain": "Soccer balls brought in 40 × 15 = $600 and sneakers 20 × 60 = $1,200, a total of $1,800 from 60 items, so the mean is 1,800 ÷ 60 = $30. Averaging the two prices, (15 + 60) ÷ 2 = 37.5, ignores that twice as many soccer balls as pairs of sneakers were sold."
+    },
+    {
+     "id": "E-Q-15",
+     "type": "multi",
+     "skill": "Data interpretation",
+     "difficulty": 3,
+     "table": "e-sports-shop",
+     "stem": "In which of the four months was the shop's revenue from sneakers more than 1.5 times its revenue from soccer balls? Indicate all such months.",
+     "options": [
+      "January",
+      "February",
+      "March",
+      "April"
+     ],
+     "answer": [
+      0,
+      1
+     ],
+     "explain": "Trainer and soccer revenues are $1,200 and $600 in January (ratio 2), $1,500 and $900 in February (about 1.67), $1,350 and $900 in March (exactly 1.5) and $1,320 and $1,120 in April (about 1.18). March is exactly 1.5 times, not more, so only January and February qualify."
+    }
+   ]
+  }
+ }
+}
