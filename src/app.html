@@ -162,6 +162,7 @@ details > summary { cursor: pointer; font-weight: 600; padding-block: 6px }
 <script id="data" type="application/json">__DATA__</script>
 <script>
 __RANDOM_JS__
+__PRACTICE_JS__
 </script>
 <script>
 (function () {
@@ -169,7 +170,11 @@ __RANDOM_JS__
   var DATA = JSON.parse(document.getElementById("data").textContent);
   var CFG = DATA.config, TESTS = DATA.tests;
   var RIX = GRE_RANDOM.indexTests(TESTS, DATA.shared || []), randomCache = {};
-  var K_PROG = "gre-app-v2-progress", K_HIST = "gre-app-v2-history";
+  var K_PROG = "gre-app-v2-progress", K_HIST = "gre-app-v2-history", K_PLOG = "gre-app-v3-practice";
+  // practice-by-topic bank: separate from the tests, so it never enters TESTS or the randomized test
+  var PBANK = DATA.practice || { passages: {}, tables: {}, charts: {}, questions: [] }, PTOPICS = DATA.practiceTopics || {}, PQ = {};
+  PBANK.sections = { Quant: { measure: "Quant", label: "Quant practice" }, Verbal: { measure: "Verbal", label: "Verbal practice" } };
+  PBANK.questions.forEach(function (q) { PQ[q.id] = q; });
   var LET = "ABCDEFGHIJ";
   var QC_OPTS = ["Quantity A is greater.", "Quantity B is greater.", "The two quantities are equal.", "The relationship cannot be determined from the information given."];
   var TIER_SUFFIX = { easier: "E", medium: "M", harder: "H" };
@@ -190,7 +195,11 @@ __RANDOM_JS__
   var who = lsGet(K_WHO, "guest");
   function kHist(w) { return K_HIST + ":" + (w || who); }
   function kProg(w) { return K_PROG + ":" + (w || who); }
+  function kPlog(w) { return K_PLOG + ":" + (w || who); }
   var db = null, sb = null, account = null, accountsOff = false, history = lsGet(kHist(), []), store = who === "guest" ? "browser" : "account", pushed = false;
+  var plog = lsGet(kPlog(), {}); // practice log: question id -> {qid, ok, at, tries, secs}; one Supabase row per question ("pq-<id>")
+  function pRows(entries) { return entries.map(function (e) { return Object.assign({ id: "pq-" + e.qid, kind: "practice" }, e); }); }
+  function allPRows() { return pRows(Object.keys(plog).map(function (k) { return plog[k]; })); }
   function initDb() {
     if (!window.claude || typeof window.claude.use !== "function") return initAccounts();
     window.claude.use("db").then(function (d) {
@@ -199,7 +208,7 @@ __RANDOM_JS__
       var timer = setTimeout(function () { if (view.name === "home") render(); }, 10000);
       d.collection("attempts").onSnapshot(function (snap) {
         clearTimeout(timer);
-        var remote = snap.docs.map(function (x) { return Object.assign({ id: x.id }, x.data()); });
+        var remote = snap.docs.map(function (x) { return Object.assign({ id: x.id }, x.data()); }).filter(function (r) { return r.kind !== "practice"; });
         var ids = {}; remote.forEach(function (r) { ids[r.id] = true; });
         // push local-only attempts up, but only against a confirmed (non-cached) view of the store
         if (!snap.metadata.fromCache && !pushed) { pushed = true; history.filter(function (h) { return !ids[h.id]; }).forEach(function (h) { d.collection("attempts").doc(h.id).set(h).catch(function () {}); }); }
@@ -229,7 +238,7 @@ __RANDOM_JS__
     who = u ? u.id : "guest"; lsSet(K_WHO, who);
     account = u ? { id: u.id, email: u.email } : null;
     store = u ? "account" : "browser";
-    history = lsGet(kHist(), []); progress = lsGet(kProg(), {}); randomCache = {};
+    history = lsGet(kHist(), []); progress = lsGet(kProg(), {}); plog = lsGet(kPlog(), {}); randomCache = {};
     if (u) syncFromServer();
     if (view.name === "home" || (view.name === "attempt" && !progress[view.testId])) go({ name: "home" });
   }
@@ -243,28 +252,32 @@ __RANDOM_JS__
     sb.from("attempts").select("data").then(function (res) {
       if (!account || account.id !== uid) return;
       if (res.error) { toast("Could not reach your account. Showing results saved in this browser."); return; }
-      var remote = res.data.map(function (r) { return r.data; }), ids = {};
+      var remote = [], rlog = {}, ids = {};
+      res.data.forEach(function (r) { if (r.data.kind === "practice") rlog[r.data.qid] = r.data; else remote.push(r.data); });
       remote.forEach(function (r) { ids[r.id] = true; });
-      upsert(history.filter(function (h) { return !ids[h.id]; }));
+      upsert(history.filter(function (h) { return !ids[h.id]; }).concat(pRows(GRE_PRACTICE.newerThan(plog, rlog))));
       history = mergeHist(remote, history); lsSet(kHist(), history);
-      if (view.name === "home" || view.name === "report") render();
+      plog = GRE_PRACTICE.mergeLog(plog, rlog); lsSet(kPlog(), plog);
+      if (view.name === "home" || view.name === "report" || (view.name === "drill" && !drill)) render();
     }, function () { toast("Could not reach your account. Showing results saved in this browser."); });
   }
   function importGuest(yes) {
-    var g = lsGet(kHist("guest"), []);
+    var g = lsGet(kHist("guest"), []), gl = lsGet(kPlog("guest"), {});
     lsSet("gre-app-v3-import-asked:" + account.id, true);
-    if (yes && g.length) {
+    if (yes && (g.length || Object.keys(gl).length)) {
       history = mergeHist(g, history); lsSet(kHist(), history);
-      upsert(g).then(function (ok) { if (ok) lsDel(kHist("guest")); else toast("Copied in this browser; your account could not be reached, so they will sync next time."); });
+      plog = GRE_PRACTICE.mergeLog(gl, plog); lsSet(kPlog(), plog);
+      var won = Object.keys(gl).filter(function (k) { return plog[k] === gl[k]; }).map(function (k) { return gl[k]; }); // only guest answers newer than the account's
+      upsert(g.concat(pRows(won))).then(function (ok) { if (ok) { lsDel(kHist("guest")); lsDel(kPlog("guest")); } else toast("Copied in this browser; your account could not be reached, so they will sync next time."); });
     }
     render();
   }
   function logOut() {
     var w = who;
-    upsert(history).then(function (ok) { // results saved offline must reach the account before they are wiped
+    upsert(history.concat(allPRows())).then(function (ok) { // results saved offline must reach the account before they are wiped
       if (!ok) { toast("Not logged out: your account can't be reached and some results haven't uploaded yet."); return; }
       return (sb ? sb.auth.signOut() : Promise.resolve()).then(function () {}, function () {}).then(function () {
-      lsDel(kHist(w)); lsDel(kProg(w)); // shared laptops: nothing of this person stays behind
+      lsDel(kHist(w)); lsDel(kProg(w)); lsDel(kPlog(w)); // shared laptops: nothing of this person stays behind
       switchUser(null);
     });
     });
@@ -357,10 +370,11 @@ __RANDOM_JS__
   function render() {
     var A = view.name === "attempt" ? progress[view.testId] : null;
     var inSec = A && A.phase === "inSection";
-    var inPractice = view.name === "practice" && view.section;
+    var inPractice = (view.name === "practice" && view.section) || (view.name === "drill" && drill && !drill.done);
     bar.hidden = !(inSec || inPractice);
     calcEl.hidden = !((inSec || inPractice) && ui.calc.show);
     modal.hidden = !ui.help;
+    if (view.name === "drill") return renderDrill();
     if (view.name === "home") return renderHome();
     if (view.name === "report") return renderReport(view.attemptId);
     if (view.name === "practice") return renderPractice();
@@ -381,7 +395,7 @@ __RANDOM_JS__
         (last ? '<button class="btn" data-practice="' + t.id + '">Practice mode</button>' : "") + "</div>" +
         (ui.confirm === "discard:" + t.id ? '<div class="confirm small stack" style="gap:8px">Discard this unfinished attempt? Your answers so far will be deleted.<div class="row"><button class="btn primary" data-yesdiscard="' + t.id + '">Yes, discard</button><button class="btn" data-nodiscard="1">Cancel</button></div></div>' : "") +
         "</div>";
-    }).join("") + randomCard();
+    }).join("") + randomCard() + practiceCard();
     var hist = history.length ? '<div class="panel scroll-x"><table class="plain"><thead><tr><th>Date</th><th>Test</th><th>Verbal</th><th>Quant</th><th>Writing</th><th></th></tr></thead><tbody>' +
       history.map(function (h) {
         var t = testById(h.testId);
@@ -407,6 +421,14 @@ __RANDOM_JS__
     app.querySelectorAll("[data-practice]").forEach(function (b) { b.addEventListener("click", function () { go({ name: "practice", testId: b.dataset.practice }); }); });
     wireAuth();
     on("startRandom", function () { startAttempt("random-" + Date.now(), GRE_RANDOM.compose(RIX, Math.random)); });
+    on("openDrill", function () { drill = null; go({ name: "drill" }); });
+  }
+  function practiceCard() {
+    if (!PBANK.questions.length) return "";
+    var n = Object.keys(plog).filter(function (k) { return PQ[k]; }).length;
+    return '<div class="panel tcard"><div class="row" style="justify-content:space-between"><h3>Practice by topic</h3><span class="pill ' + (n ? "good" : "skip") + '">' + (n ? n + " of " + PBANK.questions.length + " done" : "Not started") + "</span></div>" +
+      '<div class="meta">Quant or Verbal questions one at a time, by topic or mixed, with the answer and explanation after each. A separate question bank, so the tests stay unseen.</div>' +
+      '<div class="row"><button class="btn primary" id="openDrill">Practise</button></div></div>';
   }
 
   // ---------- account panel ----------
@@ -416,11 +438,11 @@ __RANDOM_JS__
     if (ui.recovery && account) return '<div class="panel stack" style="gap:8px"><h3>Choose a new password</h3>' +
       '<div class="row"><input id="newPw" class="numin" type="password" autocomplete="new-password" aria-label="New password" placeholder="New password (8+ characters)" style="width:auto;flex:1;min-width:12em"><button class="btn primary" id="setPw">Save password</button></div>' + msg + "</div>";
     if (account) {
-      var g = lsGet(kHist("guest"), []), ask = g.length && !lsGet("gre-app-v3-import-asked:" + account.id, false);
+      var g = lsGet(kHist("guest"), []), gp = Object.keys(lsGet(kPlog("guest"), {})).length, ask = (g.length || gp) && !lsGet("gre-app-v3-import-asked:" + account.id, false);
       return '<div class="panel stack" style="gap:8px"><div class="row" style="justify-content:space-between"><span>Signed in as <strong>' + esc(account.email) + "</strong></span>" +
         (ui.confirm === "logout" ? "" : '<button class="btn" id="logout">Log out</button>') + "</div>" +
         (ui.confirm === "logout" ? '<div class="confirm small stack" style="gap:8px">Log out?' + (Object.keys(progress).length ? " Your unfinished test on this device will be deleted." : "") + ' Your finished results stay in your account.<div class="row"><button class="btn primary" id="yesLogout">Log out</button><button class="btn" data-nodiscard="1">Cancel</button></div></div>' : "") +
-        (ask ? '<div class="confirm small stack" style="gap:8px">This browser has ' + g.length + " guest result" + (g.length > 1 ? "s" : "") + '. Copy them into your account?<div class="row"><button class="btn primary" id="importYes">Copy them</button><button class="btn" id="importNo">No thanks</button></div></div>' : "") + msg + "</div>";
+        (ask ? '<div class="confirm small stack" style="gap:8px">This browser has guest progress (' + [g.length ? g.length + " test result" + (g.length > 1 ? "s" : "") : "", gp ? gp + " practice answer" + (gp > 1 ? "s" : "") : ""].filter(Boolean).join(", ") + '). Copy it into your account?<div class="row"><button class="btn primary" id="importYes">Copy them</button><button class="btn" id="importNo">No thanks</button></div></div>' : "") + msg + "</div>";
     }
     if (accountsOff || !sb) return '<div class="panel small muted">' + (accountsOff ? "Accounts are unavailable right now, so you are in guest mode: results are saved in this browser only." : "Connecting to accounts…") + "</div>";
     return '<div class="panel stack" style="gap:8px"><h3>Log in or sign up</h3><p class="small muted" style="margin:0">With an account your results follow you to any device. Or just start a test as a guest: results then stay in this browser.</p>' +
@@ -574,6 +596,7 @@ __RANDOM_JS__
   function paintTimer() {
     var el = document.getElementById("timer"); if (!el) return;
     if (view.name === "practice") { el.textContent = "Untimed"; return; }
+    if (view.name === "drill") { var ds = drillSecs(); el.textContent = drill.timer ? fmt(ds) + " / " + fmt(drill.pace) : "Time me"; el.classList.toggle("low", drill.timer && ds > drill.pace); return; }
     var A = progress[view.testId], test = testById(view.testId), t = A.timeLeft[secKey(test, A, A.step)];
     var show = !A.hideTime || t <= 300;
     el.textContent = show ? fmt(t) : "Show time";
@@ -592,7 +615,7 @@ __RANDOM_JS__
       (opts.exit ? '<button class="btn" id="exitPractice">Exit</button>' : "") +
       '<button class="timer" id="timer" title="Show or hide the clock"></button></div></div>';
     paintTimer();
-    on("timer", function () { if (view.name !== "attempt") return; var A = progress[view.testId]; A.hideTime = !A.hideTime; saveProg(); paintTimer(); });
+    on("timer", function () { if (view.name === "drill") { drill.timer = !drill.timer; drillSetup.timer = drill.timer; paintTimer(); return; } if (view.name !== "attempt") return; var A = progress[view.testId]; A.hideTime = !A.hideTime; saveProg(); paintTimer(); });
     on("help", function () { ui.help = true; renderHelp(opts.q, opts.sectionKey, opts.test); modal.hidden = false; });
     on("calcBtn", function () { ui.calc.show = !ui.calc.show; calcEl.hidden = !ui.calc.show; renderCalc(); });
     renderCalc();
@@ -746,7 +769,7 @@ __RANDOM_JS__
     var left = stimulusHtml(test, q, a, showKey), right = questionBody(q, a, showKey) + (after || "");
     app.innerHTML = '<div class="q-grid' + (left ? " split" : "") + '">' + (left ? '<div style="min-width:0">' + left + "</div>" : "") + '<div class="stack" style="min-width:0">' + right + "</div></div>";
   }
-  function answersObj() { return view.name === "practice" ? practice.answers : progress[view.testId].answers; }
+  function answersObj() { return view.name === "drill" ? drill.answers : view.name === "practice" ? practice.answers : progress[view.testId].answers; }
   function setAnswer(q, v) { answersObj()[q.id] = v; if (view.name === "attempt") saveProg(); }
   function wireQuestion(q, rerender) {
     var ans = answersObj();
@@ -771,6 +794,7 @@ __RANDOM_JS__
     if (fn) [fn, fd].forEach(function (el) { el.addEventListener("input", function () { setAnswer(q, [fn.value, fd.value]); syncCheck(); }); });
   }
   function currentQuestionCtx() {
+    if (view.name === "drill") return drill && !drill.done ? { test: PBANK, q: PQ[drill.ids[drill.i]] } : null;
     if (view.name === "practice" && view.section) { var t = testById(view.testId); return { test: t, q: t.sections[view.section].questions[practice.current] }; }
     if (view.name !== "attempt") return null;
     var A = progress[view.testId], test = testById(view.testId); if (!A || A.phase !== "inSection") return null;
@@ -969,6 +993,84 @@ __RANDOM_JS__
     wireQuestion(q, function () { renderPractice(); });
     on("check", function () { practice.checked[q.id] = true; render(); });
     on("retry", function () { delete practice.checked[q.id]; delete practice.answers[q.id]; render(); });
+  }
+
+  // ---------- practice by topic ----------
+  var drill = null, drillSetup = { measure: "Quant", n: 10, timer: false };
+  function drillSecs() { var id = drill.ids[drill.i], s = drill.secs[id] || 0; return drill.checked[id] || !drill.shownAt ? s : s + (Date.now() - drill.shownAt) / 1000; }
+  function drillPause() { var id = drill.ids[drill.i]; if (drill.shownAt && !drill.checked[id]) drill.secs[id] = drillSecs(); drill.shownAt = 0; }
+  function logPractice(q, ok, secs) {
+    var e = { qid: q.id, ok: ok, at: new Date().toISOString(), tries: ((plog[q.id] || {}).tries || 0) + 1, secs: Math.round(secs) };
+    plog[q.id] = e; lsSet(kPlog(), plog);
+    if (account) upsert(pRows([e])); // a failed upload is retried by the next sync
+  }
+  function drillTitle(t) { return t === "mixed" ? "Mixed " + drillSetup.measure : t === "missed" ? "Retry missed" : t; }
+  function startDrill(topic) {
+    var m = drillSetup.measure, ids = GRE_PRACTICE.pick(PBANK, PTOPICS, { measure: m, topic: topic, n: drillSetup.n }, plog, Math.random);
+    if (!ids.length) return toast("No questions to practise here yet.");
+    drill = { measure: m, topic: topic, ids: ids, i: 0, answers: {}, checked: {}, ok: {}, secs: {}, shownAt: 0, timer: drillSetup.timer, pace: m === "Quant" ? 105 : 90, done: false };
+    ui.calc.show = false; render(); window.scrollTo(0, 0);
+  }
+  function renderDrill() {
+    stopTimer();
+    if (!drill) return renderDrillSetup();
+    if (drill.done) return renderDrillSummary();
+    var q = PQ[drill.ids[drill.i]], checked = drill.checked[q.id], a = drill.answers[q.id];
+    if (!checked && !drill.shownAt) drill.shownAt = Date.now();
+    renderBar(drillTitle(drill.topic), "Question " + (drill.i + 1) + " of " + drill.ids.length + " · " + q.topic, { q: q, test: PBANK, sectionKey: drill.measure, calc: drill.measure === "Quant", nav: true, first: drill.i === 0, exit: true });
+    tick = setInterval(paintTimer, 1000);
+    on("back", function () { drillPause(); drill.i--; render(); window.scrollTo(0, 0); });
+    on("next", function () { drillPause(); if (drill.i < drill.ids.length - 1) drill.i++; else drill.done = true; render(); window.scrollTo(0, 0); });
+    on("exitPractice", function () { drillPause(); drill.done = true; ui.calc.show = false; render(); window.scrollTo(0, 0); });
+    var ok = drill.ok[q.id];
+    var after = checked ? '<div class="feedback ' + (ok ? "good" : "bad") + '"><strong>' + (ok ? "Correct." : "Not quite.") + "</strong> Correct answer: " + esc(keyText(PBANK, q)) + "<br>" + esc(q.explain) + "</div>" :
+      '<div class="row"><button class="btn primary" id="check"' + (answered(q, a) ? "" : " disabled") + ">Check answer</button></div>";
+    layoutQuestion(PBANK, q, a, checked, after);
+    if (!checked) wireQuestion(q, function () { renderDrill(); });
+    on("check", function () {
+      var secs = drillSecs(), right = isCorrect(q, drill.answers[q.id]);
+      drill.secs[q.id] = secs; drill.shownAt = 0; drill.checked[q.id] = true; drill.ok[q.id] = right;
+      logPractice(q, right, secs); render();
+    });
+  }
+  function renderDrillSetup() {
+    var m = drillSetup.measure, st = GRE_PRACTICE.stats(PBANK, PTOPICS, m, plog);
+    var missed = PBANK.questions.filter(function (q) { return PTOPICS[q.topic] === m && plog[q.id] && plog[q.id].ok === false; }).length;
+    var all = { total: 0, seen: 0, correct: 0 };
+    Object.keys(st).forEach(function (t) { all.total += st[t].total; all.seen += st[t].seen; all.correct += st[t].correct; });
+    function line(s) { return s.seen + " of " + s.total + " done" + (s.seen ? " · " + Math.round(100 * s.correct / s.seen) + "% correct" : ""); }
+    function card(title, meta, topic, disabled) { return '<div class="panel tcard"><h3>' + esc(title) + '</h3><div class="meta">' + esc(meta) + '</div><div class="row"><button class="btn primary" data-dtopic="' + esc(topic) + '"' + (disabled ? " disabled" : "") + ">Start</button></div></div>"; }
+    function seg(attr, val, cur, label) { return '<button class="btn' + (val === cur ? " primary" : "") + '" ' + attr + '="' + val + '">' + label + "</button>"; }
+    app.innerHTML = '<div class="stack"><div class="row" style="justify-content:space-between"><div class="stack" style="gap:6px"><span class="eyebrow">Untimed unless you time yourself</span><h1>Practice by topic</h1></div><button class="btn" id="home">Back to tests</button></div>' +
+      '<p class="prose" style="margin:0">Questions written for this practice bank only, at 160+ difficulty; they never appear in the tests. Answer one at a time, check it, and read the explanation. ' +
+      (store === "account" ? "Your progress is saved to your account." : "Your progress is saved in this browser" + (store === "browser" && !accountsOff ? "; log in to keep it in an account." : ".")) + "</p>" +
+      '<div class="row">' + seg("data-dm", "Quant", m, "Quant") + seg("data-dm", "Verbal", m, "Verbal") + "</div>" +
+      '<div class="row small"><span>Questions per session</span>' + [5, 10, 20].map(function (n) { return seg("data-dn", n, drillSetup.n, n); }).join("") +
+      '<label class="row" style="gap:6px"><input type="checkbox" id="dTimer"' + (drillSetup.timer ? " checked" : "") + "> Time myself (" + (m === "Quant" ? "1:45" : "1:30") + " per question, GRE pace)</label></div>" +
+      '<div class="tests">' + card("Mixed " + m, line(all) + ". All topics, unseen questions first.", "mixed") +
+      card("Retry missed", missed ? missed + " question" + (missed > 1 ? "s" : "") + " you got wrong." : "Nothing to retry yet.", "missed", !missed) +
+      Object.keys(st).map(function (t) { return card(t, line(st[t]), t); }).join("") + "</div></div>";
+    on("home", function () { go({ name: "home" }); });
+    app.querySelectorAll("[data-dm]").forEach(function (b) { b.addEventListener("click", function () { drillSetup.measure = b.dataset.dm; render(); }); });
+    app.querySelectorAll("[data-dn]").forEach(function (b) { b.addEventListener("click", function () { drillSetup.n = +b.dataset.dn; render(); }); });
+    var tb = document.getElementById("dTimer"); if (tb) tb.addEventListener("change", function () { drillSetup.timer = tb.checked; });
+    app.querySelectorAll("[data-dtopic]").forEach(function (b) { b.addEventListener("click", function () { startDrill(b.dataset.dtopic); }); });
+  }
+  function renderDrillSummary() {
+    var done = drill.ids.filter(function (id) { return drill.checked[id]; }), right = done.filter(function (id) { return drill.ok[id]; }).length;
+    var total = done.reduce(function (s, id) { return s + (drill.secs[id] || 0); }, 0);
+    var rows = drill.ids.map(function (id, i) {
+      var q = PQ[id], res = !drill.checked[id] ? '<span class="pill skip">Skipped</span>' : drill.ok[id] ? '<span class="pill good">Correct</span>' : '<span class="pill bad">Wrong</span>';
+      return "<tr><td>" + (i + 1) + "</td><td>" + esc(q.topic) + '<span class="muted small"> · ' + esc(q.skill) + "</span></td><td>" + res + '</td><td class="num">' + (drill.checked[id] ? fmt(drill.secs[id]) : "") + '</td><td><button class="btn" data-drev="' + i + '">Review</button></td></tr>';
+    }).join("");
+    app.innerHTML = '<div class="stack"><div class="stack" style="gap:6px"><span class="eyebrow">' + esc(drillTitle(drill.topic)) + "</span><h1>" + right + " of " + drill.ids.length + " correct</h1></div>" +
+      '<p class="prose" style="margin:0">' + done.length + " answered in " + fmt(total) + (done.length ? " (" + fmt(total / done.length) + " per question; GRE pace is " + fmt(drill.pace) + ")" : "") + ".</p>" +
+      '<div class="panel scroll-x"><table class="plain"><thead><tr><th>#</th><th>Topic</th><th>Result</th><th>Time</th><th></th></tr></thead><tbody>' + rows + "</tbody></table></div>" +
+      '<div class="row"><button class="btn primary" id="dAgain">Another ' + drill.ids.length + "</button><button class=\"btn\" id=\"dTopics\">Choose a topic</button><button class=\"btn\" id=\"home\">Back to tests</button></div></div>";
+    app.querySelectorAll("[data-drev]").forEach(function (b) { b.addEventListener("click", function () { drill.i = +b.dataset.drev; drill.done = false; render(); window.scrollTo(0, 0); }); });
+    on("dAgain", function () { drillSetup.measure = drill.measure; startDrill(drill.topic); });
+    on("dTopics", function () { drill = null; render(); window.scrollTo(0, 0); });
+    on("home", function () { go({ name: "home" }); });
   }
 
   window.__gre = { CFG: CFG, TESTS: TESTS, isCorrect: isCorrect, calcEval: calcEval, calcFormat: calcFormat };
