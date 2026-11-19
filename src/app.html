@@ -275,7 +275,7 @@ __PRACTICE_JS__
   function logOut() {
     var w = who;
     upsert(history.concat(allPRows())).then(function (ok) { // results saved offline must reach the account before they are wiped
-      if (!ok) { toast("Not logged out: your account can't be reached and some results haven't uploaded yet."); return; }
+      if (!ok) { render(); toast("Not logged out: your account can't be reached and some results haven't uploaded yet."); return; }
       return (sb ? sb.auth.signOut() : Promise.resolve()).then(function () {}, function () {}).then(function () {
       lsDel(kHist(w)); lsDel(kProg(w)); lsDel(kPlog(w)); // shared laptops: nothing of this person stays behind
       switchUser(null);
