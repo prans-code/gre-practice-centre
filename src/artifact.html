@@ -303,7 +303,7 @@ if (typeof module !== "undefined") module.exports = GRE_PRACTICE;
   function kHist(w) { return K_HIST + ":" + (w || who); }
   function kProg(w) { return K_PROG + ":" + (w || who); }
   function kPlog(w) { return K_PLOG + ":" + (w || who); }
-  var db = null, sb = null, account = null, accountsOff = false, history = lsGet(kHist(), []), store = who === "guest" ? "browser" : "account", pushed = false;
+  var db = null, sb = null, account = null, accountsOff = false, history = mergeHist([], lsGet(kHist(), [])), store = who === "guest" ? "browser" : "account", pushed = false;
   var plog = lsGet(kPlog(), {}); // practice log: question id -> {qid, ok, at, tries, secs}; one Supabase row per question ("pq-<id>")
   function pRows(entries) { return entries.map(function (e) { return Object.assign({ id: "pq-" + e.qid, kind: "practice" }, e); }); }
   function allPRows() { return pRows(Object.keys(plog).map(function (k) { return plog[k]; })); }
@@ -345,7 +345,7 @@ if (typeof module !== "undefined") module.exports = GRE_PRACTICE;
     who = u ? u.id : "guest"; lsSet(K_WHO, who);
     account = u ? { id: u.id, email: u.email } : null;
     store = u ? "account" : "browser";
-    history = lsGet(kHist(), []); progress = lsGet(kProg(), {}); plog = lsGet(kPlog(), {}); randomCache = {};
+    history = mergeHist([], lsGet(kHist(), [])); progress = lsGet(kProg(), {}); plog = lsGet(kPlog(), {}); randomCache = {};
     if (u) syncFromServer();
     if (view.name === "home" || (view.name === "attempt" && !progress[view.testId])) go({ name: "home" });
   }
@@ -368,20 +368,28 @@ if (typeof module !== "undefined") module.exports = GRE_PRACTICE;
       if (view.name === "home" || view.name === "report" || (view.name === "drill" && !drill)) render();
     }, function () { toast("Could not reach your account. Showing results saved in this browser."); });
   }
+  function serverLog() { // the account's practice log, {} when not signed in, null when the server can't be read
+    if (!sb || !account) return Promise.resolve({});
+    return sb.from("attempts").select("data").then(function (res) {
+      if (res.error) return null;
+      var l = {}; res.data.forEach(function (r) { if (r.data.kind === "practice") l[r.data.qid] = r.data; }); return l;
+    }, function () { return null; });
+  }
   function importGuest(yes) {
     var g = lsGet(kHist("guest"), []), gl = lsGet(kPlog("guest"), {});
     lsSet("gre-app-v3-import-asked:" + account.id, true);
     if (yes && (g.length || Object.keys(gl).length)) {
       history = mergeHist(g, history); lsSet(kHist(), history);
       plog = GRE_PRACTICE.mergeLog(gl, plog); lsSet(kPlog(), plog);
-      var won = Object.keys(gl).filter(function (k) { return plog[k] === gl[k]; }).map(function (k) { return gl[k]; }); // only guest answers newer than the account's
-      upsert(g.concat(pRows(won))).then(function (ok) { if (ok) { lsDel(kHist("guest")); lsDel(kPlog("guest")); } else toast("Copied in this browser; your account could not be reached, so they will sync next time."); });
+      // upload only guest answers newer than the account's, judged against a fresh server read (the first sync may not have landed)
+      serverLog().then(function (rlog) { return rlog && upsert(g.concat(pRows(GRE_PRACTICE.newerThan(gl, rlog)))); }).then(function (ok) { if (ok) { lsDel(kHist("guest")); lsDel(kPlog("guest")); } else toast("Copied in this browser; your account could not be reached, so they will sync next time."); });
     }
     render();
   }
   function logOut() {
     var w = who;
-    upsert(history.concat(allPRows())).then(function (ok) { // results saved offline must reach the account before they are wiped
+    // results saved offline must reach the account before they are wiped; practice answers only where newer than the server's (another device may have answered since)
+    serverLog().then(function (rlog) { return rlog && upsert(history.concat(pRows(GRE_PRACTICE.newerThan(plog, rlog)))); }).then(function (ok) {
       if (!ok) { render(); toast("Not logged out: your account can't be reached and some results haven't uploaded yet."); return; }
       return (sb ? sb.auth.signOut() : Promise.resolve()).then(function () {}, function () {}).then(function () {
       lsDel(kHist(w)); lsDel(kProg(w)); lsDel(kPlog(w)); // shared laptops: nothing of this person stays behind
@@ -389,7 +397,8 @@ if (typeof module !== "undefined") module.exports = GRE_PRACTICE;
     });
     });
   }
-  function mergeHist(a, b) { var m = {}; b.concat(a).forEach(function (h) { m[h.id] = Object.assign({}, m[h.id] || {}, h); }); return Object.keys(m).map(function (k) { return m[k]; }).sort(function (x, y) { return x.date < y.date ? 1 : -1; }); }
+  // practice rows never belong in test history (an older copy of the site may have saved them there)
+  function mergeHist(a, b) { var m = {}; b.concat(a).filter(function (h) { return h.kind !== "practice"; }).forEach(function (h) { m[h.id] = Object.assign({}, m[h.id] || {}, h); }); return Object.keys(m).map(function (k) { return m[k]; }).sort(function (x, y) { return x.date < y.date ? 1 : -1; }); }
   function saveAttempt(rec) {
     history = mergeHist([rec], history); lsSet(kHist(), history);
     if (db) db.collection("attempts").doc(rec.id).set(rec).catch(function () { toast("Saved in this browser only. Your account store could not be reached."); });
