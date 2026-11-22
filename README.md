@@ -12,6 +12,7 @@ Full-length, timed GRE General Test practice in the current shorter format (sinc
 - On-screen calculator following ETS's rules (order of operations, 8-digit display, memory, Transfer Display).
 - Three full-length practice tests with no shared questions, written at 160+ difficulty, plus a **randomized test** that draws a fresh mix from all of them (passage and data sets stay together).
 - One shared easier second section per measure, used only when the first section goes badly.
+- **Practice by topic:** a separate bank of about 150 hard questions (8 Quant topics, 4 Verbal question types). Pick a topic, a mix, or the questions you got wrong, answer one at a time, and see the answer and explanation right away. An optional timer shows GRE pace without ending the question. Progress syncs to your account.
 - Report or cancel scores at the end, score report with explanations, score history, and an untimed practice mode for tests you have finished.
 
 ## Accounts
@@ -34,6 +35,8 @@ Accounts use [Supabase](https://supabase.com) (free tier). Setup steps for a new
 | `tests/test-NN.json` | One file per practice test: sections V1, V2M/V2H, Q1, Q2M/Q2H, the essay prompt, passages, tables and charts |
 | `tests/shared-easy.json` | The easier second sections (V2E, Q2E) shared by all tests |
 | `src/random.js` | Builds the randomized test from the fixed tests |
+| `tests/practice.json` | The practice-by-topic question bank (never used in the tests) |
+| `src/practice.js` | Picks practice questions and merges practice progress across devices |
 | `tools/verify_quant.py`, `tools/checks/` | Independent answer checks for every Quant question, run by the build |
 | `tools/check_draft.py` | Checks a draft set of new questions before it is merged into a test |
 | `supabase/` | Database table and access rules for accounts |
@@ -56,6 +59,7 @@ Self-tests:
 ```bash
 python -I tools/test_build.py
 node tools/test_random.js
+node tools/test_practice.js
 ```
 
 To add a test, write a new `tests/test-NN.json` plus a `tools/checks/tNN_quant.py` with one check per Quant question, then rebuild.

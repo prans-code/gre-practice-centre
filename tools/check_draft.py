@@ -22,7 +22,16 @@ import verify_quant  # noqa: E402
 def main(path):
     sys.stdout.reconfigure(encoding="utf-8")
     draft = json.loads(pathlib.Path(path).read_text(encoding="utf-8"))
-    tests, _ = build.load_tests(ROOT)
+    tests, shared = build.load_tests(ROOT)
+    if "questions" in draft:  # a practice-bank draft
+        probs = build.check_practice(draft, tests, shared)
+        by = {}
+        for q in draft["questions"]:
+            by.setdefault(q.get("topic"), []).append(str(q.get("difficulty")))
+        for k, ds in by.items():
+            print(f"{k}: {len(ds)} questions, difficulty " + " ".join(ds))
+        print("\n".join("PROBLEM " + p for p in probs) or "DRAFT OK")
+        return 1 if probs else 0
     ref = copy.deepcopy(tests[0])
     fake = {"id": "draft", "title": "draft", "order": ["V1", "V2", "Q1", "Q2"],
             "essay": draft.get("essay") or {"prompt": "x", "instructions": "x"},

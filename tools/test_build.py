@@ -126,6 +126,46 @@ def test_real_tests_build_clean():
     assert not probs, probs
 
 
+def practice_bank(qs, passages=None):
+    return {"id": "practice", "passages": passages or {}, "tables": {}, "charts": {}, "questions": qs}
+
+
+def pq(qid, topic, t="numeric", d=4, **kw):
+    return q(qid, t, d, topic=topic, **kw)
+
+
+def test_practice_unknown_topic():
+    probs = build.check_practice(practice_bank([pq("P-Q-001", "Astrology")]), [])
+    assert any("P-Q-001: unknown topic" in p for p in probs), probs
+
+
+def test_practice_difficulty_floor():
+    probs = build.check_practice(practice_bank([pq("P-Q-001", "Geometry", d=2)]), [])
+    assert any("P-Q-001: practice difficulty" in p for p in probs), probs
+
+
+def test_practice_id_clashes_with_test():
+    t = make_test("a", {"Q1": [q("T1-Q1-01")]})
+    probs = build.check_practice(practice_bank([pq("T1-Q1-01", "Geometry")]), [t])
+    assert any("duplicate id T1-Q1-01" in p for p in probs), probs
+
+
+def test_practice_passage_clashes_with_test():
+    t = make_test("a", {"V1": [q("a1", "mc", passage="p1")]}, {"p1": ["One."]})
+    probs = build.check_practice(practice_bank([pq("P-V-001", "Reading comprehension", "mc", passage="p1")], {"p1": ["One."]}), [t])
+    assert any("duplicate passage key p1" in p for p in probs), probs
+
+
+def test_practice_quant_verified():
+    probs = build.check_practice(practice_bank([pq("NO-SUCH-PQ", "Geometry")]), [])
+    assert any("NO-SUCH-PQ: no quant check" in p for p in probs), probs
+
+
+def test_practice_bad_shape_reported():
+    probs = build.check_practice(practice_bank([pq("P-V-001", "Sentence equivalence", "se", options=["a"] * 6, answer=[0])]), [])
+    assert any("P-V-001: sentence equivalence needs" in p for p in probs), probs
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):

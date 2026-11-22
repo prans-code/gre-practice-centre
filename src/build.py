@@ -114,6 +114,48 @@ def shuffle_q(q):
 LETTER_REF = re.compile(r"\b(option|choice|answer)\s+\(?[A-F]\)?\b|\([A-E]\)", re.I)
 
 
+def check_question(q, holder, measure, shuffle=True):
+    """Shape rules for one question; holder has the passages/tables/charts it may reference."""
+    test = holder
+    qid, t = q.get("id"), q.get("type")
+    if t not in TYPES:
+        fail(f"{qid}: bad type {t}")
+        return
+    if q.get("difficulty") not in (1, 2, 3, 4, 5):
+        fail(f"{qid}: difficulty missing or invalid")
+    for f in ("skill", "explain"):
+        if not q.get(f):
+            fail(f"{qid}: missing {f}")
+    if measure == "Verbal" and LETTER_REF.search(q.get("explain", "")):
+        fail(f"{qid}: explanation refers to an option letter (options are shuffled)")
+    if t == "tc":
+        b = q["blanks"]
+        if len(b) == 1 and len(b[0]) != 5 or len(b) > 1 and any(len(c) != 3 for c in b) or len(q["answer"]) != len(b):
+            fail(f"{qid}: text completion shape wrong")
+    if t == "se" and (len(q["options"]) != 6 or len(set(q["answer"])) != 2):
+        fail(f"{qid}: sentence equivalence needs 6 options and 2 answers")
+    if t == "mc" and not 0 <= q["answer"] < len(q["options"]):
+        fail(f"{qid}: answer index out of range")
+    if t == "multi" and (not q["answer"] or max(q["answer"]) >= len(q["options"])):
+        fail(f"{qid}: multi answer out of range")
+    if t == "multi" and q.get("passage") and len(q["options"]) != 3:
+        fail(f"{qid}: reading select-all must have 3 options")
+    if t == "qc" and q["answer"] not in (0, 1, 2, 3):
+        fail(f"{qid}: qc answer must be 0-3")
+    if q.get("passage") and sentences(test, q["passage"]) is None:
+        fail(f"{qid}: unknown passage {q['passage']}")
+    if t == "sentence" and not 0 <= q["answer"] < len(sentences(test, q["passage"]) or []):
+        fail(f"{qid}: sentence index out of range")
+    if q.get("table") and q["table"] not in test.get("tables", {}):
+        fail(f"{qid}: unknown table")
+    if q.get("chart") and q["chart"] not in test.get("charts", {}):
+        fail(f"{qid}: unknown chart")
+    if t == "fraction" and (len(q["answer"]) != 2 or q["answer"][1] == 0):
+        fail(f"{qid}: fraction answer wrong")
+    if measure == "Verbal" and shuffle:
+        shuffle_q(q)
+
+
 def check_test(test, shared_keys=()):
     tid = test.get("id")
     for k in ("id", "title", "order", "essay", "passages", "sections"):
@@ -132,46 +174,11 @@ def check_test(test, shared_keys=()):
         if len(qs) != n:
             fail(f"{tid} {key}: {len(qs)} questions, expected {n}")
         for q in qs:
-            qid, t = q.get("id"), q.get("type")
+            qid = q.get("id")
             if qid in ids:
                 fail(f"{tid}: duplicate id {qid}")
             ids.add(qid)
-            if t not in TYPES:
-                fail(f"{qid}: bad type {t}")
-                continue
-            if q.get("difficulty") not in (1, 2, 3, 4, 5):
-                fail(f"{qid}: difficulty missing or invalid")
-            for f in ("skill", "explain"):
-                if not q.get(f):
-                    fail(f"{qid}: missing {f}")
-            if sec["measure"] == "Verbal" and LETTER_REF.search(q.get("explain", "")):
-                fail(f"{qid}: explanation refers to an option letter (options are shuffled)")
-            if t == "tc":
-                b = q["blanks"]
-                if len(b) == 1 and len(b[0]) != 5 or len(b) > 1 and any(len(c) != 3 for c in b) or len(q["answer"]) != len(b):
-                    fail(f"{qid}: text completion shape wrong")
-            if t == "se" and (len(q["options"]) != 6 or len(set(q["answer"])) != 2):
-                fail(f"{qid}: sentence equivalence needs 6 options and 2 answers")
-            if t == "mc" and not 0 <= q["answer"] < len(q["options"]):
-                fail(f"{qid}: answer index out of range")
-            if t == "multi" and (not q["answer"] or max(q["answer"]) >= len(q["options"])):
-                fail(f"{qid}: multi answer out of range")
-            if t == "multi" and q.get("passage") and len(q["options"]) != 3:
-                fail(f"{qid}: reading select-all must have 3 options")
-            if t == "qc" and q["answer"] not in (0, 1, 2, 3):
-                fail(f"{qid}: qc answer must be 0-3")
-            if q.get("passage") and sentences(test, q["passage"]) is None:
-                fail(f"{qid}: unknown passage {q['passage']}")
-            if t == "sentence" and not 0 <= q["answer"] < len(sentences(test, q["passage"]) or []):
-                fail(f"{qid}: sentence index out of range")
-            if q.get("table") and q["table"] not in test.get("tables", {}):
-                fail(f"{qid}: unknown table")
-            if q.get("chart") and q["chart"] not in test.get("charts", {}):
-                fail(f"{qid}: unknown chart")
-            if t == "fraction" and (len(q["answer"]) != 2 or q["answer"][1] == 0):
-                fail(f"{qid}: fraction answer wrong")
-            if sec["measure"] == "Verbal" and key not in shared_keys:
-                shuffle_q(q)
+            check_question(q, test, sec["measure"], key not in shared_keys)
     # answer-position spread after shuffling
     pos = [q["answer"] for s in test["sections"].values() for q in s["questions"] if q["type"] == "mc"]
     if pos and max(pos.count(i) for i in set(pos)) > 0.45 * len(pos):
@@ -308,12 +315,55 @@ def load_tests(root):
     return tests, shared
 
 
+PRACTICE_TOPICS = {t: "Quant" for t in (
+    "Arithmetic & number properties", "Algebra & inequalities", "Percents, ratios & rates", "Geometry",
+    "Coordinate geometry & functions", "Counting & probability", "Statistics", "Data interpretation")}
+PRACTICE_TOPICS.update({t: "Verbal" for t in ("Text completion", "Sentence equivalence", "Reading comprehension", "Critical reasoning")})
+
+
+def check_practice(bank, tests, shared=None):
+    """Validate the practice bank (tests/practice.json) against itself and the mock tests; returns problems."""
+    global problems
+    saved, problems = problems, []
+    try:
+        taken = {q["id"] for t in tests + ([shared] if shared else []) for s in t["sections"].values() for q in s["questions"]}
+        ids, quant = set(), []
+        for q in bank["questions"]:
+            qid = q.get("id")
+            if qid in ids or qid in taken:
+                fail(f"practice: duplicate id {qid}")
+            ids.add(qid)
+            measure = PRACTICE_TOPICS.get(q.get("topic"))
+            if not measure:
+                fail(f"{qid}: unknown topic {q.get('topic')}")
+                continue
+            if q.get("difficulty") not in (3, 4, 5):
+                fail(f"{qid}: practice difficulty must be 3-5")
+            check_question(q, bank, measure)
+            if measure == "Quant":
+                quant.append(q)
+        for kind in ("passages", "tables", "charts"):
+            for k in bank.get(kind, {}):
+                if any(k in t.get(kind, {}) for t in tests + ([shared] if shared else [])):
+                    fail(f"practice: duplicate {kind[:-1]} key {k}")
+        problems.extend(verify_quant.verify([{"id": "practice", "sections": {"PQ": {"measure": "Quant", "questions": quant}}}]))
+        return problems
+    finally:
+        problems = saved
+
+
+def load_practice(root):
+    path = root / "tests" / "practice.json"
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
+
+
 CONFIG["version"] = hashlib.sha256(json.dumps([ROUTING, CONVERSION]).encode()).hexdigest()[:10]
 
 
 def main():
     tests, shared = load_tests(ROOT)
-    probs = problems + check_all(tests, shared)
+    practice = load_practice(ROOT)
+    probs = problems + check_all(tests, shared) + (check_practice(practice, tests, shared) if practice else [])
 
     if "--table" in sys.argv:
         print("raw  easier medium harder")
@@ -326,10 +376,10 @@ def main():
             print(" -", p)
         sys.exit(1)
 
-    data = {"config": CONFIG, "tests": tests, "shared": list(shared["sections"]) if shared else []}
+    data = {"config": CONFIG, "tests": tests, "shared": list(shared["sections"]) if shared else [], "practice": practice, "practiceTopics": PRACTICE_TOPICS}
     payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     random_js = (ROOT / "src" / "random.js").read_text(encoding="utf-8")
-    html = (ROOT / "src" / "app.html").read_text(encoding="utf-8").replace("__RANDOM_JS__", random_js).replace("__DATA__", payload)
+    html = (ROOT / "src" / "app.html").read_text(encoding="utf-8").replace("__RANDOM_JS__", random_js).replace("__PRACTICE_JS__", (ROOT / "src" / "practice.js").read_text(encoding="utf-8")).replace("__DATA__", payload)
     (ROOT / "src" / "artifact.html").write_text(html, encoding="utf-8")
     local = ('<!doctype html>\n<html lang="en-GB">\n<head>\n<meta charset="utf-8">\n'
              '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
